@@ -1,9 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:tmdb_api/tmdb_api.dart';
+import 'package:tmdb_api/keys.dart';
 
 void main() {
-  TMDB tmdb = TMDB('c25dd0686fd12898c2b186e69e6728fc');
+  TMDB tmdb = TMDB(Keys.API);
   group('Movie', () {
     test('Details', () async {
       var result = await tmdb.movies
