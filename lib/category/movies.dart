@@ -92,4 +92,58 @@ class Movies {
     //todo:implement page and language
     return _tmdb._query('$_endPoint/$movieId/similar');
   }
+
+  /// Get the user reviews for a movie.
+  Future<Map> getReviews(int movieId, {Parameters parameters}) {
+    assert(movieId != null);
+    return _tmdb._query('$_endPoint/$movieId/reviews', parameters: parameters);
+  }
+
+  /// Get a list of lists that this movie belongs to.
+  ///
+  /// For more details refer to https://developers.themoviedb.org/3/movies/get-movie-lists
+  Future<Map> getLists(int movieId, {Parameters parameters}) {
+    assert(movieId != null);
+    return _tmdb._query('$_endPoint/$movieId/lists', parameters: parameters);
+  }
+
+  ///Get the most newly created movie.
+  ///This is a live response and will continuously change.
+  Future<Map> getLatest({Parameters parameters}) {
+    return _tmdb._query('$_endPoint/latest', parameters: parameters);
+  }
+
+  ///Get a list of movies in theatres.
+  ///This is a release type query that looks
+  ///for all movies that have a release type
+  ///of 2 or 3 within the specified date range.
+  ///
+  ///You can optionally specify a [region] prameter using [parameter]
+  ///which will narrow the search to only look for theatrical
+  ///release dates within the specified country.
+  Future<Map> getNowPlaying({Parameters parameters}) {
+    return _tmdb._query('$_endPoint/now_playing', parameters: parameters);
+  }
+
+  /// Get a list of the current popular movies on TMDb.
+  /// This list updates daily.
+  Future<Map> getPouplar({Parameters parameters}) {
+    return _tmdb._query('$_endPoint/popular', parameters: parameters);
+  }
+
+  /// Get the top rated movies on TMDb.
+  Future<Map> getTopRated({Parameters parameters}) {
+    return _tmdb._query('$_endPoint/top_rated', parameters: parameters);
+  }
+
+  ///Get a list of upcoming movies in theatres.
+  ///This is a release type query that looks for all movies
+  ///that have a release type of 2 or 3 within the specified date range.
+  ///
+  ///You can optionally specify a [region] parameter
+  ///which will narrow the search to only look for
+  ///theatrical release dates within the specified country.
+  Future<Map> getUpcoming({Parameters parameters}) {
+    return _tmdb._query('$_endPoint/upcoming', parameters: parameters);
+  }
 }
