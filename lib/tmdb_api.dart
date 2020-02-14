@@ -83,24 +83,42 @@ class Parameters {
   ///For more details refer to https://developers.themoviedb.org/3/getting-started/append-to-response
   final List<String> append;
 
+  ///region
+  ///
+  ///For more detail refer to https://developers.themoviedb.org/3/getting-started/regions
+  final String region;
+
   ///[language] default to 'en-US'
   ///
   ///[page] default to '1' and constrains (1=<page<=1000)
   ///
   ///[append] takes a list of append_to_response
-  Parameters({this.language = 'en-US', this.page = 1, this.append})
+  ///
+  ///[region] takes a String of region code and it
+  ///must be Uppercase and length must be less then 2
+  Parameters({this.language = 'en-US', this.page = 1, this.append, this.region})
       : assert(page <= 1000 && page >= 1 && page != null),
         assert(language.length >= 2 && language != null);
 
   @override
   String toString() {
-    if (append != null) {
-      String appendTo = append.join(',');
-      return 'language=$language&page=$page&append_to_response=$appendTo';
-    } else {
-      return 'language=$language&page=$page';
-    }
-    // return '$language/'
+    // if (append != null) {
+    //   String appendTo = append.join(',');
+    //   return 'language=$language&page=$page&append_to_response=$appendTo';
+    // } else {
+    //   return 'language=$language&page=$page';
+    // }
+    return _query();
+  }
+
+  String _query() {
+    List<String> query = [];
+    if (language != null) query.add('language=${this.language}');
+    if (page != null) query.add('page=${this.page}');
+    if (region != null) query.add('region=${this.region}');
+    if (append != null)
+      query.add('append_to_response=${this.append.join(',')}');
+    return query.join('&');
   }
 }
 
