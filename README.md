@@ -1,5 +1,12 @@
+![Dart pub analyser](https://github.com/Arunnaidu3470/tmdb_api/workflows/Dart%20pub%20analyser/badge.svg?branch=master)
+
 # tmdb_api
 
 TMDB.org API for dart.
+- [TMDB](https://www.themoviedb.org/)
 
-## Getting Started
+## Avaliable features 
+- Movies
+- Tv shows
+
+`More will be added soon`
