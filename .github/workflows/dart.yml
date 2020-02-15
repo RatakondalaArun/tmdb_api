@@ -1,8 +1,9 @@
-name: Dart CI
+name: Dart pub analyser
 
 on: [push]
 
 jobs:
+
   package-analysis:
 
     runs-on: ubuntu-latest
@@ -17,18 +18,3 @@ jobs:
           # Optional:
           relativePath: packages/mypackage/
           minAnnotationLevel: info
- 
-#   build:
-
-#     runs-on: ubuntu-latest
-
-#     container:
-#       image:  google/dart:latest
-
-#     steps:
-# #     - uses: actions/checkout@v2
-# #     - name: Install dependencies
-# #       run: flutter pub get
-# #     - name: Run tests
-# #       run: flutter pub run test
-#     #flutter
