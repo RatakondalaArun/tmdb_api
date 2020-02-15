@@ -3,16 +3,32 @@ name: Dart CI
 on: [push]
 
 jobs:
-  build:
+  package-analysis:
 
     runs-on: ubuntu-latest
 
-    container:
-      image:  google/dart:latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: flutter pub get
-    - name: Run tests
-      run: flutter pub run test
+      - uses: actions/checkout@v2 # required
+
+      - uses: axel-op/dart-package-analyzer@stable
+        with:
+          # Required:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          # Optional:
+          relativePath: packages/mypackage/
+          minAnnotationLevel: info
+ 
+#   build:
+
+#     runs-on: ubuntu-latest
+
+#     container:
+#       image:  google/dart:latest
+
+#     steps:
+# #     - uses: actions/checkout@v2
+# #     - name: Install dependencies
+# #       run: flutter pub get
+# #     - name: Run tests
+# #       run: flutter pub run test
+#     #flutter
