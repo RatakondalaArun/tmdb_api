@@ -4,7 +4,7 @@ class Movies {
   ///Provides details about movies
   final TMDB _tmdb;
   final String _endPoint = 'movie';
-  Movies(this._tmdb);
+  Movies(this._tmdb) : assert(_tmdb != null);
 
   ///Returns Movie Details of a given id;
   Future<Map> getDetails(int movieId, {Parameters parameters}) {
@@ -14,10 +14,10 @@ class Movies {
         method: HttpMethod.GET, parameters: parameters);
   }
 
-  Future<Map> getAlternativeTitle(int movieId, {String country}) {
+  Future<Map> getAlternativeTitle(int movieId, {Parameters parameters}) {
     assert(movieId != null);
     return _tmdb._query('$_endPoint/$movieId/alternative_titles',
-        method: HttpMethod.GET);
+        method: HttpMethod.GET, parameters: parameters);
   }
 
   ///Get the cast and crew for a movie.
@@ -76,21 +76,19 @@ class Movies {
   }
 
   /// Get a list of recommended movies for a movie.
-  Future<Map> getRecommended(int movieId,
-      {String language, int page = 1}) async {
+  Future<Map> getRecommended(int movieId, {Parameters parameters}) async {
     assert(movieId != null);
-    //todo:implement page and language
-    return _tmdb._query('$_endPoint/$movieId/recommendations');
+    return _tmdb._query('$_endPoint/$movieId/recommendations',
+        parameters: parameters);
   }
 
   /// Get a list of similar movies.
   /// This is not the same as the "Recommendation"
   ///
   /// These items are assembled by looking at keywords and genres.
-  Future<Map> getSimilar(int movieId, {String language, int page = 1}) {
+  Future<Map> getSimilar(int movieId, {Parameters parameters}) {
     assert(movieId != null);
-    //todo:implement page and language
-    return _tmdb._query('$_endPoint/$movieId/similar');
+    return _tmdb._query('$_endPoint/$movieId/similar', parameters: parameters);
   }
 
   /// Get the user reviews for a movie.
