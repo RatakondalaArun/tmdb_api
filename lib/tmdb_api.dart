@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 part 'category/movies.dart';
+part 'category/tv.dart';
 
 /// TMDB.org API
 ///
@@ -18,12 +19,15 @@ class TMDB {
   // final bool _shouldUseHttps;
 
   Movies _movies;
+  Tv _tv;
 
   Movies get movies => _movies;
+  Tv get tv => _tv;
 
   ///Takes a not null [apikey]
   TMDB(this._apiKey) : assert(_apiKey != null) {
     _movies = Movies(this);
+    _tv = Tv(this);
   }
 
   ///Queries with the given parameters
