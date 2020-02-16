@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 
 part 'category/movies.dart';
 part 'category/tv.dart';
+part 'category/tv_seasons.dart';
 
 /// TMDB.org API
 ///
@@ -20,14 +21,17 @@ class TMDB {
 
   Movies _movies;
   Tv _tv;
+  TvSeasons _tvSeasons;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
+  TvSeasons get tvSeasons => _tvSeasons;
 
   ///Takes a not null [apikey]
   TMDB(this._apiKey) : assert(_apiKey != null) {
     _movies = Movies(this);
     _tv = Tv(this);
+    _tvSeasons = TvSeasons(this);
   }
 
   ///Queries with the given parameters
