@@ -11,7 +11,6 @@ class Tv {
   /// Supports append_to_response
   Future<Map> getDetails(int tvId, {Parameters parameters}) {
     assert(tvId != null);
-    //todo:implement page and language
     return _tmdb._query('$_endPoint/$tvId',
         method: HttpMethod.GET, parameters: parameters);
   }
