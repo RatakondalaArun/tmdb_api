@@ -1,8 +1,8 @@
 name: tmdb_api
 description: TMDB.org API for dart.
 version: 0.0.1
-author: Ratakondala Arun
-homepage: nopage
+# author: Ratakondala Arun<arunratakondala3470@gmail.com>
+homepage: https://github.com/Arunnaidu3470/tmdb_api
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
