@@ -6,8 +6,9 @@ TMDB.org API for dart.
 - [TMDB](https://www.themoviedb.org/)
 
 ## Avaliable features 
-- Movies
-- Tv shows
-- Tv Seasons
+- [x] Movies
+- [x] Tv shows
+- [x] Tv Seasons
+- [x] Tv Episodes 
 
 `More will be added soon`
