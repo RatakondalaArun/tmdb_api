@@ -8,5 +8,6 @@ TMDB.org API for dart.
 ## Avaliable features 
 - Movies
 - Tv shows
+- Tv Seasons
 
 `More will be added soon`
