@@ -32,7 +32,7 @@ class TMDB {
   TvSeasons get tvSeasons => _tvSeasons;
   TvEpisodes get tvEpisodes => _tvEpisodes;
 
-  @Deprecated('May not work')
+  // @Deprecated('May not work')
   // TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
 
   ///Takes a not null [apikey]
