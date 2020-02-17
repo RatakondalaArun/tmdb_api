@@ -25,7 +25,7 @@ class TMDB {
   Tv _tv;
   TvSeasons _tvSeasons;
   TvEpisodes _tvEpisodes;
-  TvEpisodeGroup _tvEpisodeGroup;
+  // TvEpisodeGroup _tvEpisodeGroup;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -33,7 +33,7 @@ class TMDB {
   TvEpisodes get tvEpisodes => _tvEpisodes;
 
   @Deprecated('May not work')
-  TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
+  // TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
 
   ///Takes a not null [apikey]
   TMDB(this._apiKey) : assert(_apiKey != null) {
@@ -41,7 +41,7 @@ class TMDB {
     _tv = Tv(this);
     _tvSeasons = TvSeasons(this);
     _tvEpisodes = TvEpisodes(this);
-    _tvEpisodeGroup = TvEpisodeGroup(this);
+    // _tvEpisodeGroup = TvEpisodeGroup(this);
   }
 
   ///Queries with the given parameters
