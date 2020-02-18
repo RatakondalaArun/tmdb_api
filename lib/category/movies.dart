@@ -9,7 +9,6 @@ class Movies {
   ///Returns Movie Details of a given id;
   Future<Map> getDetails(int movieId, {Parameters parameters}) {
     assert(movieId != null);
-    //todo:implement page and language
     return _tmdb._query('$_endPoint/$movieId',
         method: HttpMethod.GET, parameters: parameters);
   }
