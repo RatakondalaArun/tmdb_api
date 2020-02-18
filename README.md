@@ -15,5 +15,6 @@ TMDB.org API for dart.
 - [X] Certification
 - [X] Changes
 - [X] Translations
+- [ ] Discover
 
 `More will be added soon`
