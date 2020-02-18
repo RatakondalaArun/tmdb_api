@@ -11,5 +11,9 @@ TMDB.org API for dart.
 - [x] Tv Seasons
 - [x] Tv Episodes 
 - [X] People
+- [X] Credits
+- [X] Certification
+- [X] Changes
+- [X] Translations
 
 `More will be added soon`
