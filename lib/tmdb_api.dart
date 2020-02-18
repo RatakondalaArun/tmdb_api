@@ -8,6 +8,7 @@ part 'category/tv.dart';
 part 'category/tv_seasons.dart';
 part 'category/tv_episodes.dart';
 part 'category/tv_episode_group.dart';
+part 'category/people.dart';
 
 /// TMDB.org API
 ///
@@ -26,11 +27,13 @@ class TMDB {
   TvSeasons _tvSeasons;
   TvEpisodes _tvEpisodes;
   // TvEpisodeGroup _tvEpisodeGroup;
+  People _people;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
   TvSeasons get tvSeasons => _tvSeasons;
   TvEpisodes get tvEpisodes => _tvEpisodes;
+  People get people => _people;
 
   // @Deprecated('May not work')
   // TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
@@ -42,6 +45,7 @@ class TMDB {
     _tvSeasons = TvSeasons(this);
     _tvEpisodes = TvEpisodes(this);
     // _tvEpisodeGroup = TvEpisodeGroup(this);
+    _people = People(this);
   }
 
   ///Queries with the given parameters
