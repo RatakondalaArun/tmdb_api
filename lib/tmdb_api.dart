@@ -16,6 +16,7 @@ part 'category/collections.dart';
 part 'category/find.dart';
 part 'category/genres.dart';
 part 'category/keywords.dart';
+part 'category/companies.dart';
 
 /// TMDB.org API
 ///
@@ -42,6 +43,7 @@ class TMDB {
   Find _find;
   Geners _geners;
   Keywords _keywords;
+  Companies _companies;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -55,6 +57,7 @@ class TMDB {
   Find get find => _find;
   Geners get geners => _geners;
   Keywords get keywords => _keywords;
+  Companies get companies => _companies;
 
   // @Deprecated('May not work')
   // TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
@@ -74,6 +77,7 @@ class TMDB {
     _find = Find(this);
     _geners = Geners(this);
     _keywords = Keywords(this);
+    _companies = Companies(this);
   }
 
   ///Queries with the given parameters

@@ -18,5 +18,6 @@ TMDB.org API for dart.
 - [X] Find
 - [X] Genres
 - [X] Keywords
+- [X] Companies
 
 `More will be added soon`
