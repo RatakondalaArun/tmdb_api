@@ -14,6 +14,10 @@ TMDB.org API for dart.
 - [X] Credits
 - [X] Certification
 - [X] Changes
-- [X] Translations
+- [X] Collections
+- [X] Find
+- [X] Genres
+- [X] Keywords
+- [X] Companies
 
 `More will be added soon`
