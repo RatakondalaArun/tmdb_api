@@ -14,6 +14,7 @@ part 'category/certification.dart';
 part 'category/changes.dart';
 part 'category/collections.dart';
 part 'category/find.dart';
+part 'category/genres.dart';
 
 /// TMDB.org API
 ///
@@ -38,6 +39,7 @@ class TMDB {
   Changes _changes;
   Collections _collections;
   Find _find;
+  Geners _geners;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -49,6 +51,7 @@ class TMDB {
   Changes get changes => _changes;
   Collections get collections => _collections;
   Find get find => _find;
+  Geners get geners => _geners;
 
   // @Deprecated('May not work')
   // TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
@@ -66,6 +69,7 @@ class TMDB {
     _changes = Changes(this);
     _collections = Collections(this);
     _find = Find(this);
+    _geners = Geners(this);
   }
 
   ///Queries with the given parameters

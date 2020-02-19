@@ -16,5 +16,6 @@ TMDB.org API for dart.
 - [X] Changes
 - [X] Collections
 - [X] Find
+- [X] Genres
 
 `More will be added soon`
