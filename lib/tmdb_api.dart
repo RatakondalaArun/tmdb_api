@@ -13,6 +13,7 @@ part 'category/credit.dart';
 part 'category/certification.dart';
 part 'category/changes.dart';
 part 'category/collections.dart';
+part 'category/find.dart';
 
 /// TMDB.org API
 ///
@@ -36,6 +37,7 @@ class TMDB {
   Certification _certification;
   Changes _changes;
   Collections _collections;
+  Find _find;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -46,6 +48,7 @@ class TMDB {
   Certification get certification => _certification;
   Changes get changes => _changes;
   Collections get collections => _collections;
+  Find get find => _find;
 
   // @Deprecated('May not work')
   // TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
@@ -62,16 +65,20 @@ class TMDB {
     _certification = Certification(this);
     _changes = Changes(this);
     _collections = Collections(this);
+    _find = Find(this);
   }
 
   ///Queries with the given parameters
   ///
   ///by default method type is [HttpMethod.GET]
   Future<Map> _query(String endPoint,
-      {Parameters parameters, HttpMethod method = HttpMethod.GET}) async {
+      {Parameters parameters,
+      HttpMethod method = HttpMethod.GET,
+      List<String> optionalQueries}) async {
     String query = (parameters == null)
         ? 'api_key=$_apiKey' //if parameters are null
         : 'api_key=$_apiKey' + '&${parameters?.toString()}'; //
+    query = _optionalQueries(optionalQueries, query);
 
     //constructing the url
     Uri url = Uri(
@@ -99,6 +106,13 @@ class TMDB {
     Map data = jsonDecode(response.body);
     // print(data);
     return data;
+  }
+
+  String _optionalQueries(List<String> queries, String currentQuery) {
+    if (queries == null) return currentQuery;
+    if (queries.isEmpty) return currentQuery;
+    currentQuery += '&' + queries.join('&');
+    return currentQuery;
   }
 }
 
