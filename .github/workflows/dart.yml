@@ -12,9 +12,19 @@ jobs:
       - uses: actions/checkout@v2 # required
 
       - uses: axel-op/dart-package-analyzer@stable
+        id: analysis
         with:
           # Required:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional:
-          relativePath: packages/mypackage/
           minAnnotationLevel: info
+
+      - name: Check scores
+        run: |
+          MAINTENANCE_SCORE=${{ steps.analysis.outputs.maintenance }}
+          HEALTH_SCORE=${{ steps.analysis.outputs.health }}
+          if (( $(echo "$MAINTENANCE_SCORE < 94" | bc) )) 
+          then
+            echo "Scores are not both equal to 100"
+            exit 1
+          fi
