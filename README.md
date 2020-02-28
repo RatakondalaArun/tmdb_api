@@ -23,3 +23,29 @@ TMDB.org API for dart.
 - [X] Trending
 
 `More will be added soon`
+
+# Getting Started
+## 1) Import package
+```
+//import package
+import 'package:tmdb_api/tmdb_api.dart';
+```
+
+## 2) Create a instance of `TMDB` class
+```
+//create a instance of TMDB
+TMDB tmdb =TMDB('YOUR API KEY HERE');
+```
+*You can get your API key from [themoviedb.org API](https://www.themoviedb.org/settings/api)*
+
+## 3) Thats all it takes now you can access all the features avaliable using `tmdb` instance.
+
+# Example
+For getting Trending movies 
+```
+//get results
+Map result = await tmdb.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
+```
+
+# For more documentation
+- visit [TMDB](https://developers.themoviedb.org/3/getting-started/introduction)
