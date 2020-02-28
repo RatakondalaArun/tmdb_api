@@ -1,3 +1,16 @@
-## [0.0.1] - TODO: Add release date.
+## [0.2.0-alpha] - TODO: Add release date.
 
-* TODO: Describe initial release.
+* # Avaliable features 
+- [x] Movies
+- [x] Tv shows
+- [x] Tv Seasons
+- [x] Tv Episodes 
+- [X] People
+- [X] Credits
+- [X] Certification
+- [X] Changes
+- [X] Collections
+- [X] Find
+- [X] Genres
+- [X] Keywords
+- [X] Companies
