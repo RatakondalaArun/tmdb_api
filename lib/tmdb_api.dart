@@ -19,6 +19,7 @@ part 'category/keywords.dart';
 part 'category/companies.dart';
 part 'category/trending.dart';
 part 'category/search.dart';
+part 'category/discover.dart';
 
 /// TMDB.org API
 ///
@@ -48,6 +49,7 @@ class TMDB {
   Companies _companies;
   Trending _trending;
   Search _search;
+  Discover _discover;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -64,6 +66,7 @@ class TMDB {
   Companies get companies => _companies;
   Trending get trending => _trending;
   Search get search => _search;
+  Discover get discover => _discover;
 
   // @Deprecated('May not work')
   // TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
@@ -86,6 +89,7 @@ class TMDB {
     _companies = Companies(this);
     _trending = Trending(this);
     _search = Search(this);
+    _discover = Discover(this);
   }
 
   ///Queries with the given parameters
