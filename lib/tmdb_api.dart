@@ -18,6 +18,7 @@ part 'category/genres.dart';
 part 'category/keywords.dart';
 part 'category/companies.dart';
 part 'category/trending.dart';
+part 'category/search.dart';
 
 /// TMDB.org API
 ///
@@ -46,6 +47,7 @@ class TMDB {
   Keywords _keywords;
   Companies _companies;
   Trending _trending;
+  Search _search;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -61,6 +63,7 @@ class TMDB {
   Keywords get keywords => _keywords;
   Companies get companies => _companies;
   Trending get trending => _trending;
+  Search get search => _search;
 
   // @Deprecated('May not work')
   // TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
@@ -82,6 +85,7 @@ class TMDB {
     _keywords = Keywords(this);
     _companies = Companies(this);
     _trending = Trending(this);
+    _search = Search(this);
   }
 
   ///Queries with the given parameters
@@ -191,3 +195,17 @@ class Parameters {
 }
 
 enum HttpMethod { GET, POST }
+
+///Encountered a null value
+///
+class NullValueException implements Exception {
+  final String message;
+  final String source;
+  final String help;
+  NullValueException(this.message, {this.source, this.help});
+
+  @override
+  String toString() {
+    return 'NullValueException thrown message:$message | at source:$source | help:$help';
+  }
+}
