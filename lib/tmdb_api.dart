@@ -3,6 +3,7 @@ library tmdb_api;
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+part 'versions/v3.dart';
 part 'category/movies.dart';
 part 'category/tv.dart';
 part 'category/tv_seasons.dart';
@@ -22,7 +23,7 @@ part 'category/search.dart';
 part 'category/discover.dart';
 part 'category/networks.dart';
 part 'category/reviews.dart';
-part 'versions/v3.dart';
+part 'category/images.dart';
 
 part 'utils/tmdb_exceptions.dart';
 
@@ -37,15 +38,18 @@ class TMDB {
   final String _apiKey;
 
   V3 _v3;
+  Images _images;
 
   ///Version v3 of tmdb api
   ///
   ///[offical v3 doc](https://developers.themoviedb.org/3/getting-started)
   V3 get v3 => _v3;
+  Images get images => _images;
 
   ///Takes a not null [apikey]
   TMDB(this._apiKey) : assert(_apiKey != null) {
     _v3 = V3(this);
+    _images = Images();
   }
 }
 
