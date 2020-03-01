@@ -2,9 +2,9 @@ part of tmdb_api;
 
 class Find {
   ///Provides details about movies
-  final TMDB _tmdb;
+  final V3 _v3;
   final String _endPoint = 'find';
-  Find(this._tmdb) : assert(_tmdb != null);
+  Find(this._v3) : assert(_v3 != null);
 
   ///The find method makes it easy to search for
   ///objects in our database by an external id. For example, an IMDB ID.
@@ -24,7 +24,7 @@ class Find {
   Future<Map> getById(String externalId,
       {ExternalId externalIdSource = ExternalId.imdbId,
       Parameters parameters}) {
-    return _tmdb._query('$_endPoint/$externalId',
+    return _v3._query('$_endPoint/$externalId',
         parameters: parameters,
         optionalQueries: [_getSourceQuery(externalIdSource)]);
   }

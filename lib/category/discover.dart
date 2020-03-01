@@ -1,10 +1,10 @@
 part of tmdb_api;
 
 class Discover {
-  final TMDB _tmdb;
+  final V3 _v3;
   final String _endPoint = 'discover';
 
-  Discover(this._tmdb);
+  Discover(this._v3);
 
   ///Discover movies by different types of data like average rating, number of votes, genres and certifications.
   ///
@@ -131,7 +131,7 @@ class Discover {
     if (withOrginalLanguage != null)
       queries.add('with_original_language=$withOrginalLanguage');
 
-    return _tmdb._query('$_endPoint/movie', optionalQueries: queries);
+    return _v3._query('$_endPoint/movie', optionalQueries: queries);
   }
 
   ///Discover TV shows by different types of data like
@@ -224,7 +224,7 @@ class Discover {
     if (withoutKeywords != null)
       queries.add('without_keywords=$withoutKeywords');
 
-    return _tmdb._query('$_endPoint/tv', optionalQueries: queries);
+    return _v3._query('$_endPoint/tv', optionalQueries: queries);
   }
 
   String _getSortMovieBy(SortMoviesBy sortBy) {

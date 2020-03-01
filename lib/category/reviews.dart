@@ -2,9 +2,9 @@ part of tmdb_api;
 
 class Reviews {
   ///Provides details about movies
-  final TMDB _tmdb;
+  final V3 _v3;
   final String _endPoint = 'review';
-  Reviews(this._tmdb) : assert(_tmdb != null);
+  Reviews(this._v3) : assert(_v3 != null);
 
   ///Get a movie or TV review details by id.
   ///
@@ -25,6 +25,6 @@ class Reviews {
           source: 'reviews.getDetails($reviewId)',
           help: 'try to not to pass a null value');
 
-    return _tmdb._query('$_endPoint/$reviewId');
+    return _v3._query('$_endPoint/$reviewId');
   }
 }

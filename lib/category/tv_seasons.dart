@@ -1,9 +1,9 @@
 part of tmdb_api;
 
 class TvSeasons {
-  final TMDB _tmdb;
+  final V3 _v3;
   final String _endPoint = 'season';
-  TvSeasons(this._tmdb) : assert(_tmdb != null);
+  TvSeasons(this._v3) : assert(_v3 != null);
 
   /// Get the TV season details by id.
   ///
@@ -11,7 +11,7 @@ class TvSeasons {
   /// remaining will be automatically neglected
   Future<Map> getDetails(int tvId, int seasonNumber, {Parameters parameters}) {
     assert(tvId != null);
-    return _tmdb._query('tv/$tvId/$_endPoint/$seasonNumber',
+    return _v3._query('tv/$tvId/$_endPoint/$seasonNumber',
         method: HttpMethod.GET, parameters: parameters);
   }
 
@@ -19,7 +19,7 @@ class TvSeasons {
   /// By default only the last 24 hours are returned.
   Future<Map> getChanges(int seasonId, {Parameters parameters}) {
     assert(seasonId != null && seasonId > 0);
-    return _tmdb._query('tv/$_endPoint/$seasonId/changes',
+    return _v3._query('tv/$_endPoint/$seasonId/changes',
         parameters: parameters);
   }
 
@@ -29,7 +29,7 @@ class TvSeasons {
   Future<Map> getCredits(int tvId, int seasonNumber, {Parameters parameters}) {
     assert(seasonNumber != null && seasonNumber > 0);
     assert(tvId != null && tvId > 0);
-    return _tmdb._query('tv/$tvId/$_endPoint/$seasonNumber/credits',
+    return _v3._query('tv/$tvId/$_endPoint/$seasonNumber/credits',
         parameters: parameters);
   }
 
@@ -41,20 +41,20 @@ class TvSeasons {
   Future<Map> getExternalId(int tvId, int seasonNumber) {
     assert(seasonNumber != null && seasonNumber > 0);
     assert(tvId != null && tvId > 0);
-    return _tmdb._query('tv/$tvId/$_endPoint/$seasonNumber/external_ids');
+    return _v3._query('tv/$tvId/$_endPoint/$seasonNumber/external_ids');
   }
 
   ///Get the images that belong to a TV season.
   Future<Map> getImages(int tvId, int seasonNumber) {
     assert(seasonNumber != null && seasonNumber > 0);
     assert(tvId != null && tvId > 0);
-    return _tmdb._query('tv/$tvId/$_endPoint/$seasonNumber/images');
+    return _v3._query('tv/$tvId/$_endPoint/$seasonNumber/images');
   }
 
   ///Get the videos that have been added to a TV season.
   Future<Map> getVideos(int tvId, int seasonNumber) {
     assert(seasonNumber != null && seasonNumber > 0);
     assert(tvId != null && tvId > 0);
-    return _tmdb._query('tv/$tvId/$_endPoint/$seasonNumber/videos');
+    return _v3._query('tv/$tvId/$_endPoint/$seasonNumber/videos');
   }
 }

@@ -1,9 +1,9 @@
 part of tmdb_api;
 
 class TvEpisodes {
-  final TMDB _tmdb;
+  final V3 _v3;
   final String _endPoint = 'episode';
-  TvEpisodes(this._tmdb) : assert(_tmdb != null);
+  TvEpisodes(this._v3) : assert(_v3 != null);
 
   /// Get the TV episodes details by id.
   ///
@@ -14,17 +14,15 @@ class TvEpisodes {
     assert(tvId != null);
     assert(seasonNumber != null);
     assert(episodeNumber != null);
-    return _tmdb._query(
-        'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber',
-        method: HttpMethod.GET,
-        parameters: parameters);
+    return _v3._query('tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber',
+        method: HttpMethod.GET, parameters: parameters);
   }
 
   ///Get the changes for a TV episode.
   /// By default only the last 24 hours are returned.
   Future<Map> getChanges(int episodeId, {Parameters parameters}) {
     assert(episodeId != null && episodeId > 0);
-    return _tmdb._query('tv/$_endPoint/$episodeId/changes',
+    return _v3._query('tv/$_endPoint/$episodeId/changes',
         parameters: parameters);
   }
 
@@ -34,7 +32,7 @@ class TvEpisodes {
   Future<Map> getCredits(int tvId, int seasonNumber, int episodeNumber) {
     assert(seasonNumber != null && seasonNumber > 0);
     assert(tvId != null && tvId > 0);
-    return _tmdb._query(
+    return _v3._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/credits');
   }
 
@@ -46,7 +44,7 @@ class TvEpisodes {
   Future<Map> getExternalId(int tvId, int seasonNumber, int episodeNumber) {
     assert(seasonNumber != null && seasonNumber > 0);
     assert(tvId != null && tvId > 0);
-    return _tmdb._query(
+    return _v3._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/external_ids');
   }
 
@@ -54,7 +52,7 @@ class TvEpisodes {
   Future<Map> getImages(int tvId, int seasonNumber, int episodeNumber) {
     assert(seasonNumber != null && seasonNumber > 0 && episodeNumber > 0);
     assert(tvId != null && tvId > 0);
-    return _tmdb._query(
+    return _v3._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/images');
   }
 
@@ -62,14 +60,14 @@ class TvEpisodes {
   Future<Map> getVideos(int tvId, int seasonNumber, int episodeNumber) {
     assert(seasonNumber != null && seasonNumber > 0);
     assert(tvId != null && tvId > 0);
-    return _tmdb._query(
+    return _v3._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/videos');
   }
 
   ///Get the translation data for an episode.
   Future<Map> getTranslation(int tvId, int seasonNumber, int episodeNumber) {
     assert(seasonNumber != null && seasonNumber > 0 && episodeNumber > 0);
-    return _tmdb._query(
+    return _v3._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/translations');
   }
 }

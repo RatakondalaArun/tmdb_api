@@ -8,13 +8,13 @@ main() {
   group('Tv', () {
     group('details', () {
       test('with parameters', () async {
-        var result = await tmdb.tv
+        var result = await tmdb.v3.tv
             .getDetails(103, parameters: Parameters(language: 'en-US'));
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.tv.getDetails(103);
+        var result = await tmdb.v3.tv.getDetails(103);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -22,13 +22,13 @@ main() {
 
     group('Alternative titles', () {
       test('with parameters', () async {
-        var result = await tmdb.tv.getAlternativeTitle(103,
+        var result = await tmdb.v3.tv.getAlternativeTitle(103,
             parameters: Parameters(language: 'en-US'));
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.tv.getAlternativeTitle(103);
+        var result = await tmdb.v3.tv.getAlternativeTitle(103);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -36,7 +36,7 @@ main() {
 
     group('credits', () {
       test('without parameters', () async {
-        var result = await tmdb.tv.getCredits(103);
+        var result = await tmdb.v3.tv.getCredits(103);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -44,7 +44,7 @@ main() {
 
     group('Content rating', () {
       test('without parameters', () async {
-        var result = await tmdb.tv.getContentRating(103);
+        var result = await tmdb.v3.tv.getContentRating(103);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -52,7 +52,7 @@ main() {
 
     group('Eposide group', () {
       test('without parameters', () async {
-        var result = await tmdb.tv.getEpisodeGroups(103);
+        var result = await tmdb.v3.tv.getEpisodeGroups(103);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -60,14 +60,14 @@ main() {
 
     group('External Ids', () {
       test('without parameters', () async {
-        var result = await tmdb.tv.getExternalIds(103);
+        var result = await tmdb.v3.tv.getExternalIds(103);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
     });
     group('Alternative titles', () {
       test('without parameters', () async {
-        var result = await tmdb.tv.getKeywords(103);
+        var result = await tmdb.v3.tv.getKeywords(103);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -75,13 +75,13 @@ main() {
 
     group('recommended', () {
       test('with parameters', () async {
-        var result = await tmdb.tv
+        var result = await tmdb.v3.tv
             .getRecommended(103, parameters: Parameters(language: 'en-US'));
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.tv.getRecommended(103);
+        var result = await tmdb.v3.tv.getRecommended(103);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -89,13 +89,13 @@ main() {
 
     group('Reviews', () {
       test('with parameters', () async {
-        var result = await tmdb.tv
+        var result = await tmdb.v3.tv
             .getReviews(103, parameters: Parameters(language: 'en-US'));
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.tv.getReviews(103);
+        var result = await tmdb.v3.tv.getReviews(103);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -103,7 +103,7 @@ main() {
 
     group('Screened Theatrically', () {
       test('without parameters', () async {
-        var result = await tmdb.tv.getScreenedTheatrically(103);
+        var result = await tmdb.v3.tv.getScreenedTheatrically(103);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -111,13 +111,13 @@ main() {
 
     group('Similar', () {
       test('with parameters', () async {
-        var result = await tmdb.tv
+        var result = await tmdb.v3.tv
             .getSimilar(103, parameters: Parameters(language: 'en-US'));
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.tv.getSimilar(103);
+        var result = await tmdb.v3.tv.getSimilar(103);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -125,7 +125,7 @@ main() {
 
     group('Translation', () {
       test('without parameters', () async {
-        var result = await tmdb.tv.getTranslations(103);
+        var result = await tmdb.v3.tv.getTranslations(103);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -133,13 +133,13 @@ main() {
 
     group('Latest', () {
       test('with parameters', () async {
-        var result =
-            await tmdb.tv.getLatest(parameters: Parameters(language: 'en-US'));
+        var result = await tmdb.v3.tv
+            .getLatest(parameters: Parameters(language: 'en-US'));
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.tv.getLatest();
+        var result = await tmdb.v3.tv.getLatest();
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -147,13 +147,13 @@ main() {
 
     group('Popular', () {
       test('with parameters', () async {
-        var result =
-            await tmdb.tv.getPouplar(parameters: Parameters(language: 'en-US'));
+        var result = await tmdb.v3.tv
+            .getPouplar(parameters: Parameters(language: 'en-US'));
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.tv.getPouplar();
+        var result = await tmdb.v3.tv.getPouplar();
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -161,13 +161,13 @@ main() {
 
     group('Top rated', () {
       test('with parameters', () async {
-        var result = await tmdb.tv
+        var result = await tmdb.v3.tv
             .getTopRated(parameters: Parameters(language: 'en-US'));
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.tv.getTopRated();
+        var result = await tmdb.v3.tv.getTopRated();
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -175,13 +175,13 @@ main() {
 
     group('Airing  today', () {
       test('with parameters', () async {
-        var result = await tmdb.tv
+        var result = await tmdb.v3.tv
             .getAiringToday(parameters: Parameters(language: 'en-US'));
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.tv.getAiringToday();
+        var result = await tmdb.v3.tv.getAiringToday();
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
@@ -189,13 +189,13 @@ main() {
 
     group('Get on the Air', () {
       test('with parameters', () async {
-        var result = await tmdb.tv
+        var result = await tmdb.v3.tv
             .getOnTheAir(parameters: Parameters(language: 'en-US'));
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.tv.getOnTheAir();
+        var result = await tmdb.v3.tv.getOnTheAir();
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
