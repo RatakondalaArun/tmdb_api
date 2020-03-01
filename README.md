@@ -33,10 +33,11 @@ To know more visit [*TMDB*](https://www.themoviedb.org/)
 
 ---
 # Getting Started for ( *package >= v0.3.1-alpha* )
+
 There were some changes to the internal code structure, this changes may break your app.
-This were made so that we can easily migrate to newer versions of TMDB API
+This changes were made so that it will be easy to migrate to newer versions of TMDB API.
 
-
+---
 ## 1) Import package
 ```
 //import package
@@ -54,6 +55,14 @@ TMDB tmdb =TMDB('YOUR API KEY HERE');
 
 # Example
 
+## 0.3.1 and after
+For getting Trending movies 
+```
+Map result = await tmdb.v3.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
+
+```
+Change : *...tmdb.`v3`.get...*
+
 ## 0.2.1 and before
 For getting Trending movies 
 
@@ -63,15 +72,9 @@ For getting Trending movies
 Map result = await tmdb.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
 
 ```
-## 0.3.1 and after
-For getting Trending movies 
-```
-Map result = await tmdb.v3.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
-
-```
 
 ---
-# Getting Started-Doc for (*package <= v0.2.1-alpha*)
+# Getting Started for (*package <= v0.2.1-alpha*)
 ## 1) Import package
 ```
 //import package
