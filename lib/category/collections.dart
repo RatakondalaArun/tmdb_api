@@ -2,9 +2,9 @@ part of tmdb_api;
 
 class Collections {
   ///Provides details about movies
-  final TMDB _tmdb;
+  final V3 _v3;
   final String _endPoint = 'collection';
-  Collections(this._tmdb) : assert(_tmdb != null);
+  Collections(this._v3) : assert(_v3 != null);
 
   ///Get collection details by id.
   ///https://developers.themoviedb.org/3/collections/get-collection-details
@@ -16,7 +16,7 @@ class Collections {
   /// ```
   ///
   Future<Map> getDetails(int collectionId, {Parameters parameters}) {
-    return _tmdb._query('$_endPoint/$collectionId', parameters: parameters);
+    return _v3._query('$_endPoint/$collectionId', parameters: parameters);
   }
 
   ///Get collection images by id.
@@ -29,7 +29,7 @@ class Collections {
   /// ```
   ///
   Future<Map> getImages(int collectionId, {Parameters parameters}) {
-    return _tmdb._query('$_endPoint/$collectionId/images',
+    return _v3._query('$_endPoint/$collectionId/images',
         parameters: parameters);
   }
 
@@ -43,7 +43,7 @@ class Collections {
   /// ```
   ///
   Future<Map> getTranslations(int collectionId, {Parameters parameters}) {
-    return _tmdb._query('$_endPoint/$collectionId/translations',
+    return _v3._query('$_endPoint/$collectionId/translations',
         parameters: parameters);
   }
 }

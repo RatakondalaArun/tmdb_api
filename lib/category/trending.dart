@@ -1,10 +1,10 @@
 part of tmdb_api;
 
 class Trending {
-  final TMDB _tmdb;
+  final V3 _v3;
   final String _endPoint = 'trending';
 
-  Trending(this._tmdb);
+  Trending(this._v3);
 
   ///Get the daily or weekly trending items. The daily
   ///trending list tracks items over the period of a day
@@ -31,7 +31,7 @@ class Trending {
   Future<Map> getTrending(
       {MediaType mediaType = MediaType.all,
       TimeWindow timeWindow = TimeWindow.day}) {
-    return _tmdb._query(
+    return _v3._query(
         '$_endPoint/${_getMediaType(mediaType)}/${_getTimeWindow(timeWindow)}');
   }
 

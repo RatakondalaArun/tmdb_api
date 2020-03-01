@@ -2,9 +2,9 @@ part of tmdb_api;
 
 class Geners {
   ///Provides details about movies
-  final TMDB _tmdb;
+  final V3 _v3;
   final String _endPoint = 'genre';
-  Geners(this._tmdb) : assert(_tmdb != null);
+  Geners(this._v3) : assert(_v3 != null);
 
   ///Get the list of official genres for movies.
   ///
@@ -33,7 +33,7 @@ class Geners {
   ///
   Future<Map> getMovieList({Parameters parameters}) {
     // assert(creditId != null && creditId > 0);
-    return _tmdb._query('$_endPoint/movie/list', parameters: parameters);
+    return _v3._query('$_endPoint/movie/list', parameters: parameters);
   }
 
   ///Get the list of official genres for TV shows.
@@ -63,6 +63,6 @@ class Geners {
   ///
   Future<Map> getTvlist({Parameters parameters}) {
     // assert(creditId != null && creditId > 0);
-    return _tmdb._query('$_endPoint/tv/list', parameters: parameters);
+    return _v3._query('$_endPoint/tv/list', parameters: parameters);
   }
 }

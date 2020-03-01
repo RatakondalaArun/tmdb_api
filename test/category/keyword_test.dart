@@ -7,13 +7,13 @@ void main() {
   TMDB tmdb = TMDB(Keys.API);
   group('Keyword', () {
     test('Details', () async {
-      Map result = await tmdb.keywords.getDetails(3417);
+      Map result = await tmdb.v3.keywords.getDetails(3417);
       assert(result is Map);
       assert(!result.containsKey('status_code'));
       expect(result.containsKey('status_code'), false);
     });
     test('tv', () async {
-      Map result = await tmdb.keywords.getTvlist(3417);
+      Map result = await tmdb.v3.keywords.getTvlist(3417);
       assert(result is Map);
       assert(!result.containsKey('status_code'));
       expect(result.containsKey('status_code'), false);

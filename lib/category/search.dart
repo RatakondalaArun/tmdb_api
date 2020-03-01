@@ -1,9 +1,9 @@
 part of tmdb_api;
 
 class Search {
-  final TMDB _tmdb;
+  final V3 _v3;
   final String _endPoint = 'search';
-  Search(this._tmdb);
+  Search(this._v3);
 
   ///Search for companies.
   ///
@@ -18,7 +18,7 @@ class Search {
       throw NullValueException('query==null is true',
           source: 'Search.queryCompanies($query)',
           help: 'try passing non null value');
-    return _tmdb._query('$_endPoint/company',
+    return _v3._query('$_endPoint/company',
         parameters: parameters, optionalQueries: ['query=$query']);
   }
 
@@ -35,7 +35,7 @@ class Search {
       throw NullValueException('query==null is true',
           source: 'Search.queryCollections($query)',
           help: 'try passing non null value');
-    return _tmdb._query('$_endPoint/collection',
+    return _v3._query('$_endPoint/collection',
         parameters: parameters, optionalQueries: ['query=$query']);
   }
 
@@ -52,7 +52,7 @@ class Search {
       throw NullValueException('query==null is true',
           source: 'Search.queryKeywords($query)',
           help: 'try passing non null value');
-    return _tmdb._query('$_endPoint/keyword',
+    return _v3._query('$_endPoint/keyword',
         parameters: parameters, optionalQueries: ['query=$query']);
   }
 
@@ -91,7 +91,7 @@ class Search {
     //primary_release_year will not be added unless provided
     if (primaryReleaseYear != null)
       optionalQueries.add('primary_release_year=$primaryReleaseYear');
-    return _tmdb._query('$_endPoint/movie',
+    return _v3._query('$_endPoint/movie',
         parameters: parameters, optionalQueries: optionalQueries);
   }
 
@@ -119,7 +119,7 @@ class Search {
     optionalQueries.add('query=$query');
     optionalQueries.add('includeAdult=$includeAdult');
     if (region != null) optionalQueries.add('region=$region');
-    return _tmdb._query('$_endPoint/multi',
+    return _v3._query('$_endPoint/multi',
         parameters: parameters, optionalQueries: optionalQueries);
   }
 
@@ -145,7 +145,7 @@ class Search {
     optionalQueries.add('query=$query');
     optionalQueries.add('includeAdult=$includeAdult');
     if (region != null) optionalQueries.add('region=$region');
-    return _tmdb._query('$_endPoint/person',
+    return _v3._query('$_endPoint/person',
         parameters: parameters, optionalQueries: optionalQueries);
   }
 
@@ -172,7 +172,7 @@ class Search {
     List<String> optionalQueries = ['query=$query'];
     if (firstAirDateYear != null)
       optionalQueries.add('first_air_date_year=$firstAirDateYear');
-    return _tmdb._query('$_endPoint/company',
+    return _v3._query('$_endPoint/company',
         parameters: parameters, optionalQueries: optionalQueries);
   }
 }

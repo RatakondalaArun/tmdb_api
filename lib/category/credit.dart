@@ -2,9 +2,9 @@ part of tmdb_api;
 
 class Credit {
   ///Provides details about movies
-  final TMDB _tmdb;
+  final V3 _v3;
   final String _endPoint = 'credit';
-  Credit(this._tmdb) : assert(_tmdb != null);
+  Credit(this._v3) : assert(_v3 != null);
 
   ///Get a movie or TV credit details by id.
   ///
@@ -18,6 +18,6 @@ class Credit {
   ///
   Future<Map> getDetails(String creditId) {
     // assert(creditId != null && creditId > 0);
-    return _tmdb._query('$_endPoint/$creditId');
+    return _v3._query('$_endPoint/$creditId');
   }
 }

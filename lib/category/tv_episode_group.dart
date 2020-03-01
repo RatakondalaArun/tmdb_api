@@ -2,10 +2,10 @@ part of tmdb_api;
 
 class TvEpisodeGroup {
   //!test failed
-  final TMDB _tmdb;
+  final V3 _v3;
   final String _endPoint = 'episode_group';
 
-  TvEpisodeGroup(this._tmdb) : assert(_tmdb != null);
+  TvEpisodeGroup(this._v3) : assert(_v3 != null);
 
   /// Get the details of a TV episode group.
   ///
@@ -19,7 +19,7 @@ class TvEpisodeGroup {
   /// - `TV`
   Future<Map> getDetails(int id, {Parameters parameters}) {
     assert(id != null);
-    return _tmdb._query('tv/$_endPoint/$id',
+    return _v3._query('tv/$_endPoint/$id',
         method: HttpMethod.GET, parameters: parameters);
   }
 }

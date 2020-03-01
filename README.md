@@ -3,10 +3,11 @@
 
 # tmdb_api
 
-TMDB.org API for dart.
-- [TMDB](https://www.themoviedb.org/)
+A Dart client-side API package for TMDB API.
+To know more visit [*TMDB*](https://www.themoviedb.org/)
 
 ## Avaliable features 
+### v3
 - [x] Movies
 - [x] Tv shows
 - [x] Tv Seasons
@@ -23,10 +24,57 @@ TMDB.org API for dart.
 - [X] Trending
 - [X] Search
 - [X] Discover
+- [X] Networks
+- [X] Reviews
+- [X] Versions
+### v4
 
 `More will be added soon`
 
-# Getting Started
+---
+# Getting Started for ( *package >= v0.3.1-alpha* )
+
+There were some changes to the internal code structure, this changes may break your app.
+This changes were made so that it will be easy to migrate to newer versions of TMDB API.
+
+---
+## 1) Import package
+```
+//import package
+import 'package:tmdb_api/tmdb_api.dart';
+```
+
+## 2) Create a instance of `TMDB` class
+```
+//create a instance of TMDB
+TMDB tmdb =TMDB('YOUR API KEY HERE');
+```
+*You can get your API key from [themoviedb.org API](https://www.themoviedb.org/settings/api)*
+
+## 3) Thats all it takes now you can access all the features avaliable using `tmdb` instance.
+
+# Example
+
+## 0.3.1 and after
+For getting Trending movies 
+```
+Map result = await tmdb.v3.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
+
+```
+Change : *...tmdb.`v3`.get...*
+
+## 0.2.1 and before
+For getting Trending movies 
+
+```
+//get results
+
+Map result = await tmdb.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
+
+```
+
+---
+# Getting Started for (*package <= v0.2.1-alpha*)
 ## 1) Import package
 ```
 //import package
@@ -50,4 +98,4 @@ Map result = await tmdb.trending.getTrending(mediaType = MediaType.all,timeWindo
 ```
 
 # For more documentation
-- visit [TMDB](https://developers.themoviedb.org/3/getting-started/introduction)
+visit [TMDB](https://developers.themoviedb.org/3/getting-started/introduction)

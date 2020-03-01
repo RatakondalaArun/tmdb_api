@@ -7,14 +7,14 @@ void main() {
   group('Changes', () {
     group('movie', () {
       test('without prameters', () async {
-        Map result = await tmdb.changes.getMovieList();
+        Map result = await tmdb.v3.changes.getMovieList();
         assert(result is Map);
         assert(!result.containsKey('status_code'));
         expect(result.containsKey('status_code'), false);
       });
       test('with prameters', () async {
         Map result =
-            await tmdb.changes.getMovieList(parameters: Parameters(page: 1));
+            await tmdb.v3.changes.getMovieList(parameters: Parameters(page: 1));
         assert(result is Map);
         assert(!result.containsKey('status_code'));
         expect(result.containsKey('status_code'), false);
@@ -22,14 +22,14 @@ void main() {
     });
     group('tv', () {
       test('without prameters', () async {
-        Map result = await tmdb.changes.getTvList();
+        Map result = await tmdb.v3.changes.getTvList();
         assert(result is Map);
         assert(!result.containsKey('status_code'));
         expect(result.containsKey('status_code'), false);
       });
       test('with prameters', () async {
         Map result =
-            await tmdb.changes.getTvList(parameters: Parameters(page: 1));
+            await tmdb.v3.changes.getTvList(parameters: Parameters(page: 1));
         assert(result is Map);
         assert(!result.containsKey('status_code'));
         expect(result.containsKey('status_code'), false);
@@ -37,14 +37,14 @@ void main() {
     });
     group('person', () {
       test('without prameters', () async {
-        Map result = await tmdb.changes.getPersonList();
+        Map result = await tmdb.v3.changes.getPersonList();
         assert(result is Map);
         assert(!result.containsKey('status_code'));
         expect(result.containsKey('status_code'), false);
       });
       test('with prameters', () async {
-        Map result =
-            await tmdb.changes.getPersonList(parameters: Parameters(page: 1));
+        Map result = await tmdb.v3.changes
+            .getPersonList(parameters: Parameters(page: 1));
         assert(result is Map);
         assert(!result.containsKey('status_code'));
         expect(result.containsKey('status_code'), false);
