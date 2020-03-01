@@ -21,6 +21,7 @@ part 'category/trending.dart';
 part 'category/search.dart';
 part 'category/discover.dart';
 part 'category/networks.dart';
+part 'category/reviews.dart';
 
 /// TMDB.org API
 ///
@@ -52,6 +53,7 @@ class TMDB {
   Search _search;
   Discover _discover;
   Networks _networks;
+  Reviews _reviews;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -70,6 +72,7 @@ class TMDB {
   Search get search => _search;
   Discover get discover => _discover;
   Networks get networks => _networks;
+  Reviews get reviews => _reviews;
 
   // @Deprecated('May not work')
   // TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
@@ -94,6 +97,7 @@ class TMDB {
     _search = Search(this);
     _discover = Discover(this);
     _networks = Networks(this);
+    _reviews = Reviews(this);
   }
 
   ///Queries with the given parameters

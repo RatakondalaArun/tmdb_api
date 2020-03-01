@@ -24,6 +24,7 @@ TMDB.org API for dart.
 - [X] Search
 - [X] Discover
 - [X] Networks
+- [X] Reviews
 
 `More will be added soon`
 
