@@ -8,27 +8,29 @@ To know more visit [*TMDB*](https://www.themoviedb.org/)
 
 ## Avaliable features 
 ### v3
-- [x] Movies
-- [x] Tv shows
-- [x] Tv Seasons
-- [x] Tv Episodes 
-- [X] People
-- [X] Credits
-- [X] Certification
-- [X] Changes
-- [X] Collections
-- [X] Find
-- [X] Genres
-- [X] Keywords
-- [X] Companies
-- [X] Trending
-- [X] Search
-- [X] Discover
-- [X] Networks
-- [X] Reviews
-- [X] Versions
+    - [x] Movies
+    - [x] Tv shows
+    - [x] Tv Seasons
+    - [x] Tv Episodes 
+    - [X] People
+    - [X] Credits
+    - [X] Certification
+    - [X] Changes
+    - [X] Collections
+    - [X] Find
+    - [X] Genres
+    - [X] Keywords
+    - [X] Companies
+    - [X] Trending
+    - [X] Search
+    - [X] Discover
+    - [X] Networks
+    - [X] Reviews
+    - [X] Versions
 ### v4
-
+    -[X] Image URL Constructor
+### Others
+-   
 `More will be added soon`
 
 ---
