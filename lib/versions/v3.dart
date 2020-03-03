@@ -23,6 +23,7 @@ class V3 {
   Discover _discover;
   Networks _networks;
   Reviews _reviews;
+  // Auth _auth;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -43,6 +44,7 @@ class V3 {
   Discover get discover => _discover;
   Networks get networks => _networks;
   Reviews get reviews => _reviews;
+  // Auth get auth => _auth;
 
   V3(this._tmdb) {
     _reviews = Reviews(this);
@@ -64,6 +66,7 @@ class V3 {
     _search = Search(this);
     _discover = Discover(this);
     _networks = Networks(this);
+    // _auth = Auth(this);
   }
 
   ///Queries with the given parameters
@@ -72,10 +75,14 @@ class V3 {
   ///Queries with the given parameters
   ///
   ///by default method type is [HttpMethod.GET]
-  Future<Map> _query(String endPoint,
-      {Parameters parameters,
-      HttpMethod method = HttpMethod.GET,
-      List<String> optionalQueries}) async {
+  Future<Map> _query(
+    String endPoint, {
+    Parameters parameters,
+    HttpMethod method = HttpMethod.GET,
+    List<String> optionalQueries,
+    dynamic postBody,
+    // Map<String, String> postHeaders,
+  }) async {
     String query = (parameters == null)
         ? 'api_key=${_tmdb._apiKey}' //if parameters are null
         : 'api_key=${_tmdb._apiKey}' + '&${parameters?.toString()}'; //
@@ -95,7 +102,7 @@ class V3 {
     //getting data form url
     try {
       if (method == HttpMethod.POST) {
-        response = await http.post(url);
+        response = await http.post(url, body: postBody);
       } else {
         response = await http.get(url);
       }
