@@ -23,7 +23,7 @@ class V3 {
   Discover _discover;
   Networks _networks;
   Reviews _reviews;
-  // Auth _auth;
+  Auth _auth;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -44,7 +44,7 @@ class V3 {
   Discover get discover => _discover;
   Networks get networks => _networks;
   Reviews get reviews => _reviews;
-  // Auth get auth => _auth;
+  Auth get auth => _auth;
 
   V3(this._tmdb) {
     _reviews = Reviews(this);
@@ -66,7 +66,7 @@ class V3 {
     _search = Search(this);
     _discover = Discover(this);
     _networks = Networks(this);
-    // _auth = Auth(this);
+    _auth = Auth(this);
   }
 
   ///Queries with the given parameters
@@ -81,7 +81,7 @@ class V3 {
     HttpMethod method = HttpMethod.GET,
     List<String> optionalQueries,
     dynamic postBody,
-    // Map<String, String> postHeaders,
+    Map<String, String> postHeaders,
   }) async {
     String query = (parameters == null)
         ? 'api_key=${_tmdb._apiKey}' //if parameters are null
@@ -97,13 +97,24 @@ class V3 {
     );
 
     print('final url= ' + url.toString());
-    http.Response response;
+    var response;
 
     //getting data form url
     try {
       if (method == HttpMethod.POST) {
         response = await http.post(url, body: postBody);
-      } else {
+      }
+      // else if (method == HttpMethod.DELETE) {
+      //   final request = http.Request("DELETE", url);
+      //   request.headers.addAll(<String, String>{
+      //     "Accept": "application/json",
+      //     "token": "my token",
+      //     "jwt": "my jwt"
+      //   });
+      //   request.body = jsonEncode(postBody);
+      //   response = await request.send();
+      // }
+      else {
         response = await http.get(url);
       }
     } catch (e) {
