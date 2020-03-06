@@ -24,6 +24,7 @@ class V3 {
   Networks _networks;
   Reviews _reviews;
   Auth _auth;
+  Lists _lists;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -45,6 +46,7 @@ class V3 {
   Networks get networks => _networks;
   Reviews get reviews => _reviews;
   Auth get auth => _auth;
+  Lists get lists => _lists;
 
   V3(this._tmdb) {
     _reviews = Reviews(this);
@@ -67,6 +69,7 @@ class V3 {
     _discover = Discover(this);
     _networks = Networks(this);
     _auth = Auth(this);
+    _lists = Lists(this);
   }
 
   ///Queries with the given parameters
@@ -80,7 +83,7 @@ class V3 {
     Parameters parameters,
     HttpMethod method = HttpMethod.GET,
     List<String> optionalQueries,
-    dynamic postBody,
+    Map<String, String> postBody,
     Map<String, String> postHeaders,
   }) async {
     String query = (parameters == null)
@@ -97,24 +100,15 @@ class V3 {
     );
 
     print('final url= ' + url.toString());
-    var response;
+    http.Response response;
 
     //getting data form url
     try {
       if (method == HttpMethod.POST) {
         response = await http.post(url, body: postBody);
-      }
-      // else if (method == HttpMethod.DELETE) {
-      //   final request = http.Request("DELETE", url);
-      //   request.headers.addAll(<String, String>{
-      //     "Accept": "application/json",
-      //     "token": "my token",
-      //     "jwt": "my jwt"
-      //   });
-      //   request.body = jsonEncode(postBody);
-      //   response = await request.send();
-      // }
-      else {
+      } else if (method == HttpMethod.DELETE) {
+        response = await _httpDelete(url, postBody);
+      } else {
         response = await http.get(url);
       }
     } catch (e) {
@@ -132,5 +126,18 @@ class V3 {
     if (queries.isEmpty) return currentQuery;
     currentQuery += '&' + queries.join('&');
     return currentQuery;
+  }
+
+  //http.delete doesn't provide a body
+  //so created this
+  Future<http.Response> _httpDelete(
+      Uri url, Map<String, String> deleteBody) async {
+    http.Request request = http.Request('DELETE', Uri.parse(url.toString()))
+      ..headers.addAll({'Content-Type': 'application/x-www-form-urlencoded'});
+    request.bodyFields = deleteBody;
+
+    http.Response response =
+        await http.Response.fromStream(await request.send());
+    return response;
   }
 }
