@@ -23,6 +23,8 @@ part 'category/search.dart';
 part 'category/discover.dart';
 part 'category/networks.dart';
 part 'category/reviews.dart';
+part 'category/authentication.dart';
+part 'category/lists.dart';
 part 'category/images.dart';
 
 part 'utils/tmdb_exceptions.dart';
@@ -110,5 +112,8 @@ enum HttpMethod {
   GET,
 
   ///For post request
-  POST
+  POST,
+
+  ///For Delete request
+  DELETE,
 }

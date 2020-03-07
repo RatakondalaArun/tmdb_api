@@ -143,4 +143,102 @@ class Movies {
   Future<Map> getUpcoming({Parameters parameters}) {
     return _v3._query('$_endPoint/upcoming', parameters: parameters);
   }
+
+  ///Rate a movie.
+  ///
+  ///A valid session or guest session ID is required.
+  ///You can read more about how this works
+  ///[here](https://developers.themoviedb.org/3/authentication/how-do-i-generate-a-session-id)
+  ///
+  ///## Parameters
+  ///`movieId`: id of the movie
+  ///
+  ///`ratingValue`: rating value should be minimum 0.5 and maximum 10
+  ///
+  ///`guestSessionId`: id of guest session
+  ///
+  ///`sessionId`: id of session
+  ///
+  ///only one of this `guestSessionId` or `sessionId` allowed
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.movies.rateMovie(12, 5,
+  /// sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6');
+  ///```
+  ///
+  ///## Result
+  ///```
+  ///{
+  /// status_code: 1,
+  /// status_message: Success.
+  ///}
+  ///```
+  Future<Map> rateMovie(int movieId, double ratingValue,
+      {String guestSessionId, String sessionId}) {
+    if (movieId == null || ratingValue == null)
+      throw NullValueException('movieId == null || ratingValue == null');
+    if (guestSessionId == null && sessionId == null)
+      throw NullValueException('guestSessionId == null && sessionId == null');
+    if (ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1)
+      throw InvalidDataException(
+          'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
+
+    List<String> para = [];
+    //only one is allowed
+    if (sessionId != null)
+      para.add('session_id=$sessionId');
+    else
+      para.add('guest_session_id=$guestSessionId');
+
+    return _v3._query('$_endPoint/$movieId/rating',
+        method: HttpMethod.POST,
+        postBody: {'value': '$ratingValue'},
+        optionalQueries: para);
+  }
+
+  ///Remove your rating for a movie.
+  ///
+  ///A valid session or guest session ID is required.
+  ///## Parameters
+  ///`movieId`: id of the movie
+  ///
+  ///`guestSessionId`: id of guest session
+  ///
+  ///`sessionId`: id of session
+  ///
+  ///only one of this `guestSessionId` or `sessionId` allowed
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.movies.deleteRating(5,
+  /// sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6');
+  ///```
+  ///
+  ///## Result
+  ///```
+  ///{
+  /// status_code: 13,
+  /// status_message: The item/record was deleted successfully.
+  ///}
+  ///```
+  Future<Map> deleteRating(int movieId,
+      {String guestSessionId, String sessionId}) {
+    if (movieId == null)
+      throw NullValueException('movieId == null || ratingValue == null');
+    if (guestSessionId == null && sessionId == null)
+      throw NullValueException('guestSessionId == null && sessionId == null');
+    if (movieId < 1)
+      throw InvalidDataException(
+          'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
+
+    List<String> para = [];
+    //only one is allowed
+    if (sessionId != null)
+      para.add('session_id=$sessionId');
+    else
+      para.add('guest_session_id=$guestSessionId');
+
+    return _v3._query('$_endPoint/$movieId/rating',
+        method: HttpMethod.DELETE, postBody: {}, optionalQueries: para);
+  }
 }
