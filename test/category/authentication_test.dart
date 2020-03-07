@@ -47,13 +47,14 @@ void main() {
       });
     });
 
-    // group('>delete session', () {
-    //   test('>with session id', () async {
-    //     Map result = await tmdb.v3.auth
-    //         .deleteSession('af4e90867015c77515901e5f8f09e933fc64817a');
-    //     print(result);
-    //   });
-    // });
+    group('>delete session', () {
+      test('>with session id', () async {
+        Map result = await tmdb.v3.auth
+            .deleteSession('98097f2cd6af83f272ccbcfa93960723a940f87b');
+        print(result);
+        expect(result is Map, true);
+      });
+    });
 
     group('>guest session', () {
       test('>getting session as String', () async {

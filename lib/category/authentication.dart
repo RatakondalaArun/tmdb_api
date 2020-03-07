@@ -182,13 +182,19 @@ class Auth {
     return null;
   }
 
-  // Future<dynamic> deleteSession(String sessionId) async {
-  //   if (sessionId == null)
-  //     throw NullValueException('sessionId==null is true',
-  //         source: 'auth.deleteSession($sessionId)');
-  //   Map result = await _v3._query('authentication/session',
-  //       postHeaders: {'session_id': sessionId}, method: HttpMethod.DELETE);
-  //   print(result);
-  //   return result;
-  // }
+  ///If you would like to delete (or "logout") from a session,
+  /// call this method with a valid session ID.
+  /// ## Parameters
+  ///`sessionId`: if of current session
+  Future<dynamic> deleteSession(String sessionId) async {
+    if (sessionId == null)
+      throw NullValueException('sessionId==null is true',
+          source: 'auth.deleteSession($sessionId)');
+    Map result = await _v3._query('authentication/session',
+        postHeaders: {'session_id': sessionId},
+        method: HttpMethod.DELETE,
+        postBody: {'session_id': '$sessionId'});
+    print(result);
+    return result;
+  }
 }
