@@ -191,5 +191,23 @@ void main() {
             reason: 'error in api');
       });
     });
+
+    group('>Rate Movie', () {
+      test('>check', () async {
+        Map result = await tmdb.v3.movies.rateMovie(12, 5,
+            sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6');
+        print(result);
+        expect(result is Map, true, reason: 'result is not map');
+      });
+    });
+
+    group('>Delete Movie Rating', () {
+      test('>check', () async {
+        Map result = await tmdb.v3.movies.deleteRating(5,
+            sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6');
+        print(result);
+        expect(result is Map, true, reason: 'result is not map');
+      });
+    });
   });
 }
