@@ -17,9 +17,22 @@ class TvEpisodeGroup {
   /// - `Story arc`
   /// - `Production`
   /// - `TV`
-  Future<Map> getDetails(int id, {Parameters parameters}) {
-    assert(id != null);
+  ///
+  /// ## Parameters
+  /// `id`:
+  ///
+  /// `language`:Pass a ISO 639-1 value to display translated data for the fields that support it.
+  /// *minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  /// ## Implementation
+  /// ```
+  /// Map result = tmdb.v3.tvEpisodeGroup.getDetails(12);
+  /// ```
+  Future<Map> getDetails(String id, {String language = 'en-US'}) {
+    if (id == null || language == null)
+      throw NullValueException('id == null || language==null is true');
+
     return _v3._query('tv/$_endPoint/$id',
-        method: HttpMethod.GET, parameters: parameters);
+        method: HttpMethod.GET, optionalQueries: ['language=$language']);
   }
 }

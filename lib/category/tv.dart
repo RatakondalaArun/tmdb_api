@@ -8,37 +8,107 @@ class Tv {
 
   ///Get the primary TV show details by id.
   ///
-  /// Supports append_to_response
-  Future<Map> getDetails(int tvId, {Parameters parameters}) {
-    assert(tvId != null);
+  ///## Parameters
+  ///`tvId`: ID of a tv show
+  ///
+  ///`appendToResponse`: Append requests within the same namespace to the response. *pattern: ([\w]+)*
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getDetails(103, language: 'en-US');
+  ///```
+  Future<Map> getDetails(int tvId,
+      {String appendToResponse, String language = 'en-US'}) {
+    if (tvId == null || language == null)
+      throw NullValueException('tvId == null || language == null is true');
+    if (tvId < 1) throw InvalidDataException('tvId<1 is true');
+
+    List<String> para = ['language=$language'];
+    if (appendToResponse != null)
+      para.add('append_to_response=$appendToResponse');
+
     return _v3._query('$_endPoint/$tvId',
-        method: HttpMethod.GET, parameters: parameters);
+        method: HttpMethod.GET, optionalQueries: para);
   }
 
   ///Returns all of the alternative titles for a TV show.
-  Future<Map> getAlternativeTitle(int tvId, {Parameters parameters}) {
-    assert(tvId != null);
+  ///
+  ///## Parameters
+  ///`tvId`: ID of a tv show
+  ///
+  ///`appendToResponse`: Append requests within the same namespace to the response. *pattern: ([\w]+)*
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getAlternaiveTitle(103, language: 'en-US');
+  ///```
+  Future<Map> getAlternativeTitle(int tvId, {String language = 'en-US'}) {
+    if (tvId == null || language == null)
+      throw NullValueException('tvId == null || language == null is true');
+    if (tvId < 1) throw InvalidDataException('tvId<1 is true');
+
     return _v3._query('$_endPoint/$tvId/alternative_titles',
-        method: HttpMethod.GET, parameters: parameters);
+        method: HttpMethod.GET, optionalQueries: ['language=$language']);
   }
 
   ///Get the cast and crew for a tv.
+  ///
+  ///## Parameters
+  ///`tvId`: ID of a tv show
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getCredits(103);
+  ///```
   Future<Map> getCredits(int tvId) {
-    assert(tvId != null);
+    if (tvId == null) throw NullValueException('tvId == null is true');
+    if (tvId < 1) throw InvalidDataException('tvId<1 is true');
+
     return _v3._query('$_endPoint/$tvId/credits', method: HttpMethod.GET);
   }
 
   ///Get the list of content ratings (certifications) that have been added to a TV show.
+  ///
+  ///## Parameters
+  ///`tvId`: ID of a tv show
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getContentRating(103);
+  ///```
   Future<Map> getContentRating(int tvId) {
-    assert(tvId != null);
+    if (tvId == null) throw NullValueException('tvId == null is true');
+    if (tvId < 1) throw InvalidDataException('tvId<1 is true');
     return _v3._query('$_endPoint/$tvId/content_ratings');
   }
 
   /// Get all of the episode groups that have been created for a TV show
-  Future<Map> getEpisodeGroups(int tvId, {Parameters parameters}) {
-    assert(tvId != null);
+  ///
+  ///## Parameters
+  ///`tvId`: ID of a tv show
+  ///
+  ///`appendToResponse`: Append requests within the same namespace to the response. *pattern: ([\w]+)*
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getEposideGroups(103, language: 'en-US');
+  ///```
+  Future<Map> getEpisodeGroups(int tvId, {String language = 'en-US'}) {
+    if (tvId == null || language == null)
+      throw NullValueException('tvId == null || language == null is true');
+    if (tvId < 1) throw InvalidDataException('tvId<1 is true');
+
     return _v3._query('$_endPoint/$tvId/episode_groups',
-        method: HttpMethod.GET, parameters: parameters);
+        method: HttpMethod.GET, optionalQueries: ['language=$language']);
   }
 
   ///Get the external ids for a tv.
@@ -49,35 +119,101 @@ class Tv {
   /// - `Instagram`
   /// - `Twitter`
   ///
+  ///## Parameters
+  ///`tvId`: ID of a tv show
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getExternalIds(103);
+  ///```
   Future<Map> getExternalIds(int tvId) {
-    assert(tvId != null);
+    if (tvId == null) throw NullValueException('tvId == null is true');
+    if (tvId < 1) throw InvalidDataException('tvId<1 is true');
+
     return _v3._query('$_endPoint/$tvId/external_ids', method: HttpMethod.GET);
   }
 
   ///Get the keywords that have been added to a tv.
   ///
+  ///
+  ///## Parameters
+  ///`tvId`: ID of a tv show
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getKeywords(103);
+  ///```
   Future<Map> getKeywords(int tvId) {
-    assert(tvId != null);
+    if (tvId == null) throw NullValueException('tvId == null is true');
+    if (tvId < 1) throw InvalidDataException('tvId<1 is true');
+
     return _v3._query('$_endPoint/$tvId/keywords', method: HttpMethod.GET);
   }
 
   /// Get a list of recommended tv show for a tv show.
-  Future<Map> getRecommended(int tvId, {Parameters parameters}) async {
-    assert(tvId != null);
+  ///
+  ///## Parameters
+  ///`tvId`: ID of a tv show
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///`page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getRecommendations(103, language: 'en-US');
+  ///```
+  Future<Map> getRecommendations(int tvId,
+      {String language = 'en-US', int page = 1}) {
+    if (tvId == null || language == null || page == null)
+      throw NullValueException(
+          'tvId == null || language == null || page == null is true');
+    if (tvId < 1 || page < 1 || page > 1000)
+      throw InvalidDataException('tvId < 1 || page < 1 || page > 1000 is true');
+
     return _v3._query('$_endPoint/$tvId/recommendations',
-        parameters: parameters);
+        optionalQueries: ['language=$language', 'page=$page']);
   }
 
   /// Get the user reviews for a tv.
-  Future<Map> getReviews(int tvId, {Parameters parameters}) {
-    assert(tvId != null);
-    return _v3._query('$_endPoint/$tvId/reviews', parameters: parameters);
+  ///
+  ///## Parameters
+  ///`tvId`: ID of a tv show
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///`page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getReviews(103, language: 'en-US');
+  ///```
+  Future<Map> getReviews(int tvId, {String language = 'en-US', int page = 1}) {
+    if (tvId == null || language == null || page == null)
+      throw NullValueException(
+          'tvId == null || language == null || page == null is true');
+    if (tvId < 1 || page < 1 || page > 1000)
+      throw InvalidDataException('tvId < 1 || page < 1 || page > 1000 is true');
+
+    return _v3._query('$_endPoint/$tvId/reviews',
+        optionalQueries: ['language=$language', 'page=$page']);
   }
 
   ///Get a list of seasons or episodes
   ///that have been screened in a film festival or theatre.
+  ///
+  ///## Parameters
+  ///`tvId`: ID of a tv show
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getScreenedTheatrically(103);
+  ///```
   Future<Map> getScreenedTheatrically(int tvId) {
-    assert(tvId != null);
+    if (tvId == null) throw NullValueException('tvId == null is true');
+    if (tvId < 1) throw InvalidDataException('tvId<1 is true');
     return _v3._query('$_endPoint/$tvId/screened_theatrically');
   }
 
@@ -85,46 +221,158 @@ class Tv {
   /// This is not the same as the "Recommendation"
   ///
   /// These items are assembled by looking at keywords and genres.
-  Future<Map> getSimilar(int tvId, {Parameters parameters}) {
-    assert(tvId != null);
-    return _v3._query('$_endPoint/$tvId/similar', parameters: parameters);
+  ///
+  ///## Parameters
+  ///`tvId`: ID of a tv show
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///`page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getSimilar(103, language: 'en-US');
+  ///```
+  Future<Map> getSimilar(int tvId, {String language = 'en-US', int page = 1}) {
+    if (tvId == null || language == null || page == null)
+      throw NullValueException(
+          'tvId == null || language == null || page == null is true');
+    if (tvId < 1 || page < 1 || page > 1000)
+      throw InvalidDataException('tvId < 1 || page < 1 || page > 1000 is true');
+
+    return _v3._query('$_endPoint/$tvId/similar',
+        optionalQueries: ['language=$language', 'page=$page']);
   }
 
   /// Get a list of translations that have been created for a tv show.
+  ///
+  ///## Parameters
+  ///`tvId`: ID of a tv show
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getTranslations(103);
+  ///```
   Future<Map> getTranslations(int tvId) {
-    assert(tvId != null);
+    if (tvId == null) throw NullValueException('tvId == null is true');
+    if (tvId < 1) throw InvalidDataException('tvId<1 is true');
+
     return _v3._query('$_endPoint/$tvId/translations');
   }
 
   ///Get the most newly created tv show.
   ///This is a live response and will continuously change.
-  Future<Map> getLatest({Parameters parameters}) {
-    return _v3._query('$_endPoint/latest', parameters: parameters);
+  ///
+  ///## Parameters
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getLatest(language: 'en-US');
+  ///```
+  Future<Map> getLatest({String language = 'en-US'}) {
+    if (language == null) throw NullValueException('language==null is true');
+
+    return _v3
+        ._query('$_endPoint/latest', optionalQueries: ['language=$language']);
   }
 
   /// Get a list of the current popular movies on TMDb.
   /// This list updates daily.
-  Future<Map> getPouplar({Parameters parameters}) {
-    return _v3._query('$_endPoint/popular', parameters: parameters);
+  ///
+  ///## Parameters
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///`page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getPouplar(language: 'en-US');
+  ///```
+  Future<Map> getPouplar({String language = 'en-US', int page = 1}) {
+    if (language == null || page == null)
+      throw NullValueException(' language == null || page == null is true');
+    if (page < 1 || page > 1000)
+      throw InvalidDataException(' page < 1 || page > 1000 is true');
+
+    return _v3._query('$_endPoint/popular',
+        optionalQueries: ['language=$language', 'page=$page']);
   }
 
   /// Get the top rated movies on TMDb.
-  Future<Map> getTopRated({Parameters parameters}) {
-    return _v3._query('$_endPoint/top_rated', parameters: parameters);
+  ///
+  ///## Parameters
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///`page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getTopRated(language: 'en-US');
+  ///```
+  Future<Map> getTopRated({String language = 'en-US', int page = 1}) {
+    if (language == null || page == null)
+      throw NullValueException(' language == null || page == null is true');
+    if (page < 1 || page > 1000)
+      throw InvalidDataException(' page < 1 || page > 1000 is true');
+
+    return _v3._query('$_endPoint/top_rated',
+        optionalQueries: ['language=$language', 'page=$page']);
   }
 
   ///Get a list of TV shows that are airing today.
   ///This query is purely day based as we do not
   ///currently support airing times.
-  Future<Map> getAiringToday({Parameters parameters}) {
-    return _v3._query('$_endPoint/airing_today', parameters: parameters);
+  ///
+  ///## Parameters
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///`page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getAiringToday(language: 'en-US');
+  ///```
+  Future<Map> getAiringToday({String language = 'en-US', int page = 1}) {
+    if (language == null || page == null)
+      throw NullValueException(' language == null || page == null is true');
+    if (page < 1 || page > 1000)
+      throw InvalidDataException(' page < 1 || page > 1000 is true');
+    return _v3._query('$_endPoint/airing_today',
+        optionalQueries: ['language=$language', 'page=$page']);
   }
 
   /// Get a list of shows that are currently on the air.
   /// This query looks for any TV show that has an episode
   /// with an air date in the next 7 days.
-  Future<Map> getOnTheAir({Parameters parameters}) {
-    return _v3._query('$_endPoint/on_the_air');
+  ///
+  ///## Parameters
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///`page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getOnTheAir(language: 'en-US');
+  ///```
+  Future<Map> getOnTheAir({String language = 'en-US', int page = 1}) {
+    if (language == null || page == null)
+      throw NullValueException(' language == null || page == null is true');
+    if (page < 1 || page > 1000)
+      throw InvalidDataException(' page < 1 || page > 1000 is true');
+    return _v3._query('$_endPoint/on_the_air',
+        optionalQueries: ['language=$language', 'page=$page']);
   }
 
   ///Rate a TV show.

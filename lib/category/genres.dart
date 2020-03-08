@@ -8,15 +8,19 @@ class Geners {
 
   ///Get the list of official genres for movies.
   ///
-  ///For doc visit https://developers.themoviedb.org/3/genres/get-movie-list
+  ///For doc [visit](https://developers.themoviedb.org/3/genres/get-movie-list)
   ///
-  ///*Usage:*
+  ///## Parameters
+  ///`language`:Pass a ISO 639-1 value to display translated data for the fields that support it.
+  /// *minLength: 2, pattern: ([a-z]{2})-([A-Z]{2}), default: en-US*
+  ///
+  ///## Implementation
   ///
   ///```
-  /// Map result = await tmdb.geners.getMovieList();
+  /// Map result = await tmdb.v3.geners.getMovieList();
   /// ```
   ///
-  /// *Result:*
+  /// ## Result
   ///
   ///```
   ///{
@@ -28,25 +32,26 @@ class Geners {
   ///   ]
   /// }
   ///```
-  ///
-  ///Only supports `language` field
-  ///
-  Future<Map> getMovieList({Parameters parameters}) {
-    // assert(creditId != null && creditId > 0);
-    return _v3._query('$_endPoint/movie/list', parameters: parameters);
+  Future<Map> getMovieList({String language = 'en-US'}) {
+    return _v3._query('$_endPoint/movie/list',
+        optionalQueries: ['language=$language']);
   }
 
   ///Get the list of official genres for TV shows.
   ///
-  ///For doc visit https://developers.themoviedb.org/3/genres/get-tv-list
+  ///For doc [visit](https://developers.themoviedb.org/3/genres/get-tv-list)
   ///
-  ///*Usage:*
+  ///## Parameters
+  ///`language`:Pass a ISO 639-1 value to display translated data for the fields that support it.
+  /// *minLength: 2, pattern: ([a-z]{2})-([A-Z]{2}), default: en-US*
+  ///
+  ///## Implementation
   ///
   ///```
-  /// Map result = await tmdb.geners.getTvList();
+  /// Map result = await tmdb.v3.geners.getTvList();
   /// ```
   ///
-  /// *Result:*
+  ///## Result
   ///
   ///```
   ///{
@@ -58,11 +63,8 @@ class Geners {
   ///   ]
   /// }
   ///```
-  ///
-  ///Only supports `language` field in parameters
-  ///
-  Future<Map> getTvlist({Parameters parameters}) {
-    // assert(creditId != null && creditId > 0);
-    return _v3._query('$_endPoint/tv/list', parameters: parameters);
+  Future<Map> getTvlist({String language = 'en-US'}) {
+    return _v3
+        ._query('$_endPoint/tv/list', optionalQueries: ['language=$language']);
   }
 }

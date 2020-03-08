@@ -11,22 +11,36 @@ class Find {
   ///This method will search all objects (movies, TV shows and people)
   /// and return the results in a single response.
   ///
-  /// To know about supported external sources for each object visit.
+  /// To know about supported external sources for each object
+  /// [visit](https://developers.themoviedb.org/3/find/find-by-id).
+  ///## Parameters
+  ///`externalId`: external id of the item
   ///
-  ///https://developers.themoviedb.org/3/find/find-by-id
+  ///`externalIdSource`: source of the given external id
   ///
-  ///*Usage*
+  ///`language`:Pass a ISO 639-1 value to display translated data for the fields that support it.
+  /// minLength: 2, pattern: ([a-z]{2})-([A-Z]{2}), default: en-US
+  ///
+  ///## Implementation
   ///
   ///```
-  /// Map result = await tmdb.credit.getById('tt8579674',externalIdSource: ExternalId.imdbId);
+  /// Map result = await tmdb.v3.credit.getById('tt8579674',
+  ///                                           externalIdSource: ExternalId.imdbId,
+  ///                                           language='en-US');
   /// ```
   /// *By default `externalIdSource` is set to IMDB ID*
   Future<Map> getById(String externalId,
       {ExternalId externalIdSource = ExternalId.imdbId,
-      Parameters parameters}) {
-    return _v3._query('$_endPoint/$externalId',
-        parameters: parameters,
-        optionalQueries: [_getSourceQuery(externalIdSource)]);
+      String language = 'en-US'}) {
+    //null check
+    if (externalId == null || externalIdSource == null)
+      throw NullValueException(
+          'externalId==null || externalIdSource == null is true');
+
+    return _v3._query('$_endPoint/$externalId', optionalQueries: [
+      _getSourceQuery(externalIdSource),
+      'language=$language'
+    ]);
   }
 
   String _getSourceQuery(ExternalId externalIdSource) {
