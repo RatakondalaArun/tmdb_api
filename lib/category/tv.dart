@@ -126,4 +126,101 @@ class Tv {
   Future<Map> getOnTheAir({Parameters parameters}) {
     return _v3._query('$_endPoint/on_the_air');
   }
+
+  ///Rate a TV show.
+  ///
+  ///A valid session or guest session ID is required
+  ///
+  ///## Parameters
+  ///`tvId`: id of the tv
+  ///
+  ///`ratingValue`: rating value should be minimum 0.5 and maximum 10
+  ///
+  ///`guestSessionId`: id of guest session
+  ///
+  ///`sessionId`: id of session
+  ///
+  ///only one of this `guestSessionId` or `sessionId` allowed.
+  ///If both values are provided sessionId will be given priority
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.rateTvShow(12, 5,
+  /// sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6');
+  ///```
+  ///
+  ///## Result
+  ///```
+  ///{
+  /// status_code: 1,
+  /// status_message: Success.
+  ///}
+  ///```
+  Future<Map> rateTvShow(int tvId, double ratingValue,
+      {String guestSessionId, String sessionId}) {
+    if (tvId == null || ratingValue == null)
+      throw NullValueException('movieId == null || ratingValue == null');
+    if (guestSessionId == null && sessionId == null)
+      throw NullValueException('guestSessionId == null && sessionId == null');
+    if (ratingValue < 0.5 || ratingValue > 10.0 || tvId < 1)
+      throw InvalidDataException(
+          'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
+
+    List<String> para = [];
+    //only one is allowed
+    if (sessionId != null)
+      para.add('session_id=$sessionId');
+    else
+      para.add('guest_session_id=$guestSessionId');
+
+    return _v3._query('$_endPoint/$tvId/rating',
+        method: HttpMethod.POST,
+        postBody: {'value': '$ratingValue'},
+        optionalQueries: para);
+  }
+
+  ///Remove your rating for a tv show.
+  ///
+  ///A valid session or guest session ID is required.
+  ///## Parameters
+  ///`tvId`: id of the movie
+  ///
+  ///`guestSessionId`: id of guest session
+  ///
+  ///`sessionId`: id of session
+  ///
+  ///only one of this `guestSessionId` or `sessionId` allowed
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.deleteRating(5,
+  /// sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6');
+  ///```
+  ///
+  ///## Result
+  ///```
+  ///{
+  /// status_code: 13,
+  /// status_message: The item/record was deleted successfully.
+  ///}
+  ///```
+  Future<Map> deleteRating(int tvId,
+      {String guestSessionId, String sessionId}) {
+    if (tvId == null)
+      throw NullValueException('movieId == null || ratingValue == null');
+    if (guestSessionId == null && sessionId == null)
+      throw NullValueException('guestSessionId == null && sessionId == null');
+    if (tvId < 1)
+      throw InvalidDataException(
+          'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
+
+    List<String> para = [];
+    //only one is allowed
+    if (sessionId != null)
+      para.add('session_id=$sessionId');
+    else
+      para.add('guest_session_id=$guestSessionId');
+
+    return _v3._query('$_endPoint/$tvId/rating',
+        method: HttpMethod.DELETE, postBody: {}, optionalQueries: para);
+  }
 }

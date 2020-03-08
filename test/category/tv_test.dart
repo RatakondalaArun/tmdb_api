@@ -200,5 +200,23 @@ main() {
         expect(result.containsKey('status_code'), false);
       });
     });
+
+    group('>Rate Movie', () {
+      test('>check', () async {
+        Map result = await tmdb.v3.tv.rateTvShow(12, 5,
+            sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6');
+        print(result);
+        expect(result is Map, true, reason: 'result is not map');
+      });
+    });
+
+    group('>Delete tv show Rating', () {
+      test('>check', () async {
+        Map result = await tmdb.v3.tv.deleteRating(5,
+            sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6');
+        print(result);
+        expect(result is Map, true, reason: 'result is not map');
+      });
+    });
   });
 }
