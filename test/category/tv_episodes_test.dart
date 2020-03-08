@@ -8,24 +8,21 @@ main() {
     group('Details', () {
       test('with parameters', () async {
         var result = await tmdb.v3.tvEpisodes.getDetails(103, 1, 1,
-            parameters:
-                Parameters(language: 'en-US', append: ['videos,images']));
-        assert(result is Map);
+            language: 'en-US', appendToResponse: 'videos,images');
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
         var result = await tmdb.v3.tvEpisodes.getDetails(103, 1, 1);
-        assert(result is Map);
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
     });
 
     group('Changes', () {
       test('with parameters', () async {
-        var result = await tmdb.v3.tvEpisodes.getChanges(302,
-            parameters:
-                Parameters(language: 'en-US', append: ['videos,images']));
-        assert(result is Map);
+        Map result = await tmdb.v3.tvEpisodes.getChanges(302, page: 2);
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
@@ -43,21 +40,6 @@ main() {
       });
       test('without parameters', () async {
         var result = await tmdb.v3.tvEpisodes.getCredits(103, 1, 1);
-        assert(result is Map);
-        expect(result.containsKey('status_code'), false);
-      });
-    });
-
-    group('Details', () {
-      test('with parameters', () async {
-        var result = await tmdb.v3.tvEpisodes.getDetails(103, 1, 1,
-            parameters:
-                Parameters(language: 'en-US', append: ['videos,images']));
-        assert(result is Map);
-        expect(result.containsKey('status_code'), false);
-      });
-      test('without parameters', () async {
-        var result = await tmdb.v3.tvEpisodes.getDetails(103, 1, 1);
         assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });

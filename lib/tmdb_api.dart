@@ -55,58 +55,7 @@ class TMDB {
   }
 }
 
-///Parameters for quering
-///
-///takes three optional parametes.
-///
-///[language] default to 'en-US'
-///,[page] default to '1'
-///, [append] takes a list of append_to_response
-class Parameters {
-  ///refer to https://developers.themoviedb.org/3/getting-started/languages
-  final String language;
-
-  ///Page number
-  final int page;
-
-  ///append_to_response
-  ///
-  ///For more details refer to https://developers.themoviedb.org/3/getting-started/append-to-response
-  final List<String> append;
-
-  ///region
-  ///
-  ///For more detail refer to https://developers.themoviedb.org/3/getting-started/regions
-  final String region;
-
-  ///[language] default to 'en-US'
-  ///
-  ///[page] default to '1' and constrains (1=<page<=1000)
-  ///
-  ///[append] takes a list of append_to_response
-  ///
-  ///[region] takes a String of region code and it
-  ///must be Uppercase and length must be less then 2
-  Parameters({this.language = 'en-US', this.page = 1, this.append, this.region})
-      : assert(page <= 1000 && page >= 1 && page != null),
-        assert(language.length >= 2 && language != null);
-
-  @override
-  String toString() {
-    return _query();
-  }
-
-  String _query() {
-    List<String> query = [];
-    if (language != null) query.add('language=${this.language}');
-    if (page != null) query.add('page=${this.page}');
-    if (region != null) query.add('region=${this.region}');
-    if (append != null)
-      query.add('append_to_response=${this.append.join(',')}');
-    return query.join('&');
-  }
-}
-
+///Http request methods
 enum HttpMethod {
   ///For get request
   GET,

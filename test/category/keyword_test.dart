@@ -8,14 +8,12 @@ void main() {
   group('Keyword', () {
     test('Details', () async {
       Map result = await tmdb.v3.keywords.getDetails(3417);
-      assert(result is Map);
-      assert(!result.containsKey('status_code'));
+      expect(result is Map, true);
       expect(result.containsKey('status_code'), false);
     });
     test('tv', () async {
-      Map result = await tmdb.v3.keywords.getTvlist(3417);
-      assert(result is Map);
-      assert(!result.containsKey('status_code'));
+      Map result = await tmdb.v3.keywords.getMovies(3417);
+      expect(result is Map, true);
       expect(result.containsKey('status_code'), false);
     });
   });

@@ -7,66 +7,63 @@ void main() {
   TMDB tmdb = TMDB(Keys.API);
   group('Movie', () {
     test('Details', () async {
-      var result = await tmdb.v3.movies
-          .getDetails(103, parameters: Parameters(language: 'en-US'));
-      assert(result is Map);
-      assert(!result.containsKey('status_code'));
+      Map result = await tmdb.v3.movies.getDetails(103, language: 'en-US');
+      expect(result is Map, true);
       expect(result.containsKey('status_code'), false);
     });
 
     test('Alternative titles', () async {
-      var result = await tmdb.v3.movies.getAlternativeTitle(103);
-      assert(result is Map);
-      assert(result['status_code'] != 7);
-      assert(result['status_code'] != 34);
+      Map result = await tmdb.v3.movies.getAlternativeTitle(103);
+      expect(result is Map, true);
+      expect(result.containsKey('status_code'), false);
     });
 
     test('credits', () async {
-      var result = await tmdb.v3.movies.getCredits(103);
-      assert(result is Map);
-      assert(result['status_code'] != 34);
+      Map result = await tmdb.v3.movies.getCredits(103);
+      expect(result is Map, true);
+      expect(result.containsKey('status_code'), false);
     });
 
     test('External Ids', () async {
       Map result = await tmdb.v3.movies.getExternalIds(103);
-      assert(result is Map);
-      assert(!result.containsKey('status_code'));
+      expect(result is Map, true);
+      expect(result.containsKey('status_code'), false);
     });
 
     test('Keywords', () async {
       Map result = await tmdb.v3.movies.getKeywords(103);
-      assert(result is Map);
-      assert(!result.containsKey('status_code'));
+      expect(result is Map, true);
+      expect(result.containsKey('status_code'), false);
     });
 
     test('Release date', () async {
       Map result = await tmdb.v3.movies.getKeywords(103);
-      assert(result is Map);
-      assert(!result.containsKey('status_code'));
+      expect(result is Map, true);
+      expect(result.containsKey('status_code'), false);
     });
 
     test('Videos', () async {
       Map result = await tmdb.v3.movies.getVideos(103);
-      assert(result is Map);
-      assert(!result.containsKey('status_code'));
+      expect(result is Map, true);
+      expect(result.containsKey('status_code'), false);
     });
 
     test('Translations', () async {
       Map result = await tmdb.v3.movies.getTranslations(103);
-      assert(result is Map);
-      assert(!result.containsKey('status_code'));
+      expect(result is Map, true);
+      expect(result.containsKey('status_code'), false);
     });
 
     test('Recommended', () async {
       Map result = await tmdb.v3.movies.getRecommended(103);
-      assert(result is Map);
-      assert(!result.containsKey('status_code'));
+      expect(result is Map, true);
+      expect(result.containsKey('status_code'), false);
     });
 
     test('Similar', () async {
       Map result = await tmdb.v3.movies.getSimilar(103);
-      assert(result is Map);
-      assert(!result.containsKey('status_code'));
+      expect(result is Map, true);
+      expect(result.containsKey('status_code'), false);
     });
 
     group('User reviews', () {
@@ -77,8 +74,8 @@ void main() {
             reason: 'error in api');
       });
       test('with parameters', () async {
-        Map result = await tmdb.v3.movies.getReviews(103,
-            parameters: Parameters(language: 'en-US', page: 3));
+        Map result =
+            await tmdb.v3.movies.getReviews(103, language: 'en-US', page: 3);
         expect(result is Map, true, reason: 'Reviews is not map');
         expect(result.containsKey('status_code'), false,
             reason: 'error in api');
@@ -87,8 +84,8 @@ void main() {
 
     group('Lists', () {
       test('with parameters', () async {
-        Map result = await tmdb.v3.movies.getReviews(103,
-            parameters: Parameters(language: 'en-US', page: 1));
+        Map result =
+            await tmdb.v3.movies.getReviews(103, language: 'en-US', page: 1);
         expect(result is Map, true, reason: 'result is not map');
         expect(result.containsKey('status_code'), false,
             reason:
@@ -104,8 +101,7 @@ void main() {
     });
     group('Latest', () {
       test('with parameters', () async {
-        Map result = await tmdb.v3.movies
-            .getLatest(parameters: Parameters(language: 'en-US', page: 3));
+        Map result = await tmdb.v3.movies.getLatest(language: 'en-US');
         expect(result is Map, true, reason: 'result is not map');
         expect(result.containsKey('status_code'), false,
             reason:
@@ -122,8 +118,8 @@ void main() {
 
     group('Now Playing', () {
       test('with parameters', () async {
-        Map result = await tmdb.v3.movies.getNowPlaying(
-            parameters: Parameters(language: 'en-US', page: 3, region: 'IN'));
+        Map result = await tmdb.v3.movies
+            .getNowPlaying(language: 'en-US', page: 3, region: 'IN');
         expect(result is Map, true, reason: 'result is not map');
         expect(result.containsKey('status_code'), false,
             reason:
@@ -140,8 +136,8 @@ void main() {
 
     group('Popular', () {
       test('with parameters', () async {
-        Map result = await tmdb.v3.movies.getPouplar(
-            parameters: Parameters(language: 'en-US', page: 3, region: 'IN'));
+        Map result = await tmdb.v3.movies
+            .getPouplar(language: 'en-US', page: 3, region: 'IN');
         expect(result is Map, true, reason: 'result is not map');
         expect(result.containsKey('status_code'), false,
             reason:
@@ -158,8 +154,8 @@ void main() {
 
     group('Top rated', () {
       test('with parameters', () async {
-        Map result = await tmdb.v3.movies.getTopRated(
-            parameters: Parameters(language: 'en-US', page: 3, region: 'IN'));
+        Map result = await tmdb.v3.movies
+            .getTopRated(language: 'en-US', page: 3, region: 'IN');
         expect(result is Map, true, reason: 'result is not map');
         expect(result.containsKey('status_code'), false,
             reason:
@@ -176,8 +172,8 @@ void main() {
 
     group('Upcoming', () {
       test('with parameters', () async {
-        Map result = await tmdb.v3.movies.getUpcoming(
-            parameters: Parameters(language: 'en-US', page: 3, region: 'IN'));
+        Map result = await tmdb.v3.movies
+            .getUpcoming(language: 'en-US', page: 3, region: 'IN');
         expect(result is Map, true, reason: 'result is not map');
         expect(result.containsKey('status_code'), false,
             reason:
@@ -205,6 +201,13 @@ void main() {
       test('>check', () async {
         Map result = await tmdb.v3.movies.deleteRating(5,
             sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6');
+        print(result);
+        expect(result is Map, true, reason: 'result is not map');
+      });
+    });
+    group('>Image', () {
+      test('>check', () async {
+        Map result = await tmdb.v3.movies.getImages(103);
         print(result);
         expect(result is Map, true, reason: 'result is not map');
       });

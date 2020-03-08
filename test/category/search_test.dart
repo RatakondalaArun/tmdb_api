@@ -9,8 +9,7 @@ void main() {
     group('Company', () {
       test('WithOut parameters', () async {
         Map result = await tmdb.v3.search.queryCompanies('Sony Pictures');
-        assert(result is Map);
-        assert(!result.containsKey('status_code'));
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
       test('Null value exception ', () async {
@@ -25,8 +24,7 @@ void main() {
       test('WithOut parameters', () async {
         Map result =
             await tmdb.v3.search.queryCollections('The Fast and the Furious');
-        assert(result is Map);
-        assert(!result.containsKey('status_code'));
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
       test('Null value exception ', () async {
@@ -40,8 +38,7 @@ void main() {
     group('Keywords', () {
       test('WithOut parameters', () async {
         Map result = await tmdb.v3.search.queryKeywords('alien');
-        assert(result is Map);
-        assert(!result.containsKey('status_code'));
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
       test('Null value exception ', () async {
@@ -55,8 +52,7 @@ void main() {
     group('Movies', () {
       test('WithOut parameters', () async {
         Map result = await tmdb.v3.search.queryMovies('The Avengers');
-        assert(result is Map);
-        assert(!result.containsKey('status_code'));
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
       test('Null value exception ', () async {
@@ -76,8 +72,7 @@ void main() {
     group('Multi Serch', () {
       test('WithOut parameters', () async {
         Map result = await tmdb.v3.search.queryMulti('The Avengers');
-        assert(result is Map);
-        assert(!result.containsKey('status_code'));
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
       test('Null value exception ', () async {
@@ -97,8 +92,7 @@ void main() {
     group('People', () {
       test('WithOut parameters', () async {
         Map result = await tmdb.v3.search.queryPeople('Bradley Cooper');
-        assert(result is Map);
-        assert(!result.containsKey('status_code'));
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
       test('Null value exception ', () async {
@@ -118,8 +112,7 @@ void main() {
     group('Tv shows', () {
       test('WithOut parameters', () async {
         Map result = await tmdb.v3.search.queryTvShows('Silicon Valley');
-        assert(result is Map);
-        assert(!result.containsKey('status_code'));
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
       test('Null value exception ', () async {
@@ -130,8 +123,8 @@ void main() {
         }
       });
       test('with parameters', () async {
-        Map result = await tmdb.v3.search
-            .queryTvShows('Silicon Valley', parameters: Parameters(page: 2));
+        Map result =
+            await tmdb.v3.search.queryTvShows('Silicon Valley', page: 2);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });

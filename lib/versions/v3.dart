@@ -80,15 +80,12 @@ class V3 {
   ///by default method type is [HttpMethod.GET]
   Future<Map> _query(
     String endPoint, {
-    Parameters parameters,
     HttpMethod method = HttpMethod.GET,
     List<String> optionalQueries,
     Map<String, String> postBody,
     Map<String, String> postHeaders,
   }) async {
-    String query = (parameters == null)
-        ? 'api_key=${_tmdb._apiKey}' //if parameters are null
-        : 'api_key=${_tmdb._apiKey}' + '&${parameters?.toString()}'; //
+    String query = 'api_key=${_tmdb._apiKey}';
     query = _optionalQueries(optionalQueries, query);
 
     //constructing the url
