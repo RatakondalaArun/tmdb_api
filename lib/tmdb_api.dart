@@ -27,6 +27,7 @@ part 'category/authentication.dart';
 part 'category/lists.dart';
 part 'category/images.dart';
 part 'category/account.dart';
+part 'category/guest_session.dart';
 
 part 'utils/tmdb_exceptions.dart';
 part 'utils/enums.dart';

@@ -26,6 +26,7 @@ class V3 {
   Auth _auth;
   Lists _lists;
   Account _account;
+  GuestSession _guestSession;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -49,6 +50,7 @@ class V3 {
   Auth get auth => _auth;
   Lists get lists => _lists;
   Account get account => _account;
+  GuestSession get guestSession => _guestSession;
 
   V3(this._tmdb) {
     _reviews = Reviews(this);
@@ -73,6 +75,7 @@ class V3 {
     _auth = Auth(this);
     _lists = Lists(this);
     _account = Account(this);
+    _guestSession = GuestSession(this);
   }
 
   ///Queries with the given parameters
