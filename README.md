@@ -2,12 +2,14 @@
 [![pub package](https://img.shields.io/pub/v/tmdb_api?color=dark%20green&include_prereleases&label=pub%20package&logo=dart)](https://pub.dartlang.org/packages/tmdb_api)
 
 # tmdb_api
+<img src="https://www.themoviedb.org/assets/2/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg" height=100px width="50%"><img src="https://dart.dev/assets/shared/dart/logo+text/horizontal/white-e71fb382ad5229792cc704b3ee7a88f8013e986d6e34f0956d89c453b454d0a5.svg" height="100px" width="50%">
 
 A Dart client-side API package for TMDB API.
 To know more visit [*TMDB*](https://www.themoviedb.org/)
 
 ## Avaliable features 
-### v3
+### v3( 🎊✨ Completed 🎉🎉)
+    Supports all the functions of version 3 of tmdb API
     - [X] Auth
     - [X] Account
     - [X] Guest Sessions
@@ -31,10 +33,9 @@ To know more visit [*TMDB*](https://www.themoviedb.org/)
     - [X] Reviews
     - [X] Versions
     - [X] Lists
-### v4
+### v4(In progress⏳)
     -[X] Image URL Constructor
-### Others
--   
+### v5(is currently in beta)  
 `More will be added soon`
 
 ---
