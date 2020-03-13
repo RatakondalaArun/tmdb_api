@@ -26,8 +26,11 @@ part 'category/reviews.dart';
 part 'category/authentication.dart';
 part 'category/lists.dart';
 part 'category/images.dart';
+part 'category/account.dart';
+part 'category/guest_session.dart';
 
 part 'utils/tmdb_exceptions.dart';
+part 'utils/enums.dart';
 
 /// TMDB.org API
 ///
@@ -53,16 +56,4 @@ class TMDB {
     _v3 = V3(this);
     _images = Images();
   }
-}
-
-///Http request methods
-enum HttpMethod {
-  ///For get request
-  GET,
-
-  ///For post request
-  POST,
-
-  ///For Delete request
-  DELETE,
 }

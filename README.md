@@ -9,6 +9,8 @@ To know more visit [*TMDB*](https://www.themoviedb.org/)
 ## Avaliable features 
 ### v3
     - [X] Auth
+    - [X] Account
+    - [X] Guest Sessions
     - [x] Movies
     - [x] Tv shows
     - [x] Tv Seasons

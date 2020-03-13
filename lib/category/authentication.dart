@@ -193,7 +193,7 @@ class Auth {
     Map result = await _v3._query('authentication/session',
         postHeaders: {'session_id': sessionId},
         method: HttpMethod.DELETE,
-        postBody: {'session_id': '$sessionId'});
+        deleteBody: {'session_id': '$sessionId'});
     print(result);
     return result;
   }
