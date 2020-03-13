@@ -565,4 +565,52 @@ class Movies {
 
     return _v3._query('$_endPoint/$movieId/images', optionalQueries: para);
   }
+
+  ///Grab the following account states for a session:
+  ///
+  ///- Movie rating
+  ///- If it belongs to your watchlist
+  ///- If it belongs to your favourite list
+  ///
+  ///## Parameters
+  ///`movieId`: id of the movie
+  ///
+  ///`guestSessionId`: id of guest session
+  ///
+  ///`sessionId`: id of session
+  ///
+  ///only one of this `guestSessionId` or `sessionId` allowed
+  ///if both values are provided sessionId will be given priority
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.movies.getAccountStatus(12,
+  ///               sessionId: '5129b38561c99f577bd85cc7f2ff47bb79735902');
+  ///```
+  ///## Result
+  ///```
+  ///{
+  ///   id: 12,
+  ///   favorite: false,
+  ///   rated: {value: 5.0},
+  ///   watchlist: false
+  ///}
+  ///```
+  ///
+  Future<Map> getAccountStatus(int movieId,
+      {String sessionId, String guestSessionId}) {
+    if (movieId == null) throw NullValueException('movieId==null is true');
+    if (movieId < 1) throw InvalidDataException('movieId<1');
+    if (sessionId == null && guestSessionId == null)
+      throw NullValueException(
+          'sessionId==null && guestSessionId==null is true');
+    List<String> para = [];
+    //only one is allowed
+    if (sessionId != null)
+      para.add('session_id=$sessionId');
+    else
+      para.add('guest_session_id=$guestSessionId');
+
+    return _v3._query('$_endPoint/$movieId/account_states',
+        optionalQueries: para);
+  }
 }
