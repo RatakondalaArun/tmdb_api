@@ -208,6 +208,6 @@ class Lists {
     return _v3._query('$_endPoint/$listId',
         method: HttpMethod.DELETE,
         optionalQueries: ['session_id=$sessionId'],
-        postBody: {});
+        deleteBody: {});
   }
 }

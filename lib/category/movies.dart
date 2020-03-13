@@ -533,7 +533,7 @@ class Movies {
       para.add('guest_session_id=$guestSessionId');
 
     return _v3._query('$_endPoint/$movieId/rating',
-        method: HttpMethod.DELETE, postBody: {}, optionalQueries: para);
+        method: HttpMethod.DELETE, deleteBody: {}, optionalQueries: para);
   }
 
   ///Get the images that belong to a movie.

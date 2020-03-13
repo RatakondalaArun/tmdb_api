@@ -469,6 +469,6 @@ class Tv {
       para.add('guest_session_id=$guestSessionId');
 
     return _v3._query('$_endPoint/$tvId/rating',
-        method: HttpMethod.DELETE, postBody: {}, optionalQueries: para);
+        method: HttpMethod.DELETE, deleteBody: {}, optionalQueries: para);
   }
 }
