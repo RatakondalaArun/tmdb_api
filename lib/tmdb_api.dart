@@ -26,6 +26,7 @@ part 'category/reviews.dart';
 part 'category/authentication.dart';
 part 'category/lists.dart';
 part 'category/images.dart';
+part 'category/account.dart';
 
 part 'utils/tmdb_exceptions.dart';
 

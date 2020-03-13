@@ -25,6 +25,7 @@ class V3 {
   Reviews _reviews;
   Auth _auth;
   Lists _lists;
+  Account _account;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -47,6 +48,7 @@ class V3 {
   Reviews get reviews => _reviews;
   Auth get auth => _auth;
   Lists get lists => _lists;
+  Account get account => _account;
 
   V3(this._tmdb) {
     _reviews = Reviews(this);
@@ -70,6 +72,7 @@ class V3 {
     _networks = Networks(this);
     _auth = Auth(this);
     _lists = Lists(this);
+    _account = Account(this);
   }
 
   ///Queries with the given parameters
@@ -83,6 +86,7 @@ class V3 {
     HttpMethod method = HttpMethod.GET,
     List<String> optionalQueries,
     Map<String, String> postBody,
+    Map<String, String> deleteBody,
     Map<String, String> postHeaders,
   }) async {
     String query = 'api_key=${_tmdb._apiKey}';
@@ -104,7 +108,7 @@ class V3 {
       if (method == HttpMethod.POST) {
         response = await http.post(url, body: postBody);
       } else if (method == HttpMethod.DELETE) {
-        response = await _httpDelete(url, postBody);
+        response = await _httpDelete(url, deleteBody);
       } else {
         response = await http.get(url);
       }
