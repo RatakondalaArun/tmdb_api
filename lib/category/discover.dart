@@ -281,29 +281,3 @@ class Discover {
     }
   }
 }
-
-enum SortMoviesBy {
-  popularityAsc,
-  popularityDesc,
-  releaseDateAsc,
-  releaseDateDesc,
-  revenueAsc,
-  revenueDesc,
-  primaryReleaseDateAsc,
-  primaryReleaseDateDesc,
-  orginalTitleAsc,
-  orginalTitleDesc,
-  voteAverageAsc,
-  voteAverageDesc,
-  voteCountAsc,
-  voteCountDesc
-}
-
-enum SortTvShowsBy {
-  voteAverageAsc,
-  voteAverageDesc,
-  popularityAsc,
-  popularityDesc,
-  firstAirDateAsc,
-  firstAirDateDesc
-}

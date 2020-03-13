@@ -60,5 +60,3 @@ class Find {
     }
   }
 }
-
-enum ExternalId { imdbId, tvdbId, facebookId, twitterId, instagramId }

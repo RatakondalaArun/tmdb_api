@@ -687,6 +687,3 @@ class Account {
         });
   }
 }
-
-///Sort the results.
-enum SortBy { createdAtAsc, createdAtDes }

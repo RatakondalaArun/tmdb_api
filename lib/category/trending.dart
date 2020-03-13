@@ -63,19 +63,3 @@ class Trending {
     }
   }
 }
-
-enum MediaType {
-  ///To get all movies,tv,person
-  all,
-
-  ///filter the result with only movies
-  movie,
-
-  ///filter the result with only tv shows
-  tv,
-
-  ///filter the result with only persons
-  person
-}
-
-enum TimeWindow { day, week }
