@@ -471,4 +471,51 @@ class Tv {
     return _v3._query('$_endPoint/$tvId/rating',
         method: HttpMethod.DELETE, deleteBody: {}, optionalQueries: para);
   }
+
+  ///Grab the following account states for a session:
+  ///
+  ///- TV show rating
+  ///- If it belongs to your watchlist
+  ///- If it belongs to your favourite list
+  ///
+  ///## Parameters
+  ///`tvId`: id of the tv show
+  ///
+  ///`guestSessionId`: id of guest session
+  ///
+  ///`sessionId`: id of session
+  ///
+  ///only one of this `guestSessionId` or `sessionId` allowed
+  ///if both values are provided sessionId will be given priority
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getAccountStatus(34,
+  /// sessionId: '5129b38561c99f577bd85cc7f2ff47bb79735902');
+  ///```
+  ///## Result
+  ///```
+  ///{
+  ///   id: 34,
+  ///   favorite: false,
+  ///   rated: false,
+  ///   watchlist: true
+  ///}
+  ///```
+  ///
+  Future<Map> getAccountStatus(int tvId,
+      {String sessionId, String guestSessionId}) {
+    if (tvId == null) throw NullValueException('tvId==null is true');
+    if (tvId < 1) throw InvalidDataException('tvId<1');
+    if (sessionId == null && guestSessionId == null)
+      throw NullValueException(
+          'sessionId==null && guestSessionId==null is true');
+    List<String> para = [];
+    //only one is allowed
+    if (sessionId != null)
+      para.add('session_id=$sessionId');
+    else
+      para.add('guest_session_id=$guestSessionId');
+
+    return _v3._query('$_endPoint/$tvId/account_states', optionalQueries: para);
+  }
 }
