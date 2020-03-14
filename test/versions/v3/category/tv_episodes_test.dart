@@ -1,20 +1,19 @@
 import 'package:flutter_test/flutter_test.dart';
-import '../../lib/keys.dart';
-import '../../lib/tmdb_api.dart';
+import 'package:tmdb_api/tmdb_api.dart';
+import '../../../../lib/keys.dart';
 
 main() {
   TMDB tmdb = TMDB(Keys.API);
-  group('Tv seasons', () {
+  group('Tv episodes', () {
     group('Details', () {
       test('with parameters', () async {
-        var result = await tmdb.v3.tvSeasons.getDetails(103, 1,
+        var result = await tmdb.v3.tvEpisodes.getDetails(103, 1, 1,
             language: 'en-US', appendToResponse: 'videos,images');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
-        print(result);
       });
       test('without parameters', () async {
-        var result = await tmdb.v3.tvSeasons.getDetails(103, 1);
+        var result = await tmdb.v3.tvEpisodes.getDetails(103, 1, 1);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -22,66 +21,58 @@ main() {
 
     group('Changes', () {
       test('with parameters', () async {
-        var result = await tmdb.v3.tvSeasons.getChanges(302, page: 2);
+        Map result = await tmdb.v3.tvEpisodes.getChanges(302, page: 2);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.v3.tvSeasons.getChanges(302);
-        expect(result is Map, true);
+        var result = await tmdb.v3.tvEpisodes.getChanges(302);
+        assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
     });
 
     group('Credits', () {
       test('with parameters', () async {
-        var result = await tmdb.v3.tvSeasons.getCredits(
-          103,
-          1,
-        );
-        expect(result is Map, true);
+        var result = await tmdb.v3.tvEpisodes.getCredits(103, 1, 1);
+        assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.v3.tvSeasons.getCredits(103, 1);
-        expect(result is Map, true);
-        expect(result.containsKey('status_code'), false);
-      });
-    });
-
-    group('Details', () {
-      test('with parameters', () async {
-        var result = await tmdb.v3.tvSeasons.getDetails(103, 1);
-        expect(result is Map, true);
-        expect(result.containsKey('status_code'), false);
-      });
-      test('without parameters', () async {
-        var result = await tmdb.v3.tvSeasons.getDetails(103, 1);
-        expect(result is Map, true);
+        var result = await tmdb.v3.tvEpisodes.getCredits(103, 1, 1);
+        assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
     });
 
     group('External ids', () {
       test('without parameters', () async {
-        var result = await tmdb.v3.tvSeasons.getExternalId(103, 1);
-        expect(result is Map, true);
+        var result = await tmdb.v3.tvEpisodes.getExternalId(103, 1, 1);
+        assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
     });
 
     group('Images', () {
       test('without parameters', () async {
-        var result = await tmdb.v3.tvSeasons.getImages(103, 1);
-        expect(result is Map, true);
+        var result = await tmdb.v3.tvEpisodes.getImages(103, 1, 1);
+        assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
     });
 
     group('Videos', () {
       test('with parameters', () async {
-        var result = await tmdb.v3.tvSeasons.getVideos(103, 1);
-        expect(result is Map, true);
+        var result = await tmdb.v3.tvEpisodes.getVideos(103, 1, 1);
+        assert(result is Map);
+        expect(result.containsKey('status_code'), false);
+      });
+    });
+
+    group('Translations', () {
+      test('without parameters', () async {
+        var result = await tmdb.v3.tvEpisodes.getTranslation(103, 1, 1);
+        assert(result is Map);
         expect(result.containsKey('status_code'), false);
       });
     });

@@ -1,19 +1,19 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../lib/tmdb_api.dart';
-import '../../lib/keys.dart';
+import 'package:tmdb_api/tmdb_api.dart';
+import '../../../../lib/keys.dart';
 
 void main() {
   TMDB tmdb = TMDB(Keys.API);
-  group('Certification', () {
+  group('Geners', () {
     test('movie', () async {
-      Map result = await tmdb.v3.certification.getMovie();
+      Map result = await tmdb.v3.geners.getMovieList();
       assert(result is Map);
       assert(!result.containsKey('status_code'));
       expect(result.containsKey('status_code'), false);
     });
-    test('TV', () async {
-      Map result = await tmdb.v3.certification.getTv();
+    test('tv', () async {
+      Map result = await tmdb.v3.geners.getTvlist();
       assert(result is Map);
       assert(!result.containsKey('status_code'));
       expect(result.containsKey('status_code'), false);

@@ -1,25 +1,25 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../lib/tmdb_api.dart';
-import '../../lib/keys.dart';
+import 'package:tmdb_api/tmdb_api.dart';
+import '../../../../lib/keys.dart';
 
 void main() {
   TMDB tmdb = TMDB(Keys.API);
-  group('Collections', () {
-    test('details', () async {
-      Map result = await tmdb.v3.collections.getDetails(10);
+  group('Companies', () {
+    test('Details', () async {
+      Map result = await tmdb.v3.companies.getDetails(1);
       assert(result is Map);
       assert(!result.containsKey('status_code'));
       expect(result.containsKey('status_code'), false);
     });
-    test('images', () async {
-      Map result = await tmdb.v3.collections.getImages(10);
+    test('Alternative names', () async {
+      Map result = await tmdb.v3.companies.getAlternativeNames(3);
       assert(result is Map);
       assert(!result.containsKey('status_code'));
       expect(result.containsKey('status_code'), false);
     });
-    test('Translations', () async {
-      Map result = await tmdb.v3.collections.getTranslations(10);
+    test('Images', () async {
+      Map result = await tmdb.v3.companies.getImages(1);
       assert(result is Map);
       assert(!result.containsKey('status_code'));
       expect(result.containsKey('status_code'), false);

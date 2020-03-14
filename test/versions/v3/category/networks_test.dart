@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tmdb_api/tmdb_api.dart';
-
-import '../../lib/keys.dart';
+import '../../../../lib/keys.dart';
 
 void main() {
   TMDB tmdb = TMDB(Keys.API);
