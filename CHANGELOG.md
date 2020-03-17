@@ -1,4 +1,6 @@
 ## [1.0.0-beta] - 17-3-2020
+* # 1.0.0-beta.1
+    Update Readme
 * # 1.0.0-beta
     Almost all the features are added
     (*if any features are missing you can create a issue*)
