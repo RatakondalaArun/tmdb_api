@@ -3,7 +3,7 @@ import 'package:tmdb_api/tmdb_api.dart';
 import '../../../../lib/keys.dart';
 
 main() {
-  TMDB tmdb = TMDB(Keys.API);
+  TMDB tmdb = TMDB(Keys.API, null);
   group('People', () {
     group('Details', () {
       test('with parameters', () async {

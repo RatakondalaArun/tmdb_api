@@ -4,7 +4,7 @@ import 'package:tmdb_api/tmdb_api.dart';
 import '../../../../lib/keys.dart';
 
 void main() {
-  TMDB tmdb = TMDB(Keys.API);
+  TMDB tmdb = TMDB(Keys.API, null);
   group('Companies', () {
     test('Details', () async {
       Map result = await tmdb.v3.companies.getDetails(1);

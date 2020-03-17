@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 part 'versions/v3.dart';
+part 'versions/v4.dart';
+
 part 'versions/v3/category/movies.dart';
 part 'versions/v3/category/tv.dart';
 part 'versions/v3/category/tv_seasons.dart';
@@ -28,9 +30,14 @@ part 'versions/v3/category/lists.dart';
 part 'versions/v3/category/images.dart';
 part 'versions/v3/category/account.dart';
 part 'versions/v3/category/guest_session.dart';
+part 'versions/v4/category/account.dart';
+part 'versions/v4/category/auth.dart';
+part 'versions/v4/category/lists.dart';
 
 part 'utils/tmdb_exceptions.dart';
 part 'utils/enums.dart';
+
+part 'models/ListItem.dart';
 
 /// TMDB.org API
 ///
@@ -41,19 +48,23 @@ part 'utils/enums.dart';
 class TMDB {
   final String _baseUrl = 'api.themoviedb.org';
   final String _apiKey;
+  final String _v4AccessToken;
 
   V3 _v3;
+  V4 _v4;
   Images _images;
 
   ///Version v3 of tmdb api
   ///
   ///[offical v3 doc](https://developers.themoviedb.org/3/getting-started)
   V3 get v3 => _v3;
+  V4 get v4 => _v4;
   Images get images => _images;
 
   ///Takes a not null [apikey]
-  TMDB(this._apiKey) : assert(_apiKey != null) {
+  TMDB(this._apiKey, this._v4AccessToken) {
     _v3 = V3(this);
+    _v4 = V4(this);
     _images = Images();
   }
 }

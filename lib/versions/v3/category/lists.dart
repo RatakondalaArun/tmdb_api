@@ -195,7 +195,7 @@ class Lists {
   ///## Parameters
   ///`sessionId`: current session
   ///
-  ///`listId`: if of the list
+  ///`listId`: id of the list
   ///## Implementation
   ///```
   ///Map result = await tmdb.v3.lists
