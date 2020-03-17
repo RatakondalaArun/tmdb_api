@@ -11,6 +11,9 @@ enum HttpMethod {
 
   ///For Delete request
   DELETE,
+
+  ///For Put request
+  PUT,
 }
 
 //----------------------others-------------------------
@@ -64,3 +67,19 @@ enum SortTvShowsBy {
 
 //find.dart
 enum ExternalId { imdbId, tvdbId, facebookId, twitterId, instagramId }
+
+//--------------------------------------V4-------------------------------------
+
+///- lists.Dart
+///
+///- account.dart
+enum SortListBy {
+  releaseDateAsc,
+  releaseDateDesc,
+  orginalOrderAsc,
+  orginalOrderDesc,
+  voteAverageAsc,
+  voteAverageDesc,
+  titleAsc,
+  titleDesc,
+}
