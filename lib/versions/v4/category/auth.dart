@@ -35,8 +35,9 @@ class AuthV4 {
       {String redirectTo = 'http://www.themoviedb.org/'}) {
     String accessToken = _v4._tmdb._apiKeys._apiReadAccessTokenv4;
 
-    if (accessToken == null)
+    if (accessToken == null) {
       throw NullValueException('accessToken==null is true');
+    }
     Map<String, String> postHeaders = {
       'Content-Type': 'application/json;charset=utf-8',
       'Authorization': 'Bearer $accessToken'
@@ -74,8 +75,9 @@ class AuthV4 {
   /// ```
   Future<Map> createAccessToken(String requestToken) {
     String v4ApiToken = _v4._tmdb._apiKeys._apiReadAccessTokenv4;
-    if (v4ApiToken == null)
+    if (v4ApiToken == null) {
       throw NullValueException('accessToken==null is true');
+    }
     Map<String, String> postHeaders = {
       'Content-Type': 'application/json;charset=utf-8',
       'Authorization': 'Bearer $v4ApiToken'
@@ -108,10 +110,12 @@ class AuthV4 {
   Future<Map> deleteAccessToken(String accessToken) {
     String v4ApiToken = _v4._tmdb._apiKeys._apiReadAccessTokenv4;
     //todo:test this after implementing account
-    if (v4ApiToken == null)
+    if (v4ApiToken == null) {
       throw NullValueException('accessToken==null is true');
-    if (accessToken == null)
+    }
+    if (accessToken == null) {
       throw NullValueException('accessToken == null is true');
+    }
 
     return _v4._query('$_endPoint/access_token',
         method: HttpMethod.DELETE,

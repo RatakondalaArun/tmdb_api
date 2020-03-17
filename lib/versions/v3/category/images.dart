@@ -21,7 +21,9 @@ class Images {
   ///
   String getUrl(String imagePath,
       {String size = ImageSizes.ORIGINAL, String ifNullUrl}) {
-    if (imagePath == null) return ifNullUrl;
+    if (imagePath == null) {
+      return ifNullUrl;
+    }
     return '$_baseUrl/$size/$imagePath';
   }
 }

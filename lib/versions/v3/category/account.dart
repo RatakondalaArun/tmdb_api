@@ -33,8 +33,9 @@ class Account {
   ///}
   ///```
   Future<Map> getDetails(String sessionId) {
-    if (sessionId == null)
+    if (sessionId == null) {
       throw NullValueException('sessionId == null is true');
+    }
 
     return _v3._query('$_endPoint', optionalQueries: ['session_id=$sessionId']);
   }
@@ -92,13 +93,15 @@ class Account {
     if (sessionId == null ||
         accountId == null ||
         language == null ||
-        page == null)
+        page == null) {
       throw NullValueException(
           'sessionId == null||accountId==null||language==null||page==null is true');
+    }
 
-    if (accountId < 1 || page < 1 || page > 1000)
+    if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
+    }
 
     return _v3._query('$_endPoint/$accountId/lists', optionalQueries: [
       'session_id=$sessionId',
@@ -144,18 +147,21 @@ class Account {
         accountId == null ||
         language == null ||
         page == null ||
-        sortBy == null)
+        sortBy == null) {
       throw NullValueException(
           'sessionId == null||accountId==null||language==null||page==null||sortBy==null is true');
+    }
 
-    if (accountId < 1 || page < 1 || page > 1000)
+    if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
+    }
     String sort;
-    if (sortBy == SortBy.createdAtAsc)
+    if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
-    else
+    } else {
       sort = 'created_at.desc';
+    }
     return _v3._query('$_endPoint/$accountId/favorite/movies',
         optionalQueries: [
           'session_id=$sessionId',
@@ -202,18 +208,21 @@ class Account {
         accountId == null ||
         language == null ||
         page == null ||
-        sortBy == null)
+        sortBy == null) {
       throw NullValueException(
           'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
+    }
 
-    if (accountId < 1 || page < 1 || page > 1000)
+    if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
+    }
     String sort;
-    if (sortBy == SortBy.createdAtAsc)
+    if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
-    else
+    } else {
       sort = 'created_at.desc';
+    }
 
     return _v3._query('$_endPoint/$accountId/favorite/tv', optionalQueries: [
       'session_id=$sessionId',
@@ -259,18 +268,21 @@ class Account {
     if (accountId == null ||
         sessionId == null ||
         mediaType == null ||
-        mediaId == null)
+        mediaId == null) {
       throw NullValueException(
           'accountId==null||sessionId==null||mediaType==null||mediaId==null is true');
+    }
 
-    if (accountId < 1 || mediaId < 1)
+    if (accountId < 1 || mediaId < 1) {
       throw InvalidDataException('accountId<1||mediaId<1 is true');
+    }
     String type;
     //
-    if (mediaType == MediaType.tv)
+    if (mediaType == MediaType.tv) {
       type = 'tv';
-    else
+    } else {
       type = 'movie';
+    }
 
     return _v3._query('$_endPoint/$accountId/favorite',
         method: HttpMethod.POST,
@@ -319,18 +331,21 @@ class Account {
         accountId == null ||
         language == null ||
         page == null ||
-        sortBy == null)
+        sortBy == null) {
       throw NullValueException(
           'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
+    }
 
-    if (accountId < 1 || page < 1 || page > 1000)
+    if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
+    }
     String sort;
-    if (sortBy == SortBy.createdAtAsc)
+    if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
-    else
+    } else {
       sort = 'created_at.desc';
+    }
 
     return _v3._query('$_endPoint/$accountId/rated/movies', optionalQueries: [
       'session_id=$sessionId',
@@ -390,18 +405,21 @@ class Account {
         accountId == null ||
         language == null ||
         page == null ||
-        sortBy == null)
+        sortBy == null) {
       throw NullValueException(
           'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
+    }
 
-    if (accountId < 1 || page < 1 || page > 1000)
+    if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
+    }
     String sort;
-    if (sortBy == SortBy.createdAtAsc)
+    if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
-    else
+    } else {
       sort = 'created_at.desc';
+    }
 
     return _v3._query('$_endPoint/$accountId/rated/tv', optionalQueries: [
       'session_id=$sessionId',
@@ -448,18 +466,21 @@ class Account {
         accountId == null ||
         language == null ||
         page == null ||
-        sortBy == null)
+        sortBy == null) {
       throw NullValueException(
           'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
+    }
 
-    if (accountId < 1 || page < 1 || page > 1000)
+    if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
+    }
     String sort;
-    if (sortBy == SortBy.createdAtAsc)
+    if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
-    else
+    } else {
       sort = 'created_at.desc';
+    }
 
     return _v3._query('$_endPoint/$accountId/rated/tv/episodes',
         optionalQueries: [
@@ -526,18 +547,21 @@ class Account {
         accountId == null ||
         language == null ||
         page == null ||
-        sortBy == null)
+        sortBy == null) {
       throw NullValueException(
           'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
+    }
 
-    if (accountId < 1 || page < 1 || page > 1000)
+    if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
+    }
     String sort;
-    if (sortBy == SortBy.createdAtAsc)
+    if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
-    else
+    } else {
       sort = 'created_at.desc';
+    }
 
     return _v3._query('$_endPoint/$accountId/watchlist/movies',
         optionalQueries: [
@@ -605,18 +629,21 @@ class Account {
         accountId == null ||
         language == null ||
         page == null ||
-        sortBy == null)
+        sortBy == null) {
       throw NullValueException(
           'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
+    }
 
-    if (accountId < 1 || page < 1 || page > 1000)
+    if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
+    }
     String sort;
-    if (sortBy == SortBy.createdAtAsc)
+    if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
-    else
+    } else {
       sort = 'created_at.desc';
+    }
 
     return _v3._query('$_endPoint/$accountId/watchlist/tv', optionalQueries: [
       'session_id=$sessionId',
@@ -662,18 +689,21 @@ class Account {
     if (accountId == null ||
         sessionId == null ||
         mediaType == null ||
-        mediaId == null)
+        mediaId == null) {
       throw NullValueException(
           'accountId==null||sessionId==null||mediaType==null||mediaId==null is true');
+    }
 
-    if (accountId < 1 || mediaId < 1)
+    if (accountId < 1 || mediaId < 1) {
       throw InvalidDataException('accountId<1||mediaId<1 is true');
+    }
     String type;
     //
-    if (mediaType == MediaType.tv)
+    if (mediaType == MediaType.tv) {
       type = 'tv';
-    else
+    } else {
       type = 'movie';
+    }
 
     return _v3._query('$_endPoint/$accountId/watchlist',
         method: HttpMethod.POST,

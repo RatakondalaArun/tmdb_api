@@ -13,16 +13,17 @@ class Networks {
   ///
   ///## Usage
   ///```
-  ///Map result = await tmdb.networks.getDetails(213);
+  ///Map result = await tmdb.v3.networks.getDetails(213);
   ///```
   ///
   ///For doc visit
   ///[Offical Docmentation](https://developers.themoviedb.org/3/networks/get-network-details)
   Future<Map> getDetails(int networkId) {
-    if (networkId == null)
+    if (networkId == null) {
       throw NullValueException('networkId==null is true',
           source: 'Networks.getDetails($networkId)',
           help: 'try pass a non null value');
+    }
 
     return _v3._query('$_endPoint/$networkId');
   }
@@ -35,13 +36,14 @@ class Networks {
   ///
   ///## Usage
   ///```
-  ///Map result = await tmdb.networks.getAlternativeNames(213);
+  ///Map result = await tmdb.v3networks.getAlternativeNames(213);
   ///```
   Future<Map> getAlternativeNames(int networkId) {
-    if (networkId == null)
+    if (networkId == null) {
       throw NullValueException('networkId==null is true',
           source: 'Networks.getAlternativeNames($networkId)',
           help: 'try pass a non null value');
+    }
 
     return _v3._query('$_endPoint/$networkId/alternative_names');
   }
@@ -54,13 +56,14 @@ class Networks {
   ///
   ///## Usage
   ///```
-  ///Map result = await tmdb.networks.getImages(213);
+  ///Map result = await tmdb.v3networks.getImages(213);
   ///```
   Future<Map> getImages(int networkId) {
-    if (networkId == null)
+    if (networkId == null) {
       throw NullValueException('networkId==null is true',
           source: 'Networks.getImages($networkId)',
           help: 'try pass a non null value');
+    }
 
     return _v3._query('$_endPoint/$networkId/images');
   }

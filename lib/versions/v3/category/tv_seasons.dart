@@ -25,12 +25,14 @@ class TvSeasons {
   ///
   Future<Map> getDetails(int tvId, int seasonNumber,
       {String appendToResponse, String language = 'en=US'}) {
-    if (tvId == null || seasonNumber == null || language == null)
+    if (tvId == null || seasonNumber == null || language == null) {
       throw NullValueException(
           'tvId == null || seasonNumber == null || language == null is true');
+    }
     List<String> para = ['language=$language'];
-    if (appendToResponse != null)
+    if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
+    }
 
     return _v3._query('tv/$tvId/$_endPoint/$seasonNumber',
         method: HttpMethod.GET, optionalQueries: para);
@@ -54,12 +56,17 @@ class TvSeasons {
   ///```
   Future<Map> getChanges(int seasonId,
       {String startDate, String endDate, int page = 1}) {
-    if (seasonId == null || page == null)
+    if (seasonId == null || page == null) {
       throw NullValueException('episodeId == null || page == null is true');
+    }
 
     List<String> para = ['page=$page'];
-    if (startDate != null) para.add('start_date=$startDate');
-    if (endDate != null) para.add('end_date=$endDate');
+    if (startDate != null) {
+      para.add('start_date=$startDate');
+    }
+    if (endDate != null) {
+      para.add('end_date=$endDate');
+    }
 
     return _v3._query('tv/$_endPoint/$seasonId/changes', optionalQueries: para);
   }
@@ -85,11 +92,13 @@ class TvSeasons {
   ///
   Future<Map> getCredits(int tvId, int seasonNumber,
       {String language = 'en-US'}) {
-    if (seasonNumber == null || tvId == null || language == null)
+    if (seasonNumber == null || tvId == null || language == null) {
       throw NullValueException(
           'seasonNumber==null||tvId==null||language==null is true');
-    if (seasonNumber < 1 || tvId < 1)
+    }
+    if (seasonNumber < 1 || tvId < 1) {
       throw InvalidDataException('seasonNumber<1||tvId<1 is true');
+    }
     return _v3._query('tv/$tvId/$_endPoint/$seasonNumber/credits',
         optionalQueries: ['language=$language']);
   }
@@ -101,11 +110,13 @@ class TvSeasons {
   /// - `TVDB ID`
   Future<Map> getExternalId(int tvId, int seasonNumber,
       {String language = 'en-US'}) {
-    if (tvId == null || seasonNumber == null || language == null)
+    if (tvId == null || seasonNumber == null || language == null) {
       throw NullValueException(
           'tvId==null||seasonNumber==null||language==null is true');
-    if (tvId < 1 || seasonNumber < 1)
+    }
+    if (tvId < 1 || seasonNumber < 1) {
       throw InvalidDataException('tvId<1||seasonNumber<1 is true');
+    }
 
     return _v3._query('tv/$tvId/$_endPoint/$seasonNumber/external_ids',
         optionalQueries: ['language=$language']);
@@ -114,11 +125,13 @@ class TvSeasons {
   ///Get the images that belong to a TV season.
   Future<Map> getImages(int tvId, int seasonNumber,
       {String language = 'en-US'}) {
-    if (tvId == null || seasonNumber == null || language == null)
+    if (tvId == null || seasonNumber == null || language == null) {
       throw NullValueException(
           'tvId==null||seasonNumber==null||language==null is true');
-    if (tvId < 1 || seasonNumber < 1)
+    }
+    if (tvId < 1 || seasonNumber < 1) {
       throw InvalidDataException('tvId<1||seasonNumber<1 is true');
+    }
 
     return _v3._query('tv/$tvId/$_endPoint/$seasonNumber/images',
         optionalQueries: ['language=$language']);
@@ -127,11 +140,13 @@ class TvSeasons {
   ///Get the videos that have been added to a TV season.
   Future<Map> getVideos(int tvId, int seasonNumber,
       {String language = 'en-US'}) {
-    if (tvId == null || seasonNumber == null || language == null)
+    if (tvId == null || seasonNumber == null || language == null) {
       throw NullValueException(
           'tvId==null||seasonNumber==null||language==null is true');
-    if (tvId < 1 || seasonNumber < 1)
+    }
+    if (tvId < 1 || seasonNumber < 1) {
       throw InvalidDataException('tvId<1||seasonNumber<1 is true');
+    }
 
     return _v3._query('tv/$tvId/$_endPoint/$seasonNumber/videos',
         optionalQueries: ['language=$language']);

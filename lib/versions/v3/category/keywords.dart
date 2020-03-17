@@ -16,7 +16,9 @@ class Keywords {
   /// Map result = await tmdb.v3.keywords.getMovies(3417);
   ///```
   Future<Map> getDetails(int keywordId) {
-    if (keywordId == null) throw NullValueException('keywordId == null');
+    if (keywordId == null) {
+      throw NullValueException('keywordId == null');
+    }
 
     return _v3._query('$_endPoint/$keywordId');
   }
@@ -39,9 +41,10 @@ class Keywords {
   ///```
   Future<Map> getMovies(int keywordId,
       {String language = 'en-US', bool includeAdult = false}) {
-    if (keywordId == null || language == null || includeAdult == null)
+    if (keywordId == null || language == null || includeAdult == null) {
       throw NullValueException(
           'keywordId==null||language==null||includeAdult==null');
+    }
 
     return _v3._query('$_endPoint/$keywordId',
         optionalQueries: ['include_adult=$includeAdult', 'language=$language']);

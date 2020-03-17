@@ -29,8 +29,9 @@ class TvEpisodeGroup {
   /// Map result = tmdb.v3.tvEpisodeGroup.getDetails(12);
   /// ```
   Future<Map> getDetails(String id, {String language = 'en-US'}) {
-    if (id == null || language == null)
+    if (id == null || language == null) {
       throw NullValueException('id == null || language==null is true');
+    }
 
     return _v3._query('tv/$_endPoint/$id',
         method: HttpMethod.GET, optionalQueries: ['language=$language']);

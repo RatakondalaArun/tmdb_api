@@ -8,16 +8,22 @@ class Credit {
 
   ///Get a movie or TV credit details by id.
   ///
-  ///For doc visit https://developers.themoviedb.org/3/credits/get-credit-details
+  ///For doc [visit](https://developers.themoviedb.org/3/credits/get-credit-details)
   ///
-  ///*Usage*
+  ///## Parameters
+  ///`creditId`:Id of a credit
+  ///
+  ///## Implementation
   ///
   ///```
-  /// Map result = await tmdb.credit.getDetails('52542282760ee313280017f9');
+  /// Map result = await tmdb.v3.credit.getDetails('52542282760ee313280017f9');
   /// ```
   ///
   Future<Map> getDetails(String creditId) {
-    // assert(creditId != null && creditId > 0);
+    if (creditId == null) {
+      throw NullValueException('creditId==null');
+    }
+
     return _v3._query('$_endPoint/$creditId');
   }
 }

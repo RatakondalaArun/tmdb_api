@@ -22,8 +22,9 @@ class Collections {
   /// ```
   ///
   Future<Map> getDetails(int collectionId, {String language = 'en-US'}) {
-    if (collectionId == null || language == null)
+    if (collectionId == null || language == null) {
       throw NullValueException('collectionId==null||language==null is true');
+    }
 
     return _v3._query('$_endPoint/$collectionId',
         optionalQueries: ['language=$language']);
@@ -45,8 +46,9 @@ class Collections {
   /// ```
   ///
   Future<Map> getImages(int collectionId, {String language = 'en-US'}) {
-    if (collectionId == null || language == null)
+    if (collectionId == null || language == null) {
       throw NullValueException('collectionId==null||language==null is true');
+    }
 
     return _v3._query('$_endPoint/$collectionId/images',
         optionalQueries: ['language=$language']);

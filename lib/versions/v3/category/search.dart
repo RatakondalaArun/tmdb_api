@@ -19,9 +19,12 @@ class Search {
   Future<Map> queryCompanies(String query, {int page = 1}) {
     if (query == null ||
         page == null) //throw Exception if query parameter is null
+    {
       throw NullValueException('query==null is true');
-    if (page < 1 || page > 1000)
+    }
+    if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000');
+    }
 
     return _v3._query('$_endPoint/company',
         optionalQueries: ['query=$query', 'page=$page']);
@@ -46,10 +49,13 @@ class Search {
     if (query == null ||
         language == null ||
         page == null) //throw Exception if query parameter is null
+    {
       throw NullValueException(
           'query == null || language == null ||page == null is true');
-    if (page < 1 || page > 1000)
+    }
+    if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000');
+    }
 
     return _v3._query('$_endPoint/collection',
         optionalQueries: ['query=$query', 'page=$page', 'language=$language']);
@@ -69,9 +75,12 @@ class Search {
   Future<Map> queryKeywords(String query, {int page = 1}) {
     if (query == null ||
         page == null) //throw Exception if query parameter is null
+    {
       throw NullValueException('query==null is true');
-    if (page < 1 || page > 10000)
+    }
+    if (page < 1 || page > 10000) {
       throw InvalidDataException('page<1||page>10000 is true');
+    }
 
     return _v3._query('$_endPoint/keyword',
         optionalQueries: ['query=$query', 'page=$page']);
@@ -113,8 +122,10 @@ class Search {
         page == null ||
         region == null ||
         includeAdult == null) //throw Exception if query parameter is null
+    {
       throw NullValueException(
           'query == null || language == null || page == null || region == null||includeAdult==null is true');
+    }
     //this parameters should not be nll so adding first
     List<String> optionalQueries = [
       'query=$query',
@@ -124,10 +135,13 @@ class Search {
     ];
     //this parameters may contains null
     //year will not be added unless provided
-    if (year != null) optionalQueries.add('year=$year');
+    if (year != null) {
+      optionalQueries.add('year=$year');
+    }
     //primary_release_year will not be added unless provided
-    if (primaryReleaseYear != null)
+    if (primaryReleaseYear != null) {
       optionalQueries.add('primary_release_year=$primaryReleaseYear');
+    }
 
     return _v3._query('$_endPoint/movie', optionalQueries: optionalQueries);
   }
@@ -163,8 +177,10 @@ class Search {
         includeAdult == null ||
         language == null ||
         page == null) //throw Exception if query parameter is null
+    {
       throw NullValueException(
           'query == null || includeAdult == null || language == null || page == null is true');
+    }
     //not null parameters
     List<String> optionalQueries = [
       'query=$query',
@@ -173,7 +189,9 @@ class Search {
       'page=$page'
     ];
     //null parameters
-    if (region != null) optionalQueries.add('region=$region');
+    if (region != null) {
+      optionalQueries.add('region=$region');
+    }
 
     return _v3._query('$_endPoint/multi', optionalQueries: optionalQueries);
   }
@@ -207,8 +225,10 @@ class Search {
         includeAdult == null ||
         language == null ||
         page == null) //throw Exception if query parameter is null
+    {
       throw NullValueException(
           'query == null || includeAdult == null || language == null || page == null is true');
+    }
     //not null parameters
     List<String> optionalQueries = [
       'query=$query',
@@ -216,7 +236,9 @@ class Search {
       'language=$language',
       'page=$page'
     ];
-    if (region != null) optionalQueries.add('region=$region');
+    if (region != null) {
+      optionalQueries.add('region=$region');
+    }
     return _v3._query('$_endPoint/person', optionalQueries: optionalQueries);
   }
 
@@ -247,15 +269,18 @@ class Search {
     if (query == null ||
         language == null ||
         page == null) //throw Exception if query parameter is null
+    {
       throw NullValueException(
           'query == null||language==null||page==null is true');
+    }
     List<String> optionalQueries = [
       'query=$query',
       'language=$language',
       'page=$page'
     ];
-    if (firstAirDateYear != null)
+    if (firstAirDateYear != null) {
       optionalQueries.add('first_air_date_year=$firstAirDateYear');
+    }
     return _v3._query('$_endPoint/company', optionalQueries: optionalQueries);
   }
 }
