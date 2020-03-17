@@ -36,6 +36,7 @@ part 'versions/v4/category/lists.dart';
 
 part 'utils/tmdb_exceptions.dart';
 part 'utils/enums.dart';
+part 'utils/ApiKeys.dart';
 
 part 'models/ListItem.dart';
 
@@ -47,8 +48,7 @@ part 'models/ListItem.dart';
 ///
 class TMDB {
   final String _baseUrl = 'api.themoviedb.org';
-  final String _apiKey;
-  final String _v4AccessToken;
+  final ApiKeys _apiKeys;
 
   V3 _v3;
   V4 _v4;
@@ -62,7 +62,7 @@ class TMDB {
   Images get images => _images;
 
   ///Takes a not null [apikey]
-  TMDB(this._apiKey, this._v4AccessToken) {
+  TMDB(this._apiKeys) : assert(_apiKeys != null) {
     _v3 = V3(this);
     _v4 = V4(this);
     _images = Images();

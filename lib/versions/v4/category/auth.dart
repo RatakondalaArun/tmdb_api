@@ -33,7 +33,7 @@ class AuthV4 {
   /// ```
   Future<Map> createRequestToken(
       {String redirectTo = 'http://www.themoviedb.org/'}) {
-    String accessToken = _v4._tmdb._v4AccessToken;
+    String accessToken = _v4._tmdb._apiKeys._apiReadAccessTokenv4;
 
     if (accessToken == null)
       throw NullValueException('accessToken==null is true');
@@ -73,7 +73,7 @@ class AuthV4 {
   /// }
   /// ```
   Future<Map> createAccessToken(String requestToken) {
-    String v4ApiToken = _v4._tmdb._v4AccessToken;
+    String v4ApiToken = _v4._tmdb._apiKeys._apiReadAccessTokenv4;
     if (v4ApiToken == null)
       throw NullValueException('accessToken==null is true');
     Map<String, String> postHeaders = {
@@ -106,7 +106,7 @@ class AuthV4 {
   ///}
   ///```
   Future<Map> deleteAccessToken(String accessToken) {
-    String v4ApiToken = _v4._tmdb._v4AccessToken;
+    String v4ApiToken = _v4._tmdb._apiKeys._apiReadAccessTokenv4;
     //todo:test this after implementing account
     if (v4ApiToken == null)
       throw NullValueException('accessToken==null is true');

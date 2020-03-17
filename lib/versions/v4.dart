@@ -33,8 +33,10 @@ class V4 {
     Map<String, dynamic> deleteBody,
     Map<String, String> postHeaders,
   }) async {
-    assert(_tmdb._v4AccessToken != null);
-    String query = (_tmdb._apiKey == null) ? '' : 'api_key=${_tmdb._apiKey}';
+    assert(_tmdb._apiKeys._apiReadAccessTokenv4 != null);
+    String query = (_tmdb._apiKeys._apiReadAccessTokenv4 == null)
+        ? ''
+        : 'api_key=${_tmdb._apiKeys._apiReadAccessTokenv4}';
     query = _optionalQueries(optionalQueries, query);
 
     //constructing the url

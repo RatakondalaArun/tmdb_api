@@ -4,7 +4,7 @@ import 'package:tmdb_api/tmdb_api.dart';
 import '../../../../lib/keys.dart';
 
 void main() {
-  TMDB tmdb = TMDB(Keys.API, Keys.API_V4);
+  TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
   group('Auth', () {
     test('Create request token', () async {
       Map result = await tmdb.v4.auth.createRequestToken();

@@ -4,7 +4,7 @@ import 'package:tmdb_api/tmdb_api.dart';
 import '../../../../lib/keys.dart';
 
 void main() {
-  TMDB tmdb = TMDB(Keys.API, Keys.API_V4);
+  TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
   // const LIST_ID = 136441;
   const String ACCESS_TOKEN =
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1ODQzNjgxODYsInN1YiI6IjVkZjEyMTYzZGI5NTJkMDAxOWJlZjAyNiIsImp0aSI6IjE5MDcxMDgiLCJhdWQiOiJjMjVkZDA2ODZmZDEyODk4YzJiMTg2ZTY5ZTY3MjhmYyIsInNjb3BlcyI6WyJhcGlfcmVhZCIsImFwaV93cml0ZSJdLCJ2ZXJzaW9uIjoxfQ.cCgOIDlLk7F0LS-OlMJNl059TucIspxhhENuTW_dE1c';
