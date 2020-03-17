@@ -92,7 +92,10 @@ class V3 {
     Map<String, String> deleteBody,
     Map<String, String> postHeaders,
   }) async {
-    String query = 'api_key=${_tmdb._apiKey}';
+    if (_tmdb._apiKeys._apiKeyV3 == null)
+      throw NullValueException(
+          'apiKeyV3 == null is true ||TMDB api key is not provided');
+    String query = 'api_key=${_tmdb._apiKeys._apiKeyV3}';
     query = _optionalQueries(optionalQueries, query);
 
     //constructing the url

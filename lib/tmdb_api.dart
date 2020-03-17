@@ -4,33 +4,41 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 part 'versions/v3.dart';
-part 'category/movies.dart';
-part 'category/tv.dart';
-part 'category/tv_seasons.dart';
-part 'category/tv_episodes.dart';
-part 'category/tv_episode_group.dart';
-part 'category/people.dart';
-part 'category/credit.dart';
-part 'category/certification.dart';
-part 'category/changes.dart';
-part 'category/collections.dart';
-part 'category/find.dart';
-part 'category/genres.dart';
-part 'category/keywords.dart';
-part 'category/companies.dart';
-part 'category/trending.dart';
-part 'category/search.dart';
-part 'category/discover.dart';
-part 'category/networks.dart';
-part 'category/reviews.dart';
-part 'category/authentication.dart';
-part 'category/lists.dart';
-part 'category/images.dart';
-part 'category/account.dart';
-part 'category/guest_session.dart';
+part 'versions/v4.dart';
+
+part 'versions/v3/category/movies.dart';
+part 'versions/v3/category/tv.dart';
+part 'versions/v3/category/tv_seasons.dart';
+part 'versions/v3/category/tv_episodes.dart';
+part 'versions/v3/category/tv_episode_group.dart';
+part 'versions/v3/category/people.dart';
+part 'versions/v3/category/credit.dart';
+part 'versions/v3/category/certification.dart';
+part 'versions/v3/category/changes.dart';
+part 'versions/v3/category/collections.dart';
+part 'versions/v3/category/find.dart';
+part 'versions/v3/category/genres.dart';
+part 'versions/v3/category/keywords.dart';
+part 'versions/v3/category/companies.dart';
+part 'versions/v3/category/trending.dart';
+part 'versions/v3/category/search.dart';
+part 'versions/v3/category/discover.dart';
+part 'versions/v3/category/networks.dart';
+part 'versions/v3/category/reviews.dart';
+part 'versions/v3/category/authentication.dart';
+part 'versions/v3/category/lists.dart';
+part 'versions/v3/category/images.dart';
+part 'versions/v3/category/account.dart';
+part 'versions/v3/category/guest_session.dart';
+part 'versions/v4/category/account.dart';
+part 'versions/v4/category/auth.dart';
+part 'versions/v4/category/lists.dart';
 
 part 'utils/tmdb_exceptions.dart';
 part 'utils/enums.dart';
+part 'utils/ApiKeys.dart';
+
+part 'models/ListItem.dart';
 
 /// TMDB.org API
 ///
@@ -40,20 +48,23 @@ part 'utils/enums.dart';
 ///
 class TMDB {
   final String _baseUrl = 'api.themoviedb.org';
-  final String _apiKey;
+  final ApiKeys _apiKeys;
 
   V3 _v3;
+  V4 _v4;
   Images _images;
 
   ///Version v3 of tmdb api
   ///
   ///[offical v3 doc](https://developers.themoviedb.org/3/getting-started)
   V3 get v3 => _v3;
+  V4 get v4 => _v4;
   Images get images => _images;
 
   ///Takes a not null [apikey]
-  TMDB(this._apiKey) : assert(_apiKey != null) {
+  TMDB(this._apiKeys) : assert(_apiKeys != null) {
     _v3 = V3(this);
+    _v4 = V4(this);
     _images = Images();
   }
 }

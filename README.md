@@ -33,11 +33,56 @@ To know more visit [*TMDB*](https://www.themoviedb.org/)
     - [X] Reviews
     - [X] Versions
     - [X] Lists
-### v4(In progress⏳)
-    -[X] Image URL Constructor
+    
+### v4(🎊✨ Completed 🎉🎉)
+    - [X] Image URL Constructor
+    - [X] auth
+    - [X] account
+    - [X] lists
+
 ### v5(is currently in beta)  
 `More will be added soon`
 
+---
+**Version *0.3.1-alpha***
+---
+# Getting Started for ( *package >= v1.0.0-beta* )
+
+**🎉Now This package supports both v3 and v4 of TMDB API**
+
+There were some changes to the internal code structure, this changes may break your app.
+This changes were made so that it will be easy to migrate to newer versions of TMDB API.
+
+---
+## 1) Import package
+```
+//import package
+import 'package:tmdb_api/tmdb_api.dart';
+```
+
+## 2) Create a instance of `ApiKeys` and `TMDB` class
+```
+//create a instance of ApiKeys with V3 and V4 keys
+ApiKeys keys = ApiKeys('Your API KEY V3', 'API READ ACCESS TOKEN V4');
+
+//create a instance of TMDB with keys instance
+TMDB tmdb = TMDB(keys);
+```
+
+*You can get your API key from [themoviedb.org API](https://www.themoviedb.org/settings/api)*
+
+## 3) Thats all it takes now you can access all the features avaliable using `tmdb` instance.
+
+# Example
+
+## 1.0.0 and after
+For getting Trending movies 
+```
+Map result = await tmdb.v3.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
+
+```
+---
+**Version *0.3.1-alpha***
 ---
 # Getting Started for ( *package >= v0.3.1-alpha* )
 
