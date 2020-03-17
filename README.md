@@ -44,7 +44,7 @@ To know more visit [*TMDB*](https://www.themoviedb.org/)
 `More will be added soon`
 
 ---
-**Version *0.3.1-alpha***
+**Version *1.0.0-beta.1***
 ---
 # Getting Started for ( *package >= v1.0.0-beta* )
 
