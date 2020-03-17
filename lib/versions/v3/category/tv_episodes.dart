@@ -30,12 +30,14 @@ class TvEpisodes {
     if (tvId == null ||
         seasonNumber == null ||
         episodeNumber == null ||
-        language == null)
+        language == null) {
       throw NullValueException(
           'tvId == null || seasonNumber == null || episodeNumber == null || language == null is true');
+    }
     List<String> para = ['language=$language'];
-    if (appendToResponse != null)
+    if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
+    }
 
     return _v3._query('tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber',
         method: HttpMethod.GET, optionalQueries: para);
@@ -59,12 +61,17 @@ class TvEpisodes {
   ///```
   Future<Map> getChanges(int episodeId,
       {String startDate, String endDate, int page = 1}) {
-    if (episodeId == null || page == null)
+    if (episodeId == null || page == null) {
       throw NullValueException('episodeId == null || page == null is true');
+    }
 
     List<String> para = ['page=$page'];
-    if (startDate != null) para.add('start_date=$startDate');
-    if (endDate != null) para.add('end_date=$endDate');
+    if (startDate != null) {
+      para.add('start_date=$startDate');
+    }
+    if (endDate != null) {
+      para.add('end_date=$endDate');
+    }
 
     return _v3._query('tv/$_endPoint/$episodeId/changes',
         optionalQueries: para);
@@ -85,12 +92,14 @@ class TvEpisodes {
   ///```
   ///
   Future<Map> getCredits(int tvId, int seasonNumber, int episodeNumber) {
-    if (seasonNumber == null || tvId == null || episodeNumber == null)
+    if (seasonNumber == null || tvId == null || episodeNumber == null) {
       throw NullValueException(
           'seasonNumber==null||tvId==null||episodeNumber==null is true');
-    if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1)
+    }
+    if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
+    }
     return _v3._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/credits');
   }
@@ -114,12 +123,14 @@ class TvEpisodes {
   ///```
   ///
   Future<Map> getExternalId(int tvId, int seasonNumber, int episodeNumber) {
-    if (seasonNumber == null || tvId == null || episodeNumber == null)
+    if (seasonNumber == null || tvId == null || episodeNumber == null) {
       throw NullValueException(
           'seasonNumber==null||tvId==null||episodeNumber==null is true');
-    if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1)
+    }
+    if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
+    }
     return _v3._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/external_ids');
   }
@@ -139,12 +150,14 @@ class TvEpisodes {
   ///```
   ///
   Future<Map> getImages(int tvId, int seasonNumber, int episodeNumber) {
-    if (seasonNumber == null || tvId == null || episodeNumber == null)
+    if (seasonNumber == null || tvId == null || episodeNumber == null) {
       throw NullValueException(
           'seasonNumber==null||tvId==null||episodeNumber==null is true');
-    if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1)
+    }
+    if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
+    }
     return _v3._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/images');
   }
@@ -164,12 +177,14 @@ class TvEpisodes {
   ///```
   ///
   Future<Map> getVideos(int tvId, int seasonNumber, int episodeNumber) {
-    if (seasonNumber == null || tvId == null || episodeNumber == null)
+    if (seasonNumber == null || tvId == null || episodeNumber == null) {
       throw NullValueException(
           'seasonNumber==null||tvId==null||episodeNumber==null is true');
-    if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1)
+    }
+    if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
+    }
     return _v3._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/videos');
   }
@@ -189,12 +204,14 @@ class TvEpisodes {
   ///```
   ///
   Future<Map> getTranslation(int tvId, int seasonNumber, int episodeNumber) {
-    if (seasonNumber == null || tvId == null || episodeNumber == null)
+    if (seasonNumber == null || tvId == null || episodeNumber == null) {
       throw NullValueException(
           'seasonNumber==null||tvId==null||episodeNumber==null is true');
-    if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1)
+    }
+    if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
+    }
     return _v3._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/translations');
   }

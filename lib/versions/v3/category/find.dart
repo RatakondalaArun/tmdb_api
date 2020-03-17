@@ -33,9 +33,10 @@ class Find {
       {ExternalId externalIdSource = ExternalId.imdbId,
       String language = 'en-US'}) {
     //null check
-    if (externalId == null || externalIdSource == null)
+    if (externalId == null || externalIdSource == null) {
       throw NullValueException(
           'externalId==null || externalIdSource == null is true');
+    }
 
     return _v3._query('$_endPoint/$externalId', optionalQueries: [
       _getSourceQuery(externalIdSource),

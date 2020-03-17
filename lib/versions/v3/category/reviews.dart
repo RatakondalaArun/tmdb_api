@@ -13,17 +13,18 @@ class Reviews {
   ///
   ///For doc visit https://developers.themoviedb.org/3/credits/get-credit-details
   ///
-  ///## Usage
+  ///## Implementation
   ///
   ///```
   /// Map result = await tmdb.reviews.getDetails('5488c29bc3a3686f4a00004a');
   /// ```
   ///
   Future<Map> getDetails(String reviewId) {
-    if (reviewId == null)
+    if (reviewId == null) {
       throw NullValueException('reviewId == null is true',
           source: 'reviews.getDetails($reviewId)',
           help: 'try to not to pass a null value');
+    }
 
     return _v3._query('$_endPoint/$reviewId');
   }

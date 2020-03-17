@@ -23,13 +23,17 @@ class People {
   /// ```
   Future<Map> getDetails(int personId,
       {String language = 'en-US', String appendToResponse}) {
-    if (language == null || personId == null)
+    if (language == null || personId == null) {
       throw NullValueException('language == null || personId == null is true');
-    if (personId < 1) throw InvalidDataException('personId < 1 is true');
+    }
+    if (personId < 1) {
+      throw InvalidDataException('personId < 1 is true');
+    }
 
     List<String> para = ['language=$language'];
-    if (appendToResponse != null)
+    if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
+    }
 
     return _v3._query('$_endPoint/$personId', optionalQueries: para);
   }
@@ -47,7 +51,9 @@ class People {
   /// Map result = await tmdb.v3.people.getChanges(103)
   /// ```
   Future<Map> getChanges(int personId) {
-    if (personId < 1) throw InvalidDataException('personId < 1 is true');
+    if (personId < 1) {
+      throw InvalidDataException('personId < 1 is true');
+    }
     return _v3._query('$_endPoint/$personId/changes');
   }
 
@@ -63,9 +69,12 @@ class People {
   /// Map result = await tmdb.v3.people.getMovieCredits(103)
   /// ```
   Future<Map> getMovieCredits(int personId, {String language = 'en-US'}) {
-    if (language == null || personId == null)
+    if (language == null || personId == null) {
       throw NullValueException('language == null || personId == null is true');
-    if (personId < 1) throw InvalidDataException('personId < 1 is true');
+    }
+    if (personId < 1) {
+      throw InvalidDataException('personId < 1 is true');
+    }
 
     return _v3._query('$_endPoint/$personId/movie_credits',
         optionalQueries: ['language=$language']);
@@ -85,9 +94,12 @@ class People {
   /// Map result = await tmdb.v3.people.getTvCredits(103)
   /// ```
   Future<Map> getTvCredits(int personId, {String language = 'en-US'}) {
-    if (language == null || personId == null)
+    if (language == null || personId == null) {
       throw NullValueException('language == null || personId == null is true');
-    if (personId < 1) throw InvalidDataException('personId < 1 is true');
+    }
+    if (personId < 1) {
+      throw InvalidDataException('personId < 1 is true');
+    }
 
     return _v3._query('$_endPoint/$personId/tv_credits',
         optionalQueries: ['language=$language']);
@@ -107,9 +119,12 @@ class People {
   /// Map result = await tmdb.v3.people.getCombinedCredits(103)
   /// ```
   Future<Map> getCombinedCredits(int personId, {String language = 'en-US'}) {
-    if (language == null || personId == null)
+    if (language == null || personId == null) {
       throw NullValueException('language == null || personId == null is true');
-    if (personId < 1) throw InvalidDataException('personId < 1 is true');
+    }
+    if (personId < 1) {
+      throw InvalidDataException('personId < 1 is true');
+    }
 
     return _v3._query('$_endPoint/$personId/combined_credits',
         optionalQueries: ['language=$language']);
@@ -139,9 +154,12 @@ class People {
   /// Map result = await tmdb.v3.people.getCombinedCredits(103)
   /// ```
   Future<Map> getExternalIds(int personId, {String language = 'en-US'}) {
-    if (language == null || personId == null)
+    if (language == null || personId == null) {
       throw NullValueException('language == null || personId == null is true');
-    if (personId < 1) throw InvalidDataException('personId < 1 is true');
+    }
+    if (personId < 1) {
+      throw InvalidDataException('personId < 1 is true');
+    }
 
     return _v3._query('$_endPoint/$personId/external_ids',
         optionalQueries: ['language=$language']);
@@ -156,8 +174,12 @@ class People {
   /// Map result = await tmdb.v3.people.getCombinedCredits(103)
   /// ```
   Future<Map> getImages(int personId) {
-    if (personId == null) throw NullValueException('personId==null is true');
-    if (personId < 1) throw InvalidDataException('personId < 1 is true');
+    if (personId == null) {
+      throw NullValueException('personId==null is true');
+    }
+    if (personId < 1) {
+      throw InvalidDataException('personId < 1 is true');
+    }
 
     return _v3._query('$_endPoint/$personId/images');
   }
@@ -177,10 +199,13 @@ class People {
   /// ```
   Future<Map> getTaggedImages(int personId,
       {String language = 'en-US', int page = 1}) {
-    if (language == null || personId == null || page == null)
+    if (language == null || personId == null || page == null) {
       throw NullValueException(
           'language == null || page == null || personId == null is true');
-    if (personId < 1) throw InvalidDataException('personId < 1 is true');
+    }
+    if (personId < 1) {
+      throw InvalidDataException('personId < 1 is true');
+    }
 
     return _v3._query('$_endPoint/$personId/tagged_images',
         optionalQueries: ['language=$language', 'page=$page']);
@@ -199,9 +224,12 @@ class People {
   /// Map result = await tmdb.v3.people.getTranslations(103)
   /// ```
   Future<Map> getTranslations(int personId, {String language = 'en-US'}) {
-    if (language == null || personId == null)
+    if (language == null || personId == null) {
       throw NullValueException('language == null || personId == null is true');
-    if (personId < 1) throw InvalidDataException('personId < 1 is true');
+    }
+    if (personId < 1) {
+      throw InvalidDataException('personId < 1 is true');
+    }
 
     return _v3._query('$_endPoint/$personId/translations',
         optionalQueries: ['language=$language']);
@@ -220,7 +248,9 @@ class People {
   /// Map result = await tmdb.v3.people.getLatest();
   /// ```
   Future<Map> getLatest({String language = 'en-US'}) {
-    if (language == null) throw NullValueException('language == null is true');
+    if (language == null) {
+      throw NullValueException('language == null is true');
+    }
 
     return _v3
         ._query('$_endPoint/latest', optionalQueries: ['language=$language']);
@@ -240,8 +270,9 @@ class People {
   /// Map result = await tmdb.v3.people.getPopular();
   /// ```
   Future<Map> getPopular({String language = 'en-US', int page = 1}) {
-    if (language == null || page == null)
+    if (language == null || page == null) {
       throw NullValueException('language == null || page == null  is true');
+    }
 
     return _v3._query('$_endPoint/popular',
         optionalQueries: ['language=$language', 'page=$page']);

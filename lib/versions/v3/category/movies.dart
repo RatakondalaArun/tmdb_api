@@ -18,8 +18,9 @@ class Movies {
   ///```
   Future<Map> getDetails(int movieId,
       {String language = 'en-US', String appendToResponse}) {
-    if (movieId == null || language == null)
+    if (movieId == null || language == null) {
       throw NullValueException('movieId==null || language==null is true');
+    }
 
     return _v3._query('$_endPoint/$movieId',
         method: HttpMethod.GET,
@@ -45,8 +46,9 @@ class Movies {
   ///```
   ///
   Future<Map> getAlternativeTitle(int movieId, {String country = 'US'}) {
-    if (movieId == null || country == null)
+    if (movieId == null || country == null) {
       throw NullValueException('movieId == null || country == null is true');
+    }
     return _v3._query('$_endPoint/$movieId/alternative_titles',
         method: HttpMethod.GET, optionalQueries: ['country=$country']);
   }
@@ -64,7 +66,9 @@ class Movies {
   ///```
   ///
   Future<Map> getCredits(int movieId) {
-    if (movieId == null) throw NullValueException('movieId == null is true');
+    if (movieId == null) {
+      throw NullValueException('movieId == null is true');
+    }
     return _v3._query('$_endPoint/$movieId/credits', method: HttpMethod.GET);
   }
 
@@ -86,7 +90,9 @@ class Movies {
   ///```
   ///
   Future<Map> getExternalIds(int movieId) {
-    if (movieId == null) throw NullValueException('movieId == null is true');
+    if (movieId == null) {
+      throw NullValueException('movieId == null is true');
+    }
     return _v3._query('$_endPoint/$movieId/external_ids',
         method: HttpMethod.GET);
   }
@@ -103,7 +109,9 @@ class Movies {
   ///```
   ///
   Future<Map> getKeywords(int movieId) {
-    if (movieId == null) throw NullValueException('movieId == null is true');
+    if (movieId == null) {
+      throw NullValueException('movieId == null is true');
+    }
     return _v3._query('$_endPoint/$movieId/keywords', method: HttpMethod.GET);
   }
 
@@ -128,7 +136,9 @@ class Movies {
   ///```
   ///
   Future<Map> getReleaseDates(int movieId) {
-    if (movieId == null) throw NullValueException('movieId == null is true');
+    if (movieId == null) {
+      throw NullValueException('movieId == null is true');
+    }
     return _v3._query('$_endPoint/$movieId/release_dates',
         method: HttpMethod.GET);
   }
@@ -145,7 +155,9 @@ class Movies {
   ///```
   ///
   Future<Map> getVideos(int movieId) {
-    if (movieId == null) throw NullValueException('movieId == null is true');
+    if (movieId == null) {
+      throw NullValueException('movieId == null is true');
+    }
     return _v3._query('$_endPoint/$movieId/videos');
   }
 
@@ -161,7 +173,9 @@ class Movies {
   ///```
   ///
   Future<Map> getTranslations(int movieId) {
-    if (movieId == null) throw NullValueException('movieId == null is true');
+    if (movieId == null) {
+      throw NullValueException('movieId == null is true');
+    }
     return _v3._query('$_endPoint/$movieId/translations');
   }
 
@@ -182,12 +196,14 @@ class Movies {
   ///
   Future<Map> getRecommended(int movieId,
       {String language = 'en-US', int page = 1}) async {
-    if (movieId == null || language == null || page == null)
+    if (movieId == null || language == null || page == null) {
       throw NullValueException(
           'movieId == null || language == null || page == null is true');
-    if (movieId < 1 || page < 1 || page > 1000)
+    }
+    if (movieId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
+    }
 
     return _v3._query('$_endPoint/$movieId/recommendations',
         optionalQueries: ['language=$language', 'page=$page']);
@@ -213,12 +229,14 @@ class Movies {
   ///
   Future<Map> getSimilar(int movieId,
       {String language = 'en-US', int page = 1}) {
-    if (movieId == null || language == null || page == null)
+    if (movieId == null || language == null || page == null) {
       throw NullValueException(
           'movieId == null || language == null || page == null is true');
-    if (movieId < 1 || page < 1 || page > 1000)
+    }
+    if (movieId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
+    }
 
     return _v3._query('$_endPoint/$movieId/similar',
         optionalQueries: ['language=$language', 'page=$page']);
@@ -241,12 +259,18 @@ class Movies {
   ///
   Future<Map> getReviews(int movieId,
       {String language = 'en-US', int page = 1}) {
-    if (movieId == null || language == null || page == null)
-      throw NullValueException(
-          'movieId == null || language == null || page == null is true');
-    if (movieId < 1 || page < 1 || page > 1000)
-      throw InvalidDataException(
-          'movieId < 1 || page < 1 || page > 1000 is true');
+    if (movieId == null || language == null || page == null) {
+      {
+        throw NullValueException(
+            'movieId == null || language == null || page == null is true');
+      }
+    }
+    if (movieId < 1 || page < 1 || page > 1000) {
+      {
+        throw InvalidDataException(
+            'movieId < 1 || page < 1 || page > 1000 is true');
+      }
+    }
 
     return _v3._query('$_endPoint/$movieId/reviews',
         optionalQueries: ['language=$language', 'page=$page']);
@@ -269,12 +293,14 @@ class Movies {
   ///```
   ///
   Future<Map> getLists(int movieId, {String language = 'en-US', int page = 1}) {
-    if (movieId == null || language == null || page == null)
+    if (movieId == null || language == null || page == null) {
       throw NullValueException(
           'movieId == null || language == null || page == null is true');
-    if (movieId < 1 || page < 1 || page > 1000)
+    }
+    if (movieId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
+    }
 
     return _v3._query('$_endPoint/$movieId/lists',
         optionalQueries: ['language=$language', 'page=$page']);
@@ -293,7 +319,9 @@ class Movies {
   ///```
   ///
   Future<Map> getLatest({String language = 'en-US'}) {
-    if (language == null) throw NullValueException('language == null is true');
+    if (language == null) {
+      throw NullValueException('language == null is true');
+    }
 
     return _v3
         ._query('$_endPoint/latest', optionalQueries: ['language=$language']);
@@ -326,14 +354,18 @@ class Movies {
   ///
   Future<Map> getNowPlaying(
       {String language = 'en-US', int page = 1, String region}) {
-    if (language == null || page == null)
+    if (language == null || page == null) {
       throw NullValueException('language == null || page == null is true');
-    if (page < 1 || page > 1000)
+    }
+    if (page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
+    }
 
     List<String> para = ['language=$language', 'page=$page'];
-    if (region != null) para.add('region=$region');
+    if (region != null) {
+      para.add('region=$region');
+    }
 
     return _v3._query('$_endPoint/now_playing', optionalQueries: para);
   }
@@ -359,14 +391,18 @@ class Movies {
   ///
   Future<Map> getPouplar(
       {String language = 'en-US', int page = 1, String region}) {
-    if (language == null || page == null)
+    if (language == null || page == null) {
       throw NullValueException('language == null || page == null is true');
-    if (page < 1 || page > 1000)
+    }
+    if (page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
+    }
 
     List<String> para = ['language=$language', 'page=$page'];
-    if (region != null) para.add('region=$region');
+    if (region != null) {
+      para.add('region=$region');
+    }
     return _v3._query('$_endPoint/popular', optionalQueries: para);
   }
 
@@ -390,14 +426,18 @@ class Movies {
   ///
   Future<Map> getTopRated(
       {String language = 'en-US', int page = 1, String region}) {
-    if (language == null || page == null)
+    if (language == null || page == null) {
       throw NullValueException('language == null || page == null is true');
-    if (page < 1 || page > 1000)
+    }
+    if (page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
+    }
 
     List<String> para = ['language=$language', 'page=$page'];
-    if (region != null) para.add('region=$region');
+    if (region != null) {
+      para.add('region=$region');
+    }
 
     return _v3._query('$_endPoint/top_rated', optionalQueries: para);
   }
@@ -428,14 +468,18 @@ class Movies {
   ///
   Future<Map> getUpcoming(
       {String language = 'en-US', int page = 1, String region}) {
-    if (language == null || page == null)
+    if (language == null || page == null) {
       throw NullValueException('language == null || page == null is true');
-    if (page < 1 || page > 1000)
+    }
+    if (page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
+    }
 
     List<String> para = ['language=$language', 'page=$page'];
-    if (region != null) para.add('region=$region');
+    if (region != null) {
+      para.add('region=$region');
+    }
 
     return _v3._query('$_endPoint/upcoming', optionalQueries: para);
   }
@@ -472,20 +516,24 @@ class Movies {
   ///```
   Future<Map> rateMovie(int movieId, double ratingValue,
       {String guestSessionId, String sessionId}) {
-    if (movieId == null || ratingValue == null)
+    if (movieId == null || ratingValue == null) {
       throw NullValueException('movieId == null || ratingValue == null');
-    if (guestSessionId == null && sessionId == null)
+    }
+    if (guestSessionId == null && sessionId == null) {
       throw NullValueException('guestSessionId == null && sessionId == null');
-    if (ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1)
+    }
+    if (ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1) {
       throw InvalidDataException(
           'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
+    }
 
     List<String> para = [];
     //only one is allowed
-    if (sessionId != null)
+    if (sessionId != null) {
       para.add('session_id=$sessionId');
-    else
+    } else {
       para.add('guest_session_id=$guestSessionId');
+    }
 
     return _v3._query('$_endPoint/$movieId/rating',
         method: HttpMethod.POST,
@@ -519,18 +567,24 @@ class Movies {
   ///```
   Future<Map> deleteRating(int movieId,
       {String guestSessionId, String sessionId}) {
-    if (movieId == null) throw NullValueException('movieId == null is true');
-    if (guestSessionId == null && sessionId == null)
+    if (movieId == null) {
+      throw NullValueException('movieId == null is true');
+    }
+    if (guestSessionId == null && sessionId == null) {
       throw NullValueException(
           'guestSessionId == null && sessionId == null is true');
-    if (movieId < 1) throw InvalidDataException('movieId < 1 is true');
+    }
+    if (movieId < 1) {
+      throw InvalidDataException('movieId < 1 is true');
+    }
 
     List<String> para = [];
     //only one is allowed
-    if (sessionId != null)
+    if (sessionId != null) {
       para.add('session_id=$sessionId');
-    else
+    } else {
       para.add('guest_session_id=$guestSessionId');
+    }
 
     return _v3._query('$_endPoint/$movieId/rating',
         method: HttpMethod.DELETE, deleteBody: {}, optionalQueries: para);
@@ -554,14 +608,18 @@ class Movies {
   ///
   Future<Map> getImages(int movieId,
       {String language = 'en-US', String includeImageLanguage}) {
-    if (movieId == null || language == null)
+    if (movieId == null || language == null) {
       throw NullValueException(
           'movieId == null || movieId == null||language==null is true');
-    if (movieId < 1) throw InvalidDataException('movieId < 1 is true');
+    }
+    if (movieId < 1) {
+      throw InvalidDataException('movieId < 1 is true');
+    }
 
     List<String> para = ['language=$language'];
-    if (includeImageLanguage != null)
+    if (includeImageLanguage != null) {
       para.add('include_image_language=$includeImageLanguage');
+    }
 
     return _v3._query('$_endPoint/$movieId/images', optionalQueries: para);
   }
@@ -598,17 +656,23 @@ class Movies {
   ///
   Future<Map> getAccountStatus(int movieId,
       {String sessionId, String guestSessionId}) {
-    if (movieId == null) throw NullValueException('movieId==null is true');
-    if (movieId < 1) throw InvalidDataException('movieId<1');
-    if (sessionId == null && guestSessionId == null)
+    if (movieId == null) {
+      throw NullValueException('movieId==null is true');
+    }
+    if (movieId < 1) {
+      throw InvalidDataException('movieId<1');
+    }
+    if (sessionId == null && guestSessionId == null) {
       throw NullValueException(
           'sessionId==null && guestSessionId==null is true');
+    }
     List<String> para = [];
     //only one is allowed
-    if (sessionId != null)
+    if (sessionId != null) {
       para.add('session_id=$sessionId');
-    else
+    } else {
       para.add('guest_session_id=$guestSessionId');
+    }
 
     return _v3._query('$_endPoint/$movieId/account_states',
         optionalQueries: para);

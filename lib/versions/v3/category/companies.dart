@@ -8,15 +8,18 @@ class Companies {
 
   /// Get a companies details by id.
   ///
-  /// Takes `companyId` as parameter of type [int]
+  ///## Parameters
   ///
-  /// *Usage:*
+  ///`companyId`: id of the company
+  ///
+  ///
+  /// ## Implementation
   ///
   /// ```
   /// Map result=await tmdb.companies.getMovie(1);
   ///```
   ///
-  ///*Result:*
+  ///## Result:
   /// ```
   /// {
   ///   "description": "",
@@ -37,15 +40,17 @@ class Companies {
 
   /// Get the alternative names of a company.
   ///
-  /// Takes `companyId` as parameter of type [int]
+  ///## Parameters
   ///
-  ///*Usage:*
+  ///`companyId`: id of the company
   ///
+  ///
+  /// ## Implementation
   ///```
   /// Map result=await tmdb.companies.getAlternativeNames(3);
   ///```
   ///
-  ///*Result:*
+  ///## Result:
   ///```
   /// {
   ///   "id": 3,
@@ -72,15 +77,18 @@ class Companies {
   ///beyond those dimensions if you call them as a PNG.
   ///
   ///
-  /// Takes `companyId` as parameter of type [int]
+  ///## Parameters
   ///
-  ///*Usage:*
+  ///`companyId`: id of the company
+  ///
+  ///
+  /// ## Implementation
   ///
   ///```
   /// Map result=await tmdb.companies.getImages(1);
   ///```
   ///
-  ///*Result:*
+  ///## Result:
   ///```
   ///   {
   ///   "id": 1,
@@ -98,11 +106,11 @@ class Companies {
   ///   ]
   /// }
   /// ```
-  /// For doc https://developers.themoviedb.org/3/companies/get-company-images
+  /// For [doc](https://developers.themoviedb.org/3/companies/get-company-images)
   ///
   ///
   /// For more information about how SVG's and PNG's can be used, take a read through
-  /// https://developers.themoviedb.org/3/getting-started/images
+  /// [this](https://developers.themoviedb.org/3/getting-started/images).
   Future<Map> getImages(int companyId) {
     return _v3._query('$_endPoint/$companyId');
   }

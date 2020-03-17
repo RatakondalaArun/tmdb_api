@@ -86,8 +86,12 @@ class V4 {
   }
 
   String _optionalQueries(List<String> queries, String currentQuery) {
-    if (queries == null) return currentQuery;
-    if (queries.isEmpty) return currentQuery;
+    if (queries == null) {
+      return currentQuery;
+    }
+    if (queries.isEmpty) {
+      return currentQuery;
+    }
     currentQuery += '&' + queries.join('&');
     return currentQuery;
   }

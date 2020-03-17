@@ -20,7 +20,9 @@ class Lists {
   /// ```
   ///
   Future<Map> getDetails(String listId, {String language = 'en-US'}) {
-    if (listId == null) throw NullValueException('listId == null is true');
+    if (listId == null) {
+      throw NullValueException('listId == null is true');
+    }
     return _v3
         ._query('$_endPoint/$listId', optionalQueries: ['language=$language']);
   }
@@ -37,9 +39,10 @@ class Lists {
   ///
   ///```
   Future<Map> checkItemStatus(String listId, int movieId) {
-    if (listId == null || movieId == null || movieId < 1)
+    if (listId == null || movieId == null || movieId < 1) {
       throw NullValueException(
           'listId == null||movieId==null||movieId < 1 is true');
+    }
     return _v3
         ._query('$_endPoint/$listId', optionalQueries: ['movie_id=$movieId']);
   }
@@ -72,9 +75,10 @@ class Lists {
   ///```
   Future<Map> createList(String sessionId, String name, String description,
       {String language = 'en'}) {
-    if (sessionId == null || description == null || name == null)
+    if (sessionId == null || description == null || name == null) {
       throw NullValueException(
           'sessionId==null||description==null||name==null is true');
+    }
     Map postBody = {
       'name': name,
       'description': description,
@@ -110,9 +114,10 @@ class Lists {
   ///}
   ///```
   Future<Map> addItem(String sessionId, String listId, int mediaId) {
-    if (sessionId == null || mediaId == null || mediaId < 1 || listId == null)
+    if (sessionId == null || mediaId == null || mediaId < 1 || listId == null) {
       throw NullValueException(
           'sessionId == null || mediaId == null || mediaId < 1 || listId == null || listId < 1 is true');
+    }
     return _v3._query('$_endPoint/$listId/add_item',
         method: HttpMethod.POST,
         postBody: {'media_id': '$mediaId'},
@@ -151,9 +156,10 @@ class Lists {
   ///}
   ///```
   Future<Map> removeItem(String sessionId, String listId, int mediaId) {
-    if (sessionId == null || mediaId == null || mediaId < 1 || listId == null)
+    if (sessionId == null || mediaId == null || mediaId < 1 || listId == null) {
       throw NullValueException(
           'sessionId == null || mediaId == null || mediaId < 1 || listId == null || listId < 1 is true');
+    }
     return _v3._query('$_endPoint/${listId.toString()}/remove_item',
         method: HttpMethod.POST,
         postBody: {'media_id': "$mediaId"},
@@ -181,8 +187,10 @@ class Lists {
   ///}
   ///```
   Future<Map> clearList(String sessionId, String listId) {
-    if (sessionId == null || listId == null)
-      throw NullValueException('sessionId == null || listId == null is true');
+    {
+      if (sessionId == null || listId == null)
+        throw NullValueException('sessionId == null || listId == null is true');
+    }
 
     return _v3._query('$_endPoint/$listId/clear',
         method: HttpMethod.POST,
@@ -202,8 +210,9 @@ class Lists {
   /// .deleteList('98097f2cd6af83f272ccbcfa93960723a940f87b', '134721');
   ///```
   Future<Map> deleteList(String sessionId, String listId) {
-    if (sessionId == null || listId == null)
+    if (sessionId == null || listId == null) {
       throw NullValueException('sessionId == null || listId == null is true');
+    }
 
     return _v3._query('$_endPoint/$listId',
         method: HttpMethod.DELETE,

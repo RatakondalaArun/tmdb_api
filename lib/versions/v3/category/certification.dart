@@ -11,8 +11,10 @@ class Certification {
   ///
   ///For doc visit https://developers.themoviedb.org/3/certifications/get-movie-certifications
   ///
-  ///*Usage*
+  ///## No Parameters
   ///
+  ///
+  ///## Implementation
   ///```
   /// Map result = await tmdb.certification.getMovie();
   /// ```
@@ -26,11 +28,13 @@ class Certification {
   ///
   ///For doc visit https://developers.themoviedb.org/3/certifications/get-tv-certifications
   ///
-  ///*Usage*
+  ///## No Parameters
+  ///
+  ///## Implementation
   ///
   ///```
   /// Map result = await tmdb.certification.getTv();
-  /// ```
+  ///```
   ///
   Future<Map> getTv() {
     return _v3._query('$_endPoint/tv/list');

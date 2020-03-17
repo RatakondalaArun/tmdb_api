@@ -11,11 +11,13 @@ class Discover {
   ///Before using this it is recommended to read
   /// the [offical documentation](https://developers.themoviedb.org/3/discover/movie-discover)
   ///
-  /// ## Usage
+  ///
+  ///
+  /// ## Implementation
   /// ```
   /// Map result = await tmdb.discover.getMovies();
   /// ```
-  /// now you can itterate through the
+  /// ## Result
   /// ```
   /// result['results']
   /// ```
@@ -60,76 +62,112 @@ class Discover {
       'includeAdult=$includeAdult',
       'includeVideo=$includeVideo',
     ];
-    if (region != null) queries.add('region=$region');
-    if (certificationCountry != null)
+    if (region != null) {
+      queries.add('region=$region');
+    }
+    if (certificationCountry != null) {
       queries.add('certification_country=$certificationCountry');
+    }
 
-    if (certification != null && certificationCountry != null)
+    if (certification != null && certificationCountry != null) {
       queries.add('certification=$certification');
+    }
 
-    if (certificationLessThan != null && certificationCountry != null)
+    if (certificationLessThan != null && certificationCountry != null) {
       queries.add('certification.lte=$certificationLessThan');
+    }
 
-    if (certificationGreaterThan != null && certificationCountry != null)
+    if (certificationGreaterThan != null && certificationCountry != null) {
       queries.add('certification.gte=$certificationGreaterThan');
+    }
 
-    if (primaryReleaseYear != null)
+    if (primaryReleaseYear != null) {
       queries.add('primary_release_year=$primaryReleaseYear');
+    }
 
-    if (primaryReleaseDateGreaterThan != null)
+    if (primaryReleaseDateGreaterThan != null) {
       queries.add('primary_release_date.gte=$primaryReleaseDateGreaterThan');
+    }
 
-    if (primaryReleaseDateLessThan != null)
+    if (primaryReleaseDateLessThan != null) {
       queries.add('primary_release_date.lte=$primaryReleaseDateLessThan');
+    }
 
-    if (releaseDateGreaterThan != null)
+    if (releaseDateGreaterThan != null) {
       queries.add('release_date.gte=$releaseDateGreaterThan');
+    }
 
-    if (releaseDateLessThan != null)
+    if (releaseDateLessThan != null) {
       queries.add('release_date.lte=$releaseDateLessThan');
+    }
 
-    if (withReleaseType != null)
+    if (withReleaseType != null) {
       queries.add('with_release_type=$withReleaseType');
+    }
 
-    if (year != null) queries.add('year=$year');
+    if (year != null) {
+      queries.add('year=$year');
+    }
 
-    if (voteCountGreaterThan != null)
+    if (voteCountGreaterThan != null) {
       queries.add('vote_count.gte=$voteCountGreaterThan');
+    }
 
-    if (voteCountLessThan != null)
+    if (voteCountLessThan != null) {
       queries.add('vote_count.gte=$voteCountLessThan');
+    }
 
-    if (voteAverageGreaterThan != null)
+    if (voteAverageGreaterThan != null) {
       queries.add('vote_average.gte=$voteAverageGreaterThan');
+    }
 
-    if (voteAverageLessThan != null)
+    if (voteAverageLessThan != null) {
       queries.add('vote_average.gte=$voteAverageLessThan');
+    }
 
-    if (withCast != null) queries.add('with_cast=$withCast');
+    if (withCast != null) {
+      queries.add('with_cast=$withCast');
+    }
 
-    if (withCrew != null) queries.add('with_crew=$withCrew');
+    if (withCrew != null) {
+      queries.add('with_crew=$withCrew');
+    }
 
-    if (withPeople != null) queries.add('with_people=$withPeople');
+    if (withPeople != null) {
+      queries.add('with_people=$withPeople');
+    }
 
-    if (withCompanies != null) queries.add('with_companies=$withCompanies');
+    if (withCompanies != null) {
+      queries.add('with_companies=$withCompanies');
+    }
 
-    if (withGenres != null) queries.add('with_genres=$withoutGeners');
+    if (withGenres != null) {
+      queries.add('with_genres=$withoutGeners');
+    }
 
-    if (withoutGeners != null) queries.add('without_genres=$withoutGeners');
+    if (withoutGeners != null) {
+      queries.add('without_genres=$withoutGeners');
+    }
 
-    if (withKeywords != null) queries.add('with_keywords=$withKeywords');
+    if (withKeywords != null) {
+      queries.add('with_keywords=$withKeywords');
+    }
 
-    if (withoutKeywords != null)
+    if (withoutKeywords != null) {
       queries.add('without_keywords=$withoutKeywords');
+    }
 
-    if (withRunTimeGreaterThan != null)
+    if (withRunTimeGreaterThan != null) {
       queries.add('with_runtime.gte=$withRunTimeGreaterThan');
+    }
 
-    if (withRuntimeLessThan != null)
+    if (withRuntimeLessThan != null) {
       queries.add('with_runtime.lte=$withRuntimeLessThan');
+    }
 
-    if (withOrginalLanguage != null)
+    if (withOrginalLanguage != null) {
       queries.add('with_original_language=$withOrginalLanguage');
+    }
 
     return _v3._query('$_endPoint/movie', optionalQueries: queries);
   }
@@ -140,11 +178,11 @@ class Discover {
   ///
   ///Before using this it is recommended to read
   /// the [offical documentation](https://developers.themoviedb.org/3/discover/tv-discover)
-  /// ## Usage
+  /// ## Implementation
   /// ```
   /// Map result = await tmdb.discover.getTvShows(page: 2, voteCountGte: 560);
   /// ```
-  /// now you can itterate through the
+  /// ## Result
   /// ```
   /// result['results']
   /// ```
@@ -179,50 +217,81 @@ class Discover {
       'include_null_first_air_dates=$includeNullFirstAirDates',
     ];
 
-    if (airDateGte != null) queries.add('air_date.gte=$airDateGte');
+    if (airDateGte != null) {
+      queries.add('air_date.gte=$airDateGte');
+    }
 
-    if (airDateLte != null) queries.add('air_date.lte=$airDateLte');
+    if (airDateLte != null) {
+      queries.add('air_date.lte=$airDateLte');
+    }
 
-    if (firstAirDateGte != null)
+    if (firstAirDateGte != null) {
       queries.add('first_air_date.gte=$firstAirDateGte');
+    }
 
-    if (firstAirDateLte != null)
+    if (firstAirDateLte != null) {
       queries.add('first_air_date.lte=$firstAirDateLte');
+    }
 
-    if (firstAirDateYear != null)
+    if (firstAirDateYear != null) {
       queries.add('first_air_date_year=$firstAirDateYear');
+    }
 
-    if (timezone != null) queries.add('timezone=$timezone');
+    if (timezone != null) {
+      queries.add('timezone=$timezone');
+    }
 
-    if (firstAirDateLte != null)
+    if (firstAirDateLte != null) {
       queries.add('first_air_date.lte=$firstAirDateLte');
+    }
 
-    if (voteAverageGte != null) queries.add('vote_average.gte=$voteAverageGte');
+    if (voteAverageGte != null) {
+      queries.add('vote_average.gte=$voteAverageGte');
+    }
 
-    if (voteCountGte != null) queries.add('vote_count.gte=$voteCountGte');
+    if (voteCountGte != null) {
+      queries.add('vote_count.gte=$voteCountGte');
+    }
 
-    if (withGeners != null) queries.add('with_genres=$withGeners');
+    if (withGeners != null) {
+      queries.add('with_genres=$withGeners');
+    }
 
-    if (withoutGeners != null) queries.add('without_genres=$withoutGeners');
+    if (withoutGeners != null) {
+      queries.add('without_genres=$withoutGeners');
+    }
 
-    if (withNetworks != null) queries.add('with_networks=$withNetworks');
+    if (withNetworks != null) {
+      queries.add('with_networks=$withNetworks');
+    }
 
-    if (withRuntimeGte != null) queries.add('with_runtime.gte=$withRuntimeGte');
+    if (withRuntimeGte != null) {
+      queries.add('with_runtime.gte=$withRuntimeGte');
+    }
 
-    if (withRuntimeLte != null) queries.add('with_runtime.lte=$withRuntimeLte');
+    if (withRuntimeLte != null) {
+      queries.add('with_runtime.lte=$withRuntimeLte');
+    }
 
-    if (withOrginalLanguage != null)
+    if (withOrginalLanguage != null) {
       queries.add('with_original_language=$withOrginalLanguage');
+    }
 
-    if (screenedTheatrically != null)
+    if (screenedTheatrically != null) {
       queries.add('screened_theatrically=$screenedTheatrically');
+    }
 
-    if (withCompanies != null) queries.add('with_companies=$withCompanies');
+    if (withCompanies != null) {
+      queries.add('with_companies=$withCompanies');
+    }
 
-    if (withKeywords != null) queries.add('with_keywords=$withKeywords');
+    if (withKeywords != null) {
+      queries.add('with_keywords=$withKeywords');
+    }
 
-    if (withoutKeywords != null)
+    if (withoutKeywords != null) {
       queries.add('without_keywords=$withoutKeywords');
+    }
 
     return _v3._query('$_endPoint/tv', optionalQueries: queries);
   }

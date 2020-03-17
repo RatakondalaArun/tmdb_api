@@ -22,10 +22,10 @@ class Trending {
   /// - `day`	View the trending list for the day. [TimeWindow.day] *(Default)*
   /// - `week`	View the trending list for the week. [TimeWindow.week]
   ///
-  /// ## Usage
+  /// ## Implementation
   ///
   /// ```
-  ///Map result = await tmdb.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
+  ///Map result = await tmdb.v3.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
   /// ```
   ///
   Future<Map> getTrending(

@@ -92,9 +92,10 @@ class V3 {
     Map<String, String> deleteBody,
     Map<String, String> postHeaders,
   }) async {
-    if (_tmdb._apiKeys._apiKeyV3 == null)
+    if (_tmdb._apiKeys._apiKeyV3 == null) {
       throw NullValueException(
           'apiKeyV3 == null is true ||TMDB api key is not provided');
+    }
     String query = 'api_key=${_tmdb._apiKeys._apiKeyV3}';
     query = _optionalQueries(optionalQueries, query);
 
@@ -129,8 +130,12 @@ class V3 {
   }
 
   String _optionalQueries(List<String> queries, String currentQuery) {
-    if (queries == null) return currentQuery;
-    if (queries.isEmpty) return currentQuery;
+    if (queries == null) {
+      return currentQuery;
+    }
+    if (queries.isEmpty) {
+      return currentQuery;
+    }
     currentQuery += '&' + queries.join('&');
     return currentQuery;
   }

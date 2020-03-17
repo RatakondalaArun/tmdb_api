@@ -25,9 +25,15 @@ class Changes {
   ///
   Future<Map> getMovieList({String endDate, String startDate, int page = 1}) {
     List<String> para = [];
-    if (endDate != null) para.add('end_date=$endDate');
-    if (startDate != null) para.add('start_date=$startDate');
-    if (page != null) para.add('page=${page < 1 || page > 1000 ? 1 : page}');
+    if (endDate != null) {
+      para.add('end_date=$endDate');
+    }
+    if (startDate != null) {
+      para.add('start_date=$startDate');
+    }
+    if (page != null) {
+      para.add('page=${page < 1 || page > 1000 ? 1 : page}');
+    }
 
     return _v3._query('movie/$_endPoint', optionalQueries: para);
   }
@@ -51,9 +57,15 @@ class Changes {
   ///
   Future<Map> getTvList({String endDate, String startDate, int page = 1}) {
     List<String> para = [];
-    if (endDate != null) para.add('end_date=$endDate');
-    if (startDate != null) para.add('start_date=$startDate');
-    if (page != null) para.add('page=${page < 1 || page > 1000 ? 1 : page}');
+    if (endDate != null) {
+      para.add('end_date=$endDate');
+    }
+    if (startDate != null) {
+      para.add('start_date=$startDate');
+    }
+    if (page != null) {
+      para.add('page=${page < 1 || page > 1000 ? 1 : page}');
+    }
 
     return _v3._query('tv/$_endPoint', optionalQueries: para);
   }
@@ -76,9 +88,15 @@ class Changes {
   ///
   Future<Map> getPersonList({String endDate, String startDate, int page = 1}) {
     List<String> para = [];
-    if (endDate != null) para.add('end_date=$endDate');
-    if (startDate != null) para.add('start_date=$startDate');
-    if (page != null) para.add('page=${page < 1 || page > 1000 ? 1 : page}');
+    if (endDate != null) {
+      para.add('end_date=$endDate');
+    }
+    if (startDate != null) {
+      para.add('start_date=$startDate');
+    }
+    if (page != null) {
+      para.add('page=${page < 1 || page > 1000 ? 1 : page}');
+    }
 
     return _v3._query('person/$_endPoint');
   }

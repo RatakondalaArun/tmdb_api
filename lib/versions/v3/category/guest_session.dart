@@ -33,15 +33,17 @@ class GuestSession {
   ///
   Future<Map> getRatedMovies(String guestSessionId,
       {String language = 'en-US', SortBy sortBy = SortBy.createdAtAsc}) {
-    if (guestSessionId == null || language == null || sortBy == null)
+    if (guestSessionId == null || language == null || sortBy == null) {
       throw NullValueException(
           'guestSessionId == null||language==null||sortBy==null is true');
+    }
 
     String sort;
-    if (sortBy == SortBy.createdAtAsc)
+    if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
-    else
+    } else {
       sort = 'created_at.desc';
+    }
     return _v3._query('$_endPoint/$guestSessionId/rated/movies',
         optionalQueries: [
           'guest_session_id=$guestSessionId',
@@ -78,15 +80,17 @@ class GuestSession {
   ///
   Future<Map> getRatedTvShows(String guestSessionId,
       {String language = 'en-US', SortBy sortBy = SortBy.createdAtAsc}) {
-    if (guestSessionId == null || language == null || sortBy == null)
+    if (guestSessionId == null || language == null || sortBy == null) {
       throw NullValueException(
           'guestSessionId == null ||language==null||sortBy==null is true');
+    }
 
     String sort;
-    if (sortBy == SortBy.createdAtAsc)
+    if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
-    else
+    } else {
       sort = 'created_at.desc';
+    }
     return _v3._query('$_endPoint/$guestSessionId/rated/tv', optionalQueries: [
       'guest_session_id=$guestSessionId',
       'language=$language',
@@ -122,15 +126,17 @@ class GuestSession {
   ///
   Future<Map> getRatedTvEpisodes(String guestSessionId,
       {String language = 'en-US', SortBy sortBy = SortBy.createdAtAsc}) {
-    if (guestSessionId == null || language == null || sortBy == null)
+    if (guestSessionId == null || language == null || sortBy == null) {
       throw NullValueException(
           'guestSessionId == null ||language==null||sortBy==null is true');
+    }
 
     String sort;
-    if (sortBy == SortBy.createdAtAsc)
+    if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
-    else
+    } else {
       sort = 'created_at.desc';
+    }
     return _v3._query('$_endPoint/$guestSessionId/rated/tv/episodes',
         optionalQueries: [
           'guest_session_id=$guestSessionId',

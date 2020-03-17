@@ -34,12 +34,14 @@ class ListsV4 {
       {int page = 1,
       String language = 'en-US',
       SortListBy sortListBy = SortListBy.orginalOrderAsc}) {
-    if (accessToken == null || listId == null)
+    if (accessToken == null || listId == null) {
       throw NullValueException('accessToken == null || listId == null is true');
+    }
 
-    if (listId < 1 || page < 1 || page > 1000)
+    if (listId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'listId < 1 || pageNo < 1 || pageNo > 1000 is true');
+    }
 
     return _v4._query('$_endPoint/$listId', postHeaders: {
       'Authorization': 'Bearer $accessToken',
@@ -85,9 +87,10 @@ class ListsV4 {
     if (accessToken == null ||
         description == null ||
         isPublic == null ||
-        iso6391 == null)
+        iso6391 == null) {
       throw NullValueException(
           'accessToken==null||description==null||isPublic==null||iso6391==null is true');
+    }
 
     return _v4._query('$_endPoint', method: HttpMethod.POST, postHeaders: {
       'Authorization': 'Bearer $accessToken',
@@ -142,20 +145,32 @@ class ListsV4 {
   ///```
   Future<Map> updateList(String accessToken, int listId,
       {String listName, String description, bool isPublic, String iso6391}) {
-    if (accessToken == null || listId == null)
+    if (accessToken == null || listId == null) {
       throw NullValueException('accessToken == null || listId == null is true');
-    if (listId < 1) throw InvalidDataException('listId < 1 is true');
+    }
+    if (listId < 1) {
+      throw InvalidDataException('listId < 1 is true');
+    }
 
     Map<String, String> postBody = {};
     //only updated values will be added
-    if (listName != null) postBody.addAll({'name': listName});
-    if (description != null) postBody.addAll({'description': description});
-    if (isPublic != null) postBody.addAll({'public': '$isPublic'});
-    if (iso6391 != null) postBody.addAll({'iso_639_1': iso6391});
+    if (listName != null) {
+      postBody.addAll({'name': listName});
+    }
+    if (description != null) {
+      postBody.addAll({'description': description});
+    }
+    if (isPublic != null) {
+      postBody.addAll({'public': '$isPublic'});
+    }
+    if (iso6391 != null) {
+      postBody.addAll({'iso_639_1': iso6391});
+    }
 
     //check if postBody is empty
-    if (postBody.isEmpty)
+    if (postBody.isEmpty) {
       throw InvalidDataException('at least one parameter nust be filled');
+    }
 
     return _v4._query(
       '$_endPoint/$listId',
@@ -196,9 +211,12 @@ class ListsV4 {
   /// ```
   ///
   Future<Map> clearList(String accessToken, int listId) {
-    if (accessToken == null || listId == null)
+    if (accessToken == null || listId == null) {
       throw NullValueException('accessToken == null || listId == null is true');
-    if (listId < 1) throw InvalidDataException('listId < 1 is true');
+    }
+    if (listId < 1) {
+      throw InvalidDataException('listId < 1 is true');
+    }
 
     return _v4._query(
       '$_endPoint/$listId/clear',
@@ -231,9 +249,12 @@ class ListsV4 {
   ///}
   /// ```
   Future<Map> deleteList(String accessToken, int listId) {
-    if (accessToken == null || listId == null)
+    if (accessToken == null || listId == null) {
       throw NullValueException('accessToken == null || listId == null is true');
-    if (listId < 1) throw InvalidDataException('listId < 1 is true');
+    }
+    if (listId < 1) {
+      throw InvalidDataException('listId < 1 is true');
+    }
 
     return _v4._query(
       '$_endPoint/$listId',
@@ -292,9 +313,12 @@ class ListsV4 {
   ///}
   /// ```
   Future<Map> addItems(String accessToken, int listId, List<ListItem> items) {
-    if (accessToken == null || listId == null)
+    if (accessToken == null || listId == null) {
       throw NullValueException('accessToken == null || listId == null is true');
-    if (listId < 1) throw InvalidDataException('listId < 1 is true');
+    }
+    if (listId < 1) {
+      throw InvalidDataException('listId < 1 is true');
+    }
 
     List<Map<String, dynamic>> postBody = [];
     items.forEach((item) => postBody.add(item._toMap()));
@@ -344,9 +368,12 @@ class ListsV4 {
   ///
   Future<Map> updateItems(
       String accessToken, int listId, List<ListItem> items) {
-    if (accessToken == null || listId == null)
+    if (accessToken == null || listId == null) {
       throw NullValueException('accessToken == null || listId == null is true');
-    if (listId < 1) throw InvalidDataException('listId < 1 is true');
+    }
+    if (listId < 1) {
+      throw InvalidDataException('listId < 1 is true');
+    }
 
     List<Map<String, dynamic>> postBody = [];
     items.forEach((item) => postBody.add(item._toMap()));
@@ -396,9 +423,12 @@ class ListsV4 {
   ///
   Future<Map> removeItems(
       String accessToken, int listId, List<ListItem> items) {
-    if (accessToken == null || listId == null)
+    if (accessToken == null || listId == null) {
       throw NullValueException('accessToken == null || listId == null is true');
-    if (listId < 1) throw InvalidDataException('listId < 1 is true');
+    }
+    if (listId < 1) {
+      throw InvalidDataException('listId < 1 is true');
+    }
 
     List<Map<String, dynamic>> postBody = [];
     print(items);
@@ -454,11 +484,13 @@ class ListsV4 {
     if (accessToken == null ||
         listId == null ||
         mediaId == null ||
-        mediaType == null)
+        mediaType == null) {
       throw NullValueException(
           'accessToken == null || listId == null||mediaId==null||mediaType==null is true');
-    if (listId < 1 || mediaId < 1)
+    }
+    if (listId < 1 || mediaId < 1) {
       throw InvalidDataException('listId < 1 || mediaId < 1 is true');
+    }
 
     return _v4._query('$_endPoint/$listId/item_status', postHeaders: {
       'Authorization': 'Bearer $accessToken',

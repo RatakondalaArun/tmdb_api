@@ -48,9 +48,12 @@ class Auth {
   ///
   Future<dynamic> createGuestSession({bool asMap = false}) async {
     Map result = await _v3._query('authentication/guest_session/new');
-    if (asMap) return result;
-    if (result.containsKey('guest_session_id'))
+    if (asMap) {
+      return result;
+    }
+    if (result.containsKey('guest_session_id')) {
       return result['guest_session_id'];
+    }
     return null;
   }
 
@@ -90,8 +93,12 @@ class Auth {
   ///
   Future<dynamic> createRequestToken({bool asMap = false}) async {
     Map result = await _v3._query('authentication/token/new');
-    if (asMap) return result;
-    if (result.containsKey('success')) return result['request_token'];
+    if (asMap) {
+      return result;
+    }
+    if (result.containsKey('success')) {
+      return result['request_token'];
+    }
     print('Auth createRequest result from tmdb = ${result.toString()}');
     return null;
   }
@@ -147,8 +154,12 @@ class Auth {
 
     Map result = await _v3._query('authentication/session/new',
         optionalQueries: ['request_token=$requestToken']);
-    if (asMap) return result;
-    if (result.containsKey('success')) return result['session_id'];
+    if (asMap) {
+      return result;
+    }
+    if (result.containsKey('success')) {
+      return result['session_id'];
+    }
     print(
         'Auth createSession failed => result from tmdb = ${result.toString()}');
     return null;
@@ -167,10 +178,11 @@ class Auth {
   Future<dynamic> createSessionWithLogin(String username, String password,
       {bool asMap = false}) async {
     //check for null values
-    if (username == null || password == null)
+    if (username == null || password == null) {
       throw NullValueException('username==null || password==null is true',
           source: 'auth.createSessionWithLogin($username, $password)',
           help: 'values should not be null');
+    }
     //creating a request token
     String requestToken = await createRequestToken();
     Map postBody = {
@@ -180,8 +192,12 @@ class Auth {
     };
     Map result = await _v3._query('authentication/token/validate_with_login',
         method: HttpMethod.POST, postBody: postBody);
-    if (asMap) return result;
-    if (result.containsKey('success')) return result['request_token'];
+    if (asMap) {
+      return result;
+    }
+    if (result.containsKey('success')) {
+      return result['request_token'];
+    }
     return null;
   }
 
@@ -206,13 +222,18 @@ class Auth {
   /// ```
   Future<dynamic> createSessionFromV4AccessToken(String accessToken,
       {bool asMap = false}) async {
-    if (accessToken == null)
+    if (accessToken == null) {
       throw NullValueException('accessToken == null is true');
+    }
 
     Map result = await _v3._query('authentication/session/convert/4',
         method: HttpMethod.POST, postBody: {'access_token': accessToken});
-    if (asMap) return result;
-    if (result.containsKey('success')) return result['session_id'];
+    if (asMap) {
+      return result;
+    }
+    if (result.containsKey('success')) {
+      return result['session_id'];
+    }
     return null;
   }
 
@@ -221,9 +242,10 @@ class Auth {
   /// ## Parameters
   ///`sessionId`: if of current session
   Future<dynamic> deleteSession(String sessionId) async {
-    if (sessionId == null)
+    if (sessionId == null) {
       throw NullValueException('sessionId==null is true',
           source: 'auth.deleteSession($sessionId)');
+    }
     Map result = await _v3._query('authentication/session',
         postHeaders: {'session_id': sessionId},
         method: HttpMethod.DELETE,
