@@ -159,7 +159,10 @@ class Auth {
   ///## Parameters
   ///
   ///`username`: user TMDB username
+  ///
   ///`password`: user TMDB password
+  ///
+  /// `AsMap`: if you want result in a `Map` format, *default value is `false`*
   ///
   Future<dynamic> createSessionWithLogin(String username, String password,
       {bool asMap = false}) async {
@@ -179,6 +182,37 @@ class Auth {
         method: HttpMethod.POST, postBody: postBody);
     if (asMap) return result;
     if (result.containsKey('success')) return result['request_token'];
+    return null;
+  }
+
+  ///Use this method to create a v3 session ID if you already have a valid v4 access token.
+  /// The v4 token needs to be authenticated by the user.
+  /// Your standard "read token" will not validate to create a session ID.
+  ///
+  /// ## Parameters
+  ///- `accessToken`: a v4 access token which can be created using `tmdb.v4.auth.createAccesToken('RequestToken')`
+  ///
+  ///- `AsMap`: if you want result in a `Map` format, *default value is `false`*
+  ///
+  /// ## Implementation
+  /// ```
+  /// ```
+  /// ## Result
+  /// ```
+  ///{
+  ///   "success": true,
+  ///   "session_id": "2629f70fb498edc263a0adb99118ac41f0053e8c"
+  ///}
+  /// ```
+  Future<dynamic> createSessionFromV4AccessToken(String accessToken,
+      {bool asMap = false}) async {
+    if (accessToken == null)
+      throw NullValueException('accessToken == null is true');
+
+    Map result = await _v3._query('authentication/session/convert/4',
+        method: HttpMethod.POST, postBody: {'access_token': accessToken});
+    if (asMap) return result;
+    if (result.containsKey('success')) return result['session_id'];
     return null;
   }
 
