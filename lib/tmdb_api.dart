@@ -2,6 +2,9 @@ library tmdb_api;
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:colorize/colorize.dart';
+
+part 'logger/logger.dart';
 
 part 'versions/v3.dart';
 part 'versions/v4.dart';
@@ -41,11 +44,25 @@ part 'utils/ApiKeys.dart';
 part 'models/ListItem.dart';
 
 /// TMDB.org API
+/// ## Usage
+/// Core instance to make API calls
 ///
-///Getting started:
+/// To register for an API key, [visit🔗](https://www.themoviedb.org/settings/api)
+/// ## Parameters
+///- `apiKeys`*(Positioned:1)* : this must not be null `ApiKeys`
 ///
-/// To register for an API key, visit https://www.themoviedb.org/settings/api
+///- `logConfig` *(optional)* : want some console logs from tmdb_api than provide a `ConfigLogger`.*default:false*
 ///
+/// ## Example
+/// ```
+/// TMDB tmdb = TMDB(
+///   ApiKeys('Your v3 API KEY', 'Your v4 API ReadAccessToken'),//pass your api keys
+///   logConfig: ConfigLogger.showAll(),//configure your console logs settings
+/// );
+///
+/// ```
+///
+///## For issues,feature request create a issue in [Git repo🔗](https://github.com/Arunnaidu3470/tmdb_api/issues)
 class TMDB {
   final String _baseUrl = 'api.themoviedb.org';
   final ApiKeys _apiKeys;
@@ -53,6 +70,7 @@ class TMDB {
   V3 _v3;
   V4 _v4;
   Images _images;
+  ConfigLogger logConfig;
 
   ///Version v3 of tmdb api
   ///
@@ -62,9 +80,11 @@ class TMDB {
   Images get images => _images;
 
   ///Takes a not null [apikey]
-  TMDB(this._apiKeys) : assert(_apiKeys != null) {
+  TMDB(this._apiKeys, {this.logConfig}) : assert(_apiKeys != null) {
     _v3 = V3(this);
     _v4 = V4(this);
     _images = Images();
+    this.logConfig = logConfig ?? ConfigLogger.showNone();
+    Logger(this.logConfig).logTypes.infoLog('Api initilized ✔');
   }
 }

@@ -431,10 +431,8 @@ class ListsV4 {
     }
 
     List<Map<String, dynamic>> postBody = [];
-    print(items);
     items.forEach((item) {
       postBody.add(item._toMap());
-      print('ima here ${item._toMap()}');
     });
 
     return _v4._query(
