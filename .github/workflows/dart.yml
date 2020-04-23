@@ -23,7 +23,7 @@ jobs:
         run: |
           MAINTENANCE_SCORE=${{ steps.analysis.outputs.maintenance }}
           HEALTH_SCORE=${{ steps.analysis.outputs.health }}
-          if (( $(echo "$MAINTENANCE_SCORE < 94" | bc) )) || (( $(echo "$HEALTH_SCORE < 100" | bc) ))
+          if (( $(echo "$MAINTENANCE_SCORE < 80" | bc) )) || (( $(echo "$HEALTH_SCORE < 50" | bc) ))
           then
             echo "Scores are not both equal to 100"
             exit 1
