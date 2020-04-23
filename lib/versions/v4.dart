@@ -47,21 +47,18 @@ class V4 {
       query: query,
     );
 
-    print('final url= ' + url.toString());
+    //log to console
+    Logger(_tmdb.logConfig).logTypes.urlLog(url.toString());
     http.Response response;
 
     //getting data form url
     try {
       if (method == HttpMethod.POST) {
         //POST request
-        print('postHeaders= $postHeaders');
-        print('postbody= $postBody');
         response = await http.post(url,
             body: jsonEncode(postBody), headers: postHeaders);
       } else if (method == HttpMethod.DELETE) {
         //DELETE request
-        print('deleteHeaders= $deleteHeaders');
-        print('deleteBody= $deleteBody');
         response = await _httpDelete(url, deleteBody, deleteHeaders);
       } else if (method == HttpMethod.PUT) {
         //PUT request
@@ -74,15 +71,15 @@ class V4 {
         else
           response = await http.get(url);
       }
+      Map data = jsonDecode(response.body);
+      return data;
     } catch (e) {
-      print(e);
-      //todo:implement exception
+      Logger(_tmdb.logConfig).logTypes.errorLog(
+          'Exception while making a request Exception = {${e.toString()}');
+      //rethrowing same error
+      throw e;
       //SocketException
     }
-
-    Map data = jsonDecode(response.body);
-    // print(data);
-    return data;
   }
 
   String _optionalQueries(List<String> queries, String currentQuery) {

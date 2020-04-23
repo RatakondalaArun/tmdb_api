@@ -106,8 +106,8 @@ class V3 {
       path: '$_apiVersion/$endPoint',
       query: query,
     );
-
-    print('final url= ' + url.toString());
+    //log to console
+    Logger(_tmdb.logConfig).logTypes.urlLog(url.toString());
     http.Response response;
 
     //getting data form url
@@ -119,14 +119,15 @@ class V3 {
       } else {
         response = await http.get(url);
       }
-    } catch (e) {
-      print(e);
-      //todo:implement exception
-    }
 
-    Map data = jsonDecode(response.body);
-    // print(data);
-    return data;
+      Map data = jsonDecode(response.body);
+      return data;
+    } catch (e) {
+      Logger(_tmdb.logConfig).logTypes.errorLog(
+          'Exception while making a request Exception = {${e.toString()}');
+      //rethrowing same error
+      throw e;
+    }
   }
 
   String _optionalQueries(List<String> queries, String currentQuery) {

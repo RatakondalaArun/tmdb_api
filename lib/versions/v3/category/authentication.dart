@@ -94,12 +94,20 @@ class Auth {
   Future<dynamic> createRequestToken({bool asMap = false}) async {
     Map result = await _v3._query('authentication/token/new');
     if (asMap) {
+      Logger(_v3._tmdb.logConfig)
+          .logTypes
+          .infoLog('Request Token Created ${result.toString()}');
       return result;
     }
     if (result.containsKey('success')) {
+      Logger(_v3._tmdb.logConfig)
+          .logTypes
+          .infoLog('Request Token Created ${result.toString()}');
       return result['request_token'];
     }
-    print('Auth createRequest result from tmdb = ${result.toString()}');
+    Logger(_v3._tmdb.logConfig)
+        .logTypes
+        .warningLog('Failed to create requesttoken ${result.toString()}');
     return null;
   }
 
@@ -155,13 +163,17 @@ class Auth {
     Map result = await _v3._query('authentication/session/new',
         optionalQueries: ['request_token=$requestToken']);
     if (asMap) {
+      Logger(_v3._tmdb.logConfig).logTypes.infoLog(
+          'createSession success result from tmdb = ${result.toString()}');
       return result;
     }
     if (result.containsKey('success')) {
+      Logger(_v3._tmdb.logConfig).logTypes.infoLog(
+          'createSession success result from tmdb = ${result.toString()}');
       return result['session_id'];
     }
-    print(
-        'Auth createSession failed => result from tmdb = ${result.toString()}');
+    Logger(_v3._tmdb.logConfig).logTypes.warningLog(
+        'createSession failed result from tmdb = ${result.toString()}');
     return null;
   }
 
@@ -250,7 +262,10 @@ class Auth {
         postHeaders: {'session_id': sessionId},
         method: HttpMethod.DELETE,
         deleteBody: {'session_id': '$sessionId'});
-    print(result);
+
+    Logger(_v3._tmdb.logConfig)
+        .logTypes
+        .infoLog('deleteSession result ${result.toString()}');
     return result;
   }
 }
