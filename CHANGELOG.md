@@ -1,6 +1,13 @@
-## [1.0.0-beta] - 17-3-2020
+## [1.1.0] - 23-4-2020
+* # 1.1.0
+    previous version was causing unwanted console logs so i removed it.
+but you can still access those logs using **logConfig** parameter in `TMDB` class.
+
+* # 1.0.0-stable
+    Out of beta
 * # 1.0.0-beta.1
-    Update Readme
+    Updated ReadMe
+
 * # 1.0.0-beta
     Almost all the features are added
     (*if any features are missing you can create a issue*)
