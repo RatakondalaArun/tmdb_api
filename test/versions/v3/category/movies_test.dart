@@ -4,7 +4,8 @@ import 'package:tmdb_api/tmdb_api.dart';
 import '../../../../lib/keys.dart';
 
 void main() {
-  TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
+  TMDB tmdb =
+      TMDB(ApiKeys(Keys.API, Keys.API_V4), logConfig: ConfigLogger.showAll());
   group('Movie', () {
     test('Details', () async {
       Map result = await tmdb.v3.movies.getDetails(103, language: 'en-US');
