@@ -3,7 +3,6 @@ name: Run Tests CI
 on: [push]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     container:
@@ -11,12 +10,15 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
+      
     - name: Set Env variables
       env:
         API_V3: ${{ secrets.API_KEY_V3 }}
         API_V4: ${{ secrets.API_KEY_V4 }}
+      
     - name: Install dependencies
       run: pub get
+      
     - name: Run Tests
       run: pub run test test/versions/v3/category/
       
