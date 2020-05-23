@@ -1,7 +1,9 @@
+@Skip('Only manual tests are possible')
+
 import 'package:test/test.dart';
+import '../../../init_script.dart';
 
 import 'package:tmdb_api/tmdb_api.dart';
-import '../../../../lib/keys.dart';
 
 void main() {
   TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));

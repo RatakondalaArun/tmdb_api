@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
+import '../../../init_script.dart';
 import 'package:tmdb_api/tmdb_api.dart';
-import '../../../../lib/keys.dart';
 
 main() {
   TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
@@ -27,7 +27,7 @@ main() {
       });
       test('without parameters', () async {
         var result = await tmdb.v3.tvEpisodes.getChanges(302);
-        assert(result is Map);
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
     });
@@ -35,12 +35,12 @@ main() {
     group('Credits', () {
       test('with parameters', () async {
         var result = await tmdb.v3.tvEpisodes.getCredits(103, 1, 1);
-        assert(result is Map);
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
         var result = await tmdb.v3.tvEpisodes.getCredits(103, 1, 1);
-        assert(result is Map);
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
     });
@@ -48,7 +48,7 @@ main() {
     group('External ids', () {
       test('without parameters', () async {
         var result = await tmdb.v3.tvEpisodes.getExternalId(103, 1, 1);
-        assert(result is Map);
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
     });
@@ -56,7 +56,7 @@ main() {
     group('Images', () {
       test('without parameters', () async {
         var result = await tmdb.v3.tvEpisodes.getImages(103, 1, 1);
-        assert(result is Map);
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
     });
@@ -64,7 +64,7 @@ main() {
     group('Videos', () {
       test('with parameters', () async {
         var result = await tmdb.v3.tvEpisodes.getVideos(103, 1, 1);
-        assert(result is Map);
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
     });
@@ -72,7 +72,7 @@ main() {
     group('Translations', () {
       test('without parameters', () async {
         var result = await tmdb.v3.tvEpisodes.getTranslation(103, 1, 1);
-        assert(result is Map);
+        expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
     });

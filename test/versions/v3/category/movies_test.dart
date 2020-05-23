@@ -1,11 +1,11 @@
 import 'package:test/test.dart';
+import '../../../init_script.dart';
 
 import 'package:tmdb_api/tmdb_api.dart';
-import '../../../../lib/keys.dart';
 
 void main() {
   TMDB tmdb =
-      TMDB(ApiKeys(Keys.API, Keys.API_V4), logConfig: ConfigLogger.showAll());
+      TMDB(ApiKeys(Keys.API, Keys.API_V4), logConfig: ConfigLogger.showNone());
   group('Movie', () {
     test('Details', () async {
       Map result = await tmdb.v3.movies.getDetails(103, language: 'en-US');
@@ -193,7 +193,6 @@ void main() {
       test('>check', () async {
         Map result = await tmdb.v3.movies.rateMovie(12, 5,
             sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6');
-        print(result);
         expect(result is Map, true, reason: 'result is not map');
       });
     });
@@ -202,14 +201,12 @@ void main() {
       test('>check', () async {
         Map result = await tmdb.v3.movies.deleteRating(5,
             sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6');
-        print(result);
         expect(result is Map, true, reason: 'result is not map');
       });
     });
     group('>Image', () {
       test('>check', () async {
         Map result = await tmdb.v3.movies.getImages(103);
-        print(result);
         expect(result is Map, true, reason: 'result is not map');
       });
     });
@@ -218,7 +215,6 @@ void main() {
       test('>check', () async {
         Map result = await tmdb.v3.movies.getAccountStatus(12,
             sessionId: '5129b38561c99f577bd85cc7f2ff47bb79735902');
-        print(result);
         expect(result is Map, true, reason: 'result is not map');
       });
     });

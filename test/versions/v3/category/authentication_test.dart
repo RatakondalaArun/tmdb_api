@@ -1,7 +1,9 @@
-import 'package:test/test.dart';
+@Skip('Only manual tests are possible')
 
+import 'package:test/test.dart';
+import '../../../init_script.dart';
+import '../../../../lib/keys.dart' as user;
 import 'package:tmdb_api/tmdb_api.dart';
-import '../../../../lib/keys.dart';
 
 void main() {
   TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
@@ -29,7 +31,7 @@ void main() {
     group('Create session with login', () {
       test('generate with creditionals', () async {
         String result = await tmdb.v3.auth
-            .createSessionWithLogin(User.USERNAME, User.PASSWORD);
+            .createSessionWithLogin(user.User.USERNAME, user.User.PASSWORD);
         print(result);
         expect(result == null, false);
       });
