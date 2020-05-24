@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
+import '../../../init_script.dart';
 import 'package:tmdb_api/tmdb_api.dart';
-import '../../../../lib/keys.dart';
 
 main() {
   TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
@@ -11,7 +11,6 @@ main() {
             language: 'en-US', appendToResponse: 'videos,images');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
-        print(result);
       });
       test('without parameters', () async {
         var result = await tmdb.v3.tvSeasons.getDetails(103, 1);

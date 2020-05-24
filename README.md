@@ -1,4 +1,5 @@
 ![Dart pub analyser](https://github.com/Arunnaidu3470/tmdb_api/workflows/Dart%20pub%20analyser/badge.svg?branch=master)
+![Run Tests CI](https://github.com/RatakondalaArun/tmdb_api/workflows/Run%20Tests%20CI/badge.svg)
 [![pub package](https://img.shields.io/pub/v/tmdb_api?color=dark%20green&include_prereleases&label=pub%20package&logo=dart)](https://pub.dartlang.org/packages/tmdb_api)
 
 # tmdb_api

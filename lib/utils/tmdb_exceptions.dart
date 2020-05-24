@@ -1,7 +1,20 @@
 part of tmdb_api;
 
+///Base exception
+class TMDBException implements Exception {
+  final String message;
+  final String source;
+  final String help;
+  TMDBException(this.message, {this.source, this.help});
+
+  @override
+  String toString() {
+    return 'TMDBException() thrown message:$message | at source:$source | help:$help';
+  }
+}
+
 ///Encountered a null value
-class NullValueException implements Exception {
+class NullValueException implements TMDBException {
   final String message;
   final String source;
   final String help;
@@ -10,12 +23,12 @@ class NullValueException implements Exception {
 
   @override
   String toString() {
-    return 'NullValueException thrown message:$message | at source:$source | help:$help';
+    return 'NullValueException() thrown message:$message | at source:$source | help:$help';
   }
 }
 
 ///When constrains are not meet
-class InvalidDataException implements Exception {
+class InvalidDataException implements TMDBException {
   final String message;
   final String source;
   final String help;
@@ -24,6 +37,19 @@ class InvalidDataException implements Exception {
 
   @override
   String toString() {
-    return 'InvalidDataException thrown message:$message | at source:$source | help:$help';
+    return 'InvalidDataException() thrown message:$message | at source:$source | help:$help';
+  }
+}
+
+/// Socket exception from TMDB
+class TMDBSocketException implements TMDBException {
+  final String message;
+  final String source;
+  final String help;
+  TMDBSocketException(this.message,
+      {this.source, this.help = 'Check your internet connection.'});
+  @override
+  String toString() {
+    return 'TMDBSocketException(message: $message,source: $source, help: $help)';
   }
 }

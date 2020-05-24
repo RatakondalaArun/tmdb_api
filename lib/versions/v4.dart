@@ -74,11 +74,18 @@ class V4 {
       Map data = jsonDecode(response.body);
       return data;
     } catch (e) {
-      Logger(_tmdb.logConfig).logTypes.errorLog(
-          'Exception while making a request Exception = {${e.toString()}');
-      //rethrowing same error
-      throw e;
-      //SocketException
+      if (e is SocketException) {
+        Logger(_tmdb.logConfig).logTypes.errorLog(
+            'Exception while making a request. There may be problem with your internet connection. Exception = {${e.message}');
+        throw TMDBSocketException(e.message);
+      } else {
+        Logger(_tmdb.logConfig).logTypes.errorLog(
+            'Exception while making a request. Exception = {${e.toString()}');
+        Logger(_tmdb.logConfig).logTypes.infoLog(
+            'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues');
+        //if error is unknown rethrow it
+        rethrow;
+      }
     }
   }
 
@@ -97,14 +104,18 @@ class V4 {
   //so created this
   Future<http.Response> _httpDelete(Uri url, Map<String, dynamic> deleteBody,
       Map<String, String> deleteHeaders) async {
-    http.Request request = http.Request('DELETE', Uri.parse(url.toString()))
-      ..headers.addAll(deleteHeaders ??
-          {'Content-Type': 'application/x-www-form-urlencoded'});
-    // request.bodyFields = deleteBody;
-    request.body = jsonEncode(deleteBody);
+    try {
+      http.Request request = http.Request('DELETE', Uri.parse(url.toString()))
+        ..headers.addAll(deleteHeaders ??
+            {'Content-Type': 'application/x-www-form-urlencoded'});
+      // request.bodyFields = deleteBody;
+      request.body = jsonEncode(deleteBody);
 
-    http.Response response =
-        await http.Response.fromStream(await request.send());
-    return response;
+      http.Response response =
+          await http.Response.fromStream(await request.send());
+      return response;
+    } catch (e) {
+      rethrow;
+    }
   }
 }

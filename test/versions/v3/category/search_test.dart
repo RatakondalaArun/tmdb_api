@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
+import '../../../init_script.dart';
 
 import 'package:tmdb_api/tmdb_api.dart';
-import '../../../../lib/keys.dart';
 
 void main() {
   TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
@@ -16,7 +16,7 @@ void main() {
         try {
           await tmdb.v3.search.queryCompanies(null);
         } catch (e) {
-          assert(e is NullValueException);
+          expect(e is NullValueException, true);
         }
       });
     });
@@ -31,7 +31,7 @@ void main() {
         try {
           await tmdb.v3.search.queryCollections(null);
         } catch (e) {
-          assert(e is NullValueException);
+          expect(e is NullValueException, true);
         }
       });
     });
@@ -45,7 +45,7 @@ void main() {
         try {
           await tmdb.v3.search.queryKeywords(null);
         } catch (e) {
-          assert(e is NullValueException);
+          expect(e is NullValueException, true);
         }
       });
     });
@@ -59,7 +59,7 @@ void main() {
         try {
           await tmdb.v3.search.queryMovies(null);
         } catch (e) {
-          assert(e is NullValueException);
+          expect(e is NullValueException, true);
         }
       });
       test('with parameters', () async {
@@ -99,7 +99,7 @@ void main() {
         try {
           await tmdb.v3.search.queryPeople(null);
         } catch (e) {
-          assert(e is NullValueException);
+          expect(e is NullValueException, true);
         }
       });
       test('with parameters', () async {
@@ -119,7 +119,7 @@ void main() {
         try {
           await tmdb.v3.search.queryTvShows(null);
         } catch (e) {
-          assert(e is NullValueException);
+          expect(e is NullValueException, true);
         }
       });
       test('with parameters', () async {

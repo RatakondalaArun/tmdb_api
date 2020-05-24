@@ -1,11 +1,12 @@
-import 'package:test/test.dart';
-import 'package:tmdb_api/tmdb_api.dart';
+@Skip('Only manual tests are possible Because of auth tokens')
 
-import '../../../../lib/keys.dart';
+import 'package:test/test.dart';
+import '../../../init_script.dart';
+import 'package:tmdb_api/tmdb_api.dart';
 
 void main() {
   TMDB tmdb =
-      TMDB(ApiKeys(Keys.API, Keys.API_V4), logConfig: ConfigLogger.showAll());
+      TMDB(ApiKeys(Keys.API, Keys.API_V4), logConfig: ConfigLogger.showNone());
   group('Account', () {
     test('without prameters', () async {
       Map result = await tmdb.v3.account

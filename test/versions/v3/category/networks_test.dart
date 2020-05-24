@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
+import '../../../init_script.dart';
 import 'package:tmdb_api/tmdb_api.dart';
-import '../../../../lib/keys.dart';
 
 void main() {
   TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
@@ -26,21 +26,18 @@ void main() {
         await tmdb.v3.networks.getDetails(null);
       } catch (e) {
         expect(e is NullValueException, true);
-        print(e.toString());
       }
       //for Alternative names
       try {
         await tmdb.v3.networks.getAlternativeNames(null);
       } catch (e) {
         expect(e is NullValueException, true);
-        print(e.toString());
       }
       //for images
       try {
         await tmdb.v3.networks.getImages(null);
       } catch (e) {
         expect(e is NullValueException, true);
-        print(e.toString());
       }
     });
   });

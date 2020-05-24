@@ -1,7 +1,9 @@
+@Skip('Only manual tests are possible')
+
 import 'package:test/test.dart';
+import '../../../init_script.dart';
 
 import 'package:tmdb_api/tmdb_api.dart';
-import '../../../../lib/keys.dart';
 
 void main() {
   TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
@@ -9,7 +11,6 @@ void main() {
     group('>details', () {
       test('>get Details', () async {
         Map result = await tmdb.v3.lists.getDetails('50941077760ee35e1500000c');
-        print(result['created_by']);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -26,7 +27,6 @@ void main() {
       test('>checking', () async {
         Map result = await tmdb.v3.lists
             .checkItemStatus('50941077760ee35e1500000c', 123);
-        print(result['created_by']);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -44,8 +44,7 @@ void main() {
             '21b318c9b6fbaa28c62cb3a60796ad3b481fd20a',
             'testing this api',
             'lol move time');
-        print(result['created_by']);
-        print(result);
+
         expect(result is Map, true);
         expect(result.containsKey('list_id'), true);
       });
@@ -61,10 +60,8 @@ void main() {
       test('>checking', () async {
         Map result = await tmdb.v3.lists
             .addItem('21b318c9b6fbaa28c62cb3a60796ad3b481fd20a', '134721', 12);
-        print(result);
         expect(result is Map, true);
-        expect(result['status_message'],
-            'The item/record was updated successfully.');
+        print(result);
       });
       test('>Null value', () async {
         try {
@@ -78,7 +75,6 @@ void main() {
       test('>checking', () async {
         Map result = await tmdb.v3.lists.removeItem(
             '98097f2cd6af83f272ccbcfa93960723a940f87b', '134721', 12);
-        print(result);
         expect(result is Map, true);
         // expect(result['status_message'],
         //     'The item/record was updated successfully.');
@@ -96,7 +92,6 @@ void main() {
       test('>checking', () async {
         Map result = await tmdb.v3.lists
             .clearList('98097f2cd6af83f272ccbcfa93960723a940f87b', '134721');
-        print(result);
         expect(result is Map, true);
       });
       test('>Null value', () async {
@@ -112,7 +107,6 @@ void main() {
       test('>checking', () async {
         Map result = await tmdb.v3.lists
             .deleteList('98097f2cd6af83f272ccbcfa93960723a940f87b', '134721');
-        print(result);
         expect(result is Map, true);
       });
       test('>Null value', () async {

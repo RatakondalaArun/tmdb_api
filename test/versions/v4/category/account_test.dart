@@ -1,7 +1,8 @@
+@Skip('Only manual tests are possible')
 import 'package:test/test.dart';
-
+import '../../../init_script.dart';
+import '../../../../lib/keys.dart' as user;
 import 'package:tmdb_api/tmdb_api.dart';
-import '../../../../lib/keys.dart';
 
 void main() {
   TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
@@ -11,7 +12,7 @@ void main() {
   group('Account', () {
     test('Get lists', () async {
       Map result =
-          await tmdb.v4.account.getLists(ACCESS_TOKEN, User.USER_TMDB_ID);
+          await tmdb.v4.account.getLists(ACCESS_TOKEN, user.User.USER_TMDB_ID);
       print(result);
       expect(result is Map, true);
       expect(result.containsKey('results'), true);
@@ -19,7 +20,7 @@ void main() {
 
     test('Get Fav movies', () async {
       Map result = await tmdb.v4.account
-          .getFavoritMovies(ACCESS_TOKEN, User.USER_TMDB_ID);
+          .getFavoritMovies(ACCESS_TOKEN, user.User.USER_TMDB_ID);
       print(result);
       expect(result is Map, true);
       expect(result.containsKey('results'), true);
@@ -27,7 +28,7 @@ void main() {
 
     test('Get Fav tv', () async {
       Map result = await tmdb.v4.account
-          .getFavoriteTvShows(ACCESS_TOKEN, User.USER_TMDB_ID);
+          .getFavoriteTvShows(ACCESS_TOKEN, user.User.USER_TMDB_ID);
       print(result);
       expect(result is Map, true);
       expect(result.containsKey('results'), true);
@@ -35,7 +36,7 @@ void main() {
 
     test('Get movie rec', () async {
       Map result = await tmdb.v4.account
-          .getMovieRecommendations(ACCESS_TOKEN, User.USER_TMDB_ID);
+          .getMovieRecommendations(ACCESS_TOKEN, user.User.USER_TMDB_ID);
       print(result);
       expect(result is Map, true);
       expect(result.containsKey('results'), true);
@@ -43,7 +44,7 @@ void main() {
 
     test('Get tv rec', () async {
       Map result = await tmdb.v4.account
-          .getTvShowRecommendations(ACCESS_TOKEN, User.USER_TMDB_ID);
+          .getTvShowRecommendations(ACCESS_TOKEN, user.User.USER_TMDB_ID);
       print(result);
       expect(result is Map, true);
       expect(result.containsKey('results'), true);
@@ -51,7 +52,7 @@ void main() {
 
     test('Get movie watchlist', () async {
       Map result = await tmdb.v4.account
-          .getMovieWatchList(ACCESS_TOKEN, User.USER_TMDB_ID);
+          .getMovieWatchList(ACCESS_TOKEN, user.User.USER_TMDB_ID);
       print(result);
       expect(result is Map, true);
       expect(result.containsKey('results'), true);
@@ -59,15 +60,15 @@ void main() {
 
     test('Get tv watchlist', () async {
       Map result = await tmdb.v4.account
-          .getTvShowWatchList(ACCESS_TOKEN, User.USER_TMDB_ID);
+          .getTvShowWatchList(ACCESS_TOKEN, user.User.USER_TMDB_ID);
       print(result);
       expect(result is Map, true);
       expect(result.containsKey('results'), true);
     });
 
     test('Get Rated movie', () async {
-      Map result =
-          await tmdb.v4.account.getRatedMovies(ACCESS_TOKEN, User.USER_TMDB_ID);
+      Map result = await tmdb.v4.account
+          .getRatedMovies(ACCESS_TOKEN, user.User.USER_TMDB_ID);
       print(result);
       expect(result is Map, true);
       expect(result.containsKey('results'), true);
@@ -75,7 +76,7 @@ void main() {
 
     test('Get rated tv show', () async {
       Map result = await tmdb.v4.account
-          .getRatedTvShows(ACCESS_TOKEN, User.USER_TMDB_ID);
+          .getRatedTvShows(ACCESS_TOKEN, user.User.USER_TMDB_ID);
       print(result);
       expect(result is Map, true);
       expect(result.containsKey('results'), true);
