@@ -1,4 +1,8 @@
-## [1.1.0] - 23-4-2020
+## [1.2.0] - 24-5-2020
+* # 1.2.0
+  **There are some breaking changes**
+  * All the exceptions now implements `TMDBException`
+  * Throw `TMDBSocketException` if internet connection is not avaliable.
 * # 1.1.0
     previous version was causing unwanted console logs so i removed it.
 but you can still access those logs using **logConfig** parameter in `TMDB` class.
