@@ -1,4 +1,7 @@
-## [1.2.0] - 24-5-2020
+## [1.2.1] - 30-5-2020
+* # 1.2.1
+    Bug fix by @Arley011 with PR #13
+
 * # 1.2.0
   **There are some breaking changes**
   * All the exceptions now implements `TMDBException`
