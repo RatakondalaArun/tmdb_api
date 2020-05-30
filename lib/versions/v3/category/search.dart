@@ -281,6 +281,6 @@ class Search {
     if (firstAirDateYear != null) {
       optionalQueries.add('first_air_date_year=$firstAirDateYear');
     }
-    return _v3._query('$_endPoint/company', optionalQueries: optionalQueries);
+    return _v3._query('$_endPoint/tv', optionalQueries: optionalQueries);
   }
 }
