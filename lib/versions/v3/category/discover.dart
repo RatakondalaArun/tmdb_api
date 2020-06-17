@@ -48,7 +48,7 @@ class Discover {
       String withPeople,
       String withCompanies,
       String withGenres,
-      String withoutGeners,
+      String withoutGenres,
       String withKeywords,
       String withoutKeywords,
       int withRunTimeGreaterThan,
@@ -142,11 +142,11 @@ class Discover {
     }
 
     if (withGenres != null) {
-      queries.add('with_genres=$withoutGeners');
+      queries.add('with_genres=$withGenres');
     }
 
-    if (withoutGeners != null) {
-      queries.add('without_genres=$withoutGeners');
+    if (withoutGenres != null) {
+      queries.add('without_genres=$withoutGenres');
     }
 
     if (withKeywords != null) {
