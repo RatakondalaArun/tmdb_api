@@ -4,7 +4,8 @@ import '../../../init_script.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 void main() {
-  TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
+  TMDB tmdb =
+      TMDB(ApiKeys(Keys.API, Keys.API_V4), logConfig: ConfigLogger.showAll());
   group('Discover', () {
     group('Movie', () {
       test('without prameters', () async {
@@ -13,7 +14,9 @@ void main() {
         expect(result.containsKey('status_code'), false);
       });
       test('withParameters', () async {
-        Map result = await tmdb.v3.discover.getMovies(region: 'IN');
+        Map result =
+            await tmdb.v3.discover.getMovies(region: 'IN', withGenres: '28');
+        print(result);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
