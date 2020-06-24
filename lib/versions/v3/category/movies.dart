@@ -26,7 +26,7 @@ class Movies {
         method: HttpMethod.GET,
         optionalQueries: [
           'language=$language',
-          'appendToResponse=$appendToResponse'
+          'append_to_response=$appendToResponse'
         ]);
   }
 
