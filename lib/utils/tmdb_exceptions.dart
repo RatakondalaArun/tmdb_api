@@ -42,6 +42,8 @@ class InvalidDataException implements TMDBException {
 }
 
 /// Socket exception from TMDB
+
+@Deprecated('Removed to support flutter web platform')
 class TMDBSocketException implements TMDBException {
   final String message;
   final String source;
