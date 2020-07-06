@@ -187,9 +187,8 @@ class Lists {
   ///}
   ///```
   Future<Map> clearList(String sessionId, String listId) {
-    {
-      if (sessionId == null || listId == null)
-        throw NullValueException('sessionId == null || listId == null is true');
+    if (sessionId == null || listId == null) {
+      throw NullValueException('sessionId == null || listId == null is true');
     }
 
     return _v3._query('$_endPoint/$listId/clear',
