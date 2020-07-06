@@ -75,18 +75,12 @@ class V4 {
       Map data = jsonDecode(response.body);
       return data;
     } catch (e) {
-      if (e is SocketException) {
-        Logger(_tmdb.logConfig).logTypes.errorLog(
-            'Exception while making a request. There may be problem with your internet connection. Exception = {${e.message}');
-        throw TMDBSocketException(e.message);
-      } else {
-        Logger(_tmdb.logConfig).logTypes.errorLog(
-            'Exception while making a request. Exception = {${e.toString()}');
-        Logger(_tmdb.logConfig).logTypes.infoLog(
-            'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues');
-        //if error is unknown rethrow it
-        rethrow;
-      }
+      Logger(_tmdb.logConfig).logTypes.errorLog(
+          'Exception while making a request. Exception = {${e.toString()}');
+      Logger(_tmdb.logConfig).logTypes.infoLog(
+          'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues');
+      //if error is unknown rethrow it
+      rethrow;
     }
   }
 
