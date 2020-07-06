@@ -66,10 +66,11 @@ class V4 {
             body: jsonEncode(postBody), headers: postHeaders);
       } else {
         //GET request
-        if (postHeaders != null)
+        if (postHeaders != null) {
           response = await http.get(url, headers: postHeaders);
-        else
+        } else {
           response = await http.get(url);
+        }
       }
       Map data = jsonDecode(response.body);
       return data;
