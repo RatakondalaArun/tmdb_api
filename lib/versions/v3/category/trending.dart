@@ -22,6 +22,8 @@ class Trending {
   /// - `day`	View the trending list for the day. [TimeWindow.day] *(Default)*
   /// - `week`	View the trending list for the week. [TimeWindow.week]
   ///
+  /// ## Parameters
+  ///`page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
   /// ## Implementation
   ///
   /// ```
@@ -30,9 +32,11 @@ class Trending {
   ///
   Future<Map> getTrending(
       {MediaType mediaType = MediaType.all,
-      TimeWindow timeWindow = TimeWindow.day}) {
+      TimeWindow timeWindow = TimeWindow.day,
+      int page = 1}) {
     return _v3._query(
-        '$_endPoint/${_getMediaType(mediaType)}/${_getTimeWindow(timeWindow)}');
+        '$_endPoint/${_getMediaType(mediaType)}/${_getTimeWindow(timeWindow)}',
+        optionalQueries: ['page=$page']);
   }
 
   //get the type of media in string

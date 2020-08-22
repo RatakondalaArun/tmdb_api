@@ -1,3 +1,7 @@
+## 1.2.5
+- Feature 
+  - Added page support for trending items [#24](https://github.com/RatakondalaArun/tmdb_api/pull/24) by [Viswanth1038](https://github.com/Viswanth1038)
+
 ## 1.2.4
 - Fixed [#14](https://github.com/RatakondalaArun/tmdb_api/issues/14)
   - flutter web support 
