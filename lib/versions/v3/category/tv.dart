@@ -530,6 +530,41 @@ class Tv {
         method: HttpMethod.DELETE, deleteBody: {}, optionalQueries: para);
   }
 
+    ///Get the images that belong to a tv show.
+  ///
+
+  ///
+  ///## Parameters
+  ///`tvId`: Id of a tv
+  ///
+  ///`language`:Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///`includeImageLanguage`:
+  ///Querying images with a language parameter will filter the results.
+  ///If you want to include a fallback language (especially useful for backdrops)
+  /// you can use the `include_image_language` parameter.
+  ///This should be a comma seperated value like so: `include_image_language=en,null.`
+  ///
+  Future<Map> getImages(int tvId,
+      {String language = 'en-US', String includeImageLanguage}) {
+    if (tvId == null || language == null) {
+      throw NullValueException(
+          'tvId == null || tvId == null||language==null is true');
+    }
+    if (tvId < 1) {
+      throw InvalidDataException('tvId < 1 is true');
+    }
+
+    List<String> para = ['language=$language'];
+    if (includeImageLanguage != null) {
+      para.add('include_image_language=$includeImageLanguage');
+    }
+
+    return _v3._query('$_endPoint/$tvId/images', optionalQueries: para);
+  }
+
+
   ///Grab the following account states for a session:
   ///
   ///- TV show rating
