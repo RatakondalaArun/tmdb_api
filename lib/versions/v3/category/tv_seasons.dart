@@ -38,6 +38,29 @@ class TvSeasons {
         method: HttpMethod.GET, optionalQueries: para);
   }
 
+  /// Get the aggregate credits (cast and crew) that have
+  /// been added to a TV show.
+  ///
+  ///
+  /// This call differs from the main credits call in that it does not return
+  /// the newest season but rather, is a view of all the entire cast & crew
+  /// for all episodes belonging to a TV show.
+  ///
+  Future<Map> getAggregateCredits(
+    String tvId,
+    String seasonNumber, {
+    String language = 'en-US',
+  }) {
+    if (tvId == null || seasonNumber == null || language == null) {
+      throw NullValueException(
+          'tvId == null || seasonNumber == null || language == null is true');
+    }
+    return _v3._query(
+      'tv/$tvId/$_endPoint/$seasonNumber/aggregate_credits',
+      optionalQueries: ['language=$language'],
+    );
+  }
+
   ///Get the changes for a TV season.
   /// By default only the last 24 hours are returned.
   ///
