@@ -1,7 +1,7 @@
 name: tmdb_api
 description: Dart client-side API package for TMDB.org API (https://www.themoviedb.org/).
-version: 1.2.5
-# author: Ratakondala Arun<arunratakondala3470@gmail.com>
+version: 1.2.6
+# author: Ratakondala Arun<ratakondalaarun@gmail.com>
 homepage: https://github.com/RatakondalaArun/tmdb_api.git
 
 environment:
