@@ -130,6 +130,7 @@ class Search {
     List<String> optionalQueries = [
       'query=$query',
       'include_adult=$includeAdult',
+      'language=$language',
       'region=$region',
       'page=$page',
     ];

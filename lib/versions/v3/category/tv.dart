@@ -20,8 +20,11 @@ class Tv {
   ///```
   ///Map result = await tmdb.v3.tv.getDetails(103, language: 'en-US');
   ///```
-  Future<Map> getDetails(int tvId,
-      {String appendToResponse, String language = 'en-US'}) {
+  Future<Map> getDetails(
+    int tvId, {
+    String appendToResponse,
+    String language = 'en-US',
+  }) {
     if (tvId == null || language == null) {
       throw NullValueException('tvId == null || language == null is true');
     }
@@ -36,6 +39,21 @@ class Tv {
 
     return _v3._query('$_endPoint/$tvId',
         method: HttpMethod.GET, optionalQueries: para);
+  }
+
+  /// Get the aggregate credits (cast and crew) that have
+  /// been added to a TV show.
+  ///
+  ///
+  /// This call differs from the main credits call in that it does not return
+  /// the newest season but rather, is a view of all the entire cast & crew
+  /// for all episodes belonging to a TV show.
+  ///
+  Future<Map> getAggregateCredits(String tvId, {String language = 'en-US'}) {
+    return _v3._query(
+      '$_endPoint/$tvId/aggregate_credits',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Returns all of the alternative titles for a TV show.
@@ -301,6 +319,53 @@ class Tv {
     return _v3._query('$_endPoint/$tvId/translations');
   }
 
+  /// Get the videos that have been added to a TV show.
+  ///
+  /// ## Parameters
+  ///
+  /// `tvId`: Id of a tv show.
+  ///
+  /// ## Implementation
+  ///
+  /// ```
+  /// Map result = await tmdb.v3.tv.getVideos(103);
+  /// ```
+  ///
+  Future<Map> getVideos(String tvId) {
+    if (tvId == null) {
+      throw NullValueException('tvId == null is true');
+    }
+    return _v3._query('$_endPoint/$tvId');
+  }
+
+  /// Powered by our partnership with JustWatch, you can query
+  /// this method to get a list of the availabilities per country by provider.
+  /// This is not going to return full deep links, but rather,
+  /// it's just enough information to display what's available where.
+  /// You can link to the provided TMDb URL to help support TMDb
+  /// and provide the actual deep links to the content.
+  ///
+  /// Please note: In order to use this data you must attribute
+  /// the source of the data as JustWatch. If we find any usage not
+  /// complying with these terms we will revoke access to the API.
+  ///
+  /// ## Parameters
+  ///
+  /// `tvId`: Id of a tv show.
+  ///
+  /// ## Implementation
+  ///
+  /// ```
+  /// Map result = await tmdb.v3.tv.getWatchProviders(103);
+  /// ```
+  ///
+  Future<Map> getWatchProviders(String tvId) {
+    if (tvId == null) {
+      throw NullValueException('tvId == null is true');
+    }
+    return _v3._query('$_endPoint/$tvId/watch/providers');
+  }
+
   ///Get the most newly created tv show.
   ///This is a live response and will continuously change.
   ///
@@ -528,6 +593,40 @@ class Tv {
 
     return _v3._query('$_endPoint/$tvId/rating',
         method: HttpMethod.DELETE, deleteBody: {}, optionalQueries: para);
+  }
+
+  ///Get the images that belong to a tv show.
+  ///
+
+  ///
+  ///## Parameters
+  ///`tvId`: Id of a tv
+  ///
+  ///`language`:Pass a ISO 639-1 value to display translated data for the fields that support it.
+  ///*minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///`includeImageLanguage`:
+  ///Querying images with a language parameter will filter the results.
+  ///If you want to include a fallback language (especially useful for backdrops)
+  /// you can use the `include_image_language` parameter.
+  ///This should be a comma seperated value like so: `include_image_language=en,null.`
+  ///
+  Future<Map> getImages(int tvId,
+      {String language = 'en-US', String includeImageLanguage}) {
+    if (tvId == null || language == null) {
+      throw NullValueException(
+          'tvId == null || tvId == null||language==null is true');
+    }
+    if (tvId < 1) {
+      throw InvalidDataException('tvId < 1 is true');
+    }
+
+    List<String> para = ['language=$language'];
+    if (includeImageLanguage != null) {
+      para.add('include_image_language=$includeImageLanguage');
+    }
+
+    return _v3._query('$_endPoint/$tvId/images', optionalQueries: para);
   }
 
   ///Grab the following account states for a session:
