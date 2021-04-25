@@ -197,7 +197,7 @@ class Auth {
     }
     //creating a request token
     String requestToken = await createRequestToken();
-    Map postBody = {
+    Map<String, String> postBody = {
       'username': username,
       'password': password,
       'request_token': requestToken
