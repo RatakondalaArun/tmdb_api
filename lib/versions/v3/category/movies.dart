@@ -484,6 +484,37 @@ class Movies {
     return _v3._query('$_endPoint/upcoming', optionalQueries: para);
   }
 
+  /// Powered by our partnership with JustWatch,
+  /// you can query this method to get a list of the
+  /// availabilities per country by provider.
+  /// This is not going to return full deep links,
+  /// but rather, it's just enough information to
+  /// display what's available where.
+  /// You can link to the provided TMDB URL to help
+  /// support TMDB and provide the actual deep links to the content.
+  /// Please note: In order to use this data you must attribute
+  /// the source of the data as JustWatch. If we find any usage not
+  /// complying with these terms we will revoke access to the API.
+  ///## Parameters
+  ///
+  ///`movieId`: Id of a given movie.
+  ///
+  ///## Implementation
+  ///
+  ///```
+  /// Map result = await tmdb.v3.movies.getWatchProviders();
+  ///```
+  ///
+  Future getWatchProviders(int movieId) {
+    if (movieId == null) {
+      throw NullValueException('movieId == null is true');
+    }
+    return _v3._query(
+      '$_endPoint/$movieId/watch/providers',
+      method: HttpMethod.GET,
+    );
+  }
+
   ///Rate a movie.
   ///
   ///A valid session or guest session ID is required.

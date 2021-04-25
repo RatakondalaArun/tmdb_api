@@ -1,5 +1,11 @@
 # ChangeLog
 
+## 1.2.7
+
+- Issues Fixed
+  - Fixed typeerror [#36](https://github.com/RatakondalaArun/tmdb_api/pull/36) by [@RatakondalaArun](https://github.com/RatakondalaArun)
+  - Added watch providers method [#37](https://github.com/RatakondalaArun/tmdb_api/pull/37) by [@RatakondalaArun](https://github.com/RatakondalaArun)
+
 ## 1.2.6
 
 - Issues Fixed
