@@ -24,6 +24,5 @@ jobs:
       - name: 📢 Publish docs
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: docs
-          FOLDER: docs
+          branch: docs
+          folder: docs
