@@ -1,0 +1,29 @@
+name: docs
+
+on:
+  push:
+    branches:
+      - master
+      - ci/docs
+
+jobs:
+  generate-docs:
+    name: Generate docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+        with:
+          persist-credentials: false
+
+      - name: 📐 Setup Dart SDK
+        uses: dart-lang/setup-dart@v1.0
+
+      - name: 🧬 Generate docs
+        run: dartdoc --output docs
+
+      - name: 📢 Publish docs
+        uses: JamesIves/github-pages-deploy-action@4.4.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: docs
+          FOLDER: docs
