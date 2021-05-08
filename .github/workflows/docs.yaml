@@ -19,11 +19,11 @@ jobs:
         uses: dart-lang/setup-dart@v1.0
 
       - name: 🧬 Generate docs
-        run: dartdoc --output docs
+        run: tree & dartdoc --output docs
 
       - name: 📢 Publish docs
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: docs
-          FOLDER: docs
+          FOLDER: tmdb_api/docs
