@@ -17,7 +17,10 @@ jobs:
         uses: dart-lang/setup-dart@v1.0
 
       - name: 🧬 Generate docs
-        run: dartdoc --output docs & tree
+        run: dartdoc --output docs
+
+      - name: tree
+        run: tree
 
       - name: 📢 Publish docs
         uses: JamesIves/github-pages-deploy-action@4.1.1
