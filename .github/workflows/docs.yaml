@@ -12,8 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4
-        with:
-          persist-credentials: false
 
       - name: 📐 Setup Dart SDK
         uses: dart-lang/setup-dart@v1.0
