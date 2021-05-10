@@ -23,7 +23,7 @@ jobs:
         run: tree
 
       - name: 📢 Publish docs
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+        uses: JamesIves/github-pages-deploy-action@4.1.2
         with:
           branch: docs
           folder: docs
