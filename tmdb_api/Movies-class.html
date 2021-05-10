@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the Movies class from the tmdb_api library, for the Dart programming language.">
+  <title>Movies class - tmdb_api library - Dart API</title>
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../static-assets/github.css">
+  <link rel="stylesheet" href="../static-assets/styles.css">
+  <link rel="icon" href="../static-assets/favicon.png">
+
+</head>
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">tmdb_api</a></li>
+    <li><a href="../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+    <li class="self-crumb">Movies class</li>
+  </ol>
+  <div class="self-name">Movies</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="../index.html">tmdb_api</a></li>
+      <li><a href="../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+      <li class="self-crumb">Movies class</li>
+    </ol>
+    
+    <h5>tmdb_api library</h5>
+    <ol>
+  <li class="section-title"><a href="../tmdb_api/tmdb_api-library.html#classes">Classes</a></li>
+  <li><a href="../tmdb_api/Account-class.html">Account</a></li>
+  <li><a href="../tmdb_api/AccountV4-class.html">AccountV4</a></li>
+  <li><a href="../tmdb_api/ApiKeys-class.html">ApiKeys</a></li>
+  <li><a href="../tmdb_api/Auth-class.html">Auth</a></li>
+  <li><a href="../tmdb_api/AuthV4-class.html">AuthV4</a></li>
+  <li><a href="../tmdb_api/Certification-class.html">Certification</a></li>
+  <li><a href="../tmdb_api/Changes-class.html">Changes</a></li>
+  <li><a href="../tmdb_api/Collections-class.html">Collections</a></li>
+  <li><a href="../tmdb_api/Companies-class.html">Companies</a></li>
+  <li><a href="../tmdb_api/ConfigLogger-class.html">ConfigLogger</a></li>
+  <li><a href="../tmdb_api/Credit-class.html">Credit</a></li>
+  <li><a href="../tmdb_api/Discover-class.html">Discover</a></li>
+  <li><a href="../tmdb_api/Find-class.html">Find</a></li>
+  <li><a href="../tmdb_api/Geners-class.html">Geners</a></li>
+  <li><a href="../tmdb_api/GuestSession-class.html">GuestSession</a></li>
+  <li><a href="../tmdb_api/Images-class.html">Images</a></li>
+  <li><a href="../tmdb_api/ImageSizes-class.html">ImageSizes</a></li>
+  <li><a href="../tmdb_api/Keywords-class.html">Keywords</a></li>
+  <li><a href="../tmdb_api/ListItem-class.html">ListItem</a></li>
+  <li><a href="../tmdb_api/Lists-class.html">Lists</a></li>
+  <li><a href="../tmdb_api/ListsV4-class.html">ListsV4</a></li>
+  <li><a href="../tmdb_api/Logger-class.html">Logger</a></li>
+  <li><a href="../tmdb_api/LogTypes-class.html">LogTypes</a></li>
+  <li><a href="../tmdb_api/Movies-class.html">Movies</a></li>
+  <li><a href="../tmdb_api/Networks-class.html">Networks</a></li>
+  <li><a href="../tmdb_api/People-class.html">People</a></li>
+  <li><a href="../tmdb_api/Reviews-class.html">Reviews</a></li>
+  <li><a href="../tmdb_api/Search-class.html">Search</a></li>
+  <li><a href="../tmdb_api/TMDB-class.html">TMDB</a></li>
+  <li><a href="../tmdb_api/Trending-class.html">Trending</a></li>
+  <li><a href="../tmdb_api/Tv-class.html">Tv</a></li>
+  <li><a href="../tmdb_api/TvEpisodeGroup-class.html">TvEpisodeGroup</a></li>
+  <li><a href="../tmdb_api/TvEpisodes-class.html">TvEpisodes</a></li>
+  <li><a href="../tmdb_api/TvSeasons-class.html">TvSeasons</a></li>
+  <li><a href="../tmdb_api/V3-class.html">V3</a></li>
+  <li><a href="../tmdb_api/V4-class.html">V4</a></li>
+
+
+
+
+
+
+  <li class="section-title"><a href="../tmdb_api/tmdb_api-library.html#enums">Enums</a></li>
+  <li><a href="../tmdb_api/ExternalId-class.html">ExternalId</a></li>
+  <li><a href="../tmdb_api/HttpMethod-class.html">HttpMethod</a></li>
+  <li><a href="../tmdb_api/MediaType-class.html">MediaType</a></li>
+  <li><a href="../tmdb_api/SortBy-class.html">SortBy</a></li>
+  <li><a href="../tmdb_api/SortListBy-class.html">SortListBy</a></li>
+  <li><a href="../tmdb_api/SortMoviesBy-class.html">SortMoviesBy</a></li>
+  <li><a href="../tmdb_api/SortTvShowsBy-class.html">SortTvShowsBy</a></li>
+  <li><a href="../tmdb_api/TimeWindow-class.html">TimeWindow</a></li>
+
+
+  <li class="section-title"><a href="../tmdb_api/tmdb_api-library.html#exceptions">Exceptions</a></li>
+  <li><a href="../tmdb_api/InvalidDataException-class.html">InvalidDataException</a></li>
+  <li><a href="../tmdb_api/NullValueException-class.html">NullValueException</a></li>
+  <li><a href="../tmdb_api/TMDBException-class.html">TMDBException</a></li>
+  <li><a class="deprecated" href="../tmdb_api/TMDBSocketException-class.html">TMDBSocketException</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div><h1><span class="kind-class">Movies</span> class  </h1></div>
+
+    
+
+    <section class="summary offset-anchor" id="constructors">
+      <h2>Constructors</h2>
+
+      <dl class="constructor-summary-list">
+        <dt id="Movies" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/Movies.html">Movies</a></span><span class="signature">(<span class="parameter" id="-param-_v3"><span class="type-annotation"><a href="../tmdb_api/V3-class.html">V3</a></span> <span class="parameter-name">_v3</span></span>)</span>
+        </dt>
+        <dd>
+           
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/hashCode.html">hashCode</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span>         
+        </dt>
+        <dd class="inherited">
+          The hash code for this object. <a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/hashCode.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="runtimeType" class="property inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/runtimeType.html">runtimeType</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/Type-class.html">Type</a></span>         
+        </dt>
+        <dd class="inherited">
+          A representation of the runtime type of the object. 
+                  <div class="features">read-only, inherited</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-methods">
+      <h2>Methods</h2>
+      <dl class="callables">
+        <dt id="deleteRating" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/deleteRating.html">deleteRating</a></span><span class="signature">(<wbr><span class="parameter" id="deleteRating-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span>, </span><span class="parameter" id="deleteRating-param-guestSessionId">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">guestSessionId</span>, </span><span class="parameter" id="deleteRating-param-sessionId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">sessionId</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Remove your rating for a movie. <a href="../tmdb_api/Movies/deleteRating.html">[...]</a>
+                  
+</dd>
+        <dt id="getAccountStatus" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getAccountStatus.html">getAccountStatus</a></span><span class="signature">(<wbr><span class="parameter" id="getAccountStatus-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span>, </span><span class="parameter" id="getAccountStatus-param-sessionId">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">sessionId</span>, </span><span class="parameter" id="getAccountStatus-param-guestSessionId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">guestSessionId</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Grab the following account states for a session: <a href="../tmdb_api/Movies/getAccountStatus.html">[...]</a>
+                  
+</dd>
+        <dt id="getAlternativeTitle" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getAlternativeTitle.html">getAlternativeTitle</a></span><span class="signature">(<wbr><span class="parameter" id="getAlternativeTitle-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span>, </span><span class="parameter" id="getAlternativeTitle-param-country">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">country</span> = <span class="default-value">&#39;US&#39;</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get all of the alternative titles for a movie. <a href="../tmdb_api/Movies/getAlternativeTitle.html">[...]</a>
+                  
+</dd>
+        <dt id="getCredits" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getCredits.html">getCredits</a></span><span class="signature">(<wbr><span class="parameter" id="getCredits-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the cast and crew for a movie. <a href="../tmdb_api/Movies/getCredits.html">[...]</a>
+                  
+</dd>
+        <dt id="getDetails" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getDetails.html">getDetails</a></span><span class="signature">(<wbr><span class="parameter" id="getDetails-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span>, </span><span class="parameter" id="getDetails-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>, </span><span class="parameter" id="getDetails-param-appendToResponse"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">appendToResponse</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the primary information about a movie. <a href="../tmdb_api/Movies/getDetails.html">[...]</a>
+                  
+</dd>
+        <dt id="getExternalIds" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getExternalIds.html">getExternalIds</a></span><span class="signature">(<wbr><span class="parameter" id="getExternalIds-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the external ids for a movie. <a href="../tmdb_api/Movies/getExternalIds.html">[...]</a>
+                  
+</dd>
+        <dt id="getImages" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getImages.html">getImages</a></span><span class="signature">(<wbr><span class="parameter" id="getImages-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span>, </span><span class="parameter" id="getImages-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>, </span><span class="parameter" id="getImages-param-includeImageLanguage"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">includeImageLanguage</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the images that belong to a movie. <a href="../tmdb_api/Movies/getImages.html">[...]</a>
+                  
+</dd>
+        <dt id="getKeywords" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getKeywords.html">getKeywords</a></span><span class="signature">(<wbr><span class="parameter" id="getKeywords-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the keywords that have been added to a movie. <a href="../tmdb_api/Movies/getKeywords.html">[...]</a>
+                  
+</dd>
+        <dt id="getLatest" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getLatest.html">getLatest</a></span><span class="signature">(<wbr><span class="parameter" id="getLatest-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the most newly created movie.
+This is a live response and will continuously change. <a href="../tmdb_api/Movies/getLatest.html">[...]</a>
+                  
+</dd>
+        <dt id="getLists" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getLists.html">getLists</a></span><span class="signature">(<wbr><span class="parameter" id="getLists-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span>, </span><span class="parameter" id="getLists-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>, </span><span class="parameter" id="getLists-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get a list of lists that this movie belongs to. <a href="../tmdb_api/Movies/getLists.html">[...]</a>
+                  
+</dd>
+        <dt id="getNowPlaying" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getNowPlaying.html">getNowPlaying</a></span><span class="signature">(<wbr><span class="parameter" id="getNowPlaying-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>, </span><span class="parameter" id="getNowPlaying-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>, </span><span class="parameter" id="getNowPlaying-param-region"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">region</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get a list of movies in theatres.
+This is a release type query that looks
+for all movies that have a release type
+of 2 or 3 within the specified date range. <a href="../tmdb_api/Movies/getNowPlaying.html">[...]</a>
+                  
+</dd>
+        <dt id="getPouplar" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getPouplar.html">getPouplar</a></span><span class="signature">(<wbr><span class="parameter" id="getPouplar-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>, </span><span class="parameter" id="getPouplar-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>, </span><span class="parameter" id="getPouplar-param-region"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">region</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get a list of the current popular movies on TMDb.
+This list updates daily. <a href="../tmdb_api/Movies/getPouplar.html">[...]</a>
+                  
+</dd>
+        <dt id="getRecommended" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getRecommended.html">getRecommended</a></span><span class="signature">(<wbr><span class="parameter" id="getRecommended-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span>, </span><span class="parameter" id="getRecommended-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>, </span><span class="parameter" id="getRecommended-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get a list of recommended movies for a movie. <a href="../tmdb_api/Movies/getRecommended.html">[...]</a>
+                  
+</dd>
+        <dt id="getReleaseDates" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getReleaseDates.html">getReleaseDates</a></span><span class="signature">(<wbr><span class="parameter" id="getReleaseDates-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the release date along with the certification for a movie. <a href="../tmdb_api/Movies/getReleaseDates.html">[...]</a>
+                  
+</dd>
+        <dt id="getReviews" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getReviews.html">getReviews</a></span><span class="signature">(<wbr><span class="parameter" id="getReviews-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span>, </span><span class="parameter" id="getReviews-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>, </span><span class="parameter" id="getReviews-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the user reviews for a movie. <a href="../tmdb_api/Movies/getReviews.html">[...]</a>
+                  
+</dd>
+        <dt id="getSimilar" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getSimilar.html">getSimilar</a></span><span class="signature">(<wbr><span class="parameter" id="getSimilar-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span>, </span><span class="parameter" id="getSimilar-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>, </span><span class="parameter" id="getSimilar-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get a list of similar movies.
+This is not the same as the "Recommendation" <a href="../tmdb_api/Movies/getSimilar.html">[...]</a>
+                  
+</dd>
+        <dt id="getTopRated" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getTopRated.html">getTopRated</a></span><span class="signature">(<wbr><span class="parameter" id="getTopRated-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>, </span><span class="parameter" id="getTopRated-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>, </span><span class="parameter" id="getTopRated-param-region"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">region</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the top rated movies on TMDb. <a href="../tmdb_api/Movies/getTopRated.html">[...]</a>
+                  
+</dd>
+        <dt id="getTranslations" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getTranslations.html">getTranslations</a></span><span class="signature">(<wbr><span class="parameter" id="getTranslations-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get a list of translations that have been created for a movie. <a href="../tmdb_api/Movies/getTranslations.html">[...]</a>
+                  
+</dd>
+        <dt id="getUpcoming" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getUpcoming.html">getUpcoming</a></span><span class="signature">(<wbr><span class="parameter" id="getUpcoming-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>, </span><span class="parameter" id="getUpcoming-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>, </span><span class="parameter" id="getUpcoming-param-region"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">region</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get a list of upcoming movies in theatres.
+This is a release type query that looks for all movies
+that have a release type of 2 or 3 within the specified date range. <a href="../tmdb_api/Movies/getUpcoming.html">[...]</a>
+                  
+</dd>
+        <dt id="getVideos" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getVideos.html">getVideos</a></span><span class="signature">(<wbr><span class="parameter" id="getVideos-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the videos that have been added to a movie. <a href="../tmdb_api/Movies/getVideos.html">[...]</a>
+                  
+</dd>
+        <dt id="getWatchProviders" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/getWatchProviders.html">getWatchProviders</a></span><span class="signature">(<wbr><span class="parameter" id="getWatchProviders-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Powered by our partnership with JustWatch,
+you can query this method to get a list of the
+availabilities per country by provider.
+This is not going to return full deep links,
+but rather, it's just enough information to
+display what's available where.
+You can link to the provided TMDB URL to help
+support TMDB and provide the actual deep links to the content.
+Please note: In order to use this data you must attribute
+the source of the data as JustWatch. If we find any usage not
+complying with these terms we will revoke access to the API. <a href="../tmdb_api/Movies/getWatchProviders.html">[...]</a>
+                  
+</dd>
+        <dt id="noSuchMethod" class="callable inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+            <span class="returntype parameter">&#8594; dynamic</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Invoked when a non-existent method or property is accessed. <a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/noSuchMethod.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="rateMovie" class="callable">
+          <span class="name"><a href="../tmdb_api/Movies/rateMovie.html">rateMovie</a></span><span class="signature">(<wbr><span class="parameter" id="rateMovie-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span>, </span><span class="parameter" id="rateMovie-param-ratingValue"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/double-class.html">double</a></span> <span class="parameter-name">ratingValue</span>, </span><span class="parameter" id="rateMovie-param-guestSessionId">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">guestSessionId</span>, </span><span class="parameter" id="rateMovie-param-sessionId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">sessionId</span>}</span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd>
+          Rate a movie. <a href="../tmdb_api/Movies/rateMovie.html">[...]</a>
+                  
+</dd>
+        <dt id="toString" class="callable inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          A string representation of this object. <a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/toString.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="operators">
+      <h2>Operators</h2>
+      <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          The equality operator. <a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/operator_equals.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <ol>
+
+    <li class="section-title"><a href="../tmdb_api/Movies-class.html#constructors">Constructors</a></li>
+    <li><a href="../tmdb_api/Movies/Movies.html">Movies</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../tmdb_api/Movies-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../tmdb_api/Movies-class.html#instance-methods">Methods</a></li>
+    <li><a href="../tmdb_api/Movies/deleteRating.html">deleteRating</a></li>
+    <li><a href="../tmdb_api/Movies/getAccountStatus.html">getAccountStatus</a></li>
+    <li><a href="../tmdb_api/Movies/getAlternativeTitle.html">getAlternativeTitle</a></li>
+    <li><a href="../tmdb_api/Movies/getCredits.html">getCredits</a></li>
+    <li><a href="../tmdb_api/Movies/getDetails.html">getDetails</a></li>
+    <li><a href="../tmdb_api/Movies/getExternalIds.html">getExternalIds</a></li>
+    <li><a href="../tmdb_api/Movies/getImages.html">getImages</a></li>
+    <li><a href="../tmdb_api/Movies/getKeywords.html">getKeywords</a></li>
+    <li><a href="../tmdb_api/Movies/getLatest.html">getLatest</a></li>
+    <li><a href="../tmdb_api/Movies/getLists.html">getLists</a></li>
+    <li><a href="../tmdb_api/Movies/getNowPlaying.html">getNowPlaying</a></li>
+    <li><a href="../tmdb_api/Movies/getPouplar.html">getPouplar</a></li>
+    <li><a href="../tmdb_api/Movies/getRecommended.html">getRecommended</a></li>
+    <li><a href="../tmdb_api/Movies/getReleaseDates.html">getReleaseDates</a></li>
+    <li><a href="../tmdb_api/Movies/getReviews.html">getReviews</a></li>
+    <li><a href="../tmdb_api/Movies/getSimilar.html">getSimilar</a></li>
+    <li><a href="../tmdb_api/Movies/getTopRated.html">getTopRated</a></li>
+    <li><a href="../tmdb_api/Movies/getTranslations.html">getTranslations</a></li>
+    <li><a href="../tmdb_api/Movies/getUpcoming.html">getUpcoming</a></li>
+    <li><a href="../tmdb_api/Movies/getVideos.html">getVideos</a></li>
+    <li><a href="../tmdb_api/Movies/getWatchProviders.html">getWatchProviders</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../tmdb_api/Movies/rateMovie.html">rateMovie</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../tmdb_api/Movies-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    tmdb_api
+      1.2.7
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../static-assets/typeahead.bundle.min.js"></script>
+<script src="../static-assets/highlight.pack.js"></script>
+<script src="../static-assets/script.js"></script>
+
+
+</body>
+
+</html>

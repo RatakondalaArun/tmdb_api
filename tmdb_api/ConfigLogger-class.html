@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the ConfigLogger class from the tmdb_api library, for the Dart programming language.">
+  <title>ConfigLogger class - tmdb_api library - Dart API</title>
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../static-assets/github.css">
+  <link rel="stylesheet" href="../static-assets/styles.css">
+  <link rel="icon" href="../static-assets/favicon.png">
+
+</head>
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">tmdb_api</a></li>
+    <li><a href="../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+    <li class="self-crumb">ConfigLogger class</li>
+  </ol>
+  <div class="self-name">ConfigLogger</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="../index.html">tmdb_api</a></li>
+      <li><a href="../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+      <li class="self-crumb">ConfigLogger class</li>
+    </ol>
+    
+    <h5>tmdb_api library</h5>
+    <ol>
+  <li class="section-title"><a href="../tmdb_api/tmdb_api-library.html#classes">Classes</a></li>
+  <li><a href="../tmdb_api/Account-class.html">Account</a></li>
+  <li><a href="../tmdb_api/AccountV4-class.html">AccountV4</a></li>
+  <li><a href="../tmdb_api/ApiKeys-class.html">ApiKeys</a></li>
+  <li><a href="../tmdb_api/Auth-class.html">Auth</a></li>
+  <li><a href="../tmdb_api/AuthV4-class.html">AuthV4</a></li>
+  <li><a href="../tmdb_api/Certification-class.html">Certification</a></li>
+  <li><a href="../tmdb_api/Changes-class.html">Changes</a></li>
+  <li><a href="../tmdb_api/Collections-class.html">Collections</a></li>
+  <li><a href="../tmdb_api/Companies-class.html">Companies</a></li>
+  <li><a href="../tmdb_api/ConfigLogger-class.html">ConfigLogger</a></li>
+  <li><a href="../tmdb_api/Credit-class.html">Credit</a></li>
+  <li><a href="../tmdb_api/Discover-class.html">Discover</a></li>
+  <li><a href="../tmdb_api/Find-class.html">Find</a></li>
+  <li><a href="../tmdb_api/Geners-class.html">Geners</a></li>
+  <li><a href="../tmdb_api/GuestSession-class.html">GuestSession</a></li>
+  <li><a href="../tmdb_api/Images-class.html">Images</a></li>
+  <li><a href="../tmdb_api/ImageSizes-class.html">ImageSizes</a></li>
+  <li><a href="../tmdb_api/Keywords-class.html">Keywords</a></li>
+  <li><a href="../tmdb_api/ListItem-class.html">ListItem</a></li>
+  <li><a href="../tmdb_api/Lists-class.html">Lists</a></li>
+  <li><a href="../tmdb_api/ListsV4-class.html">ListsV4</a></li>
+  <li><a href="../tmdb_api/Logger-class.html">Logger</a></li>
+  <li><a href="../tmdb_api/LogTypes-class.html">LogTypes</a></li>
+  <li><a href="../tmdb_api/Movies-class.html">Movies</a></li>
+  <li><a href="../tmdb_api/Networks-class.html">Networks</a></li>
+  <li><a href="../tmdb_api/People-class.html">People</a></li>
+  <li><a href="../tmdb_api/Reviews-class.html">Reviews</a></li>
+  <li><a href="../tmdb_api/Search-class.html">Search</a></li>
+  <li><a href="../tmdb_api/TMDB-class.html">TMDB</a></li>
+  <li><a href="../tmdb_api/Trending-class.html">Trending</a></li>
+  <li><a href="../tmdb_api/Tv-class.html">Tv</a></li>
+  <li><a href="../tmdb_api/TvEpisodeGroup-class.html">TvEpisodeGroup</a></li>
+  <li><a href="../tmdb_api/TvEpisodes-class.html">TvEpisodes</a></li>
+  <li><a href="../tmdb_api/TvSeasons-class.html">TvSeasons</a></li>
+  <li><a href="../tmdb_api/V3-class.html">V3</a></li>
+  <li><a href="../tmdb_api/V4-class.html">V4</a></li>
+
+
+
+
+
+
+  <li class="section-title"><a href="../tmdb_api/tmdb_api-library.html#enums">Enums</a></li>
+  <li><a href="../tmdb_api/ExternalId-class.html">ExternalId</a></li>
+  <li><a href="../tmdb_api/HttpMethod-class.html">HttpMethod</a></li>
+  <li><a href="../tmdb_api/MediaType-class.html">MediaType</a></li>
+  <li><a href="../tmdb_api/SortBy-class.html">SortBy</a></li>
+  <li><a href="../tmdb_api/SortListBy-class.html">SortListBy</a></li>
+  <li><a href="../tmdb_api/SortMoviesBy-class.html">SortMoviesBy</a></li>
+  <li><a href="../tmdb_api/SortTvShowsBy-class.html">SortTvShowsBy</a></li>
+  <li><a href="../tmdb_api/TimeWindow-class.html">TimeWindow</a></li>
+
+
+  <li class="section-title"><a href="../tmdb_api/tmdb_api-library.html#exceptions">Exceptions</a></li>
+  <li><a href="../tmdb_api/InvalidDataException-class.html">InvalidDataException</a></li>
+  <li><a href="../tmdb_api/NullValueException-class.html">NullValueException</a></li>
+  <li><a href="../tmdb_api/TMDBException-class.html">TMDBException</a></li>
+  <li><a class="deprecated" href="../tmdb_api/TMDBSocketException-class.html">TMDBSocketException</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div><h1><span class="kind-class">ConfigLogger</span> class  </h1></div>
+
+    <section class="desc markdown">
+      <p>Configure the logs</p>
+<p><em>By default everything is set to <code>false</code> for production use</em></p>
+<ul>
+<li>
+<p><code>showLogs</code>: this one must be true to show logs</p>
+</li>
+<li>
+<p><code>showUrlLogs</code>: shows all the requests urls(🔗) you can use this to view the data on browser</p>
+</li>
+<li>
+<p><code>showInfoLogs</code>: (ℹ)info logs</p>
+</li>
+<li>
+<p><code>showWarningLogs</code>: (⚠)warning logs</p>
+</li>
+<li>
+<p><code>showErrorLogs</code>: (🔴)error logs</p>
+</li>
+</ul>
+    </section>
+    
+
+    <section class="summary offset-anchor" id="constructors">
+      <h2>Constructors</h2>
+
+      <dl class="constructor-summary-list">
+        <dt id="ConfigLogger" class="callable">
+          <span class="name"><a href="../tmdb_api/ConfigLogger/ConfigLogger.html">ConfigLogger</a></span><span class="signature">(<span class="parameter" id="-param-showLogs">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showLogs</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-showUrlLogs"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showUrlLogs</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-showInfoLogs"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showInfoLogs</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-showWarningLogs"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showWarningLogs</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-showErrorLogs"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showErrorLogs</span> = <span class="default-value">false</span>}</span>)</span>
+        </dt>
+        <dd>
+           
+        </dd>
+        <dt id="ConfigLogger.recommended" class="callable">
+          <span class="name"><a href="../tmdb_api/ConfigLogger/ConfigLogger.recommended.html">ConfigLogger.recommended</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          Usage <a href="../tmdb_api/ConfigLogger/ConfigLogger.recommended.html">[...]</a>
+          <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="ConfigLogger.showAll" class="callable">
+          <span class="name"><a href="../tmdb_api/ConfigLogger/ConfigLogger.showAll.html">ConfigLogger.showAll</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          Usage <a href="../tmdb_api/ConfigLogger/ConfigLogger.showAll.html">[...]</a>
+          <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="ConfigLogger.showNone" class="callable">
+          <span class="name"><a href="../tmdb_api/ConfigLogger/ConfigLogger.showNone.html">ConfigLogger.showNone</a></span><span class="signature">()</span>
+        </dt>
+        <dd>
+          Usage <a href="../tmdb_api/ConfigLogger/ConfigLogger.showNone.html">[...]</a>
+          <div class="constructor-modifier features">factory</div>
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="hashCode" class="property inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/hashCode.html">hashCode</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span>         
+        </dt>
+        <dd class="inherited">
+          The hash code for this object. <a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/hashCode.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="runtimeType" class="property inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/runtimeType.html">runtimeType</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/Type-class.html">Type</a></span>         
+        </dt>
+        <dd class="inherited">
+          A representation of the runtime type of the object. 
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="showErrorLogs" class="property">
+          <span class="name"><a href="../tmdb_api/ConfigLogger/showErrorLogs.html">showErrorLogs</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="showInfoLogs" class="property">
+          <span class="name"><a href="../tmdb_api/ConfigLogger/showInfoLogs.html">showInfoLogs</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="showLogs" class="property">
+          <span class="name"><a href="../tmdb_api/ConfigLogger/showLogs.html">showLogs</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="showUrlLogs" class="property">
+          <span class="name"><a href="../tmdb_api/ConfigLogger/showUrlLogs.html">showUrlLogs</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+        <dt id="showWarningLogs" class="property">
+          <span class="name"><a href="../tmdb_api/ConfigLogger/showWarningLogs.html">showWarningLogs</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd>
+           
+                  <div class="features">final</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="instance-methods">
+      <h2>Methods</h2>
+      <dl class="callables">
+        <dt id="noSuchMethod" class="callable inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+            <span class="returntype parameter">&#8594; dynamic</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Invoked when a non-existent method or property is accessed. <a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/noSuchMethod.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="toString" class="callable inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          A string representation of this object. <a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/toString.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="operators">
+      <h2>Operators</h2>
+      <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+          <span class="name"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          The equality operator. <a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/operator_equals.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <ol>
+
+    <li class="section-title"><a href="../tmdb_api/ConfigLogger-class.html#constructors">Constructors</a></li>
+    <li><a href="../tmdb_api/ConfigLogger/ConfigLogger.html">ConfigLogger</a></li>
+    <li><a href="../tmdb_api/ConfigLogger/ConfigLogger.recommended.html">recommended</a></li>
+    <li><a href="../tmdb_api/ConfigLogger/ConfigLogger.showAll.html">showAll</a></li>
+    <li><a href="../tmdb_api/ConfigLogger/ConfigLogger.showNone.html">showNone</a></li>
+
+
+    <li class="section-title">
+      <a href="../tmdb_api/ConfigLogger-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../tmdb_api/ConfigLogger/showErrorLogs.html">showErrorLogs</a></li>
+    <li><a href="../tmdb_api/ConfigLogger/showInfoLogs.html">showInfoLogs</a></li>
+    <li><a href="../tmdb_api/ConfigLogger/showLogs.html">showLogs</a></li>
+    <li><a href="../tmdb_api/ConfigLogger/showUrlLogs.html">showUrlLogs</a></li>
+    <li><a href="../tmdb_api/ConfigLogger/showWarningLogs.html">showWarningLogs</a></li>
+
+    <li class="section-title inherited"><a href="../tmdb_api/ConfigLogger-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../tmdb_api/ConfigLogger-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    tmdb_api
+      1.2.7
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../static-assets/typeahead.bundle.min.js"></script>
+<script src="../static-assets/highlight.pack.js"></script>
+<script src="../static-assets/script.js"></script>
+
+
+</body>
+
+</html>

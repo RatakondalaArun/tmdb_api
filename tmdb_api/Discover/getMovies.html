@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getMovies method from the Discover class, for the Dart programming language.">
+  <title>getMovies method - Discover class - tmdb_api library - Dart API</title>
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../../static-assets/github.css">
+  <link rel="stylesheet" href="../../static-assets/styles.css">
+  <link rel="icon" href="../../static-assets/favicon.png">
+
+</head>
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">tmdb_api</a></li>
+    <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+    <li><a href="../../tmdb_api/Discover-class.html">Discover</a></li>
+    <li class="self-crumb">getMovies method</li>
+  </ol>
+  <div class="self-name">getMovies</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="../../index.html">tmdb_api</a></li>
+      <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+      <li><a href="../../tmdb_api/Discover-class.html">Discover</a></li>
+      <li class="self-crumb">getMovies method</li>
+    </ol>
+    
+    <h5>Discover class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../tmdb_api/Discover-class.html#constructors">Constructors</a></li>
+    <li><a href="../../tmdb_api/Discover/Discover.html">Discover</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../tmdb_api/Discover-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../tmdb_api/Discover-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../tmdb_api/Discover/getMovies.html">getMovies</a></li>
+    <li><a href="../../tmdb_api/Discover/getTvShows.html">getTvShows</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../tmdb_api/Discover-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div><h1><span class="kind-method">getMovies</span> method </h1></div>
+
+    <section class="multi-line-signature">
+      <span class="returntype"><a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+            <span class="name ">getMovies</span>
+(<wbr><ol class="parameter-list"><li><span class="parameter" id="getMovies-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-sortBy"><span class="type-annotation"><a href="../../tmdb_api/SortMoviesBy-class.html">SortMoviesBy</a></span> <span class="parameter-name">sortBy</span> = <span class="default-value">SortMoviesBy.popularityDesc</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-includeAdult"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">includeAdult</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-includeVideo"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">includeVideo</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-region"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">region</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-certificationCountry"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">certificationCountry</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-certification"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">certification</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-certificationLessThan"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">certificationLessThan</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-certificationGreaterThan"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">certificationGreaterThan</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-primaryReleaseYear"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">primaryReleaseYear</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-primaryReleaseDateGreaterThan"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">primaryReleaseDateGreaterThan</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-primaryReleaseDateLessThan"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">primaryReleaseDateLessThan</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-releaseDateGreaterThan"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">releaseDateGreaterThan</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-releaseDateLessThan"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">releaseDateLessThan</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-withReleaseType"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">withReleaseType</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-year"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">year</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-voteCountGreaterThan"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">voteCountGreaterThan</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-voteCountLessThan"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">voteCountLessThan</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-voteAverageGreaterThan"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">voteAverageGreaterThan</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-voteAverageLessThan"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">voteAverageLessThan</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-withCast"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">withCast</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-withCrew"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">withCrew</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-withPeople"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">withPeople</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-withCompanies"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">withCompanies</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-withGenres"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">withGenres</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-withoutGenres"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">withoutGenres</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-withKeywords"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">withKeywords</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-withoutKeywords"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">withoutKeywords</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-withRunTimeGreaterThan"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">withRunTimeGreaterThan</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-withRuntimeLessThan"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">withRuntimeLessThan</span>, </span></li>
+<li><span class="parameter" id="getMovies-param-withOrginalLanguage"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">withOrginalLanguage</span>}</span></li>
+</ol>)
+      
+    </section>
+    <section class="desc markdown">
+      <p>Discover movies by different types of data like average rating, number of votes, genres and certifications.</p>
+<p>Before using this it is recommended to read
+the <a href="https://developers.themoviedb.org/3/discover/movie-discover">offical documentation</a></p>
+<h2 id="implementation">Implementation</h2>
+<pre class="language-dart"><code>Map result = await tmdb.discover.getMovies();
+</code></pre>
+<h2 id="result">Result</h2>
+<pre class="language-dart"><code>result['results']
+</code></pre>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span></h2>
+      <pre class="language-dart"><code class="language-dart">Future&lt;Map&gt; getMovies(
+    {String language = &#39;en-US&#39;,
+    SortMoviesBy sortBy = SortMoviesBy.popularityDesc,
+    int page = 1,
+    bool includeAdult = false,
+    bool includeVideo = false,
+    String region,
+    String certificationCountry,
+    String certification,
+    String certificationLessThan,
+    String certificationGreaterThan,
+    int primaryReleaseYear,
+    String primaryReleaseDateGreaterThan,
+    String primaryReleaseDateLessThan,
+    String releaseDateGreaterThan,
+    String releaseDateLessThan,
+    String withReleaseType,
+    int year,
+    int voteCountGreaterThan,
+    int voteCountLessThan,
+    int voteAverageGreaterThan,
+    int voteAverageLessThan,
+    String withCast,
+    String withCrew,
+    String withPeople,
+    String withCompanies,
+    String withGenres,
+    String withoutGenres,
+    String withKeywords,
+    String withoutKeywords,
+    int withRunTimeGreaterThan,
+    int withRuntimeLessThan,
+    String withOrginalLanguage}) {
+  &#47;&#47;all the default values
+  List&lt;String&gt; queries = [
+    &#39;language=$language&#39;,
+    &#39;sort_by=${_getSortMovieBy(sortBy)}&#39;,
+    &#39;page=$page&#39;,
+    &#39;includeAdult=$includeAdult&#39;,
+    &#39;includeVideo=$includeVideo&#39;,
+  ];
+  if (region != null) {
+    queries.add(&#39;region=$region&#39;);
+  }
+  if (certificationCountry != null) {
+    queries.add(&#39;certification_country=$certificationCountry&#39;);
+  }
+
+  if (certification != null &amp;&amp; certificationCountry != null) {
+    queries.add(&#39;certification=$certification&#39;);
+  }
+
+  if (certificationLessThan != null &amp;&amp; certificationCountry != null) {
+    queries.add(&#39;certification.lte=$certificationLessThan&#39;);
+  }
+
+  if (certificationGreaterThan != null &amp;&amp; certificationCountry != null) {
+    queries.add(&#39;certification.gte=$certificationGreaterThan&#39;);
+  }
+
+  if (primaryReleaseYear != null) {
+    queries.add(&#39;primary_release_year=$primaryReleaseYear&#39;);
+  }
+
+  if (primaryReleaseDateGreaterThan != null) {
+    queries.add(&#39;primary_release_date.gte=$primaryReleaseDateGreaterThan&#39;);
+  }
+
+  if (primaryReleaseDateLessThan != null) {
+    queries.add(&#39;primary_release_date.lte=$primaryReleaseDateLessThan&#39;);
+  }
+
+  if (releaseDateGreaterThan != null) {
+    queries.add(&#39;release_date.gte=$releaseDateGreaterThan&#39;);
+  }
+
+  if (releaseDateLessThan != null) {
+    queries.add(&#39;release_date.lte=$releaseDateLessThan&#39;);
+  }
+
+  if (withReleaseType != null) {
+    queries.add(&#39;with_release_type=$withReleaseType&#39;);
+  }
+
+  if (year != null) {
+    queries.add(&#39;year=$year&#39;);
+  }
+
+  if (voteCountGreaterThan != null) {
+    queries.add(&#39;vote_count.gte=$voteCountGreaterThan&#39;);
+  }
+
+  if (voteCountLessThan != null) {
+    queries.add(&#39;vote_count.gte=$voteCountLessThan&#39;);
+  }
+
+  if (voteAverageGreaterThan != null) {
+    queries.add(&#39;vote_average.gte=$voteAverageGreaterThan&#39;);
+  }
+
+  if (voteAverageLessThan != null) {
+    queries.add(&#39;vote_average.gte=$voteAverageLessThan&#39;);
+  }
+
+  if (withCast != null) {
+    queries.add(&#39;with_cast=$withCast&#39;);
+  }
+
+  if (withCrew != null) {
+    queries.add(&#39;with_crew=$withCrew&#39;);
+  }
+
+  if (withPeople != null) {
+    queries.add(&#39;with_people=$withPeople&#39;);
+  }
+
+  if (withCompanies != null) {
+    queries.add(&#39;with_companies=$withCompanies&#39;);
+  }
+
+  if (withGenres != null) {
+    queries.add(&#39;with_genres=$withGenres&#39;);
+  }
+
+  if (withoutGenres != null) {
+    queries.add(&#39;without_genres=$withoutGenres&#39;);
+  }
+
+  if (withKeywords != null) {
+    queries.add(&#39;with_keywords=$withKeywords&#39;);
+  }
+
+  if (withoutKeywords != null) {
+    queries.add(&#39;without_keywords=$withoutKeywords&#39;);
+  }
+
+  if (withRunTimeGreaterThan != null) {
+    queries.add(&#39;with_runtime.gte=$withRunTimeGreaterThan&#39;);
+  }
+
+  if (withRuntimeLessThan != null) {
+    queries.add(&#39;with_runtime.lte=$withRuntimeLessThan&#39;);
+  }
+
+  if (withOrginalLanguage != null) {
+    queries.add(&#39;with_original_language=$withOrginalLanguage&#39;);
+  }
+
+  return _v3._query(&#39;$_endPoint&#47;movie&#39;, optionalQueries: queries);
+}</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    tmdb_api
+      1.2.7
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../static-assets/typeahead.bundle.min.js"></script>
+<script src="../../static-assets/highlight.pack.js"></script>
+<script src="../../static-assets/script.js"></script>
+
+
+</body>
+
+</html>

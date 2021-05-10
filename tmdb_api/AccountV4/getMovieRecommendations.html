@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getMovieRecommendations method from the AccountV4 class, for the Dart programming language.">
+  <title>getMovieRecommendations method - AccountV4 class - tmdb_api library - Dart API</title>
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../../static-assets/github.css">
+  <link rel="stylesheet" href="../../static-assets/styles.css">
+  <link rel="icon" href="../../static-assets/favicon.png">
+
+</head>
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">tmdb_api</a></li>
+    <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+    <li><a href="../../tmdb_api/AccountV4-class.html">AccountV4</a></li>
+    <li class="self-crumb">getMovieRecommendations method</li>
+  </ol>
+  <div class="self-name">getMovieRecommendations</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="../../index.html">tmdb_api</a></li>
+      <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+      <li><a href="../../tmdb_api/AccountV4-class.html">AccountV4</a></li>
+      <li class="self-crumb">getMovieRecommendations method</li>
+    </ol>
+    
+    <h5>AccountV4 class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../tmdb_api/AccountV4-class.html#constructors">Constructors</a></li>
+    <li><a href="../../tmdb_api/AccountV4/AccountV4.html">AccountV4</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../tmdb_api/AccountV4-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../tmdb_api/AccountV4-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../tmdb_api/AccountV4/getFavoriteTvShows.html">getFavoriteTvShows</a></li>
+    <li><a href="../../tmdb_api/AccountV4/getFavoritMovies.html">getFavoritMovies</a></li>
+    <li><a href="../../tmdb_api/AccountV4/getLists.html">getLists</a></li>
+    <li><a href="../../tmdb_api/AccountV4/getMovieRecommendations.html">getMovieRecommendations</a></li>
+    <li><a href="../../tmdb_api/AccountV4/getMovieWatchList.html">getMovieWatchList</a></li>
+    <li><a href="../../tmdb_api/AccountV4/getRatedMovies.html">getRatedMovies</a></li>
+    <li><a href="../../tmdb_api/AccountV4/getRatedTvShows.html">getRatedTvShows</a></li>
+    <li><a href="../../tmdb_api/AccountV4/getTvShowRecommendations.html">getTvShowRecommendations</a></li>
+    <li><a href="../../tmdb_api/AccountV4/getTvShowWatchList.html">getTvShowWatchList</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../tmdb_api/AccountV4-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div><h1><span class="kind-method">getMovieRecommendations</span> method </h1></div>
+
+    <section class="multi-line-signature">
+      <span class="returntype"><a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+            <span class="name ">getMovieRecommendations</span>
+(<wbr><ol class="parameter-list"><li><span class="parameter" id="getMovieRecommendations-param-accessToken"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">accessToken</span>, </span></li>
+<li><span class="parameter" id="getMovieRecommendations-param-accountId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">accountId</span>, </span></li>
+<li><span class="parameter" id="getMovieRecommendations-param-page">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>, </span></li>
+<li><span class="parameter" id="getMovieRecommendations-param-sortBy"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">sortBy</span> = <span class="default-value">&#39;created_at.asc&#39;</span>}</span></li>
+</ol>)
+      
+    </section>
+    <section class="desc markdown">
+      <p>Get a list of your personal movie recommendations.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>
+<p><code>accessToken</code>: a v4 access token which can be created using <code>tmdb.v4.auth.createAccesToken('RequestToken')</code></p>
+</li>
+<li>
+<p><code>accountId</code>: id of the user account</p>
+</li>
+<li>
+<p><code>page</code>:Specify which page to query. <em>minimum: 1 maximum: 1000 default: 1</em></p>
+</li>
+<li>
+<p><code>sortListBy</code>:Choose a sort option for the list of results. <em>Allowed Values: , created_at.asc,
+created_at.desc, release_date.asc, release_date.desc, title.asc, title.desc, vote_average.asc, vote_average.desc</em></p>
+</li>
+</ul>
+<h2 id="implementation">Implementation</h2>
+<pre class="language-dart"><code>Map result = await tmdb.v4.account.getMovieRecommendations(ACCESS_TOKEN, USER_TMDB_ID);
+</code></pre>
+<h2 id="result">Result</h2>
+<pre class="language-dart"><code>{
+"page": 1,
+"results": [
+ {
+   "poster_path": null,
+   "adult": false,
+   "overview": "The special bond that develops between plus-sized inflatable robot Baymax, and prodigy Hiro Hamada, who team up with a group of friends to form a band of high-tech heroes.",
+   "release_date": "2014-10-22",
+   "genre_ids": [
+     12,
+     10751,
+     16,
+     28,
+     35
+   ],
+   "id": 177572,
+   "original_title": "Big Hero 6",
+   "original_language": "en",
+   "title": "Big Hero 6",
+   "backdrop_path": null,
+   "popularity": 8.183445,
+   "vote_count": 1179,
+   "video": false,
+   "vote_average": 7.97
+  },
+]
+}
+
+</code></pre>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span></h2>
+      <pre class="language-dart"><code class="language-dart">Future&lt;Map&gt; getMovieRecommendations(String accessToken, String accountId,
+    {int page = 1, String sortBy = &#39;created_at.asc&#39;}) {
+  if (accessToken == null || accountId == null || page == null) {
+    throw NullValueException(
+        &#39;accessToken == null || accountId == null || page == null is true&#39;);
+  }
+  if (page &lt; 1 || page &gt; 1000) {
+    throw InvalidDataException(&#39;page &lt; 1 || page &gt; 1000 is true&#39;);
+  }
+
+  return _v4
+      ._query(&#39;$_endPoint&#47;$accountId&#47;movie&#47;recommendations&#39;, postHeaders: {
+    &#39;Authorization&#39;: &#39;Bearer $accessToken&#39;,
+    &#39;Content-Type&#39;: &#39;application&#47;json;charset=utf-8&#39;,
+  }, optionalQueries: [
+    &#39;page=${page ?? 1}&#39;,
+    &#39;sort_by=${sortBy ?? &#39;created_at.asc&#39;}&#39;
+  ]);
+}</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    tmdb_api
+      1.2.7
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../static-assets/typeahead.bundle.min.js"></script>
+<script src="../../static-assets/highlight.pack.js"></script>
+<script src="../../static-assets/script.js"></script>
+
+
+</body>
+
+</html>
