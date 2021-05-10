@@ -19,7 +19,7 @@ jobs:
       - name: 🧬 Generate docs
         run: dartdoc --output docs
 
-      - name: tree
+      - name: 🌳 tree
         run: tree
 
       - name: 📢 Publish docs
