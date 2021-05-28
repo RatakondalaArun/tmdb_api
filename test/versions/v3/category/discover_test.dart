@@ -4,8 +4,7 @@ import '../../../init_script.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 void main() {
-  TMDB tmdb =
-      TMDB(ApiKeys(Keys.API, Keys.API_V4), logConfig: ConfigLogger.showAll());
+  TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
   group('Discover', () {
     group('Movie', () {
       test('without prameters', () async {
