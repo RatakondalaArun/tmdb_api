@@ -2,7 +2,7 @@
 
 import 'package:test/test.dart';
 import '../../../init_script.dart';
-import '../../../../lib/keys.dart' as user;
+import '../../../init_script.dart' as user;
 import 'package:tmdb_api/tmdb_api.dart';
 
 void main() {
