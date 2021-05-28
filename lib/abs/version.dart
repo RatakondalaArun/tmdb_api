@@ -1,5 +1,6 @@
 part of tmdb_api;
 
+/// Base class of [Version]s
 abstract class Version {
   /// Instance of [TMDB]
   final TMDB _tmdb;
