@@ -1,10 +1,10 @@
 part of tmdb_api;
 
-class Keywords {
+class Keywords extends Category<V3> {
   ///Provides details about movies
-  final V3 _v3;
-  final String _endPoint = 'keyword';
-  Keywords(this._v3) : assert(_v3 != null);
+  Keywords(V3 v)
+      : assert(v != null),
+        super(v, 'keyword');
 
   ///Get the list of official genres for movies.
   ///
@@ -20,7 +20,7 @@ class Keywords {
       throw NullValueException('keywordId == null');
     }
 
-    return _v3._query('$_endPoint/$keywordId');
+    return _v._query('$_endPoint/$keywordId');
   }
 
   /// Get the movies that belong to a keyword.
@@ -46,7 +46,7 @@ class Keywords {
           'keywordId==null||language==null||includeAdult==null');
     }
 
-    return _v3._query('$_endPoint/$keywordId',
+    return _v._query('$_endPoint/$keywordId',
         optionalQueries: ['include_adult=$includeAdult', 'language=$language']);
   }
 }

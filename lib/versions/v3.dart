@@ -1,9 +1,6 @@
 part of tmdb_api;
 
-class V3 {
-  final TMDB _tmdb;
-  final int _apiVersion = 3;
-
+class V3 extends Version {
   Movies _movies;
   Tv _tv;
   TvSeasons _tvSeasons;
@@ -52,7 +49,7 @@ class V3 {
   Account get account => _account;
   GuestSession get guestSession => _guestSession;
 
-  V3(this._tmdb) {
+  V3(TMDB tmdb) : super(tmdb, 3) {
     _reviews = Reviews(this);
     _tv = Tv(this);
     _movies = Movies(this);

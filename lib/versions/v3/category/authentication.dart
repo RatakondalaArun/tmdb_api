@@ -1,8 +1,9 @@
 part of tmdb_api;
 
-class Auth {
-  final V3 _v3;
-  Auth(this._v3);
+class Auth extends Category<V3> {
+  Auth(V3 v)
+      : assert(v != null),
+        super(v, 'authentication');
 
   ///This method will let you create a new guest session.
   ///Guest sessions are a type of session that will let a user rate movies and TV shows
@@ -47,7 +48,7 @@ class Auth {
   /// else returns null
   ///
   Future<dynamic> createGuestSession({bool asMap = false}) async {
-    Map result = await _v3._query('authentication/guest_session/new');
+    Map result = await _v._query('authentication/guest_session/new');
     if (asMap) {
       return result;
     }
@@ -92,20 +93,20 @@ class Auth {
   /// else returns null
   ///
   Future<dynamic> createRequestToken({bool asMap = false}) async {
-    Map result = await _v3._query('authentication/token/new');
+    Map result = await _v._query('authentication/token/new');
     if (asMap) {
-      Logger(_v3._tmdb.logConfig)
+      Logger(_v._tmdb.logConfig)
           .logTypes
           .infoLog('Request Token Created ${result.toString()}');
       return result;
     }
     if (result.containsKey('success')) {
-      Logger(_v3._tmdb.logConfig)
+      Logger(_v._tmdb.logConfig)
           .logTypes
           .infoLog('Request Token Created ${result.toString()}');
       return result['request_token'];
     }
-    Logger(_v3._tmdb.logConfig)
+    Logger(_v._tmdb.logConfig)
         .logTypes
         .warningLog('Failed to create requesttoken ${result.toString()}');
     return null;
@@ -160,19 +161,19 @@ class Auth {
           help: 'try no to provide null value');
     }
 
-    Map result = await _v3._query('authentication/session/new',
+    Map result = await _v._query('authentication/session/new',
         optionalQueries: ['request_token=$requestToken']);
     if (asMap) {
-      Logger(_v3._tmdb.logConfig).logTypes.infoLog(
+      Logger(_v._tmdb.logConfig).logTypes.infoLog(
           'createSession success result from tmdb = ${result.toString()}');
       return result;
     }
     if (result.containsKey('success')) {
-      Logger(_v3._tmdb.logConfig).logTypes.infoLog(
+      Logger(_v._tmdb.logConfig).logTypes.infoLog(
           'createSession success result from tmdb = ${result.toString()}');
       return result['session_id'];
     }
-    Logger(_v3._tmdb.logConfig).logTypes.warningLog(
+    Logger(_v._tmdb.logConfig).logTypes.warningLog(
         'createSession failed result from tmdb = ${result.toString()}');
     return null;
   }
@@ -202,7 +203,7 @@ class Auth {
       'password': password,
       'request_token': requestToken
     };
-    Map result = await _v3._query('authentication/token/validate_with_login',
+    Map result = await _v._query('authentication/token/validate_with_login',
         method: HttpMethod.POST, postBody: postBody);
     if (asMap) {
       return result;
@@ -238,7 +239,7 @@ class Auth {
       throw NullValueException('accessToken == null is true');
     }
 
-    Map result = await _v3._query('authentication/session/convert/4',
+    Map result = await _v._query('authentication/session/convert/4',
         method: HttpMethod.POST, postBody: {'access_token': accessToken});
     if (asMap) {
       return result;
@@ -258,12 +259,12 @@ class Auth {
       throw NullValueException('sessionId==null is true',
           source: 'auth.deleteSession($sessionId)');
     }
-    Map result = await _v3._query('authentication/session',
+    Map result = await _v._query('authentication/session',
         postHeaders: {'session_id': sessionId},
         method: HttpMethod.DELETE,
         deleteBody: {'session_id': '$sessionId'});
 
-    Logger(_v3._tmdb.logConfig)
+    Logger(_v._tmdb.logConfig)
         .logTypes
         .infoLog('deleteSession result ${result.toString()}');
     return result;

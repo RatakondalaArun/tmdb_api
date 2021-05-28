@@ -1,10 +1,10 @@
 part of tmdb_api;
 
-class Certification {
+class Certification extends Category<V3> {
   ///Provides details about movies
-  final V3 _v3;
-  final String _endPoint = 'certification';
-  Certification(this._v3) : assert(_v3 != null);
+  Certification(V3 v)
+      : assert(v != null),
+        super(v, 'certification');
 
   ///Get an up to date list of the officially
   ///supported movie certifications on TMDb.
@@ -20,7 +20,7 @@ class Certification {
   /// ```
   ///
   Future<Map> getMovie() {
-    return _v3._query('$_endPoint/movie/list');
+    return _v._query('$_endPoint/movie/list');
   }
 
   ///Get an up to date list of the officially
@@ -37,6 +37,6 @@ class Certification {
   ///```
   ///
   Future<Map> getTv() {
-    return _v3._query('$_endPoint/tv/list');
+    return _v._query('$_endPoint/tv/list');
   }
 }

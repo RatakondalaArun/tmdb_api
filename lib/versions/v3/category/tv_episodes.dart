@@ -1,9 +1,9 @@
 part of tmdb_api;
 
-class TvEpisodes {
-  final V3 _v3;
-  final String _endPoint = 'episode';
-  TvEpisodes(this._v3) : assert(_v3 != null);
+class TvEpisodes extends Category<V3> {
+  TvEpisodes(V3 v)
+      : assert(v != null),
+        super(v, 'episode');
 
   /// Get the TV episodes details by id.
   ///
@@ -39,7 +39,7 @@ class TvEpisodes {
       para.add('append_to_response=$appendToResponse');
     }
 
-    return _v3._query('tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber',
+    return _v._query('tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber',
         method: HttpMethod.GET, optionalQueries: para);
   }
 
@@ -73,8 +73,7 @@ class TvEpisodes {
       para.add('end_date=$endDate');
     }
 
-    return _v3._query('tv/$_endPoint/$episodeId/changes',
-        optionalQueries: para);
+    return _v._query('tv/$_endPoint/$episodeId/changes', optionalQueries: para);
   }
 
   ///Get the credits for TV episode.
@@ -100,7 +99,7 @@ class TvEpisodes {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
-    return _v3._query(
+    return _v._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/credits');
   }
 
@@ -131,7 +130,7 @@ class TvEpisodes {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
-    return _v3._query(
+    return _v._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/external_ids');
   }
 
@@ -158,7 +157,7 @@ class TvEpisodes {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
-    return _v3._query(
+    return _v._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/images');
   }
 
@@ -185,7 +184,7 @@ class TvEpisodes {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
-    return _v3._query(
+    return _v._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/videos');
   }
 
@@ -212,7 +211,7 @@ class TvEpisodes {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
-    return _v3._query(
+    return _v._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/translations');
   }
 }

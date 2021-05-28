@@ -1,9 +1,9 @@
 part of tmdb_api;
 
-class Networks {
-  final V3 _v3;
-  final String _endPoint = 'network';
-  Networks(this._v3) : assert(_v3 != null);
+class Networks extends Category<V3> {
+  Networks(V3 v)
+      : assert(v != null),
+        super(v, 'network');
 
   ///Get the details of a network.
   ///
@@ -25,7 +25,7 @@ class Networks {
           help: 'try pass a non null value');
     }
 
-    return _v3._query('$_endPoint/$networkId');
+    return _v._query('$_endPoint/$networkId');
   }
 
   /// Get the alternative names of a network.
@@ -45,7 +45,7 @@ class Networks {
           help: 'try pass a non null value');
     }
 
-    return _v3._query('$_endPoint/$networkId/alternative_names');
+    return _v._query('$_endPoint/$networkId/alternative_names');
   }
 
   ///Get the TV network logos by id.
@@ -65,6 +65,6 @@ class Networks {
           help: 'try pass a non null value');
     }
 
-    return _v3._query('$_endPoint/$networkId/images');
+    return _v._query('$_endPoint/$networkId/images');
   }
 }

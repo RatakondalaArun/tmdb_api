@@ -1,9 +1,9 @@
 part of tmdb_api;
 
-class Account {
-  final V3 _v3;
-  final String _endPoint = 'account';
-  Account(this._v3) : assert(_v3 != null);
+class Account extends Category<V3> {
+  Account(V3 v)
+      : assert(v != null),
+        super(v, 'account');
 
   ///Get your account details.
   ///
@@ -37,7 +37,7 @@ class Account {
       throw NullValueException('sessionId == null is true');
     }
 
-    return _v3._query('$_endPoint', optionalQueries: ['session_id=$sessionId']);
+    return _v._query('$_endPoint', optionalQueries: ['session_id=$sessionId']);
   }
 
   ///Get all of the lists created by an account.
@@ -103,7 +103,7 @@ class Account {
           'accountId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/$accountId/lists', optionalQueries: [
+    return _v._query('$_endPoint/$accountId/lists', optionalQueries: [
       'session_id=$sessionId',
       'language=$language',
       'page=$page'
@@ -162,13 +162,12 @@ class Account {
     } else {
       sort = 'created_at.desc';
     }
-    return _v3._query('$_endPoint/$accountId/favorite/movies',
-        optionalQueries: [
-          'session_id=$sessionId',
-          'language=$language',
-          'page=$page',
-          'sort_by=$sort'
-        ]);
+    return _v._query('$_endPoint/$accountId/favorite/movies', optionalQueries: [
+      'session_id=$sessionId',
+      'language=$language',
+      'page=$page',
+      'sort_by=$sort'
+    ]);
   }
 
   ///Get the list of your favorite tv.
@@ -224,7 +223,7 @@ class Account {
       sort = 'created_at.desc';
     }
 
-    return _v3._query('$_endPoint/$accountId/favorite/tv', optionalQueries: [
+    return _v._query('$_endPoint/$accountId/favorite/tv', optionalQueries: [
       'session_id=$sessionId',
       'language=$language',
       'page=$page',
@@ -284,7 +283,7 @@ class Account {
       type = 'movie';
     }
 
-    return _v3._query('$_endPoint/$accountId/favorite',
+    return _v._query('$_endPoint/$accountId/favorite',
         method: HttpMethod.POST,
         optionalQueries: [
           'session_id=$sessionId'
@@ -347,7 +346,7 @@ class Account {
       sort = 'created_at.desc';
     }
 
-    return _v3._query('$_endPoint/$accountId/rated/movies', optionalQueries: [
+    return _v._query('$_endPoint/$accountId/rated/movies', optionalQueries: [
       'session_id=$sessionId',
       'language=$language',
       'page=$page',
@@ -421,7 +420,7 @@ class Account {
       sort = 'created_at.desc';
     }
 
-    return _v3._query('$_endPoint/$accountId/rated/tv', optionalQueries: [
+    return _v._query('$_endPoint/$accountId/rated/tv', optionalQueries: [
       'session_id=$sessionId',
       'language=$language',
       'page=$page',
@@ -482,7 +481,7 @@ class Account {
       sort = 'created_at.desc';
     }
 
-    return _v3._query('$_endPoint/$accountId/rated/tv/episodes',
+    return _v._query('$_endPoint/$accountId/rated/tv/episodes',
         optionalQueries: [
           'session_id=$sessionId',
           'language=$language',
@@ -563,7 +562,7 @@ class Account {
       sort = 'created_at.desc';
     }
 
-    return _v3._query('$_endPoint/$accountId/watchlist/movies',
+    return _v._query('$_endPoint/$accountId/watchlist/movies',
         optionalQueries: [
           'session_id=$sessionId',
           'language=$language',
@@ -645,7 +644,7 @@ class Account {
       sort = 'created_at.desc';
     }
 
-    return _v3._query('$_endPoint/$accountId/watchlist/tv', optionalQueries: [
+    return _v._query('$_endPoint/$accountId/watchlist/tv', optionalQueries: [
       'session_id=$sessionId',
       'language=$language',
       'page=$page',
@@ -705,7 +704,7 @@ class Account {
       type = 'movie';
     }
 
-    return _v3._query('$_endPoint/$accountId/watchlist',
+    return _v._query('$_endPoint/$accountId/watchlist',
         method: HttpMethod.POST,
         optionalQueries: [
           'session_id=$sessionId'

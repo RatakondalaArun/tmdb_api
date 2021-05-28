@@ -1,10 +1,10 @@
 part of tmdb_api;
 
-class Collections {
+class Collections extends Category<V3> {
   ///Provides details about movies
-  final V3 _v3;
-  final String _endPoint = 'collection';
-  Collections(this._v3) : assert(_v3 != null);
+  Collections(V3 v)
+      : assert(v != null),
+        super(v, 'collection');
 
   ///Get collection details by id.
   //For more doc (visit)[https://developers.themoviedb.org/3/collections/get-collection-details]
@@ -26,7 +26,7 @@ class Collections {
       throw NullValueException('collectionId==null||language==null is true');
     }
 
-    return _v3._query('$_endPoint/$collectionId',
+    return _v._query('$_endPoint/$collectionId',
         optionalQueries: ['language=$language']);
   }
 
@@ -50,7 +50,7 @@ class Collections {
       throw NullValueException('collectionId==null||language==null is true');
     }
 
-    return _v3._query('$_endPoint/$collectionId/images',
+    return _v._query('$_endPoint/$collectionId/images',
         optionalQueries: ['language=$language']);
   }
 
@@ -70,7 +70,7 @@ class Collections {
   /// ```
   ///
   Future<Map> getTranslations(int collectionId, {String language = 'en-US'}) {
-    return _v3._query('$_endPoint/$collectionId/translations',
+    return _v._query('$_endPoint/$collectionId/translations',
         optionalQueries: ['language=$language']);
   }
 }

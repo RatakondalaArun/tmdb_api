@@ -1,10 +1,12 @@
 part of tmdb_api;
 
-class Companies {
+class Companies extends Category<V3> {
   ///Provides details about movies
-  final V3 _v3;
-  final String _endPoint = 'company';
-  Companies(this._v3) : assert(_v3 != null);
+  // final V3 _v;
+  // final String _endPoint = 'company';
+  Companies(V3 v)
+      : assert(v != null),
+        super(v, 'company');
 
   /// Get a companies details by id.
   ///
@@ -35,7 +37,7 @@ class Companies {
   ///
   ///For more details visit https://developers.themoviedb.org/3/companies/get-company-details
   Future<Map> getDetails(int companyId) {
-    return _v3._query('$_endPoint/$companyId');
+    return _v._query('$_endPoint/$companyId');
   }
 
   /// Get the alternative names of a company.
@@ -63,7 +65,7 @@ class Companies {
   /// }
   /// ```
   Future<Map> getAlternativeNames(int companyId) {
-    return _v3._query('$_endPoint/$companyId');
+    return _v._query('$_endPoint/$companyId');
   }
 
   /// Get a companies logos by id.
@@ -112,6 +114,6 @@ class Companies {
   /// For more information about how SVG's and PNG's can be used, take a read through
   /// [this](https://developers.themoviedb.org/3/getting-started/images).
   Future<Map> getImages(int companyId) {
-    return _v3._query('$_endPoint/$companyId');
+    return _v._query('$_endPoint/$companyId');
   }
 }
