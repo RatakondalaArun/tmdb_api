@@ -1,9 +1,12 @@
 part of tmdb_api;
 
-class AccountV4 {
-  final V4 _v4;
-  final String _endPoint = 'account';
-  AccountV4(this._v4) : assert(_v4 != null);
+class AccountV4 extends Category<V4> {
+  // final V4 _v;
+  // final String _endPoint = 'account';
+
+  AccountV4(V4 v)
+      : assert(v != null),
+        super(v, 'account');
 
   ///Get all of the lists you've created.
   ///
@@ -58,7 +61,7 @@ class AccountV4 {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/lists', postHeaders: {
+    return _v._query('$_endPoint/$accountId/lists', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     });
@@ -122,7 +125,7 @@ class AccountV4 {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/movie/favorites', postHeaders: {
+    return _v._query('$_endPoint/$accountId/movie/favorites', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
@@ -189,7 +192,7 @@ class AccountV4 {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/tv/favorites', postHeaders: {
+    return _v._query('$_endPoint/$accountId/tv/favorites', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
@@ -259,7 +262,7 @@ class AccountV4 {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
 
-    return _v4
+    return _v
         ._query('$_endPoint/$accountId/movie/recommendations', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
@@ -326,7 +329,7 @@ class AccountV4 {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/tv/recommendations', postHeaders: {
+    return _v._query('$_endPoint/$accountId/tv/recommendations', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
@@ -392,7 +395,7 @@ class AccountV4 {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/movie/watchlist', postHeaders: {
+    return _v._query('$_endPoint/$accountId/movie/watchlist', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
@@ -464,7 +467,7 @@ class AccountV4 {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/tv/watchlist', postHeaders: {
+    return _v._query('$_endPoint/$accountId/tv/watchlist', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
@@ -539,7 +542,7 @@ class AccountV4 {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/movie/rated', postHeaders: {
+    return _v._query('$_endPoint/$accountId/movie/rated', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
@@ -612,7 +615,7 @@ class AccountV4 {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/tv/rated', postHeaders: {
+    return _v._query('$_endPoint/$accountId/tv/rated', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [

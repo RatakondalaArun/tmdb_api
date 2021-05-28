@@ -1,9 +1,10 @@
 part of tmdb_api;
 
-class ListsV4 {
-  final V4 _v4;
-  final String _endPoint = 'list';
-  ListsV4(this._v4);
+class ListsV4 extends Category<V4> {
+  // final V4 _v;
+  // final String _endPoint = 'list';
+
+  ListsV4(V4 v) : super(v, 'list');
 
   ///This method will retrieve a list by id.
   ///
@@ -43,7 +44,7 @@ class ListsV4 {
           'listId < 1 || pageNo < 1 || pageNo > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$listId', postHeaders: {
+    return _v._query('$_endPoint/$listId', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
@@ -92,7 +93,7 @@ class ListsV4 {
           'accessToken==null||description==null||isPublic==null||iso6391==null is true');
     }
 
-    return _v4._query('$_endPoint', method: HttpMethod.POST, postHeaders: {
+    return _v._query('$_endPoint', method: HttpMethod.POST, postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, postBody: {
@@ -172,7 +173,7 @@ class ListsV4 {
       throw InvalidDataException('at least one parameter nust be filled');
     }
 
-    return _v4._query(
+    return _v._query(
       '$_endPoint/$listId',
       method: HttpMethod.PUT,
       postHeaders: {
@@ -218,7 +219,7 @@ class ListsV4 {
       throw InvalidDataException('listId < 1 is true');
     }
 
-    return _v4._query(
+    return _v._query(
       '$_endPoint/$listId/clear',
       postHeaders: {
         'Authorization': 'Bearer $accessToken',
@@ -256,7 +257,7 @@ class ListsV4 {
       throw InvalidDataException('listId < 1 is true');
     }
 
-    return _v4._query(
+    return _v._query(
       '$_endPoint/$listId',
       method: HttpMethod.DELETE,
       deleteBody: {},
@@ -323,7 +324,7 @@ class ListsV4 {
     List<Map<String, dynamic>> postBody = [];
     items.forEach((item) => postBody.add(item._toMap()));
 
-    return _v4._query(
+    return _v._query(
       '$_endPoint/$listId/items',
       method: HttpMethod.POST,
       postBody: {'items': postBody},
@@ -378,7 +379,7 @@ class ListsV4 {
     List<Map<String, dynamic>> postBody = [];
     items.forEach((item) => postBody.add(item._toMap()));
 
-    return _v4._query(
+    return _v._query(
       '$_endPoint/$listId/items',
       method: HttpMethod.PUT,
       postBody: {'items': postBody},
@@ -435,7 +436,7 @@ class ListsV4 {
       postBody.add(item._toMap());
     });
 
-    return _v4._query(
+    return _v._query(
       '$_endPoint/$listId/items',
       method: HttpMethod.DELETE,
       deleteBody: {'items': postBody},
@@ -490,7 +491,7 @@ class ListsV4 {
       throw InvalidDataException('listId < 1 || mediaId < 1 is true');
     }
 
-    return _v4._query('$_endPoint/$listId/item_status', postHeaders: {
+    return _v._query('$_endPoint/$listId/item_status', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
