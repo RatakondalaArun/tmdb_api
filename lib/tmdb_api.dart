@@ -6,6 +6,9 @@ import 'package:colorize/colorize.dart';
 
 part 'logger/logger.dart';
 
+part 'abs/version.dart';
+part 'abs/catagory.dart';
+
 part 'versions/v3.dart';
 part 'versions/v4.dart';
 
