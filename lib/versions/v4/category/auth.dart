@@ -1,9 +1,12 @@
 part of tmdb_api;
 
-class AuthV4 {
-  final V4 _v4;
-  final String _endPoint = 'auth';
-  AuthV4(this._v4) : assert(_v4 != null);
+class AuthV4 extends Category<V4> {
+  // final V4 _v;
+  // final String _endPoint = 'auth';
+
+  AuthV4(V4 v)
+      : assert(v != null),
+        super(v, 'auth');
 
   ///This method generates a new request token that you can ask a user to approve.
   ///This is the first step in getting permission from a user to read and write data on their behalf.
@@ -33,7 +36,7 @@ class AuthV4 {
   /// ```
   Future<Map> createRequestToken(
       {String redirectTo = 'http://www.themoviedb.org/'}) {
-    String accessToken = _v4._tmdb._apiKeys._apiReadAccessTokenv4;
+    String accessToken = _v._tmdb._apiKeys._apiReadAccessTokenv4;
 
     if (accessToken == null) {
       throw NullValueException('accessToken==null is true');
@@ -42,7 +45,7 @@ class AuthV4 {
       'Content-Type': 'application/json;charset=utf-8',
       'Authorization': 'Bearer $accessToken'
     };
-    return _v4._query('$_endPoint/request_token',
+    return _v._query('$_endPoint/request_token',
         method: HttpMethod.POST, postHeaders: postHeaders, postBody: {}
         //   'redirect_to': '${redirectTo ?? 'http://www.themoviedb.org/'}'
         // }
@@ -74,7 +77,7 @@ class AuthV4 {
   /// }
   /// ```
   Future<Map> createAccessToken(String requestToken) {
-    String v4ApiToken = _v4._tmdb._apiKeys._apiReadAccessTokenv4;
+    String v4ApiToken = _v._tmdb._apiKeys._apiReadAccessTokenv4;
     if (v4ApiToken == null) {
       throw NullValueException('accessToken==null is true');
     }
@@ -82,7 +85,7 @@ class AuthV4 {
       'Content-Type': 'application/json;charset=utf-8',
       'Authorization': 'Bearer $v4ApiToken'
     };
-    return _v4._query('$_endPoint/access_token',
+    return _v._query('$_endPoint/access_token',
         method: HttpMethod.POST,
         postHeaders: postHeaders,
         postBody: {'request_token': requestToken});
@@ -108,7 +111,7 @@ class AuthV4 {
   ///}
   ///```
   Future<Map> deleteAccessToken(String accessToken) {
-    String v4ApiToken = _v4._tmdb._apiKeys._apiReadAccessTokenv4;
+    String v4ApiToken = _v._tmdb._apiKeys._apiReadAccessTokenv4;
     //todo:test this after implementing account
     if (v4ApiToken == null) {
       throw NullValueException('accessToken==null is true');
@@ -117,7 +120,7 @@ class AuthV4 {
       throw NullValueException('accessToken == null is true');
     }
 
-    return _v4._query('$_endPoint/access_token',
+    return _v._query('$_endPoint/access_token',
         method: HttpMethod.DELETE,
         deleteHeaders: {
           'Content-Type': 'application/json;charset=utf-8',

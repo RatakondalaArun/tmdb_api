@@ -1,9 +1,6 @@
 part of tmdb_api;
 
-class V4 {
-  final TMDB _tmdb;
-  final int _apiVersion = 4;
-
+class V4 extends Version {
   AccountV4 _accountV4;
   AuthV4 _authV4;
   ListsV4 _listsV4;
@@ -12,7 +9,7 @@ class V4 {
   AuthV4 get auth => _authV4;
   ListsV4 get lists => _listsV4;
 
-  V4(this._tmdb) {
+  V4(TMDB tmdb) : super(tmdb, 4) {
     _accountV4 = AccountV4(this);
     _authV4 = AuthV4(this);
     _listsV4 = ListsV4(this);

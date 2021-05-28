@@ -1,10 +1,10 @@
 //tv shows
 part of tmdb_api;
 
-class Tv {
-  final V3 _v3;
-  final String _endPoint = 'tv';
-  Tv(this._v3) : assert(_v3 != null);
+class Tv extends Category<V3> {
+  Tv(V3 v)
+      : assert(v != null),
+        super(v, 'tv');
 
   ///Get the primary TV show details by id.
   ///
@@ -37,7 +37,7 @@ class Tv {
       para.add('append_to_response=$appendToResponse');
     }
 
-    return _v3._query('$_endPoint/$tvId',
+    return _v._query('$_endPoint/$tvId',
         method: HttpMethod.GET, optionalQueries: para);
   }
 
@@ -50,7 +50,7 @@ class Tv {
   /// for all episodes belonging to a TV show.
   ///
   Future<Map> getAggregateCredits(String tvId, {String language = 'en-US'}) {
-    return _v3._query(
+    return _v._query(
       '$_endPoint/$tvId/aggregate_credits',
       optionalQueries: ['language=$language'],
     );
@@ -78,7 +78,7 @@ class Tv {
       throw InvalidDataException('tvId<1 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/alternative_titles',
+    return _v._query('$_endPoint/$tvId/alternative_titles',
         method: HttpMethod.GET, optionalQueries: ['language=$language']);
   }
 
@@ -99,7 +99,7 @@ class Tv {
       throw InvalidDataException('tvId<1 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/credits', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$tvId/credits', method: HttpMethod.GET);
   }
 
   ///Get the list of content ratings (certifications) that have been added to a TV show.
@@ -118,7 +118,7 @@ class Tv {
     if (tvId < 1) {
       throw InvalidDataException('tvId<1 is true');
     }
-    return _v3._query('$_endPoint/$tvId/content_ratings');
+    return _v._query('$_endPoint/$tvId/content_ratings');
   }
 
   /// Get all of the episode groups that have been created for a TV show
@@ -143,7 +143,7 @@ class Tv {
       throw InvalidDataException('tvId<1 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/episode_groups',
+    return _v._query('$_endPoint/$tvId/episode_groups',
         method: HttpMethod.GET, optionalQueries: ['language=$language']);
   }
 
@@ -170,7 +170,7 @@ class Tv {
       throw InvalidDataException('tvId<1 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/external_ids', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$tvId/external_ids', method: HttpMethod.GET);
   }
 
   ///Get the keywords that have been added to a tv.
@@ -191,7 +191,7 @@ class Tv {
       throw InvalidDataException('tvId<1 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/keywords', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$tvId/keywords', method: HttpMethod.GET);
   }
 
   /// Get a list of recommended tv show for a tv show.
@@ -218,7 +218,7 @@ class Tv {
       throw InvalidDataException('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/recommendations',
+    return _v._query('$_endPoint/$tvId/recommendations',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -245,7 +245,7 @@ class Tv {
       throw InvalidDataException('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/reviews',
+    return _v._query('$_endPoint/$tvId/reviews',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -266,7 +266,7 @@ class Tv {
     if (tvId < 1) {
       throw InvalidDataException('tvId<1 is true');
     }
-    return _v3._query('$_endPoint/$tvId/screened_theatrically');
+    return _v._query('$_endPoint/$tvId/screened_theatrically');
   }
 
   /// Get a list of similar tv.
@@ -295,7 +295,7 @@ class Tv {
       throw InvalidDataException('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/similar',
+    return _v._query('$_endPoint/$tvId/similar',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -316,7 +316,7 @@ class Tv {
       throw InvalidDataException('tvId<1 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/translations');
+    return _v._query('$_endPoint/$tvId/translations');
   }
 
   /// Get the videos that have been added to a TV show.
@@ -335,7 +335,7 @@ class Tv {
     if (tvId == null) {
       throw NullValueException('tvId == null is true');
     }
-    return _v3._query('$_endPoint/$tvId');
+    return _v._query('$_endPoint/$tvId');
   }
 
   /// Powered by our partnership with JustWatch, you can query
@@ -363,7 +363,7 @@ class Tv {
     if (tvId == null) {
       throw NullValueException('tvId == null is true');
     }
-    return _v3._query('$_endPoint/$tvId/watch/providers');
+    return _v._query('$_endPoint/$tvId/watch/providers');
   }
 
   ///Get the most newly created tv show.
@@ -383,7 +383,7 @@ class Tv {
       throw NullValueException('language==null is true');
     }
 
-    return _v3
+    return _v
         ._query('$_endPoint/latest', optionalQueries: ['language=$language']);
   }
 
@@ -409,7 +409,7 @@ class Tv {
       throw InvalidDataException(' page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/popular',
+    return _v._query('$_endPoint/popular',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -434,7 +434,7 @@ class Tv {
       throw InvalidDataException(' page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/top_rated',
+    return _v._query('$_endPoint/top_rated',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -460,7 +460,7 @@ class Tv {
     if (page < 1 || page > 1000) {
       throw InvalidDataException(' page < 1 || page > 1000 is true');
     }
-    return _v3._query('$_endPoint/airing_today',
+    return _v._query('$_endPoint/airing_today',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -486,7 +486,7 @@ class Tv {
     if (page < 1 || page > 1000) {
       throw InvalidDataException(' page < 1 || page > 1000 is true');
     }
-    return _v3._query('$_endPoint/on_the_air',
+    return _v._query('$_endPoint/on_the_air',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -540,7 +540,7 @@ class Tv {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v3._query('$_endPoint/$tvId/rating',
+    return _v._query('$_endPoint/$tvId/rating',
         method: HttpMethod.POST,
         postBody: {'value': '$ratingValue'},
         optionalQueries: para);
@@ -591,7 +591,7 @@ class Tv {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v3._query('$_endPoint/$tvId/rating',
+    return _v._query('$_endPoint/$tvId/rating',
         method: HttpMethod.DELETE, deleteBody: {}, optionalQueries: para);
   }
 
@@ -626,7 +626,7 @@ class Tv {
       para.add('include_image_language=$includeImageLanguage');
     }
 
-    return _v3._query('$_endPoint/$tvId/images', optionalQueries: para);
+    return _v._query('$_endPoint/$tvId/images', optionalQueries: para);
   }
 
   ///Grab the following account states for a session:
@@ -679,6 +679,6 @@ class Tv {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v3._query('$_endPoint/$tvId/account_states', optionalQueries: para);
+    return _v._query('$_endPoint/$tvId/account_states', optionalQueries: para);
   }
 }

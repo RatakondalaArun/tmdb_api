@@ -1,9 +1,9 @@
 part of tmdb_api;
 
-class Search {
-  final V3 _v3;
-  final String _endPoint = 'search';
-  Search(this._v3);
+class Search extends Category<V3> {
+  Search(V3 v)
+      : assert(v != null),
+        super(v, 'search');
 
   ///Search for companies.
   ///
@@ -26,7 +26,7 @@ class Search {
       throw InvalidDataException('page < 1 || page > 1000');
     }
 
-    return _v3._query('$_endPoint/company',
+    return _v._query('$_endPoint/company',
         optionalQueries: ['query=$query', 'page=$page']);
   }
 
@@ -57,7 +57,7 @@ class Search {
       throw InvalidDataException('page < 1 || page > 1000');
     }
 
-    return _v3._query('$_endPoint/collection',
+    return _v._query('$_endPoint/collection',
         optionalQueries: ['query=$query', 'page=$page', 'language=$language']);
   }
 
@@ -82,7 +82,7 @@ class Search {
       throw InvalidDataException('page<1||page>10000 is true');
     }
 
-    return _v3._query('$_endPoint/keyword',
+    return _v._query('$_endPoint/keyword',
         optionalQueries: ['query=$query', 'page=$page']);
   }
 
@@ -144,7 +144,7 @@ class Search {
       optionalQueries.add('primary_release_year=$primaryReleaseYear');
     }
 
-    return _v3._query('$_endPoint/movie', optionalQueries: optionalQueries);
+    return _v._query('$_endPoint/movie', optionalQueries: optionalQueries);
   }
 
   ///Search multiple models in a single request.
@@ -194,7 +194,7 @@ class Search {
       optionalQueries.add('region=$region');
     }
 
-    return _v3._query('$_endPoint/multi', optionalQueries: optionalQueries);
+    return _v._query('$_endPoint/multi', optionalQueries: optionalQueries);
   }
 
   ///Search for people.
@@ -240,7 +240,7 @@ class Search {
     if (region != null) {
       optionalQueries.add('region=$region');
     }
-    return _v3._query('$_endPoint/person', optionalQueries: optionalQueries);
+    return _v._query('$_endPoint/person', optionalQueries: optionalQueries);
   }
 
   ///Search multiple models in a single request.
@@ -282,6 +282,6 @@ class Search {
     if (firstAirDateYear != null) {
       optionalQueries.add('first_air_date_year=$firstAirDateYear');
     }
-    return _v3._query('$_endPoint/tv', optionalQueries: optionalQueries);
+    return _v._query('$_endPoint/tv', optionalQueries: optionalQueries);
   }
 }

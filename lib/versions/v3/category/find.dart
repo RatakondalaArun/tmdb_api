@@ -1,10 +1,10 @@
 part of tmdb_api;
 
-class Find {
+class Find extends Category<V3> {
   ///Provides details about movies
-  final V3 _v3;
-  final String _endPoint = 'find';
-  Find(this._v3) : assert(_v3 != null);
+  Find(V3 v)
+      : assert(v != null),
+        super(v, 'find');
 
   ///The find method makes it easy to search for
   ///objects in our database by an external id. For example, an IMDB ID.
@@ -38,7 +38,7 @@ class Find {
           'externalId==null || externalIdSource == null is true');
     }
 
-    return _v3._query('$_endPoint/$externalId', optionalQueries: [
+    return _v._query('$_endPoint/$externalId', optionalQueries: [
       _getSourceQuery(externalIdSource),
       'language=$language'
     ]);

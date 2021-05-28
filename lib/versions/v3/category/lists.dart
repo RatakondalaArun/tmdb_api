@@ -1,9 +1,9 @@
 part of tmdb_api;
 
-class Lists {
-  final V3 _v3;
-  final String _endPoint = 'list';
-  Lists(this._v3) : assert(_v3 != null);
+class Lists extends Category<V3> {
+  Lists(V3 v)
+      : assert(v != null),
+        super(v, 'list');
 
   ///Get the details of a list.
   ///
@@ -23,7 +23,7 @@ class Lists {
     if (listId == null) {
       throw NullValueException('listId == null is true');
     }
-    return _v3
+    return _v
         ._query('$_endPoint/$listId', optionalQueries: ['language=$language']);
   }
 
@@ -43,7 +43,7 @@ class Lists {
       throw NullValueException(
           'listId == null||movieId==null||movieId < 1 is true');
     }
-    return _v3
+    return _v
         ._query('$_endPoint/$listId', optionalQueries: ['movie_id=$movieId']);
   }
 
@@ -84,7 +84,7 @@ class Lists {
       'description': description,
       'language': language
     };
-    return _v3._query('$_endPoint',
+    return _v._query('$_endPoint',
         optionalQueries: ['session_id=$sessionId'],
         method: HttpMethod.POST,
         postBody: postBody);
@@ -118,7 +118,7 @@ class Lists {
       throw NullValueException(
           'sessionId == null || mediaId == null || mediaId < 1 || listId == null || listId < 1 is true');
     }
-    return _v3._query('$_endPoint/$listId/add_item',
+    return _v._query('$_endPoint/$listId/add_item',
         method: HttpMethod.POST,
         postBody: {'media_id': '$mediaId'},
         optionalQueries: ['session_id=$sessionId']);
@@ -160,7 +160,7 @@ class Lists {
       throw NullValueException(
           'sessionId == null || mediaId == null || mediaId < 1 || listId == null || listId < 1 is true');
     }
-    return _v3._query('$_endPoint/${listId.toString()}/remove_item',
+    return _v._query('$_endPoint/${listId.toString()}/remove_item',
         method: HttpMethod.POST,
         postBody: {'media_id': "$mediaId"},
         optionalQueries: ['session_id=$sessionId']);
@@ -191,7 +191,7 @@ class Lists {
       throw NullValueException('sessionId == null || listId == null is true');
     }
 
-    return _v3._query('$_endPoint/$listId/clear',
+    return _v._query('$_endPoint/$listId/clear',
         method: HttpMethod.POST,
         postBody: {},
         optionalQueries: ['session_id=$sessionId', 'confirm=true']);
@@ -213,7 +213,7 @@ class Lists {
       throw NullValueException('sessionId == null || listId == null is true');
     }
 
-    return _v3._query('$_endPoint/$listId',
+    return _v._query('$_endPoint/$listId',
         method: HttpMethod.DELETE,
         optionalQueries: ['session_id=$sessionId'],
         deleteBody: {});

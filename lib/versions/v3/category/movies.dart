@@ -1,10 +1,12 @@
 part of tmdb_api;
 
-class Movies {
+class Movies extends Category<V3> {
   ///Provides details about movies
-  final V3 _v3;
-  final String _endPoint = 'movie';
-  Movies(this._v3) : assert(_v3 != null);
+  // final V3 _v;
+  // final String _endPoint = 'movie';
+  Movies(V3 v)
+      : assert(v != null),
+        super(v, 'movie');
 
   ///Get the primary information about a movie.
   ///
@@ -22,7 +24,7 @@ class Movies {
       throw NullValueException('movieId==null || language==null is true');
     }
 
-    return _v3._query('$_endPoint/$movieId',
+    return _v._query('$_endPoint/$movieId',
         method: HttpMethod.GET,
         optionalQueries: [
           'language=$language',
@@ -49,7 +51,7 @@ class Movies {
     if (movieId == null || country == null) {
       throw NullValueException('movieId == null || country == null is true');
     }
-    return _v3._query('$_endPoint/$movieId/alternative_titles',
+    return _v._query('$_endPoint/$movieId/alternative_titles',
         method: HttpMethod.GET, optionalQueries: ['country=$country']);
   }
 
@@ -69,7 +71,7 @@ class Movies {
     if (movieId == null) {
       throw NullValueException('movieId == null is true');
     }
-    return _v3._query('$_endPoint/$movieId/credits', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$movieId/credits', method: HttpMethod.GET);
   }
 
   ///Get the external ids for a movie.
@@ -93,7 +95,7 @@ class Movies {
     if (movieId == null) {
       throw NullValueException('movieId == null is true');
     }
-    return _v3._query('$_endPoint/$movieId/external_ids',
+    return _v._query('$_endPoint/$movieId/external_ids',
         method: HttpMethod.GET);
   }
 
@@ -112,7 +114,7 @@ class Movies {
     if (movieId == null) {
       throw NullValueException('movieId == null is true');
     }
-    return _v3._query('$_endPoint/$movieId/keywords', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$movieId/keywords', method: HttpMethod.GET);
   }
 
   ///Get the release date along with the certification for a movie.
@@ -139,7 +141,7 @@ class Movies {
     if (movieId == null) {
       throw NullValueException('movieId == null is true');
     }
-    return _v3._query('$_endPoint/$movieId/release_dates',
+    return _v._query('$_endPoint/$movieId/release_dates',
         method: HttpMethod.GET);
   }
 
@@ -158,7 +160,7 @@ class Movies {
     if (movieId == null) {
       throw NullValueException('movieId == null is true');
     }
-    return _v3._query('$_endPoint/$movieId/videos');
+    return _v._query('$_endPoint/$movieId/videos');
   }
 
   /// Get a list of translations that have been created for a movie.
@@ -176,7 +178,7 @@ class Movies {
     if (movieId == null) {
       throw NullValueException('movieId == null is true');
     }
-    return _v3._query('$_endPoint/$movieId/translations');
+    return _v._query('$_endPoint/$movieId/translations');
   }
 
   /// Get a list of recommended movies for a movie.
@@ -205,7 +207,7 @@ class Movies {
           'movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/$movieId/recommendations',
+    return _v._query('$_endPoint/$movieId/recommendations',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -238,7 +240,7 @@ class Movies {
           'movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/$movieId/similar',
+    return _v._query('$_endPoint/$movieId/similar',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -272,7 +274,7 @@ class Movies {
       }
     }
 
-    return _v3._query('$_endPoint/$movieId/reviews',
+    return _v._query('$_endPoint/$movieId/reviews',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -302,7 +304,7 @@ class Movies {
           'movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/$movieId/lists',
+    return _v._query('$_endPoint/$movieId/lists',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -323,7 +325,7 @@ class Movies {
       throw NullValueException('language == null is true');
     }
 
-    return _v3
+    return _v
         ._query('$_endPoint/latest', optionalQueries: ['language=$language']);
   }
 
@@ -367,7 +369,7 @@ class Movies {
       para.add('region=$region');
     }
 
-    return _v3._query('$_endPoint/now_playing', optionalQueries: para);
+    return _v._query('$_endPoint/now_playing', optionalQueries: para);
   }
 
   /// Get a list of the current popular movies on TMDb.
@@ -403,7 +405,7 @@ class Movies {
     if (region != null) {
       para.add('region=$region');
     }
-    return _v3._query('$_endPoint/popular', optionalQueries: para);
+    return _v._query('$_endPoint/popular', optionalQueries: para);
   }
 
   /// Get the top rated movies on TMDb.
@@ -439,7 +441,7 @@ class Movies {
       para.add('region=$region');
     }
 
-    return _v3._query('$_endPoint/top_rated', optionalQueries: para);
+    return _v._query('$_endPoint/top_rated', optionalQueries: para);
   }
 
   ///Get a list of upcoming movies in theatres.
@@ -481,7 +483,7 @@ class Movies {
       para.add('region=$region');
     }
 
-    return _v3._query('$_endPoint/upcoming', optionalQueries: para);
+    return _v._query('$_endPoint/upcoming', optionalQueries: para);
   }
 
   /// Powered by our partnership with JustWatch,
@@ -509,7 +511,7 @@ class Movies {
     if (movieId == null) {
       throw NullValueException('movieId == null is true');
     }
-    return _v3._query(
+    return _v._query(
       '$_endPoint/$movieId/watch/providers',
       method: HttpMethod.GET,
     );
@@ -566,7 +568,7 @@ class Movies {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v3._query('$_endPoint/$movieId/rating',
+    return _v._query('$_endPoint/$movieId/rating',
         method: HttpMethod.POST,
         postBody: {'value': '$ratingValue'},
         optionalQueries: para);
@@ -617,7 +619,7 @@ class Movies {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v3._query('$_endPoint/$movieId/rating',
+    return _v._query('$_endPoint/$movieId/rating',
         method: HttpMethod.DELETE, deleteBody: {}, optionalQueries: para);
   }
 
@@ -652,7 +654,7 @@ class Movies {
       para.add('include_image_language=$includeImageLanguage');
     }
 
-    return _v3._query('$_endPoint/$movieId/images', optionalQueries: para);
+    return _v._query('$_endPoint/$movieId/images', optionalQueries: para);
   }
 
   ///Grab the following account states for a session:
@@ -705,7 +707,7 @@ class Movies {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v3._query('$_endPoint/$movieId/account_states',
+    return _v._query('$_endPoint/$movieId/account_states',
         optionalQueries: para);
   }
 }

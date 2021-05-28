@@ -1,10 +1,9 @@
 part of tmdb_api;
 
-class Trending {
-  final V3 _v3;
-  final String _endPoint = 'trending';
-
-  Trending(this._v3);
+class Trending extends Category<V3> {
+  Trending(V3 v)
+      : assert(v != null),
+        super(v, 'trending');
 
   ///Get the daily or weekly trending items. The daily
   ///trending list tracks items over the period of a day
@@ -34,7 +33,7 @@ class Trending {
       {MediaType mediaType = MediaType.all,
       TimeWindow timeWindow = TimeWindow.day,
       int page = 1}) {
-    return _v3._query(
+    return _v._query(
         '$_endPoint/${_getMediaType(mediaType)}/${_getTimeWindow(timeWindow)}',
         optionalQueries: ['page=$page']);
   }

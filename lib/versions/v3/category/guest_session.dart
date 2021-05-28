@@ -1,10 +1,10 @@
 part of tmdb_api;
 
-class GuestSession {
+class GuestSession extends Category<V3> {
   ///Provides details about movies
-  final V3 _v3;
-  final String _endPoint = 'guest_session';
-  GuestSession(this._v3) : assert(_v3 != null);
+  GuestSession(V3 v)
+      : assert(v != null),
+        super(v, 'guest_session');
 
   ///Get the rated movies for a guest session.
   ///
@@ -44,7 +44,7 @@ class GuestSession {
     } else {
       sort = 'created_at.desc';
     }
-    return _v3._query('$_endPoint/$guestSessionId/rated/movies',
+    return _v._query('$_endPoint/$guestSessionId/rated/movies',
         optionalQueries: [
           'guest_session_id=$guestSessionId',
           'language=$language',
@@ -91,7 +91,7 @@ class GuestSession {
     } else {
       sort = 'created_at.desc';
     }
-    return _v3._query('$_endPoint/$guestSessionId/rated/tv', optionalQueries: [
+    return _v._query('$_endPoint/$guestSessionId/rated/tv', optionalQueries: [
       'guest_session_id=$guestSessionId',
       'language=$language',
       'sort_by=$sort'
@@ -137,7 +137,7 @@ class GuestSession {
     } else {
       sort = 'created_at.desc';
     }
-    return _v3._query('$_endPoint/$guestSessionId/rated/tv/episodes',
+    return _v._query('$_endPoint/$guestSessionId/rated/tv/episodes',
         optionalQueries: [
           'guest_session_id=$guestSessionId',
           'language=$language',

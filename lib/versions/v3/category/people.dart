@@ -1,10 +1,12 @@
 part of tmdb_api;
 
-class People {
-  final V3 _v3;
-  final String _endPoint = 'person';
+class People extends Category<V3> {
+  // final V3 _v;
+  // final String _endPoint = 'person';
 
-  People(this._v3);
+  People(V3 v)
+      : assert(v != null),
+        super(v, 'person');
 
   ///Get the primary person details by id.
   ///
@@ -35,7 +37,7 @@ class People {
       para.add('append_to_response=$appendToResponse');
     }
 
-    return _v3._query('$_endPoint/$personId', optionalQueries: para);
+    return _v._query('$_endPoint/$personId', optionalQueries: para);
   }
 
   ///Get the changes for a person.
@@ -54,7 +56,7 @@ class People {
     if (personId < 1) {
       throw InvalidDataException('personId < 1 is true');
     }
-    return _v3._query('$_endPoint/$personId/changes');
+    return _v._query('$_endPoint/$personId/changes');
   }
 
   ///Get the movie credits for a person.
@@ -76,7 +78,7 @@ class People {
       throw InvalidDataException('personId < 1 is true');
     }
 
-    return _v3._query('$_endPoint/$personId/movie_credits',
+    return _v._query('$_endPoint/$personId/movie_credits',
         optionalQueries: ['language=$language']);
   }
 
@@ -101,7 +103,7 @@ class People {
       throw InvalidDataException('personId < 1 is true');
     }
 
-    return _v3._query('$_endPoint/$personId/tv_credits',
+    return _v._query('$_endPoint/$personId/tv_credits',
         optionalQueries: ['language=$language']);
   }
 
@@ -126,7 +128,7 @@ class People {
       throw InvalidDataException('personId < 1 is true');
     }
 
-    return _v3._query('$_endPoint/$personId/combined_credits',
+    return _v._query('$_endPoint/$personId/combined_credits',
         optionalQueries: ['language=$language']);
   }
 
@@ -161,7 +163,7 @@ class People {
       throw InvalidDataException('personId < 1 is true');
     }
 
-    return _v3._query('$_endPoint/$personId/external_ids',
+    return _v._query('$_endPoint/$personId/external_ids',
         optionalQueries: ['language=$language']);
   }
 
@@ -181,7 +183,7 @@ class People {
       throw InvalidDataException('personId < 1 is true');
     }
 
-    return _v3._query('$_endPoint/$personId/images');
+    return _v._query('$_endPoint/$personId/images');
   }
 
   ///Get the images that this person has been tagged in.
@@ -207,7 +209,7 @@ class People {
       throw InvalidDataException('personId < 1 is true');
     }
 
-    return _v3._query('$_endPoint/$personId/tagged_images',
+    return _v._query('$_endPoint/$personId/tagged_images',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -231,7 +233,7 @@ class People {
       throw InvalidDataException('personId < 1 is true');
     }
 
-    return _v3._query('$_endPoint/$personId/translations',
+    return _v._query('$_endPoint/$personId/translations',
         optionalQueries: ['language=$language']);
   }
 
@@ -252,7 +254,7 @@ class People {
       throw NullValueException('language == null is true');
     }
 
-    return _v3
+    return _v
         ._query('$_endPoint/latest', optionalQueries: ['language=$language']);
   }
 
@@ -274,7 +276,7 @@ class People {
       throw NullValueException('language == null || page == null  is true');
     }
 
-    return _v3._query('$_endPoint/popular',
+    return _v._query('$_endPoint/popular',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 }

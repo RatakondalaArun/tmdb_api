@@ -1,11 +1,11 @@
 part of tmdb_api;
 
-class TvEpisodeGroup {
+class TvEpisodeGroup extends Category<V3> {
   //!test failed
-  final V3 _v3;
-  final String _endPoint = 'episode_group';
 
-  TvEpisodeGroup(this._v3) : assert(_v3 != null);
+  TvEpisodeGroup(V3 v)
+      : assert(v != null),
+        super(v, 'episode_group');
 
   /// Get the details of a TV episode group.
   ///
@@ -33,7 +33,7 @@ class TvEpisodeGroup {
       throw NullValueException('id == null || language==null is true');
     }
 
-    return _v3._query('tv/$_endPoint/$id',
+    return _v._query('tv/$_endPoint/$id',
         method: HttpMethod.GET, optionalQueries: ['language=$language']);
   }
 }

@@ -1,10 +1,12 @@
 part of tmdb_api;
 
-class Discover {
-  final V3 _v3;
-  final String _endPoint = 'discover';
+class Discover extends Category<V3> {
+  // final V3 _v;
+  // final String _endPoint = 'discover';
 
-  Discover(this._v3);
+  Discover(V3 v)
+      : assert(v != null),
+        super(v, 'discover');
 
   ///Discover movies by different types of data like average rating, number of votes, genres and certifications.
   ///
@@ -169,7 +171,7 @@ class Discover {
       queries.add('with_original_language=$withOrginalLanguage');
     }
 
-    return _v3._query('$_endPoint/movie', optionalQueries: queries);
+    return _v._query('$_endPoint/movie', optionalQueries: queries);
   }
 
   ///Discover TV shows by different types of data like
@@ -293,7 +295,7 @@ class Discover {
       queries.add('without_keywords=$withoutKeywords');
     }
 
-    return _v3._query('$_endPoint/tv', optionalQueries: queries);
+    return _v._query('$_endPoint/tv', optionalQueries: queries);
   }
 
   String _getSortMovieBy(SortMoviesBy sortBy) {
