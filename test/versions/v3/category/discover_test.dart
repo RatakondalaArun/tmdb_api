@@ -15,7 +15,6 @@ void main() {
       test('withParameters', () async {
         Map result =
             await tmdb.v3.discover.getMovies(region: 'IN', withGenres: '28');
-        print(result);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
