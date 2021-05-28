@@ -76,3 +76,5 @@ build/
 
 #user
 lib/keys.dart
+test/keys.dart
+run_test.sh
