@@ -8,17 +8,23 @@ class ListItem {
   ///- `mediaType`: Set the kind of media object are you adding. *Allowed Values: movie, tv*
   ///
   ///- `mediaId`: Set the id of the media object are you adding. *minimum: 1*
-  ListItem({this.mediaType = MediaType.movie, this.mediaId, this.comment = ''});
+  const ListItem({
+    /*required*/ this.mediaId,
+    this.mediaType = MediaType.movie,
+    this.comment = '',
+  });
 
   ///create and returns a new `ListItem`. You can use it when want to change few feids.
-  ListItem copyWith(
-      {MediaType mediaType = MediaType.movie,
-      int mediaId,
-      String comment = ''}) {
+  ListItem copyWith({
+    MediaType mediaType = MediaType.movie,
+    int /*?*/ mediaId,
+    String comment = '',
+  }) {
     return ListItem(
-        mediaType: mediaType ?? this.mediaType,
-        mediaId: mediaId ?? this.mediaId,
-        comment: comment ?? this.comment);
+      mediaType: mediaType ?? this.mediaType,
+      mediaId: mediaId ?? this.mediaId,
+      comment: comment ?? this.comment,
+    );
   }
 
   ///Returns a map of
