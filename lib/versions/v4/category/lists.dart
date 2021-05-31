@@ -1,9 +1,10 @@
 part of tmdb_api;
 
-class ListsV4 {
-  final V4 _v4;
-  final String _endPoint = 'list';
-  ListsV4(this._v4);
+class ListsV4 extends Category<V4> {
+  // final V4 _v;
+  // final String _endPoint = 'list';
+
+  ListsV4(V4 v) : super(v, 'list');
 
   ///This method will retrieve a list by id.
   ///
@@ -30,26 +31,24 @@ class ListsV4 {
   ///## Result
   ///Check out the Doc [here](https://developers.themoviedb.org/4/list/get-list)
   ///
-  Future<Map> getList(String accessToken, int listId,
-      {int page = 1,
-      String language = 'en-US',
-      SortListBy sortListBy = SortListBy.orginalOrderAsc}) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
-
+  Future<Map> getList(
+    String accessToken,
+    int listId, {
+    int page = 1,
+    String language = 'en-US',
+    SortListBy sortListBy = SortListBy.orginalOrderAsc,
+  }) {
     if (listId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'listId < 1 || pageNo < 1 || pageNo > 1000 is true');
+      throw ArgumentError('listId < 1 || pageNo < 1 || pageNo > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$listId', postHeaders: {
+    return _v._query('$_endPoint/$listId', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
-      'page=${page ?? 1}',
-      'language=${language ?? 'en-US'}',
-      'sort_by=${_sortListBy(sortListBy ?? SortListBy.orginalOrderAsc)}'
+      'page=$page',
+      'language=$language',
+      'sort_by=${_sortListBy(sortListBy)}'
     ]);
   }
 
@@ -82,22 +81,19 @@ class ListsV4 {
   ///}
   ///```
   ///
-  Future<Map> createList(String accessToken, String listName,
-      {String description = ' ', bool isPublic = true, iso6391 = 'en'}) {
-    if (accessToken == null ||
-        description == null ||
-        isPublic == null ||
-        iso6391 == null) {
-      throw NullValueException(
-          'accessToken==null||description==null||isPublic==null||iso6391==null is true');
-    }
-
-    return _v4._query('$_endPoint', method: HttpMethod.POST, postHeaders: {
+  Future<Map> createList(
+    String accessToken,
+    String listName, {
+    String description = ' ',
+    bool isPublic = true,
+    iso6391 = 'en',
+  }) {
+    return _v._query('$_endPoint', method: HttpMethod.POST, postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, postBody: {
       'name': listName,
-      'description': description ?? '',
+      'description': description,
       'public': '$isPublic',
       'iso_639_1': iso6391 ?? 'en',
     });
@@ -143,16 +139,19 @@ class ListsV4 {
   ///  "status_code": 1
   ///}
   ///```
-  Future<Map> updateList(String accessToken, int listId,
-      {String listName, String description, bool isPublic, String iso6391}) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
+  Future<Map> updateList(
+    String accessToken,
+    int listId, {
+    String? listName,
+    String? description,
+    bool? isPublic,
+    String? iso6391,
+  }) {
     if (listId < 1) {
-      throw InvalidDataException('listId < 1 is true');
+      throw ArgumentError('listId < 1 is true');
     }
 
-    Map<String, String> postBody = {};
+    final postBody = <String, String>{};
     //only updated values will be added
     if (listName != null) {
       postBody.addAll({'name': listName});
@@ -169,10 +168,10 @@ class ListsV4 {
 
     //check if postBody is empty
     if (postBody.isEmpty) {
-      throw InvalidDataException('at least one parameter nust be filled');
+      throw ArgumentError('at least one parameter must be filled');
     }
 
-    return _v4._query(
+    return _v._query(
       '$_endPoint/$listId',
       method: HttpMethod.PUT,
       postHeaders: {
@@ -211,14 +210,11 @@ class ListsV4 {
   /// ```
   ///
   Future<Map> clearList(String accessToken, int listId) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
     if (listId < 1) {
-      throw InvalidDataException('listId < 1 is true');
+      throw ArgumentError('listId < 1 is true');
     }
 
-    return _v4._query(
+    return _v._query(
       '$_endPoint/$listId/clear',
       postHeaders: {
         'Authorization': 'Bearer $accessToken',
@@ -249,14 +245,11 @@ class ListsV4 {
   ///}
   /// ```
   Future<Map> deleteList(String accessToken, int listId) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
     if (listId < 1) {
-      throw InvalidDataException('listId < 1 is true');
+      throw ArgumentError('listId < 1 is true');
     }
 
-    return _v4._query(
+    return _v._query(
       '$_endPoint/$listId',
       method: HttpMethod.DELETE,
       deleteBody: {},
@@ -313,17 +306,14 @@ class ListsV4 {
   ///}
   /// ```
   Future<Map> addItems(String accessToken, int listId, List<ListItem> items) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
     if (listId < 1) {
-      throw InvalidDataException('listId < 1 is true');
+      throw ArgumentError('listId < 1 is true');
     }
 
-    List<Map<String, dynamic>> postBody = [];
+    final postBody = <Map<String, dynamic>>[];
     items.forEach((item) => postBody.add(item._toMap()));
 
-    return _v4._query(
+    return _v._query(
       '$_endPoint/$listId/items',
       method: HttpMethod.POST,
       postBody: {'items': postBody},
@@ -367,18 +357,18 @@ class ListsV4 {
   ///```
   ///
   Future<Map> updateItems(
-      String accessToken, int listId, List<ListItem> items) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
+    String accessToken,
+    int listId,
+    List<ListItem> items,
+  ) {
     if (listId < 1) {
-      throw InvalidDataException('listId < 1 is true');
+      throw ArgumentError('listId < 1 is true');
     }
 
-    List<Map<String, dynamic>> postBody = [];
+    final postBody = <Map<String, dynamic>>[];
     items.forEach((item) => postBody.add(item._toMap()));
 
-    return _v4._query(
+    return _v._query(
       '$_endPoint/$listId/items',
       method: HttpMethod.PUT,
       postBody: {'items': postBody},
@@ -422,20 +412,20 @@ class ListsV4 {
   ///```
   ///
   Future<Map> removeItems(
-      String accessToken, int listId, List<ListItem> items) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
+    String accessToken,
+    int listId,
+    List<ListItem> items,
+  ) {
     if (listId < 1) {
-      throw InvalidDataException('listId < 1 is true');
+      throw ArgumentError('listId < 1 is true');
     }
 
-    List<Map<String, dynamic>> postBody = [];
+    final postBody = <Map<String, dynamic>>[];
     items.forEach((item) {
       postBody.add(item._toMap());
     });
 
-    return _v4._query(
+    return _v._query(
       '$_endPoint/$listId/items',
       method: HttpMethod.DELETE,
       deleteBody: {'items': postBody},
@@ -478,19 +468,16 @@ class ListsV4 {
   ///}
   ///```
   Future<Map> checkItemStatus(
-      String accessToken, int listId, int mediaId, MediaType mediaType) {
-    if (accessToken == null ||
-        listId == null ||
-        mediaId == null ||
-        mediaType == null) {
-      throw NullValueException(
-          'accessToken == null || listId == null||mediaId==null||mediaType==null is true');
-    }
+    String accessToken,
+    int listId,
+    int mediaId,
+    MediaType mediaType,
+  ) {
     if (listId < 1 || mediaId < 1) {
-      throw InvalidDataException('listId < 1 || mediaId < 1 is true');
+      throw ArgumentError('listId < 1 || mediaId < 1 is true');
     }
 
-    return _v4._query('$_endPoint/$listId/item_status', postHeaders: {
+    return _v._query('$_endPoint/$listId/item_status', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [

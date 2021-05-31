@@ -1,9 +1,7 @@
 part of tmdb_api;
 
-class Account {
-  final V3 _v3;
-  final String _endPoint = 'account';
-  Account(this._v3) : assert(_v3 != null);
+class Account extends Category<V3> {
+  Account(V3 v) : super(v, 'account');
 
   ///Get your account details.
   ///
@@ -33,11 +31,7 @@ class Account {
   ///}
   ///```
   Future<Map> getDetails(String sessionId) {
-    if (sessionId == null) {
-      throw NullValueException('sessionId == null is true');
-    }
-
-    return _v3._query('$_endPoint', optionalQueries: ['session_id=$sessionId']);
+    return _v._query('$_endPoint', optionalQueries: ['session_id=$sessionId']);
   }
 
   ///Get all of the lists created by an account.
@@ -90,20 +84,11 @@ class Account {
   ///
   Future<Map> getCreatedLists(String sessionId, int accountId,
       {String language = 'en-US', int page = 1}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/$accountId/lists', optionalQueries: [
+    return _v._query('$_endPoint/$accountId/lists', optionalQueries: [
       'session_id=$sessionId',
       'language=$language',
       'page=$page'
@@ -139,22 +124,15 @@ class Account {
   /// total_results: 0
   ///}
   ///```
-  Future<Map> getFavoriteMovies(String sessionId, int accountId,
-      {String language = 'en-US',
-      int page = 1,
-      SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy==null is true');
-    }
-
+  Future<Map> getFavoriteMovies(
+    String sessionId,
+    int accountId, {
+    String language = 'en-US',
+    int page = 1,
+    SortBy sortBy = SortBy.createdAtAsc,
+  }) {
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -162,13 +140,12 @@ class Account {
     } else {
       sort = 'created_at.desc';
     }
-    return _v3._query('$_endPoint/$accountId/favorite/movies',
-        optionalQueries: [
-          'session_id=$sessionId',
-          'language=$language',
-          'page=$page',
-          'sort_by=$sort'
-        ]);
+    return _v._query('$_endPoint/$accountId/favorite/movies', optionalQueries: [
+      'session_id=$sessionId',
+      'language=$language',
+      'page=$page',
+      'sort_by=$sort'
+    ]);
   }
 
   ///Get the list of your favorite tv.
@@ -204,18 +181,8 @@ class Account {
       {String language = 'en-US',
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -224,7 +191,7 @@ class Account {
       sort = 'created_at.desc';
     }
 
-    return _v3._query('$_endPoint/$accountId/favorite/tv', optionalQueries: [
+    return _v._query('$_endPoint/$accountId/favorite/tv', optionalQueries: [
       'session_id=$sessionId',
       'language=$language',
       'page=$page',
@@ -265,16 +232,8 @@ class Account {
   Future<Map> markAsFavorite(
       String sessionId, int accountId, int mediaId, MediaType mediaType,
       {bool isFavorite = true}) {
-    if (accountId == null ||
-        sessionId == null ||
-        mediaType == null ||
-        mediaId == null) {
-      throw NullValueException(
-          'accountId==null||sessionId==null||mediaType==null||mediaId==null is true');
-    }
-
     if (accountId < 1 || mediaId < 1) {
-      throw InvalidDataException('accountId<1||mediaId<1 is true');
+      throw ArgumentError('accountId<1||mediaId<1 is true');
     }
     String type;
     //
@@ -284,7 +243,7 @@ class Account {
       type = 'movie';
     }
 
-    return _v3._query('$_endPoint/$accountId/favorite',
+    return _v._query('$_endPoint/$accountId/favorite',
         method: HttpMethod.POST,
         optionalQueries: [
           'session_id=$sessionId'
@@ -327,18 +286,8 @@ class Account {
       {String language = 'en-US',
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -347,7 +296,7 @@ class Account {
       sort = 'created_at.desc';
     }
 
-    return _v3._query('$_endPoint/$accountId/rated/movies', optionalQueries: [
+    return _v._query('$_endPoint/$accountId/rated/movies', optionalQueries: [
       'session_id=$sessionId',
       'language=$language',
       'page=$page',
@@ -401,18 +350,8 @@ class Account {
       {String language = 'en-US',
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -421,7 +360,7 @@ class Account {
       sort = 'created_at.desc';
     }
 
-    return _v3._query('$_endPoint/$accountId/rated/tv', optionalQueries: [
+    return _v._query('$_endPoint/$accountId/rated/tv', optionalQueries: [
       'session_id=$sessionId',
       'language=$language',
       'page=$page',
@@ -462,18 +401,8 @@ class Account {
       {String language = 'en-US',
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -482,7 +411,7 @@ class Account {
       sort = 'created_at.desc';
     }
 
-    return _v3._query('$_endPoint/$accountId/rated/tv/episodes',
+    return _v._query('$_endPoint/$accountId/rated/tv/episodes',
         optionalQueries: [
           'session_id=$sessionId',
           'language=$language',
@@ -543,18 +472,8 @@ class Account {
       {String language = 'en-US',
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -563,7 +482,7 @@ class Account {
       sort = 'created_at.desc';
     }
 
-    return _v3._query('$_endPoint/$accountId/watchlist/movies',
+    return _v._query('$_endPoint/$accountId/watchlist/movies',
         optionalQueries: [
           'session_id=$sessionId',
           'language=$language',
@@ -625,18 +544,8 @@ class Account {
       {String language = 'en-US',
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -645,7 +554,7 @@ class Account {
       sort = 'created_at.desc';
     }
 
-    return _v3._query('$_endPoint/$accountId/watchlist/tv', optionalQueries: [
+    return _v._query('$_endPoint/$accountId/watchlist/tv', optionalQueries: [
       'session_id=$sessionId',
       'language=$language',
       'page=$page',
@@ -686,16 +595,8 @@ class Account {
   Future<Map> addToWatchList(
       String sessionId, int accountId, int mediaId, MediaType mediaType,
       {bool shouldAdd = true}) {
-    if (accountId == null ||
-        sessionId == null ||
-        mediaType == null ||
-        mediaId == null) {
-      throw NullValueException(
-          'accountId==null||sessionId==null||mediaType==null||mediaId==null is true');
-    }
-
     if (accountId < 1 || mediaId < 1) {
-      throw InvalidDataException('accountId<1||mediaId<1 is true');
+      throw ArgumentError('accountId<1||mediaId<1 is true');
     }
     String type;
     //
@@ -705,7 +606,7 @@ class Account {
       type = 'movie';
     }
 
-    return _v3._query('$_endPoint/$accountId/watchlist',
+    return _v._query('$_endPoint/$accountId/watchlist',
         method: HttpMethod.POST,
         optionalQueries: [
           'session_id=$sessionId'

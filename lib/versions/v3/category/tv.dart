@@ -1,10 +1,8 @@
 //tv shows
 part of tmdb_api;
 
-class Tv {
-  final V3 _v3;
-  final String _endPoint = 'tv';
-  Tv(this._v3) : assert(_v3 != null);
+class Tv extends Category<V3> {
+  Tv(V3 v) : super(v, 'tv');
 
   ///Get the primary TV show details by id.
   ///
@@ -22,22 +20,19 @@ class Tv {
   ///```
   Future<Map> getDetails(
     int tvId, {
-    String appendToResponse,
+    String? appendToResponse,
     String language = 'en-US',
   }) {
-    if (tvId == null || language == null) {
-      throw NullValueException('tvId == null || language == null is true');
-    }
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
-    List<String> para = ['language=$language'];
+    final para = <String>['language=$language'];
     if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
     }
 
-    return _v3._query('$_endPoint/$tvId',
+    return _v._query('$_endPoint/$tvId',
         method: HttpMethod.GET, optionalQueries: para);
   }
 
@@ -50,7 +45,7 @@ class Tv {
   /// for all episodes belonging to a TV show.
   ///
   Future<Map> getAggregateCredits(String tvId, {String language = 'en-US'}) {
-    return _v3._query(
+    return _v._query(
       '$_endPoint/$tvId/aggregate_credits',
       optionalQueries: ['language=$language'],
     );
@@ -71,14 +66,11 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getAlternaiveTitle(103, language: 'en-US');
   ///```
   Future<Map> getAlternativeTitle(int tvId, {String language = 'en-US'}) {
-    if (tvId == null || language == null) {
-      throw NullValueException('tvId == null || language == null is true');
-    }
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/alternative_titles',
+    return _v._query('$_endPoint/$tvId/alternative_titles',
         method: HttpMethod.GET, optionalQueries: ['language=$language']);
   }
 
@@ -92,14 +84,11 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getCredits(103);
   ///```
   Future<Map> getCredits(int tvId) {
-    if (tvId == null) {
-      throw NullValueException('tvId == null is true');
-    }
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/credits', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$tvId/credits', method: HttpMethod.GET);
   }
 
   ///Get the list of content ratings (certifications) that have been added to a TV show.
@@ -112,13 +101,10 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getContentRating(103);
   ///```
   Future<Map> getContentRating(int tvId) {
-    if (tvId == null) {
-      throw NullValueException('tvId == null is true');
-    }
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
-    return _v3._query('$_endPoint/$tvId/content_ratings');
+    return _v._query('$_endPoint/$tvId/content_ratings');
   }
 
   /// Get all of the episode groups that have been created for a TV show
@@ -136,14 +122,11 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getEposideGroups(103, language: 'en-US');
   ///```
   Future<Map> getEpisodeGroups(int tvId, {String language = 'en-US'}) {
-    if (tvId == null || language == null) {
-      throw NullValueException('tvId == null || language == null is true');
-    }
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/episode_groups',
+    return _v._query('$_endPoint/$tvId/episode_groups',
         method: HttpMethod.GET, optionalQueries: ['language=$language']);
   }
 
@@ -163,14 +146,11 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getExternalIds(103);
   ///```
   Future<Map> getExternalIds(int tvId) {
-    if (tvId == null) {
-      throw NullValueException('tvId == null is true');
-    }
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/external_ids', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$tvId/external_ids', method: HttpMethod.GET);
   }
 
   ///Get the keywords that have been added to a tv.
@@ -184,14 +164,11 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getKeywords(103);
   ///```
   Future<Map> getKeywords(int tvId) {
-    if (tvId == null) {
-      throw NullValueException('tvId == null is true');
-    }
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/keywords', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$tvId/keywords', method: HttpMethod.GET);
   }
 
   /// Get a list of recommended tv show for a tv show.
@@ -208,17 +185,16 @@ class Tv {
   ///```
   ///Map result = await tmdb.v3.tv.getRecommendations(103, language: 'en-US');
   ///```
-  Future<Map> getRecommendations(int tvId,
-      {String language = 'en-US', int page = 1}) {
-    if (tvId == null || language == null || page == null) {
-      throw NullValueException(
-          'tvId == null || language == null || page == null is true');
-    }
+  Future<Map> getRecommendations(
+    int tvId, {
+    String language = 'en-US',
+    int page = 1,
+  }) {
     if (tvId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException('tvId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/recommendations',
+    return _v._query('$_endPoint/$tvId/recommendations',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -237,15 +213,11 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getReviews(103, language: 'en-US');
   ///```
   Future<Map> getReviews(int tvId, {String language = 'en-US', int page = 1}) {
-    if (tvId == null || language == null || page == null) {
-      throw NullValueException(
-          'tvId == null || language == null || page == null is true');
-    }
     if (tvId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException('tvId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/reviews',
+    return _v._query('$_endPoint/$tvId/reviews',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -260,13 +232,10 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getScreenedTheatrically(103);
   ///```
   Future<Map> getScreenedTheatrically(int tvId) {
-    if (tvId == null) {
-      throw NullValueException('tvId == null is true');
-    }
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
-    return _v3._query('$_endPoint/$tvId/screened_theatrically');
+    return _v._query('$_endPoint/$tvId/screened_theatrically');
   }
 
   /// Get a list of similar tv.
@@ -287,15 +256,11 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getSimilar(103, language: 'en-US');
   ///```
   Future<Map> getSimilar(int tvId, {String language = 'en-US', int page = 1}) {
-    if (tvId == null || language == null || page == null) {
-      throw NullValueException(
-          'tvId == null || language == null || page == null is true');
-    }
     if (tvId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException('tvId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/similar',
+    return _v._query('$_endPoint/$tvId/similar',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -309,14 +274,11 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getTranslations(103);
   ///```
   Future<Map> getTranslations(int tvId) {
-    if (tvId == null) {
-      throw NullValueException('tvId == null is true');
-    }
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
-    return _v3._query('$_endPoint/$tvId/translations');
+    return _v._query('$_endPoint/$tvId/translations');
   }
 
   /// Get the videos that have been added to a TV show.
@@ -332,10 +294,7 @@ class Tv {
   /// ```
   ///
   Future<Map> getVideos(String tvId) {
-    if (tvId == null) {
-      throw NullValueException('tvId == null is true');
-    }
-    return _v3._query('$_endPoint/$tvId');
+    return _v._query('$_endPoint/$tvId');
   }
 
   /// Powered by our partnership with JustWatch, you can query
@@ -360,10 +319,7 @@ class Tv {
   /// ```
   ///
   Future<Map> getWatchProviders(String tvId) {
-    if (tvId == null) {
-      throw NullValueException('tvId == null is true');
-    }
-    return _v3._query('$_endPoint/$tvId/watch/providers');
+    return _v._query('$_endPoint/$tvId/watch/providers');
   }
 
   ///Get the most newly created tv show.
@@ -379,11 +335,7 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getLatest(language: 'en-US');
   ///```
   Future<Map> getLatest({String language = 'en-US'}) {
-    if (language == null) {
-      throw NullValueException('language==null is true');
-    }
-
-    return _v3
+    return _v
         ._query('$_endPoint/latest', optionalQueries: ['language=$language']);
   }
 
@@ -402,14 +354,11 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getPouplar(language: 'en-US');
   ///```
   Future<Map> getPouplar({String language = 'en-US', int page = 1}) {
-    if (language == null || page == null) {
-      throw NullValueException(' language == null || page == null is true');
-    }
     if (page < 1 || page > 1000) {
-      throw InvalidDataException(' page < 1 || page > 1000 is true');
+      throw ArgumentError(' page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/popular',
+    return _v._query('$_endPoint/popular',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -427,14 +376,11 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getTopRated(language: 'en-US');
   ///```
   Future<Map> getTopRated({String language = 'en-US', int page = 1}) {
-    if (language == null || page == null) {
-      throw NullValueException(' language == null || page == null is true');
-    }
     if (page < 1 || page > 1000) {
-      throw InvalidDataException(' page < 1 || page > 1000 is true');
+      throw ArgumentError(' page < 1 || page > 1000 is true');
     }
 
-    return _v3._query('$_endPoint/top_rated',
+    return _v._query('$_endPoint/top_rated',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -454,13 +400,10 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getAiringToday(language: 'en-US');
   ///```
   Future<Map> getAiringToday({String language = 'en-US', int page = 1}) {
-    if (language == null || page == null) {
-      throw NullValueException(' language == null || page == null is true');
-    }
     if (page < 1 || page > 1000) {
-      throw InvalidDataException(' page < 1 || page > 1000 is true');
+      throw ArgumentError(' page < 1 || page > 1000 is true');
     }
-    return _v3._query('$_endPoint/airing_today',
+    return _v._query('$_endPoint/airing_today',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -480,13 +423,10 @@ class Tv {
   ///Map result = await tmdb.v3.tv.getOnTheAir(language: 'en-US');
   ///```
   Future<Map> getOnTheAir({String language = 'en-US', int page = 1}) {
-    if (language == null || page == null) {
-      throw NullValueException(' language == null || page == null is true');
-    }
     if (page < 1 || page > 1000) {
-      throw InvalidDataException(' page < 1 || page > 1000 is true');
+      throw ArgumentError(' page < 1 || page > 1000 is true');
     }
-    return _v3._query('$_endPoint/on_the_air',
+    return _v._query('$_endPoint/on_the_air',
         optionalQueries: ['language=$language', 'page=$page']);
   }
 
@@ -519,20 +459,21 @@ class Tv {
   /// status_message: Success.
   ///}
   ///```
-  Future<Map> rateTvShow(int tvId, double ratingValue,
-      {String guestSessionId, String sessionId}) {
-    if (tvId == null || ratingValue == null) {
-      throw NullValueException('movieId == null || ratingValue == null');
-    }
+  Future<Map> rateTvShow(
+    int tvId,
+    double ratingValue, {
+    String? guestSessionId,
+    String? sessionId,
+  }) {
     if (guestSessionId == null && sessionId == null) {
-      throw NullValueException('guestSessionId == null && sessionId == null');
+      throw ArgumentError('guestSessionId == null && sessionId == null');
     }
     if (ratingValue < 0.5 || ratingValue > 10.0 || tvId < 1) {
-      throw InvalidDataException(
+      throw ArgumentError(
           'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
     }
 
-    List<String> para = [];
+    final para = <String>[];
     //only one is allowed
     if (sessionId != null) {
       para.add('session_id=$sessionId');
@@ -540,7 +481,7 @@ class Tv {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v3._query('$_endPoint/$tvId/rating',
+    return _v._query('$_endPoint/$tvId/rating',
         method: HttpMethod.POST,
         postBody: {'value': '$ratingValue'},
         optionalQueries: para);
@@ -570,20 +511,17 @@ class Tv {
   /// status_message: The item/record was deleted successfully.
   ///}
   ///```
-  Future<Map> deleteRating(int tvId,
-      {String guestSessionId, String sessionId}) {
-    if (tvId == null) {
-      throw NullValueException('movieId == null || ratingValue == null');
-    }
-    if (guestSessionId == null && sessionId == null) {
-      throw NullValueException('guestSessionId == null && sessionId == null');
-    }
+  Future<Map> deleteRating(
+    int tvId, {
+    String? guestSessionId,
+    String? sessionId,
+  }) {
     if (tvId < 1) {
-      throw InvalidDataException(
+      throw ArgumentError(
           'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
     }
 
-    List<String> para = [];
+    final para = <String>[];
     //only one is allowed
     if (sessionId != null) {
       para.add('session_id=$sessionId');
@@ -591,7 +529,7 @@ class Tv {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v3._query('$_endPoint/$tvId/rating',
+    return _v._query('$_endPoint/$tvId/rating',
         method: HttpMethod.DELETE, deleteBody: {}, optionalQueries: para);
   }
 
@@ -611,22 +549,21 @@ class Tv {
   /// you can use the `include_image_language` parameter.
   ///This should be a comma seperated value like so: `include_image_language=en,null.`
   ///
-  Future<Map> getImages(int tvId,
-      {String language = 'en-US', String includeImageLanguage}) {
-    if (tvId == null || language == null) {
-      throw NullValueException(
-          'tvId == null || tvId == null||language==null is true');
-    }
+  Future<Map> getImages(
+    int tvId, {
+    String language = 'en-US',
+    String? includeImageLanguage,
+  }) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId < 1 is true');
+      throw ArgumentError('tvId < 1 is true');
     }
 
-    List<String> para = ['language=$language'];
+    final para = <String>['language=$language'];
     if (includeImageLanguage != null) {
       para.add('include_image_language=$includeImageLanguage');
     }
 
-    return _v3._query('$_endPoint/$tvId/images', optionalQueries: para);
+    return _v._query('$_endPoint/$tvId/images', optionalQueries: para);
   }
 
   ///Grab the following account states for a session:
@@ -659,19 +596,18 @@ class Tv {
   ///}
   ///```
   ///
-  Future<Map> getAccountStatus(int tvId,
-      {String sessionId, String guestSessionId}) {
-    if (tvId == null) {
-      throw NullValueException('tvId==null is true');
-    }
+  Future<Map> getAccountStatus(
+    int tvId, {
+    String? sessionId,
+    String? guestSessionId,
+  }) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1');
+      throw ArgumentError('tvId<1');
     }
     if (sessionId == null && guestSessionId == null) {
-      throw NullValueException(
-          'sessionId==null && guestSessionId==null is true');
+      throw ArgumentError('sessionId==null && guestSessionId==null is true');
     }
-    List<String> para = [];
+    final para = <String>[];
     //only one is allowed
     if (sessionId != null) {
       para.add('session_id=$sessionId');
@@ -679,6 +615,6 @@ class Tv {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v3._query('$_endPoint/$tvId/account_states', optionalQueries: para);
+    return _v._query('$_endPoint/$tvId/account_states', optionalQueries: para);
   }
 }

@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 // import 'package:tmdb_api/tmdb_api.dart';
 //
 
-main() {
-  // TMDB tmdb = TMDB(Keys.API);
+void main() {
+  // final tmdb = TMDB(Keys.API);
   // group('Tv Episode Group', () {
   //   group('Details', () {
   //     test('with out parameters', () async {

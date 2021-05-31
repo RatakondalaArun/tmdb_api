@@ -1,10 +1,10 @@
 part of tmdb_api;
 
-class Discover {
-  final V3 _v3;
-  final String _endPoint = 'discover';
+class Discover extends Category<V3> {
+  // final V3 _v;
+  // final String _endPoint = 'discover';
 
-  Discover(this._v3);
+  Discover(V3 v) : super(v, 'discover');
 
   ///Discover movies by different types of data like average rating, number of votes, genres and certifications.
   ///
@@ -21,41 +21,42 @@ class Discover {
   /// ```
   /// result['results']
   /// ```
-  Future<Map> getMovies(
-      {String language = 'en-US',
-      SortMoviesBy sortBy = SortMoviesBy.popularityDesc,
-      int page = 1,
-      bool includeAdult = false,
-      bool includeVideo = false,
-      String region,
-      String certificationCountry,
-      String certification,
-      String certificationLessThan,
-      String certificationGreaterThan,
-      int primaryReleaseYear,
-      String primaryReleaseDateGreaterThan,
-      String primaryReleaseDateLessThan,
-      String releaseDateGreaterThan,
-      String releaseDateLessThan,
-      String withReleaseType,
-      int year,
-      int voteCountGreaterThan,
-      int voteCountLessThan,
-      int voteAverageGreaterThan,
-      int voteAverageLessThan,
-      String withCast,
-      String withCrew,
-      String withPeople,
-      String withCompanies,
-      String withGenres,
-      String withoutGenres,
-      String withKeywords,
-      String withoutKeywords,
-      int withRunTimeGreaterThan,
-      int withRuntimeLessThan,
-      String withOrginalLanguage}) {
+  Future<Map> getMovies({
+    String language = 'en-US',
+    SortMoviesBy sortBy = SortMoviesBy.popularityDesc,
+    int page = 1,
+    bool includeAdult = false,
+    bool includeVideo = false,
+    String? region,
+    String? certificationCountry,
+    String? certification,
+    String? certificationLessThan,
+    String? certificationGreaterThan,
+    int? primaryReleaseYear,
+    String? primaryReleaseDateGreaterThan,
+    String? primaryReleaseDateLessThan,
+    String? releaseDateGreaterThan,
+    String? releaseDateLessThan,
+    String? withReleaseType,
+    int? year,
+    int? voteCountGreaterThan,
+    int? voteCountLessThan,
+    int? voteAverageGreaterThan,
+    int? voteAverageLessThan,
+    String? withCast,
+    String? withCrew,
+    String? withPeople,
+    String? withCompanies,
+    String? withGenres,
+    String? withoutGenres,
+    String? withKeywords,
+    String? withoutKeywords,
+    int? withRunTimeGreaterThan,
+    int? withRuntimeLessThan,
+    String? withOrginalLanguage,
+  }) {
     //all the default values
-    List<String> queries = [
+    final queries = <String>[
       'language=$language',
       'sort_by=${_getSortMovieBy(sortBy)}',
       'page=$page',
@@ -169,7 +170,7 @@ class Discover {
       queries.add('with_original_language=$withOrginalLanguage');
     }
 
-    return _v3._query('$_endPoint/movie', optionalQueries: queries);
+    return _v._query('$_endPoint/movie', optionalQueries: queries);
   }
 
   ///Discover TV shows by different types of data like
@@ -186,31 +187,32 @@ class Discover {
   /// ```
   /// result['results']
   /// ```
-  Future<Map> getTvShows(
-      {String language = 'en-US',
-      SortTvShowsBy sortBy = SortTvShowsBy.popularityDesc,
-      int page = 1,
-      bool includeNullFirstAirDates = false,
-      String airDateGte,
-      String airDateLte,
-      String firstAirDateGte,
-      String firstAirDateLte,
-      int firstAirDateYear,
-      String timezone,
-      double voteAverageGte,
-      int voteCountGte,
-      String withGeners,
-      String withoutGeners,
-      String withNetworks,
-      int withRuntimeGte,
-      int withRuntimeLte,
-      String withOrginalLanguage,
-      String withKeywords,
-      String withoutKeywords,
-      bool screenedTheatrically,
-      String withCompanies}) {
+  Future<Map> getTvShows({
+    String language = 'en-US',
+    SortTvShowsBy sortBy = SortTvShowsBy.popularityDesc,
+    int page = 1,
+    bool includeNullFirstAirDates = false,
+    String? airDateGte,
+    String? airDateLte,
+    String? firstAirDateGte,
+    String? firstAirDateLte,
+    int? firstAirDateYear,
+    String? timezone,
+    double? voteAverageGte,
+    int? voteCountGte,
+    String? withGeners,
+    String? withoutGeners,
+    String? withNetworks,
+    int? withRuntimeGte,
+    int? withRuntimeLte,
+    String? withOrginalLanguage,
+    String? withKeywords,
+    String? withoutKeywords,
+    bool? screenedTheatrically,
+    String? withCompanies,
+  }) {
     //all the default values
-    List<String> queries = [
+    final queries = <String>[
       'language=$language',
       'sort_by=${_getSortTvShowsBy(sortBy)}',
       'page=$page',
@@ -293,7 +295,7 @@ class Discover {
       queries.add('without_keywords=$withoutKeywords');
     }
 
-    return _v3._query('$_endPoint/tv', optionalQueries: queries);
+    return _v._query('$_endPoint/tv', optionalQueries: queries);
   }
 
   String _getSortMovieBy(SortMoviesBy sortBy) {

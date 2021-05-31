@@ -1,10 +1,8 @@
 part of tmdb_api;
 
-class Keywords {
+class Keywords extends Category<V3> {
   ///Provides details about movies
-  final V3 _v3;
-  final String _endPoint = 'keyword';
-  Keywords(this._v3) : assert(_v3 != null);
+  Keywords(V3 v) : super(v, 'keyword');
 
   ///Get the list of official genres for movies.
   ///
@@ -16,11 +14,7 @@ class Keywords {
   /// Map result = await tmdb.v3.keywords.getMovies(3417);
   ///```
   Future<Map> getDetails(int keywordId) {
-    if (keywordId == null) {
-      throw NullValueException('keywordId == null');
-    }
-
-    return _v3._query('$_endPoint/$keywordId');
+    return _v._query('$_endPoint/$keywordId');
   }
 
   /// Get the movies that belong to a keyword.
@@ -39,14 +33,12 @@ class Keywords {
   ///```
   /// Map result = await tmdb.v3.keywords.getMovies(3417);
   ///```
-  Future<Map> getMovies(int keywordId,
-      {String language = 'en-US', bool includeAdult = false}) {
-    if (keywordId == null || language == null || includeAdult == null) {
-      throw NullValueException(
-          'keywordId==null||language==null||includeAdult==null');
-    }
-
-    return _v3._query('$_endPoint/$keywordId',
+  Future<Map> getMovies(
+    int keywordId, {
+    String language = 'en-US',
+    bool includeAdult = false,
+  }) {
+    return _v._query('$_endPoint/$keywordId',
         optionalQueries: ['include_adult=$includeAdult', 'language=$language']);
   }
 }

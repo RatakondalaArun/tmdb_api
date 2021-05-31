@@ -1,9 +1,10 @@
 part of tmdb_api;
 
-class AccountV4 {
-  final V4 _v4;
-  final String _endPoint = 'account';
-  AccountV4(this._v4) : assert(_v4 != null);
+class AccountV4 extends Category<V4> {
+  // final V4 _v;
+  // final String _endPoint = 'account';
+
+  AccountV4(V4 v) : super(v, 'account');
 
   ///Get all of the lists you've created.
   ///
@@ -49,16 +50,16 @@ class AccountV4 {
   ///}
   ///```
   ///
-  Future<Map> getLists(String accessToken, String accountId, {int page = 1}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getLists(
+    String accessToken,
+    String accountId, {
+    int page = 1,
+  }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/lists', postHeaders: {
+    return _v._query('$_endPoint/$accountId/lists', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     });
@@ -112,22 +113,22 @@ class AccountV4 {
   ///}
   ///```
   ///
-  Future<Map> getFavoritMovies(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'created_at.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getFavoritMovies(
+    String accessToken,
+    String accountId, {
+    int page = 1,
+    String sortBy = 'created_at.asc',
+  }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/movie/favorites', postHeaders: {
+    return _v._query('$_endPoint/$accountId/movie/favorites', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
-      'page=${page ?? 1}',
-      'sort_by=${sortBy ?? 'created_at.asc'}'
+      'page=$page',
+      'sort_by=$sortBy'
     ]);
   }
 
@@ -179,22 +180,22 @@ class AccountV4 {
   ///
   ///```
   ///
-  Future<Map> getFavoriteTvShows(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'created_at.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getFavoriteTvShows(
+    String accessToken,
+    String accountId, {
+    int page = 1,
+    String sortBy = 'created_at.asc',
+  }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/tv/favorites', postHeaders: {
+    return _v._query('$_endPoint/$accountId/tv/favorites', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
-      'page=${page ?? 1}',
-      'sort_by=${sortBy ?? 'created_at.asc'}'
+      'page=$page',
+      'sort_by=$sortBy'
     ]);
   }
 
@@ -249,23 +250,23 @@ class AccountV4 {
   ///
   ///```
   ///
-  Future<Map> getMovieRecommendations(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'created_at.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getMovieRecommendations(
+    String accessToken,
+    String accountId, {
+    int page = 1,
+    String sortBy = 'created_at.asc',
+  }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v4
+    return _v
         ._query('$_endPoint/$accountId/movie/recommendations', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
-      'page=${page ?? 1}',
-      'sort_by=${sortBy ?? 'created_at.asc'}'
+      'page=$page',
+      'sort_by=$sortBy'
     ]);
   }
 
@@ -316,22 +317,22 @@ class AccountV4 {
   /// ]
   ///}
   ///```
-  Future<Map> getTvShowRecommendations(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'first_air_date.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getTvShowRecommendations(
+    String accessToken,
+    String accountId, {
+    int page = 1,
+    String sortBy = 'first_air_date.asc',
+  }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/tv/recommendations', postHeaders: {
+    return _v._query('$_endPoint/$accountId/tv/recommendations', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
-      'page=${page ?? 1}',
-      'sort_by=${sortBy ?? 'first_air_date.asc'}'
+      'page=$page',
+      'sort_by=$sortBy'
     ]);
   }
 
@@ -382,22 +383,22 @@ class AccountV4 {
   /// ]
   ///}
   ///```
-  Future<Map> getMovieWatchList(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'created_at.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getMovieWatchList(
+    String accessToken,
+    String accountId, {
+    int page = 1,
+    String sortBy = 'created_at.asc',
+  }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/movie/watchlist', postHeaders: {
+    return _v._query('$_endPoint/$accountId/movie/watchlist', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
-      'page=${page ?? 1}',
-      'sort_by=${sortBy ?? 'created_at.asc'}'
+      'page=$page',
+      'sort_by=$sortBy'
     ]);
   }
 
@@ -454,22 +455,22 @@ class AccountV4 {
   /// ]
   ///}
   ///```
-  Future<Map> getTvShowWatchList(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'first_air_date.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getTvShowWatchList(
+    String accessToken,
+    String accountId, {
+    int page = 1,
+    String sortBy = 'first_air_date.asc',
+  }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/tv/watchlist', postHeaders: {
+    return _v._query('$_endPoint/$accountId/tv/watchlist', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
-      'page=${page ?? 1}',
-      'sort_by=${sortBy ?? 'first_air_date.asc'}'
+      'page=$page',
+      'sort_by=$sortBy'
     ]);
   }
 
@@ -529,22 +530,22 @@ class AccountV4 {
   /// ]
   ///}
   ///```
-  Future<Map> getRatedMovies(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'created_at.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getRatedMovies(
+    String accessToken,
+    String accountId, {
+    int page = 1,
+    String sortBy = 'created_at.asc',
+  }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/movie/rated', postHeaders: {
+    return _v._query('$_endPoint/$accountId/movie/rated', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
-      'page=${page ?? 1}',
-      'sort_by=${sortBy ?? 'created_at.asc'}'
+      'page=$page',
+      'sort_by=$sortBy'
     ]);
   }
 
@@ -602,22 +603,22 @@ class AccountV4 {
   /// ]
   ///}
   ///```
-  Future<Map> getRatedTvShows(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'first_air_date.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getRatedTvShows(
+    String accessToken,
+    String accountId, {
+    int page = 1,
+    String sortBy = 'first_air_date.asc',
+  }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v4._query('$_endPoint/$accountId/tv/rated', postHeaders: {
+    return _v._query('$_endPoint/$accountId/tv/rated', postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
-      'page=${page ?? 1}',
-      'sort_by=${sortBy ?? 'first_air_date.asc'}'
+      'page=$page',
+      'sort_by=$sortBy'
     ]);
   }
 }

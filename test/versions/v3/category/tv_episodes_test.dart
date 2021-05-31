@@ -2,8 +2,8 @@ import 'package:test/test.dart';
 import '../../../init_script.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
-main() {
-  TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
+void main() {
+  final tmdb = TMDB(ApiKeys(Keys.API!, Keys.API_V4!));
   group('Tv episodes', () {
     group('Details', () {
       test('with parameters', () async {
@@ -21,7 +21,7 @@ main() {
 
     group('Changes', () {
       test('with parameters', () async {
-        Map result = await tmdb.v3.tvEpisodes.getChanges(302, page: 2);
+        final result = await tmdb.v3.tvEpisodes.getChanges(302, page: 2);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
