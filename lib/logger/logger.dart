@@ -89,12 +89,12 @@ class ConfigLogger {
 }
 
 class Logger {
-  LogTypes _types;
+  LogTypes? _types;
   final ConfigLogger _config;
 
-  LogTypes get logTypes => _types;
+  LogTypes get logTypes => _types!;
 
-  Logger(this._config) : assert(_config != null) {
+  Logger(this._config) {
     _types = LogTypes(this);
   }
 }
@@ -106,33 +106,25 @@ class LogTypes {
 
   void errorLog(String msg) {
     if (_logger._config.showLogs && _logger._config.showLogs) {
-      Colorize coloredString = Colorize('TMDB_API--LOG(🔴) --ERROR-- $msg');
-      coloredString.red();
-      print(coloredString);
+      print(Colorize('TMDB_API--LOG(🔴) --ERROR-- $msg')..red());
     }
   }
 
   void infoLog(String msg) {
     if (_logger._config.showLogs && _logger._config.showInfoLogs) {
-      Colorize coloredString = Colorize('TMDB_API--LOG(ℹ) --INFO-- $msg');
-      coloredString.green();
-      print(coloredString);
+      print(Colorize('TMDB_API--LOG(ℹ) --INFO-- $msg')..green());
     }
   }
 
   void warningLog(String msg) {
     if (_logger._config.showLogs && _logger._config.showWarningLogs) {
-      Colorize coloredString = Colorize('TMDB_API--LOG(⚠) --WARNING-- $msg');
-      coloredString.yellow();
-      print(coloredString);
+      print(Colorize('TMDB_API--LOG(⚠) --WARNING-- $msg')..yellow());
     }
   }
 
   void urlLog(String urlMsg) {
     if (_logger._config.showUrlLogs && _logger._config.showUrlLogs) {
-      Colorize coloredString = Colorize('TMDB_API--LOG(🔗) --URL-- \n$urlMsg');
-      coloredString.blue();
-      print(coloredString);
+      print(Colorize('TMDB_API--LOG(🔗) --URL-- \n$urlMsg')..blue());
     }
   }
 }

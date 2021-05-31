@@ -2,9 +2,7 @@ part of tmdb_api;
 
 class GuestSession extends Category<V3> {
   ///Provides details about movies
-  GuestSession(V3 v)
-      : assert(v != null),
-        super(v, 'guest_session');
+  GuestSession(V3 v) : super(v, 'guest_session');
 
   ///Get the rated movies for a guest session.
   ///
@@ -31,13 +29,11 @@ class GuestSession extends Category<V3> {
   /// }
   /// ```
   ///
-  Future<Map> getRatedMovies(String guestSessionId,
-      {String language = 'en-US', SortBy sortBy = SortBy.createdAtAsc}) {
-    if (guestSessionId == null || language == null || sortBy == null) {
-      throw NullValueException(
-          'guestSessionId == null||language==null||sortBy==null is true');
-    }
-
+  Future<Map> getRatedMovies(
+    String guestSessionId, {
+    String language = 'en-US',
+    SortBy sortBy = SortBy.createdAtAsc,
+  }) {
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
@@ -78,13 +74,11 @@ class GuestSession extends Category<V3> {
   /// }
   /// ```
   ///
-  Future<Map> getRatedTvShows(String guestSessionId,
-      {String language = 'en-US', SortBy sortBy = SortBy.createdAtAsc}) {
-    if (guestSessionId == null || language == null || sortBy == null) {
-      throw NullValueException(
-          'guestSessionId == null ||language==null||sortBy==null is true');
-    }
-
+  Future<Map> getRatedTvShows(
+    String guestSessionId, {
+    String language = 'en-US',
+    SortBy sortBy = SortBy.createdAtAsc,
+  }) {
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
@@ -124,24 +118,24 @@ class GuestSession extends Category<V3> {
   /// }
   /// ```
   ///
-  Future<Map> getRatedTvEpisodes(String guestSessionId,
-      {String language = 'en-US', SortBy sortBy = SortBy.createdAtAsc}) {
-    if (guestSessionId == null || language == null || sortBy == null) {
-      throw NullValueException(
-          'guestSessionId == null ||language==null||sortBy==null is true');
-    }
-
+  Future<Map> getRatedTvEpisodes(
+    String guestSessionId, {
+    String language = 'en-US',
+    SortBy sortBy = SortBy.createdAtAsc,
+  }) {
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
       sort = 'created_at.asc';
     } else {
       sort = 'created_at.desc';
     }
-    return _v._query('$_endPoint/$guestSessionId/rated/tv/episodes',
-        optionalQueries: [
-          'guest_session_id=$guestSessionId',
-          'language=$language',
-          'sort_by=$sort'
-        ]);
+    return _v._query(
+      '$_endPoint/$guestSessionId/rated/tv/episodes',
+      optionalQueries: [
+        'guest_session_id=$guestSessionId',
+        'language=$language',
+        'sort_by=$sort'
+      ],
+    );
   }
 }

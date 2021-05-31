@@ -2,9 +2,7 @@ part of tmdb_api;
 
 class Collections extends Category<V3> {
   ///Provides details about movies
-  Collections(V3 v)
-      : assert(v != null),
-        super(v, 'collection');
+  Collections(V3 v) : super(v, 'collection');
 
   ///Get collection details by id.
   //For more doc (visit)[https://developers.themoviedb.org/3/collections/get-collection-details]
@@ -22,10 +20,6 @@ class Collections extends Category<V3> {
   /// ```
   ///
   Future<Map> getDetails(int collectionId, {String language = 'en-US'}) {
-    if (collectionId == null || language == null) {
-      throw NullValueException('collectionId==null||language==null is true');
-    }
-
     return _v._query('$_endPoint/$collectionId',
         optionalQueries: ['language=$language']);
   }
@@ -46,10 +40,6 @@ class Collections extends Category<V3> {
   /// ```
   ///
   Future<Map> getImages(int collectionId, {String language = 'en-US'}) {
-    if (collectionId == null || language == null) {
-      throw NullValueException('collectionId==null||language==null is true');
-    }
-
     return _v._query('$_endPoint/$collectionId/images',
         optionalQueries: ['language=$language']);
   }

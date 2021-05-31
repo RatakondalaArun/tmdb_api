@@ -2,9 +2,7 @@ part of tmdb_api;
 
 class Keywords extends Category<V3> {
   ///Provides details about movies
-  Keywords(V3 v)
-      : assert(v != null),
-        super(v, 'keyword');
+  Keywords(V3 v) : super(v, 'keyword');
 
   ///Get the list of official genres for movies.
   ///
@@ -16,10 +14,6 @@ class Keywords extends Category<V3> {
   /// Map result = await tmdb.v3.keywords.getMovies(3417);
   ///```
   Future<Map> getDetails(int keywordId) {
-    if (keywordId == null) {
-      throw NullValueException('keywordId == null');
-    }
-
     return _v._query('$_endPoint/$keywordId');
   }
 
@@ -39,13 +33,11 @@ class Keywords extends Category<V3> {
   ///```
   /// Map result = await tmdb.v3.keywords.getMovies(3417);
   ///```
-  Future<Map> getMovies(int keywordId,
-      {String language = 'en-US', bool includeAdult = false}) {
-    if (keywordId == null || language == null || includeAdult == null) {
-      throw NullValueException(
-          'keywordId==null||language==null||includeAdult==null');
-    }
-
+  Future<Map> getMovies(
+    int keywordId, {
+    String language = 'en-US',
+    bool includeAdult = false,
+  }) {
     return _v._query('$_endPoint/$keywordId',
         optionalQueries: ['include_adult=$includeAdult', 'language=$language']);
   }

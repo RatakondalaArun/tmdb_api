@@ -3,9 +3,7 @@ part of tmdb_api;
 class Reviews extends Category<V3> {
   ///Provides details about movies
 
-  Reviews(V3 v)
-      : assert(v != null),
-        super(v, 'review');
+  Reviews(V3 v) : super(v, 'review');
 
   ///Get a movie or TV review details by id.
   ///
@@ -21,12 +19,6 @@ class Reviews extends Category<V3> {
   /// ```
   ///
   Future<Map> getDetails(String reviewId) {
-    if (reviewId == null) {
-      throw NullValueException('reviewId == null is true',
-          source: 'reviews.getDetails($reviewId)',
-          help: 'try to not to pass a null value');
-    }
-
     return _v._query('$_endPoint/$reviewId');
   }
 }

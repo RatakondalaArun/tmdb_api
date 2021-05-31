@@ -70,24 +70,25 @@ class TMDB {
   final String _baseUrl = 'api.themoviedb.org';
   final ApiKeys _apiKeys;
 
-  V3 _v3;
-  V4 _v4;
-  Images _images;
-  ConfigLogger logConfig;
+  V3? _v3;
+  V4? _v4;
+  Images? _images;
+  ConfigLogger? _logConfig;
+  ConfigLogger get logConfig => _logConfig!;
 
   ///Version v3 of tmdb api
   ///
   ///[offical v3 doc](https://developers.themoviedb.org/3/getting-started)
-  V3 get v3 => _v3;
-  V4 get v4 => _v4;
-  Images get images => _images;
+  V3 get v3 => _v3!;
+  V4 get v4 => _v4!;
+  Images get images => _images!;
 
   ///Takes a not null [apikey]
-  TMDB(this._apiKeys, {this.logConfig}) : assert(_apiKeys != null) {
+  TMDB(this._apiKeys, {ConfigLogger? logConfig}) {
     _v3 = V3(this);
     _v4 = V4(this);
     _images = Images();
-    this.logConfig = logConfig ?? ConfigLogger.showNone();
-    Logger(this.logConfig).logTypes.infoLog('Api initilized ✔');
+    _logConfig = logConfig ?? ConfigLogger.showNone();
+    Logger(_logConfig!).logTypes.infoLog('Api initilized ✔');
   }
 }

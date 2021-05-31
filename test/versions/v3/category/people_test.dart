@@ -2,12 +2,12 @@ import 'package:test/test.dart';
 import '../../../init_script.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
-main() {
-  TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
+void main() {
+  final tmdb = TMDB(ApiKeys(Keys.API!, Keys.API_V4!));
   group('People', () {
     group('Details', () {
       test('with parameters', () async {
-        Map result = await tmdb.v3.people.getDetails(103,
+        final result = await tmdb.v3.people.getDetails(103,
             language: 'en-US', appendToResponse: 'videos,images');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);

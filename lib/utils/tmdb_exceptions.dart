@@ -3,8 +3,8 @@ part of tmdb_api;
 ///Base exception
 class TMDBException implements Exception {
   final String message;
-  final String source;
-  final String help;
+  final String? source;
+  final String? help;
   TMDBException(this.message, {this.source, this.help});
 
   @override
@@ -14,12 +14,13 @@ class TMDBException implements Exception {
 }
 
 ///Encountered a null value
-class NullValueException implements TMDBException {
-  final String message;
-  final String source;
-  final String help;
-  NullValueException(this.message,
-      {this.source, this.help = 'try to pass a non null values'});
+@Deprecated('This is of no use after migrating to nullsafety.')
+class NullValueException extends TMDBException {
+  NullValueException(
+    String message, {
+    String? source,
+    String help = 'try to pass a non null values',
+  }) : super(message, source: source, help: help);
 
   @override
   String toString() {
@@ -28,30 +29,17 @@ class NullValueException implements TMDBException {
 }
 
 ///When constrains are not meet
-class InvalidDataException implements TMDBException {
-  final String message;
-  final String source;
-  final String help;
-  InvalidDataException(this.message,
-      {this.source, this.help = 'Data is invalid'});
+@Deprecated(
+    'Infavor of ArgumentException. This must be replaced with ArgumentException')
+class InvalidDataException extends TMDBException {
+  InvalidDataException(
+    String message, {
+    String? source,
+    String help = 'Data is invalid',
+  }) : super(message, source: source, help: help);
 
   @override
   String toString() {
     return 'InvalidDataException() thrown message:$message | at source:$source | help:$help';
-  }
-}
-
-/// Socket exception from TMDB
-
-@Deprecated('Removed to support flutter web platform')
-class TMDBSocketException implements TMDBException {
-  final String message;
-  final String source;
-  final String help;
-  TMDBSocketException(this.message,
-      {this.source, this.help = 'Check your internet connection.'});
-  @override
-  String toString() {
-    return 'TMDBSocketException(message: $message,source: $source, help: $help)';
   }
 }

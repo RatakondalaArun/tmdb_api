@@ -2,9 +2,7 @@ part of tmdb_api;
 
 class Changes extends Category<V3> {
   ///Provides details about movies
-  Changes(V3 v)
-      : assert(v != null),
-        super(v, 'changes');
+  Changes(V3 v) : super(v, 'changes');
 
   ///Get a list of all of the movie ids that have been changed in the past 24 hours.
   ///100 items are returned per page.
@@ -23,17 +21,19 @@ class Changes extends Category<V3> {
   /// Map result = await tmdb.changes.getMovieList();
   /// ```
   ///
-  Future<Map> getMovieList({String endDate, String startDate, int page = 1}) {
-    List<String> para = [];
+  Future<Map> getMovieList({
+    String? endDate,
+    String? startDate,
+    int page = 1,
+  }) {
+    final para = <String>[];
     if (endDate != null) {
       para.add('end_date=$endDate');
     }
     if (startDate != null) {
       para.add('start_date=$startDate');
     }
-    if (page != null) {
-      para.add('page=${page < 1 || page > 1000 ? 1 : page}');
-    }
+    para.add('page=${page < 1 || page > 1000 ? 1 : page}');
 
     return _v._query('movie/$_endPoint', optionalQueries: para);
   }
@@ -55,17 +55,19 @@ class Changes extends Category<V3> {
   /// Map result = await tmdb.changes.getTvList();
   /// ```
   ///
-  Future<Map> getTvList({String endDate, String startDate, int page = 1}) {
-    List<String> para = [];
+  Future<Map> getTvList({
+    String? endDate,
+    String? startDate,
+    int page = 1,
+  }) {
+    final para = <String>[];
     if (endDate != null) {
       para.add('end_date=$endDate');
     }
     if (startDate != null) {
       para.add('start_date=$startDate');
     }
-    if (page != null) {
-      para.add('page=${page < 1 || page > 1000 ? 1 : page}');
-    }
+    para.add('page=${page < 1 || page > 1000 ? 1 : page}');
 
     return _v._query('tv/$_endPoint', optionalQueries: para);
   }
@@ -86,17 +88,20 @@ class Changes extends Category<V3> {
   /// Map result = await tmdb.changes.getPersonList();
   /// ```
   ///
-  Future<Map> getPersonList({String endDate, String startDate, int page = 1}) {
-    List<String> para = [];
+  Future<Map> getPersonList({
+    String? endDate,
+    String? startDate,
+    int page = 1,
+  }) {
+    final para = <String>[];
     if (endDate != null) {
       para.add('end_date=$endDate');
     }
     if (startDate != null) {
       para.add('start_date=$startDate');
     }
-    if (page != null) {
-      para.add('page=${page < 1 || page > 1000 ? 1 : page}');
-    }
+
+    para.add('page=${page < 1 || page > 1000 ? 1 : page}');
 
     return _v._query('person/$_endPoint');
   }

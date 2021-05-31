@@ -3,9 +3,7 @@ part of tmdb_api;
 class Geners extends Category<V3> {
   ///Provides details about movies
 
-  Geners(V3 v)
-      : assert(v != null),
-        super(v, 'genre');
+  Geners(V3 v) : super(v, 'genre');
 
   ///Get the list of official genres for movies.
   ///
@@ -34,8 +32,10 @@ class Geners extends Category<V3> {
   /// }
   ///```
   Future<Map> getMovieList({String language = 'en-US'}) {
-    return _v._query('$_endPoint/movie/list',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/movie/list',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get the list of official genres for TV shows.
@@ -65,7 +65,9 @@ class Geners extends Category<V3> {
   /// }
   ///```
   Future<Map> getTvlist({String language = 'en-US'}) {
-    return _v
-        ._query('$_endPoint/tv/list', optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/tv/list',
+      optionalQueries: ['language=$language'],
+    );
   }
 }

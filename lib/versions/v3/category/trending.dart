@@ -1,9 +1,7 @@
 part of tmdb_api;
 
 class Trending extends Category<V3> {
-  Trending(V3 v)
-      : assert(v != null),
-        super(v, 'trending');
+  Trending(V3 v) : super(v, 'trending');
 
   ///Get the daily or weekly trending items. The daily
   ///trending list tracks items over the period of a day
@@ -29,13 +27,15 @@ class Trending extends Category<V3> {
   ///Map result = await tmdb.v3.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
   /// ```
   ///
-  Future<Map> getTrending(
-      {MediaType mediaType = MediaType.all,
-      TimeWindow timeWindow = TimeWindow.day,
-      int page = 1}) {
+  Future<Map> getTrending({
+    MediaType mediaType = MediaType.all,
+    TimeWindow timeWindow = TimeWindow.day,
+    int page = 1,
+  }) {
     return _v._query(
-        '$_endPoint/${_getMediaType(mediaType)}/${_getTimeWindow(timeWindow)}',
-        optionalQueries: ['page=$page']);
+      '$_endPoint/${_getMediaType(mediaType)}/${_getTimeWindow(timeWindow)}',
+      optionalQueries: ['page=$page'],
+    );
   }
 
   //get the type of media in string

@@ -2,9 +2,7 @@ part of tmdb_api;
 
 class Certification extends Category<V3> {
   ///Provides details about movies
-  Certification(V3 v)
-      : assert(v != null),
-        super(v, 'certification');
+  Certification(V3 v) : super(v, 'certification');
 
   ///Get an up to date list of the officially
   ///supported movie certifications on TMDb.

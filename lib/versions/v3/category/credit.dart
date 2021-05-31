@@ -2,9 +2,7 @@ part of tmdb_api;
 
 class Credit extends Category<V3> {
   ///Provides details about movies
-  Credit(V3 v)
-      : assert(v != null),
-        super(v, 'credit');
+  Credit(V3 v) : super(v, 'credit');
 
   ///Get a movie or TV credit details by id.
   ///
@@ -20,10 +18,6 @@ class Credit extends Category<V3> {
   /// ```
   ///
   Future<Map> getDetails(String creditId) {
-    if (creditId == null) {
-      throw NullValueException('creditId==null');
-    }
-
     return _v._query('$_endPoint/$creditId');
   }
 }
