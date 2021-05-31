@@ -1,5 +1,17 @@
 # ChangeLog
 
+## 2.0.0-nullsafety
+
+This version adds **nullsafety**. So there are some breaking changes.
+
+- Features
+  - Migrated to null-safety [#18](https://github.com/RatakondalaArun/tmdb_api/issues/18)
+  - Code Refactor [#41](https://github.com/RatakondalaArun/tmdb_api/issues/41)
+  - Updated workflows [#42](https://github.com/RatakondalaArun/tmdb_api/issues/42)
+  - Fixed Static analysis [#45](https://github.com/RatakondalaArun/tmdb_api/issues/45)
+  - Deprecated some exceptions `breaking change` [#46](https://github.com/RatakondalaArun/tmdb_api/issues/46)
+    - Replaced `NullValueException` and `InvalidDataException` with `ArgumentException`
+
 ## 1.2.7
 
 - Issues Fixed
