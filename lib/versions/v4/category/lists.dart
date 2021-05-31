@@ -144,8 +144,14 @@ class ListsV4 extends Category<V4> {
   ///  "status_code": 1
   ///}
   ///```
-  Future<Map> updateList(String accessToken, int listId,
-      {String listName, String description, bool isPublic, String iso6391}) {
+  Future<Map> updateList(
+    String accessToken,
+    int listId, {
+    String /*?*/ listName,
+    String /*?*/ description,
+    bool /*?*/ isPublic,
+    String /*?*/ iso6391,
+  }) {
     if (accessToken == null || listId == null) {
       throw NullValueException('accessToken == null || listId == null is true');
     }
@@ -170,7 +176,7 @@ class ListsV4 extends Category<V4> {
 
     //check if postBody is empty
     if (postBody.isEmpty) {
-      throw InvalidDataException('at least one parameter nust be filled');
+      throw InvalidDataException('at least one parameter must be filled');
     }
 
     return _v._query(

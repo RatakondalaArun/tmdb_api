@@ -38,9 +38,6 @@ class AuthV4 extends Category<V4> {
       {String redirectTo = 'http://www.themoviedb.org/'}) {
     String accessToken = _v._tmdb._apiKeys._apiReadAccessTokenv4;
 
-    if (accessToken == null) {
-      throw NullValueException('accessToken==null is true');
-    }
     Map<String, String> postHeaders = {
       'Content-Type': 'application/json;charset=utf-8',
       'Authorization': 'Bearer $accessToken'
@@ -78,9 +75,7 @@ class AuthV4 extends Category<V4> {
   /// ```
   Future<Map> createAccessToken(String requestToken) {
     String v4ApiToken = _v._tmdb._apiKeys._apiReadAccessTokenv4;
-    if (v4ApiToken == null) {
-      throw NullValueException('accessToken==null is true');
-    }
+
     Map<String, String> postHeaders = {
       'Content-Type': 'application/json;charset=utf-8',
       'Authorization': 'Bearer $v4ApiToken'
@@ -112,13 +107,6 @@ class AuthV4 extends Category<V4> {
   ///```
   Future<Map> deleteAccessToken(String accessToken) {
     String v4ApiToken = _v._tmdb._apiKeys._apiReadAccessTokenv4;
-    //todo:test this after implementing account
-    if (v4ApiToken == null) {
-      throw NullValueException('accessToken==null is true');
-    }
-    if (accessToken == null) {
-      throw NullValueException('accessToken == null is true');
-    }
 
     return _v._query('$_endPoint/access_token',
         method: HttpMethod.DELETE,

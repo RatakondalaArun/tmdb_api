@@ -52,11 +52,11 @@ class AccountV4 extends Category<V4> {
   ///}
   ///```
   ///
-  Future<Map> getLists(String accessToken, String accountId, {int page = 1}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getLists(
+    String accessToken,
+    String /*!*/ accountId, {
+    int page = 1,
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
@@ -115,12 +115,12 @@ class AccountV4 extends Category<V4> {
   ///}
   ///```
   ///
-  Future<Map> getFavoritMovies(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'created_at.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getFavoritMovies(
+    String accessToken,
+    String /*!*/ accountId, {
+    int page = 1,
+    String sortBy = 'created_at.asc',
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
@@ -182,12 +182,12 @@ class AccountV4 extends Category<V4> {
   ///
   ///```
   ///
-  Future<Map> getFavoriteTvShows(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'created_at.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getFavoriteTvShows(
+    String accessToken,
+    String /*!*/ accountId, {
+    int page = 1,
+    String sortBy = 'created_at.asc',
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
@@ -252,12 +252,12 @@ class AccountV4 extends Category<V4> {
   ///
   ///```
   ///
-  Future<Map> getMovieRecommendations(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'created_at.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getMovieRecommendations(
+    String accessToken,
+    String /*!*/ accountId, {
+    int page = 1,
+    String sortBy = 'created_at.asc',
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
@@ -319,12 +319,12 @@ class AccountV4 extends Category<V4> {
   /// ]
   ///}
   ///```
-  Future<Map> getTvShowRecommendations(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'first_air_date.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getTvShowRecommendations(
+    String accessToken,
+    String /*!*/ accountId, {
+    int page = 1,
+    String sortBy = 'first_air_date.asc',
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
@@ -385,12 +385,12 @@ class AccountV4 extends Category<V4> {
   /// ]
   ///}
   ///```
-  Future<Map> getMovieWatchList(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'created_at.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getMovieWatchList(
+    String accessToken,
+    String /*!*/ accountId, {
+    int page = 1,
+    String sortBy = 'created_at.asc',
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
@@ -457,12 +457,12 @@ class AccountV4 extends Category<V4> {
   /// ]
   ///}
   ///```
-  Future<Map> getTvShowWatchList(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'first_air_date.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getTvShowWatchList(
+    String accessToken,
+    String /*!*/ accountId, {
+    int page = 1,
+    String sortBy = 'first_air_date.asc',
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
@@ -532,12 +532,12 @@ class AccountV4 extends Category<V4> {
   /// ]
   ///}
   ///```
-  Future<Map> getRatedMovies(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'created_at.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getRatedMovies(
+    String accessToken,
+    String /*!*/ accountId, {
+    int page = 1,
+    String sortBy = 'created_at.asc',
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }
@@ -605,12 +605,12 @@ class AccountV4 extends Category<V4> {
   /// ]
   ///}
   ///```
-  Future<Map> getRatedTvShows(String accessToken, String accountId,
-      {int page = 1, String sortBy = 'first_air_date.asc'}) {
-    if (accessToken == null || accountId == null || page == null) {
-      throw NullValueException(
-          'accessToken == null || accountId == null || page == null is true');
-    }
+  Future<Map> getRatedTvShows(
+    String accessToken,
+    String /*!*/ accountId, {
+    int page = 1,
+    String sortBy = 'first_air_date.asc',
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000 is true');
     }

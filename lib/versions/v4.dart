@@ -5,9 +5,9 @@ class V4 extends Version {
   AuthV4 _authV4;
   ListsV4 _listsV4;
 
-  AccountV4 get account => _accountV4;
-  AuthV4 get auth => _authV4;
-  ListsV4 get lists => _listsV4;
+  AccountV4 get account => _accountV4 /*!*/;
+  AuthV4 get auth => _authV4 /*!*/;
+  ListsV4 get lists => _listsV4 /*!*/;
 
   V4(TMDB tmdb) : super(tmdb, 4) {
     _accountV4 = AccountV4(this);
@@ -31,13 +31,11 @@ class V4 extends Version {
     Map<String, String> postHeaders,
   }) async {
     assert(_tmdb._apiKeys._apiReadAccessTokenv4 != null);
-    String query = (_tmdb._apiKeys._apiReadAccessTokenv4 == null)
-        ? ''
-        : 'api_key=${_tmdb._apiKeys._apiReadAccessTokenv4}';
+    var query = 'api_key=${_tmdb._apiKeys._apiReadAccessTokenv4}';
     query = _optionalQueries(optionalQueries, query);
 
     //constructing the url
-    Uri url = Uri(
+    final url = Uri(
       scheme: 'https',
       host: _tmdb._baseUrl,
       path: '$_apiVersion/$endPoint',
@@ -46,10 +44,10 @@ class V4 extends Version {
 
     //log to console
     Logger(_tmdb.logConfig).logTypes.urlLog(url.toString());
-    http.Response response;
 
     //getting data form url
     try {
+      http.Response response;
       if (method == HttpMethod.POST) {
         //POST request
         response = await http.post(url,
@@ -69,8 +67,7 @@ class V4 extends Version {
           response = await http.get(url);
         }
       }
-      Map data = jsonDecode(response.body);
-      return data;
+      return jsonDecode(response.body) /*!*/;
     } catch (e) {
       Logger(_tmdb.logConfig).logTypes.errorLog(
           'Exception while making a request. Exception = {${e.toString()}');
@@ -81,15 +78,10 @@ class V4 extends Version {
     }
   }
 
-  String _optionalQueries(List<String> queries, String currentQuery) {
-    if (queries == null) {
-      return currentQuery;
-    }
-    if (queries.isEmpty) {
-      return currentQuery;
-    }
-    currentQuery += '&' + queries.join('&');
-    return currentQuery;
+  String _optionalQueries(List<String> /*?*/ queries, String currentQuery) {
+    return (queries == null || queries.isEmpty)
+        ? currentQuery
+        : currentQuery + '&' + queries.join('&');
   }
 
   //http.delete doesn't provide a body
