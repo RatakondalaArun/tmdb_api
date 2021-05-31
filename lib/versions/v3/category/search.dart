@@ -1,9 +1,7 @@
 part of tmdb_api;
 
 class Search extends Category<V3> {
-  Search(V3 v)
-      : assert(v != null),
-        super(v, 'search');
+  Search(V3 v) : super(v, 'search');
 
   ///Search for companies.
   ///
@@ -16,7 +14,7 @@ class Search extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.search.queryCompanies('Sony Pictures');
   ///```
-  Future<Map> queryCompanies(String /*!*/ query, {int page = 1}) {
+  Future<Map> queryCompanies(String query, {int page = 1}) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000');
     }
@@ -40,7 +38,7 @@ class Search extends Category<V3> {
   ///Map result = await tmdb.v3.search.queryCollections('Sony Pictures');
   ///```
   Future<Map> queryCollections(
-    String /*!*/ query, {
+    String query, {
     String language = 'en-US',
     int page = 1,
   }) {
@@ -63,7 +61,7 @@ class Search extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.search.queryKeywords('Sony Pictures');
   ///```
-  Future<Map> queryKeywords(String /*!*/ query, {int page = 1}) {
+  Future<Map> queryKeywords(String query, {int page = 1}) {
     if (page < 1 || page > 10000) {
       throw InvalidDataException('page<1||page>10000 is true');
     }
@@ -97,11 +95,11 @@ class Search extends Category<V3> {
   ///Map result = await tmdb.v3.search.queryMovies('Sony Pictures');
   ///```
   Future<Map> queryMovies(
-    String /*!*/ query, {
+    String query, {
     bool includeAdult = false,
     String region = 'US',
-    int year,
-    int primaryReleaseYear,
+    int? year,
+    int? primaryReleaseYear,
     String language = 'en-US',
     int page = 1,
   }) {
@@ -149,9 +147,9 @@ class Search extends Category<V3> {
   ///Map result = await tmdb.v3.search.queryMulti('Sony Pictures');
   ///```
   Future<Map> queryMulti(
-    String /*!*/ query, {
+    String query, {
     bool includeAdult = false,
-    String region,
+    String? region,
     String language = 'en-US',
     int page = 1,
   }) {
@@ -191,9 +189,9 @@ class Search extends Category<V3> {
   ///Map result = await tmdb.v3.search.queryPeople('Bradley Cooper');
   ///```
   Future<Map> queryPeople(
-    String /*!*/ query, {
+    String query, {
     bool includeAdult = false,
-    String region,
+    String? region,
     String language = 'en-US',
     int page = 1,
   }) {
@@ -233,8 +231,8 @@ class Search extends Category<V3> {
   ///Map result = await tmdb.v3.search.queryTvShows('Sony Pictures');
   ///```
   Future<Map> queryTvShows(
-    String /*!*/ query, {
-    String firstAirDateYear,
+    String query, {
+    String? firstAirDateYear,
     String language = 'en-US',
     int page = 1,
   }) {

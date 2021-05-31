@@ -3,9 +3,7 @@ part of tmdb_api;
 class Geners extends Category<V3> {
   ///Provides details about movies
 
-  Geners(V3 v)
-      : assert(v != null),
-        super(v, 'genre');
+  Geners(V3 v) : super(v, 'genre');
 
   ///Get the list of official genres for movies.
   ///

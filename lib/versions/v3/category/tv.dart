@@ -2,9 +2,7 @@
 part of tmdb_api;
 
 class Tv extends Category<V3> {
-  Tv(V3 v)
-      : assert(v != null),
-        super(v, 'tv');
+  Tv(V3 v) : super(v, 'tv');
 
   ///Get the primary TV show details by id.
   ///
@@ -22,7 +20,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getDetails(
     int tvId, {
-    String appendToResponse,
+    String? appendToResponse,
     String language = 'en-US',
   }) {
     if (tvId < 1) {
@@ -464,8 +462,8 @@ class Tv extends Category<V3> {
   Future<Map> rateTvShow(
     int tvId,
     double ratingValue, {
-    String guestSessionId,
-    String sessionId,
+    String? guestSessionId,
+    String? sessionId,
   }) {
     if (guestSessionId == null && sessionId == null) {
       throw NullValueException('guestSessionId == null && sessionId == null');
@@ -515,8 +513,8 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> deleteRating(
     int tvId, {
-    String guestSessionId,
-    String sessionId,
+    String? guestSessionId,
+    String? sessionId,
   }) {
     if (tvId < 1) {
       throw InvalidDataException(
@@ -554,7 +552,7 @@ class Tv extends Category<V3> {
   Future<Map> getImages(
     int tvId, {
     String language = 'en-US',
-    String includeImageLanguage,
+    String? includeImageLanguage,
   }) {
     if (tvId < 1) {
       throw InvalidDataException('tvId < 1 is true');
@@ -600,8 +598,8 @@ class Tv extends Category<V3> {
   ///
   Future<Map> getAccountStatus(
     int tvId, {
-    String sessionId,
-    String guestSessionId,
+    String? sessionId,
+    String? guestSessionId,
   }) {
     if (tvId < 1) {
       throw InvalidDataException('tvId<1');

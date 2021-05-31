@@ -89,12 +89,12 @@ class ConfigLogger {
 }
 
 class Logger {
-  LogTypes /*?*/ _types;
+  LogTypes? _types;
   final ConfigLogger _config;
 
-  LogTypes get logTypes => _types /*!*/;
+  LogTypes get logTypes => _types!;
 
-  Logger(this._config) : assert(_config != null) {
+  Logger(this._config) {
     _types = LogTypes(this);
   }
 }

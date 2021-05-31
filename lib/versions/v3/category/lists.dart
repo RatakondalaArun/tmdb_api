@@ -1,9 +1,7 @@
 part of tmdb_api;
 
 class Lists extends Category<V3> {
-  Lists(V3 v)
-      : assert(v != null),
-        super(v, 'list');
+  Lists(V3 v) : super(v, 'list');
 
   ///Get the details of a list.
   ///
@@ -19,7 +17,7 @@ class Lists extends Category<V3> {
   /// Map result = await tmdb.v3.lists.getList('50941077760ee35e1500000c');
   /// ```
   ///
-  Future<Map> getDetails(String listId, {String language = 'en-US'}) {
+  Future<Map> getDetails(String? listId, {String language = 'en-US'}) {
     return _v._query(
       '$_endPoint/$listId',
       optionalQueries: ['language=$language'],
@@ -37,7 +35,7 @@ class Lists extends Category<V3> {
   ///```
   ///
   ///```
-  Future<Map> checkItemStatus(String listId, int movieId) {
+  Future<Map> checkItemStatus(String? listId, int? movieId) {
     return _v._query(
       '$_endPoint/$listId',
       optionalQueries: ['movie_id=$movieId'],
@@ -112,7 +110,7 @@ class Lists extends Category<V3> {
   /// status_message: The item/record was updated successfully.
   ///}
   ///```
-  Future<Map> addItem(String sessionId, String listId, int mediaId) {
+  Future<Map> addItem(String? sessionId, String? listId, int? mediaId) {
     return _v._query(
       '$_endPoint/$listId/add_item',
       method: HttpMethod.POST,
@@ -152,7 +150,7 @@ class Lists extends Category<V3> {
   /// status_message: Entry not found: The item you are trying to edit cannot be found.
   ///}
   ///```
-  Future<Map> removeItem(String sessionId, String listId, int mediaId) {
+  Future<Map> removeItem(String? sessionId, String? listId, int? mediaId) {
     return _v._query(
       '$_endPoint/${listId.toString()}/remove_item',
       method: HttpMethod.POST,
@@ -181,7 +179,7 @@ class Lists extends Category<V3> {
   ///     "status_message": "The item/record was updated successfully."
   ///}
   ///```
-  Future<Map> clearList(String sessionId, String listId) {
+  Future<Map> clearList(String? sessionId, String? listId) {
     return _v._query(
       '$_endPoint/$listId/clear',
       method: HttpMethod.POST,

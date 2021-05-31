@@ -4,9 +4,7 @@ class People extends Category<V3> {
   // final V3 _v;
   // final String _endPoint = 'person';
 
-  People(V3 v)
-      : assert(v != null),
-        super(v, 'person');
+  People(V3 v) : super(v, 'person');
 
   ///Get the primary person details by id.
   ///
@@ -26,7 +24,7 @@ class People extends Category<V3> {
   Future<Map> getDetails(
     int personId, {
     String language = 'en-US',
-    String appendToResponse,
+    String? appendToResponse,
   }) {
     if (personId < 1) {
       throw InvalidDataException('personId < 1 is true');

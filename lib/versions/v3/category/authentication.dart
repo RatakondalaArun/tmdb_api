@@ -1,9 +1,7 @@
 part of tmdb_api;
 
 class Auth extends Category<V3> {
-  Auth(V3 v)
-      : assert(v != null),
-        super(v, 'authentication');
+  Auth(V3 v) : super(v, 'authentication');
 
   ///This method will let you create a new guest session.
   ///Guest sessions are a type of session that will let a user rate movies and TV shows
@@ -154,7 +152,7 @@ class Auth extends Category<V3> {
   /// else returns null
   ///
   Future<dynamic> createSession(
-    String /*!*/ requestToken, {
+    String requestToken, {
     bool asMap = false,
   }) async {
     final result = await _v._query(
@@ -187,16 +185,16 @@ class Auth extends Category<V3> {
   /// `AsMap`: if you want result in a `Map` format, *default value is `false`*
   ///
   Future<dynamic /*?*/ > createSessionWithLogin(
-    String /*!*/ username,
-    String /*!*/ password, {
+    String username,
+    String password, {
     bool asMap = false,
   }) async {
     //creating a request token
     final requestToken = await createRequestToken();
     final postBody = <String, String>{
-      'username': username /*!*/,
-      'password': password /*!*/,
-      'request_token': requestToken /*!*/
+      'username': username,
+      'password': password,
+      'request_token': requestToken
     };
     var result = await _v._query(
       'authentication/token/validate_with_login',

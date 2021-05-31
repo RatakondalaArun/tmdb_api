@@ -9,16 +9,16 @@ class ListItem {
   ///
   ///- `mediaId`: Set the id of the media object are you adding. *minimum: 1*
   const ListItem({
-    /*required*/ this.mediaId,
+    /*required*/ required this.mediaId,
     this.mediaType = MediaType.movie,
     this.comment = '',
   });
 
   ///create and returns a new `ListItem`. You can use it when want to change few feids.
   ListItem copyWith({
-    MediaType mediaType = MediaType.movie,
-    int /*?*/ mediaId,
-    String comment = '',
+    MediaType? mediaType = MediaType.movie,
+    int? mediaId,
+    String? comment = '',
   }) {
     return ListItem(
       mediaType: mediaType ?? this.mediaType,

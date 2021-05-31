@@ -2,9 +2,7 @@ part of tmdb_api;
 
 class Find extends Category<V3> {
   ///Provides details about movies
-  Find(V3 v)
-      : assert(v != null),
-        super(v, 'find');
+  Find(V3 v) : super(v, 'find');
 
   ///The find method makes it easy to search for
   ///objects in our database by an external id. For example, an IMDB ID.

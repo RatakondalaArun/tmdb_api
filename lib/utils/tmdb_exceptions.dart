@@ -3,8 +3,8 @@ part of tmdb_api;
 ///Base exception
 class TMDBException implements Exception {
   final String message;
-  final String /*?*/ source;
-  final String /*?*/ help;
+  final String? source;
+  final String? help;
   TMDBException(this.message, {this.source, this.help});
 
   @override
@@ -17,7 +17,7 @@ class TMDBException implements Exception {
 ///Encountered a null value
 class NullValueException implements TMDBException {
   final String message;
-  final String /*?*/ source;
+  final String? source;
   final String help;
   NullValueException(
     this.message, {
@@ -35,7 +35,7 @@ class NullValueException implements TMDBException {
 ///When constrains are not meet
 class InvalidDataException implements TMDBException {
   final String message;
-  final String /*?*/ source;
+  final String? source;
   final String help;
   InvalidDataException(
     this.message, {
@@ -54,7 +54,7 @@ class InvalidDataException implements TMDBException {
 @Deprecated('Removed to support flutter web platform')
 class TMDBSocketException implements TMDBException {
   final String message;
-  final String /*?*/ source;
+  final String? source;
   final String help;
   TMDBSocketException(
     this.message, {

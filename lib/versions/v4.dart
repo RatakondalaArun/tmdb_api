@@ -1,13 +1,13 @@
 part of tmdb_api;
 
 class V4 extends Version {
-  AccountV4 _accountV4;
-  AuthV4 _authV4;
-  ListsV4 _listsV4;
+  AccountV4? _accountV4;
+  AuthV4? _authV4;
+  ListsV4? _listsV4;
 
-  AccountV4 get account => _accountV4 /*!*/;
-  AuthV4 get auth => _authV4 /*!*/;
-  ListsV4 get lists => _listsV4 /*!*/;
+  AccountV4 get account => _accountV4!;
+  AuthV4 get auth => _authV4!;
+  ListsV4 get lists => _listsV4!;
 
   V4(TMDB tmdb) : super(tmdb, 4) {
     _accountV4 = AccountV4(this);
@@ -24,13 +24,12 @@ class V4 extends Version {
   Future<Map> _query(
     String endPoint, {
     HttpMethod method = HttpMethod.GET,
-    List<String> optionalQueries,
-    Map<String, dynamic> postBody,
-    Map<String, String> deleteHeaders,
-    Map<String, dynamic> deleteBody,
-    Map<String, String> postHeaders,
+    List<String>? optionalQueries,
+    Map<String, dynamic>? postBody,
+    Map<String, String>? deleteHeaders,
+    Map<String, dynamic>? deleteBody,
+    Map<String, String>? postHeaders,
   }) async {
-    assert(_tmdb._apiKeys._apiReadAccessTokenv4 != null);
     var query = 'api_key=${_tmdb._apiKeys._apiReadAccessTokenv4}';
     query = _optionalQueries(optionalQueries, query);
 
@@ -67,7 +66,7 @@ class V4 extends Version {
           response = await http.get(url);
         }
       }
-      return jsonDecode(response.body) /*!*/;
+      return jsonDecode(response.body)!;
     } catch (e) {
       Logger(_tmdb.logConfig).logTypes.errorLog(
           'Exception while making a request. Exception = {${e.toString()}');
@@ -78,7 +77,7 @@ class V4 extends Version {
     }
   }
 
-  String _optionalQueries(List<String> /*?*/ queries, String currentQuery) {
+  String _optionalQueries(List<String>? queries, String currentQuery) {
     return (queries == null || queries.isEmpty)
         ? currentQuery
         : currentQuery + '&' + queries.join('&');
@@ -86,8 +85,8 @@ class V4 extends Version {
 
   //http.delete doesn't provide a body
   //so created this
-  Future<http.Response> _httpDelete(Uri url, Map<String, dynamic> deleteBody,
-      Map<String, String> deleteHeaders) async {
+  Future<http.Response> _httpDelete(Uri url, Map<String, dynamic>? deleteBody,
+      Map<String, String>? deleteHeaders) async {
     try {
       http.Request request = http.Request('DELETE', Uri.parse(url.toString()))
         ..headers.addAll(deleteHeaders ??

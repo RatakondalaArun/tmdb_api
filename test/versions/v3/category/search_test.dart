@@ -4,20 +4,13 @@ import '../../../init_script.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 void main() {
-  TMDB tmdb = TMDB(ApiKeys(Keys.API, Keys.API_V4));
+  TMDB tmdb = TMDB(ApiKeys(Keys.API!, Keys.API_V4!));
   group('Search', () {
     group('Company', () {
       test('WithOut parameters', () async {
         Map result = await tmdb.v3.search.queryCompanies('Sony Pictures');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
-      });
-      test('Null value exception ', () async {
-        try {
-          await tmdb.v3.search.queryCompanies(null);
-        } catch (e) {
-          expect(e is NullValueException, true);
-        }
       });
     });
     group('collections', () {
@@ -27,26 +20,12 @@ void main() {
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
-      test('Null value exception ', () async {
-        try {
-          await tmdb.v3.search.queryCollections(null);
-        } catch (e) {
-          expect(e is NullValueException, true);
-        }
-      });
     });
     group('Keywords', () {
       test('WithOut parameters', () async {
         Map result = await tmdb.v3.search.queryKeywords('alien');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
-      });
-      test('Null value exception ', () async {
-        try {
-          await tmdb.v3.search.queryKeywords(null);
-        } catch (e) {
-          expect(e is NullValueException, true);
-        }
       });
     });
     group('Movies', () {
@@ -55,13 +34,7 @@ void main() {
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
-      test('Null value exception ', () async {
-        try {
-          await tmdb.v3.search.queryMovies(null);
-        } catch (e) {
-          expect(e is NullValueException, true);
-        }
-      });
+
       test('with parameters', () async {
         Map result = await tmdb.v3.search
             .queryMovies('The Avengers', year: 2019, region: 'UK');
@@ -75,13 +48,7 @@ void main() {
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
-      test('Null value exception ', () async {
-        try {
-          await tmdb.v3.search.queryMulti(null);
-        } catch (e) {
-          expect(e is NullValueException, true);
-        }
-      });
+
       test('with parameters', () async {
         Map result =
             await tmdb.v3.search.queryMulti('The Avengers', region: 'UK');
@@ -95,13 +62,7 @@ void main() {
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
-      test('Null value exception ', () async {
-        try {
-          await tmdb.v3.search.queryPeople(null);
-        } catch (e) {
-          expect(e is NullValueException, true);
-        }
-      });
+
       test('with parameters', () async {
         Map result =
             await tmdb.v3.search.queryPeople('Bradley Cooper', region: 'UK');
@@ -114,13 +75,6 @@ void main() {
         Map result = await tmdb.v3.search.queryTvShows('Silicon Valley');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
-      });
-      test('Null value exception ', () async {
-        try {
-          await tmdb.v3.search.queryTvShows(null);
-        } catch (e) {
-          expect(e is NullValueException, true);
-        }
       });
       test('with parameters', () async {
         Map result =

@@ -4,9 +4,7 @@ class Companies extends Category<V3> {
   ///Provides details about movies
   // final V3 _v;
   // final String _endPoint = 'company';
-  Companies(V3 v)
-      : assert(v != null),
-        super(v, 'company');
+  Companies(V3 v) : super(v, 'company');
 
   /// Get a companies details by id.
   ///

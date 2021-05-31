@@ -19,10 +19,10 @@ class Images {
   /// 'https://www.themoviedb.org/assets/1/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg'),
   ///```
   ///
-  String /*?*/ getUrl(
-    String /*?*/ imagePath, {
+  String? getUrl(
+    String? imagePath, {
     String size = ImageSizes.ORIGINAL,
-    String /*?*/ ifNullUrl,
+    String? ifNullUrl,
   }) {
     if (imagePath == null) return ifNullUrl;
 

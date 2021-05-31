@@ -2,9 +2,7 @@ part of tmdb_api;
 
 class Changes extends Category<V3> {
   ///Provides details about movies
-  Changes(V3 v)
-      : assert(v != null),
-        super(v, 'changes');
+  Changes(V3 v) : super(v, 'changes');
 
   ///Get a list of all of the movie ids that have been changed in the past 24 hours.
   ///100 items are returned per page.
@@ -24,8 +22,8 @@ class Changes extends Category<V3> {
   /// ```
   ///
   Future<Map> getMovieList({
-    String /*?*/ endDate,
-    String /*?*/ startDate,
+    String? endDate,
+    String? startDate,
     int page = 1,
   }) {
     List<String> para = [];
@@ -58,8 +56,8 @@ class Changes extends Category<V3> {
   /// ```
   ///
   Future<Map> getTvList({
-    String /*?*/ endDate,
-    String /*?*/ startDate,
+    String? endDate,
+    String? startDate,
     int page = 1,
   }) {
     List<String> para = [];
@@ -91,8 +89,8 @@ class Changes extends Category<V3> {
   /// ```
   ///
   Future<Map> getPersonList({
-    String /*?*/ endDate,
-    String /*?*/ startDate,
+    String? endDate,
+    String? startDate,
     int page = 1,
   }) {
     List<String> para = [];

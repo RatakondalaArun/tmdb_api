@@ -2,9 +2,7 @@ part of tmdb_api;
 
 class Keywords extends Category<V3> {
   ///Provides details about movies
-  Keywords(V3 v)
-      : assert(v != null),
-        super(v, 'keyword');
+  Keywords(V3 v) : super(v, 'keyword');
 
   ///Get the list of official genres for movies.
   ///

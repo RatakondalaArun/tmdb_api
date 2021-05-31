@@ -1,9 +1,7 @@
 part of tmdb_api;
 
 class Account extends Category<V3> {
-  Account(V3 v)
-      : assert(v != null),
-        super(v, 'account');
+  Account(V3 v) : super(v, 'account');
 
   ///Get your account details.
   ///

@@ -1,9 +1,7 @@
 part of tmdb_api;
 
 class TvSeasons extends Category<V3> {
-  TvSeasons(V3 v)
-      : assert(v != null),
-        super(v, 'season');
+  TvSeasons(V3 v) : super(v, 'season');
 
   /// Get the TV season details by id.
   ///
@@ -26,7 +24,7 @@ class TvSeasons extends Category<V3> {
   Future<Map> getDetails(
     int tvId,
     int seasonNumber, {
-    String appendToResponse,
+    String? appendToResponse,
     String language = 'en=US',
   }) {
     List<String> para = ['language=$language'];
@@ -75,8 +73,8 @@ class TvSeasons extends Category<V3> {
   ///```
   Future<Map> getChanges(
     int seasonId, {
-    String startDate,
-    String endDate,
+    String? startDate,
+    String? endDate,
     int page = 1,
   }) {
     List<String> para = ['page=$page'];

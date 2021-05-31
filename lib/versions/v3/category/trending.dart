@@ -1,9 +1,7 @@
 part of tmdb_api;
 
 class Trending extends Category<V3> {
-  Trending(V3 v)
-      : assert(v != null),
-        super(v, 'trending');
+  Trending(V3 v) : super(v, 'trending');
 
   ///Get the daily or weekly trending items. The daily
   ///trending list tracks items over the period of a day

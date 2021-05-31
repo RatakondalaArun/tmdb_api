@@ -31,14 +31,13 @@ class ListsV4 extends Category<V4> {
   ///## Result
   ///Check out the Doc [here](https://developers.themoviedb.org/4/list/get-list)
   ///
-  Future<Map> getList(String accessToken, int listId,
-      {int page = 1,
-      String language = 'en-US',
-      SortListBy sortListBy = SortListBy.orginalOrderAsc}) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
-
+  Future<Map> getList(
+    String accessToken,
+    int listId, {
+    int page = 1,
+    String language = 'en-US',
+    SortListBy sortListBy = SortListBy.orginalOrderAsc,
+  }) {
     if (listId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'listId < 1 || pageNo < 1 || pageNo > 1000 is true');
@@ -48,9 +47,9 @@ class ListsV4 extends Category<V4> {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, optionalQueries: [
-      'page=${page ?? 1}',
-      'language=${language ?? 'en-US'}',
-      'sort_by=${_sortListBy(sortListBy ?? SortListBy.orginalOrderAsc)}'
+      'page=$page',
+      'language=$language',
+      'sort_by=${_sortListBy(sortListBy)}'
     ]);
   }
 
@@ -83,22 +82,19 @@ class ListsV4 extends Category<V4> {
   ///}
   ///```
   ///
-  Future<Map> createList(String accessToken, String listName,
-      {String description = ' ', bool isPublic = true, iso6391 = 'en'}) {
-    if (accessToken == null ||
-        description == null ||
-        isPublic == null ||
-        iso6391 == null) {
-      throw NullValueException(
-          'accessToken==null||description==null||isPublic==null||iso6391==null is true');
-    }
-
+  Future<Map> createList(
+    String accessToken,
+    String listName, {
+    String description = ' ',
+    bool isPublic = true,
+    iso6391 = 'en',
+  }) {
     return _v._query('$_endPoint', method: HttpMethod.POST, postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, postBody: {
       'name': listName,
-      'description': description ?? '',
+      'description': description,
       'public': '$isPublic',
       'iso_639_1': iso6391 ?? 'en',
     });
@@ -147,14 +143,11 @@ class ListsV4 extends Category<V4> {
   Future<Map> updateList(
     String accessToken,
     int listId, {
-    String /*?*/ listName,
-    String /*?*/ description,
-    bool /*?*/ isPublic,
-    String /*?*/ iso6391,
+    String? listName,
+    String? description,
+    bool? isPublic,
+    String? iso6391,
   }) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
     if (listId < 1) {
       throw InvalidDataException('listId < 1 is true');
     }
@@ -218,9 +211,6 @@ class ListsV4 extends Category<V4> {
   /// ```
   ///
   Future<Map> clearList(String accessToken, int listId) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
     if (listId < 1) {
       throw InvalidDataException('listId < 1 is true');
     }
@@ -256,9 +246,6 @@ class ListsV4 extends Category<V4> {
   ///}
   /// ```
   Future<Map> deleteList(String accessToken, int listId) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
     if (listId < 1) {
       throw InvalidDataException('listId < 1 is true');
     }
@@ -320,9 +307,6 @@ class ListsV4 extends Category<V4> {
   ///}
   /// ```
   Future<Map> addItems(String accessToken, int listId, List<ListItem> items) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
     if (listId < 1) {
       throw InvalidDataException('listId < 1 is true');
     }
@@ -374,10 +358,10 @@ class ListsV4 extends Category<V4> {
   ///```
   ///
   Future<Map> updateItems(
-      String accessToken, int listId, List<ListItem> items) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
+    String accessToken,
+    int listId,
+    List<ListItem> items,
+  ) {
     if (listId < 1) {
       throw InvalidDataException('listId < 1 is true');
     }
@@ -429,10 +413,10 @@ class ListsV4 extends Category<V4> {
   ///```
   ///
   Future<Map> removeItems(
-      String accessToken, int listId, List<ListItem> items) {
-    if (accessToken == null || listId == null) {
-      throw NullValueException('accessToken == null || listId == null is true');
-    }
+    String accessToken,
+    int listId,
+    List<ListItem> items,
+  ) {
     if (listId < 1) {
       throw InvalidDataException('listId < 1 is true');
     }
@@ -485,14 +469,11 @@ class ListsV4 extends Category<V4> {
   ///}
   ///```
   Future<Map> checkItemStatus(
-      String accessToken, int listId, int mediaId, MediaType mediaType) {
-    if (accessToken == null ||
-        listId == null ||
-        mediaId == null ||
-        mediaType == null) {
-      throw NullValueException(
-          'accessToken == null || listId == null||mediaId==null||mediaType==null is true');
-    }
+    String accessToken,
+    int listId,
+    int mediaId,
+    MediaType mediaType,
+  ) {
     if (listId < 1 || mediaId < 1) {
       throw InvalidDataException('listId < 1 || mediaId < 1 is true');
     }

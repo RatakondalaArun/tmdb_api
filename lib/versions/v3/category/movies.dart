@@ -4,9 +4,7 @@ class Movies extends Category<V3> {
   ///Provides details about movies
   // final V3 _v;
   // final String _endPoint = 'movie';
-  Movies(V3 v)
-      : assert(v != null),
-        super(v, 'movie');
+  Movies(V3 v) : super(v, 'movie');
 
   ///Get the primary information about a movie.
   ///
@@ -21,7 +19,7 @@ class Movies extends Category<V3> {
   Future<Map> getDetails(
     int movieId, {
     String language = 'en-US',
-    String /*?*/ appendToResponse,
+    String? appendToResponse,
   }) {
     return _v._query(
       '$_endPoint/$movieId',
@@ -327,7 +325,7 @@ class Movies extends Category<V3> {
   Future<Map> getNowPlaying({
     String language = 'en-US',
     int page = 1,
-    String region,
+    String? region,
   }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException(
@@ -364,7 +362,7 @@ class Movies extends Category<V3> {
   Future<Map> getPouplar({
     String language = 'en-US',
     int page = 1,
-    String region,
+    String? region,
   }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException(
@@ -399,7 +397,7 @@ class Movies extends Category<V3> {
   Future<Map> getTopRated({
     String language = 'en-US',
     int page = 1,
-    String region,
+    String? region,
   }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException(
@@ -441,7 +439,7 @@ class Movies extends Category<V3> {
   Future<Map> getUpcoming({
     String language = 'en-US',
     int page = 1,
-    String region,
+    String? region,
   }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException(
@@ -517,8 +515,8 @@ class Movies extends Category<V3> {
   Future<Map> rateMovie(
     int movieId,
     double ratingValue, {
-    String guestSessionId,
-    String sessionId,
+    String? guestSessionId,
+    String? sessionId,
   }) {
     if (guestSessionId == null && sessionId == null) {
       throw NullValueException('guestSessionId == null && sessionId == null');
@@ -568,8 +566,8 @@ class Movies extends Category<V3> {
   ///```
   Future<Map> deleteRating(
     int movieId, {
-    String guestSessionId,
-    String sessionId,
+    String? guestSessionId,
+    String? sessionId,
   }) {
     if (movieId < 1) {
       throw InvalidDataException('movieId < 1 is true');
@@ -606,7 +604,7 @@ class Movies extends Category<V3> {
   Future<Map> getImages(
     int movieId, {
     String language = 'en-US',
-    String includeImageLanguage,
+    String? includeImageLanguage,
   }) {
     if (movieId < 1) {
       throw InvalidDataException('movieId < 1 is true');
@@ -652,8 +650,8 @@ class Movies extends Category<V3> {
   ///
   Future<Map> getAccountStatus(
     int movieId, {
-    String sessionId,
-    String guestSessionId,
+    String? sessionId,
+    String? guestSessionId,
   }) {
     if (movieId < 1) {
       throw InvalidDataException('movieId<1');

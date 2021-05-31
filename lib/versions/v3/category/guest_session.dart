@@ -2,9 +2,7 @@ part of tmdb_api;
 
 class GuestSession extends Category<V3> {
   ///Provides details about movies
-  GuestSession(V3 v)
-      : assert(v != null),
-        super(v, 'guest_session');
+  GuestSession(V3 v) : super(v, 'guest_session');
 
   ///Get the rated movies for a guest session.
   ///

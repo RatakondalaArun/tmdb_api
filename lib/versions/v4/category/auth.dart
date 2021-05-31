@@ -4,9 +4,7 @@ class AuthV4 extends Category<V4> {
   // final V4 _v;
   // final String _endPoint = 'auth';
 
-  AuthV4(V4 v)
-      : assert(v != null),
-        super(v, 'auth');
+  AuthV4(V4 v) : super(v, 'auth');
 
   ///This method generates a new request token that you can ask a user to approve.
   ///This is the first step in getting permission from a user to read and write data on their behalf.
