@@ -8,19 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4
-
       - uses: axel-op/dart-package-analyzer@v3
-        id: analysis
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          minAnnotationLevel: info
-
-      - name: Check scores
-        run: |
-          MAINTENANCE_SCORE=${{ steps.analysis.outputs.maintenance }}
-          HEALTH_SCORE=${{ steps.analysis.outputs.health }}
-          if (( $(echo "$MAINTENANCE_SCORE < 80" | bc) )) || (( $(echo "$HEALTH_SCORE < 50" | bc) ))
-          then
-            echo "Scores are not both equal to 100"
-            exit 1
-          fi
