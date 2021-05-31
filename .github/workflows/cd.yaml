@@ -37,7 +37,7 @@ jobs:
         uses: dart-lang/setup-dart@v1.0
 
       - name: 🚀Publish
-        uses: RatakondalaArun/pub.dev-cd@v1
+        uses: RatakondalaArun/pub.dev-cd@v1.0.0
         with:
           creditionals: ${{secrets.PUB_CREDITIONALS}}
 
