@@ -33,10 +33,6 @@ class Account extends Category<V3> {
   ///}
   ///```
   Future<Map> getDetails(String sessionId) {
-    if (sessionId == null) {
-      throw NullValueException('sessionId == null is true');
-    }
-
     return _v._query('$_endPoint', optionalQueries: ['session_id=$sessionId']);
   }
 
@@ -90,14 +86,6 @@ class Account extends Category<V3> {
   ///
   Future<Map> getCreatedLists(String sessionId, int accountId,
       {String language = 'en-US', int page = 1}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
@@ -139,19 +127,13 @@ class Account extends Category<V3> {
   /// total_results: 0
   ///}
   ///```
-  Future<Map> getFavoriteMovies(String sessionId, int accountId,
-      {String language = 'en-US',
-      int page = 1,
-      SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy==null is true');
-    }
-
+  Future<Map> getFavoriteMovies(
+    String sessionId,
+    int accountId, {
+    String language = 'en-US',
+    int page = 1,
+    SortBy sortBy = SortBy.createdAtAsc,
+  }) {
     if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
@@ -203,15 +185,6 @@ class Account extends Category<V3> {
       {String language = 'en-US',
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
@@ -264,14 +237,6 @@ class Account extends Category<V3> {
   Future<Map> markAsFavorite(
       String sessionId, int accountId, int mediaId, MediaType mediaType,
       {bool isFavorite = true}) {
-    if (accountId == null ||
-        sessionId == null ||
-        mediaType == null ||
-        mediaId == null) {
-      throw NullValueException(
-          'accountId==null||sessionId==null||mediaType==null||mediaId==null is true');
-    }
-
     if (accountId < 1 || mediaId < 1) {
       throw InvalidDataException('accountId<1||mediaId<1 is true');
     }
@@ -326,15 +291,6 @@ class Account extends Category<V3> {
       {String language = 'en-US',
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
@@ -400,15 +356,6 @@ class Account extends Category<V3> {
       {String language = 'en-US',
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
@@ -461,15 +408,6 @@ class Account extends Category<V3> {
       {String language = 'en-US',
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
@@ -542,15 +480,6 @@ class Account extends Category<V3> {
       {String language = 'en-US',
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
@@ -624,15 +553,6 @@ class Account extends Category<V3> {
       {String language = 'en-US',
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
-    if (sessionId == null ||
-        accountId == null ||
-        language == null ||
-        page == null ||
-        sortBy == null) {
-      throw NullValueException(
-          'sessionId == null||accountId==null||language==null||page==null||sortBy == null is true');
-    }
-
     if (accountId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'accountId < 1 || page < 1 || page > 1000 is true');
@@ -685,14 +605,6 @@ class Account extends Category<V3> {
   Future<Map> addToWatchList(
       String sessionId, int accountId, int mediaId, MediaType mediaType,
       {bool shouldAdd = true}) {
-    if (accountId == null ||
-        sessionId == null ||
-        mediaType == null ||
-        mediaId == null) {
-      throw NullValueException(
-          'accountId==null||sessionId==null||mediaType==null||mediaId==null is true');
-    }
-
     if (accountId < 1 || mediaId < 1) {
       throw InvalidDataException('accountId<1||mediaId<1 is true');
     }

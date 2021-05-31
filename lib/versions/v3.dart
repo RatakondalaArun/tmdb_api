@@ -25,29 +25,29 @@ class V3 extends Version {
   Account _account;
   GuestSession _guestSession;
 
-  Movies get movies => _movies;
-  Tv get tv => _tv;
-  TvSeasons get tvSeasons => _tvSeasons;
-  TvEpisodes get tvEpisodes => _tvEpisodes;
+  Movies get movies => _movies /*!*/;
+  Tv get tv => _tv /*!*/;
+  TvSeasons get tvSeasons => _tvSeasons /*!*/;
+  TvEpisodes get tvEpisodes => _tvEpisodes /*!*/;
   // TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
-  People get people => _people;
-  Credit get credit => _credit;
-  Certification get certification => _certification;
-  Changes get changes => _changes;
-  Collections get collections => _collections;
-  Find get find => _find;
-  Geners get geners => _geners;
-  Keywords get keywords => _keywords;
-  Companies get companies => _companies;
-  Trending get trending => _trending;
-  Search get search => _search;
-  Discover get discover => _discover;
-  Networks get networks => _networks;
-  Reviews get reviews => _reviews;
-  Auth get auth => _auth;
-  Lists get lists => _lists;
-  Account get account => _account;
-  GuestSession get guestSession => _guestSession;
+  People get people => _people /*!*/;
+  Credit get credit => _credit /*!*/;
+  Certification get certification => _certification /*!*/;
+  Changes get changes => _changes /*!*/;
+  Collections get collections => _collections /*!*/;
+  Find get find => _find /*!*/;
+  Geners get geners => _geners /*!*/;
+  Keywords get keywords => _keywords /*!*/;
+  Companies get companies => _companies /*!*/;
+  Trending get trending => _trending /*!*/;
+  Search get search => _search /*!*/;
+  Discover get discover => _discover /*!*/;
+  Networks get networks => _networks /*!*/;
+  Reviews get reviews => _reviews /*!*/;
+  Auth get auth => _auth /*!*/;
+  Lists get lists => _lists /*!*/;
+  Account get account => _account /*!*/;
+  GuestSession get guestSession => _guestSession /*!*/;
 
   V3(TMDB tmdb) : super(tmdb, 3) {
     _reviews = Reviews(this);
@@ -89,15 +89,11 @@ class V3 extends Version {
     Map<String, String> deleteBody,
     Map<String, String> postHeaders,
   }) async {
-    if (_tmdb._apiKeys._apiKeyV3 == null) {
-      throw NullValueException(
-          'apiKeyV3 == null is true ||TMDB api key is not provided');
-    }
-    String query = 'api_key=${_tmdb._apiKeys._apiKeyV3}';
+    var query = 'api_key=${_tmdb._apiKeys._apiKeyV3}';
     query = _optionalQueries(optionalQueries, query);
 
     //constructing the url
-    Uri url = Uri(
+    final url = Uri(
       scheme: 'https',
       host: _tmdb._baseUrl,
       path: '$_apiVersion/$endPoint',
@@ -105,10 +101,10 @@ class V3 extends Version {
     );
     //log to console
     Logger(_tmdb.logConfig).logTypes.urlLog(url.toString());
-    http.Response response;
 
     //getting data form url
     try {
+      http.Response response;
       if (method == HttpMethod.POST) {
         response = await http.post(url, body: postBody);
       } else if (method == HttpMethod.DELETE) {
@@ -116,9 +112,7 @@ class V3 extends Version {
       } else {
         response = await http.get(url);
       }
-
-      Map data = jsonDecode(response.body);
-      return data;
+      return jsonDecode(response.body) /*!*/;
     } catch (e) {
       Logger(_tmdb.logConfig).logTypes.errorLog(
           'Exception while making a request. Exception = {${e.toString()}');
@@ -129,15 +123,10 @@ class V3 extends Version {
     }
   }
 
-  String _optionalQueries(List<String> queries, String currentQuery) {
-    if (queries == null) {
-      return currentQuery;
-    }
-    if (queries.isEmpty) {
-      return currentQuery;
-    }
-    currentQuery += '&' + queries.join('&');
-    return currentQuery;
+  String _optionalQueries(List<String> /*?*/ queries, String currentQuery) {
+    return (queries == null || queries.isEmpty)
+        ? currentQuery
+        : currentQuery + '&' + queries.join('&');
   }
 
   //http.delete doesn't provide a body

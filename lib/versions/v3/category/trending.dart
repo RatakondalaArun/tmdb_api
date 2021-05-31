@@ -29,13 +29,15 @@ class Trending extends Category<V3> {
   ///Map result = await tmdb.v3.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
   /// ```
   ///
-  Future<Map> getTrending(
-      {MediaType mediaType = MediaType.all,
-      TimeWindow timeWindow = TimeWindow.day,
-      int page = 1}) {
+  Future<Map> getTrending({
+    MediaType mediaType = MediaType.all,
+    TimeWindow timeWindow = TimeWindow.day,
+    int page = 1,
+  }) {
     return _v._query(
-        '$_endPoint/${_getMediaType(mediaType)}/${_getTimeWindow(timeWindow)}',
-        optionalQueries: ['page=$page']);
+      '$_endPoint/${_getMediaType(mediaType)}/${_getTimeWindow(timeWindow)}',
+      optionalQueries: ['page=$page'],
+    );
   }
 
   //get the type of media in string

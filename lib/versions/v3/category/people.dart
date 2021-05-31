@@ -23,11 +23,11 @@ class People extends Category<V3> {
   /// ```
   /// Map result = await tmdb.v3.people.getDetails(103)
   /// ```
-  Future<Map> getDetails(int personId,
-      {String language = 'en-US', String appendToResponse}) {
-    if (language == null || personId == null) {
-      throw NullValueException('language == null || personId == null is true');
-    }
+  Future<Map> getDetails(
+    int personId, {
+    String language = 'en-US',
+    String appendToResponse,
+  }) {
     if (personId < 1) {
       throw InvalidDataException('personId < 1 is true');
     }
@@ -71,9 +71,6 @@ class People extends Category<V3> {
   /// Map result = await tmdb.v3.people.getMovieCredits(103)
   /// ```
   Future<Map> getMovieCredits(int personId, {String language = 'en-US'}) {
-    if (language == null || personId == null) {
-      throw NullValueException('language == null || personId == null is true');
-    }
     if (personId < 1) {
       throw InvalidDataException('personId < 1 is true');
     }
@@ -96,9 +93,6 @@ class People extends Category<V3> {
   /// Map result = await tmdb.v3.people.getTvCredits(103)
   /// ```
   Future<Map> getTvCredits(int personId, {String language = 'en-US'}) {
-    if (language == null || personId == null) {
-      throw NullValueException('language == null || personId == null is true');
-    }
     if (personId < 1) {
       throw InvalidDataException('personId < 1 is true');
     }
@@ -121,9 +115,6 @@ class People extends Category<V3> {
   /// Map result = await tmdb.v3.people.getCombinedCredits(103)
   /// ```
   Future<Map> getCombinedCredits(int personId, {String language = 'en-US'}) {
-    if (language == null || personId == null) {
-      throw NullValueException('language == null || personId == null is true');
-    }
     if (personId < 1) {
       throw InvalidDataException('personId < 1 is true');
     }
@@ -156,9 +147,6 @@ class People extends Category<V3> {
   /// Map result = await tmdb.v3.people.getCombinedCredits(103)
   /// ```
   Future<Map> getExternalIds(int personId, {String language = 'en-US'}) {
-    if (language == null || personId == null) {
-      throw NullValueException('language == null || personId == null is true');
-    }
     if (personId < 1) {
       throw InvalidDataException('personId < 1 is true');
     }
@@ -176,9 +164,6 @@ class People extends Category<V3> {
   /// Map result = await tmdb.v3.people.getCombinedCredits(103)
   /// ```
   Future<Map> getImages(int personId) {
-    if (personId == null) {
-      throw NullValueException('personId==null is true');
-    }
     if (personId < 1) {
       throw InvalidDataException('personId < 1 is true');
     }
@@ -199,12 +184,11 @@ class People extends Category<V3> {
   /// ```
   /// Map result = await tmdb.v3.people.getTaggedImages(103)
   /// ```
-  Future<Map> getTaggedImages(int personId,
-      {String language = 'en-US', int page = 1}) {
-    if (language == null || personId == null || page == null) {
-      throw NullValueException(
-          'language == null || page == null || personId == null is true');
-    }
+  Future<Map> getTaggedImages(
+    int personId, {
+    String language = 'en-US',
+    int page = 1,
+  }) {
     if (personId < 1) {
       throw InvalidDataException('personId < 1 is true');
     }
@@ -226,9 +210,6 @@ class People extends Category<V3> {
   /// Map result = await tmdb.v3.people.getTranslations(103)
   /// ```
   Future<Map> getTranslations(int personId, {String language = 'en-US'}) {
-    if (language == null || personId == null) {
-      throw NullValueException('language == null || personId == null is true');
-    }
     if (personId < 1) {
       throw InvalidDataException('personId < 1 is true');
     }
@@ -250,10 +231,6 @@ class People extends Category<V3> {
   /// Map result = await tmdb.v3.people.getLatest();
   /// ```
   Future<Map> getLatest({String language = 'en-US'}) {
-    if (language == null) {
-      throw NullValueException('language == null is true');
-    }
-
     return _v
         ._query('$_endPoint/latest', optionalQueries: ['language=$language']);
   }
@@ -272,10 +249,6 @@ class People extends Category<V3> {
   /// Map result = await tmdb.v3.people.getPopular();
   /// ```
   Future<Map> getPopular({String language = 'en-US', int page = 1}) {
-    if (language == null || page == null) {
-      throw NullValueException('language == null || page == null  is true');
-    }
-
     return _v._query('$_endPoint/popular',
         optionalQueries: ['language=$language', 'page=$page']);
   }

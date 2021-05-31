@@ -18,18 +18,19 @@ class Movies extends Category<V3> {
   ///```
   /// Map result = await tmdb.v3.movies.getDetails(103, language: 'en-US');
   ///```
-  Future<Map> getDetails(int movieId,
-      {String language = 'en-US', String appendToResponse}) {
-    if (movieId == null || language == null) {
-      throw NullValueException('movieId==null || language==null is true');
-    }
-
-    return _v._query('$_endPoint/$movieId',
-        method: HttpMethod.GET,
-        optionalQueries: [
-          'language=$language',
-          'append_to_response=$appendToResponse'
-        ]);
+  Future<Map> getDetails(
+    int movieId, {
+    String language = 'en-US',
+    String /*?*/ appendToResponse,
+  }) {
+    return _v._query(
+      '$_endPoint/$movieId',
+      method: HttpMethod.GET,
+      optionalQueries: [
+        'language=$language',
+        'append_to_response=$appendToResponse'
+      ],
+    );
   }
 
   ///Get all of the alternative titles for a movie.
@@ -48,9 +49,6 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getAlternativeTitle(int movieId, {String country = 'US'}) {
-    if (movieId == null || country == null) {
-      throw NullValueException('movieId == null || country == null is true');
-    }
     return _v._query('$_endPoint/$movieId/alternative_titles',
         method: HttpMethod.GET, optionalQueries: ['country=$country']);
   }
@@ -68,9 +66,6 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getCredits(int movieId) {
-    if (movieId == null) {
-      throw NullValueException('movieId == null is true');
-    }
     return _v._query('$_endPoint/$movieId/credits', method: HttpMethod.GET);
   }
 
@@ -92,9 +87,6 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getExternalIds(int movieId) {
-    if (movieId == null) {
-      throw NullValueException('movieId == null is true');
-    }
     return _v._query('$_endPoint/$movieId/external_ids',
         method: HttpMethod.GET);
   }
@@ -111,9 +103,6 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getKeywords(int movieId) {
-    if (movieId == null) {
-      throw NullValueException('movieId == null is true');
-    }
     return _v._query('$_endPoint/$movieId/keywords', method: HttpMethod.GET);
   }
 
@@ -138,9 +127,6 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getReleaseDates(int movieId) {
-    if (movieId == null) {
-      throw NullValueException('movieId == null is true');
-    }
     return _v._query('$_endPoint/$movieId/release_dates',
         method: HttpMethod.GET);
   }
@@ -157,9 +143,6 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getVideos(int movieId) {
-    if (movieId == null) {
-      throw NullValueException('movieId == null is true');
-    }
     return _v._query('$_endPoint/$movieId/videos');
   }
 
@@ -175,9 +158,6 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getTranslations(int movieId) {
-    if (movieId == null) {
-      throw NullValueException('movieId == null is true');
-    }
     return _v._query('$_endPoint/$movieId/translations');
   }
 
@@ -198,10 +178,6 @@ class Movies extends Category<V3> {
   ///
   Future<Map> getRecommended(int movieId,
       {String language = 'en-US', int page = 1}) async {
-    if (movieId == null || language == null || page == null) {
-      throw NullValueException(
-          'movieId == null || language == null || page == null is true');
-    }
     if (movieId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
@@ -229,12 +205,11 @@ class Movies extends Category<V3> {
   /// Map result = await tmdb.v3.movies.getRecommended(103);
   ///```
   ///
-  Future<Map> getSimilar(int movieId,
-      {String language = 'en-US', int page = 1}) {
-    if (movieId == null || language == null || page == null) {
-      throw NullValueException(
-          'movieId == null || language == null || page == null is true');
-    }
+  Future<Map> getSimilar(
+    int movieId, {
+    String language = 'en-US',
+    int page = 1,
+  }) {
     if (movieId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
@@ -259,14 +234,11 @@ class Movies extends Category<V3> {
   /// Map result = await tmdb.v3.movies.getReviews(103);
   ///```
   ///
-  Future<Map> getReviews(int movieId,
-      {String language = 'en-US', int page = 1}) {
-    if (movieId == null || language == null || page == null) {
-      {
-        throw NullValueException(
-            'movieId == null || language == null || page == null is true');
-      }
-    }
+  Future<Map> getReviews(
+    int movieId, {
+    String language = 'en-US',
+    int page = 1,
+  }) {
     if (movieId < 1 || page < 1 || page > 1000) {
       {
         throw InvalidDataException(
@@ -294,11 +266,11 @@ class Movies extends Category<V3> {
   /// Map result = await tmdb.v3.movies.getLists(103);
   ///```
   ///
-  Future<Map> getLists(int movieId, {String language = 'en-US', int page = 1}) {
-    if (movieId == null || language == null || page == null) {
-      throw NullValueException(
-          'movieId == null || language == null || page == null is true');
-    }
+  Future<Map> getLists(
+    int movieId, {
+    String language = 'en-US',
+    int page = 1,
+  }) {
     if (movieId < 1 || page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
@@ -321,12 +293,10 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getLatest({String language = 'en-US'}) {
-    if (language == null) {
-      throw NullValueException('language == null is true');
-    }
-
-    return _v
-        ._query('$_endPoint/latest', optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/latest',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get a list of movies in theatres.
@@ -354,11 +324,11 @@ class Movies extends Category<V3> {
   /// Map result = await tmdb.v3.movies.getNowPlaying();
   ///```
   ///
-  Future<Map> getNowPlaying(
-      {String language = 'en-US', int page = 1, String region}) {
-    if (language == null || page == null) {
-      throw NullValueException('language == null || page == null is true');
-    }
+  Future<Map> getNowPlaying({
+    String language = 'en-US',
+    int page = 1,
+    String region,
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
@@ -391,11 +361,11 @@ class Movies extends Category<V3> {
   /// Map result = await tmdb.v3.movies.getPopular();
   ///```
   ///
-  Future<Map> getPouplar(
-      {String language = 'en-US', int page = 1, String region}) {
-    if (language == null || page == null) {
-      throw NullValueException('language == null || page == null is true');
-    }
+  Future<Map> getPouplar({
+    String language = 'en-US',
+    int page = 1,
+    String region,
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
@@ -426,11 +396,11 @@ class Movies extends Category<V3> {
   /// Map result = await tmdb.v3.movies.getTopRated();
   ///```
   ///
-  Future<Map> getTopRated(
-      {String language = 'en-US', int page = 1, String region}) {
-    if (language == null || page == null) {
-      throw NullValueException('language == null || page == null is true');
-    }
+  Future<Map> getTopRated({
+    String language = 'en-US',
+    int page = 1,
+    String region,
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
@@ -468,11 +438,11 @@ class Movies extends Category<V3> {
   /// Map result = await tmdb.v3.movies.getUpcoming();
   ///```
   ///
-  Future<Map> getUpcoming(
-      {String language = 'en-US', int page = 1, String region}) {
-    if (language == null || page == null) {
-      throw NullValueException('language == null || page == null is true');
-    }
+  Future<Map> getUpcoming({
+    String language = 'en-US',
+    int page = 1,
+    String region,
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException(
           'movieId < 1 || page < 1 || page > 1000 is true');
@@ -508,9 +478,6 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future getWatchProviders(int movieId) {
-    if (movieId == null) {
-      throw NullValueException('movieId == null is true');
-    }
     return _v._query(
       '$_endPoint/$movieId/watch/providers',
       method: HttpMethod.GET,
@@ -547,11 +514,12 @@ class Movies extends Category<V3> {
   /// status_message: Success.
   ///}
   ///```
-  Future<Map> rateMovie(int movieId, double ratingValue,
-      {String guestSessionId, String sessionId}) {
-    if (movieId == null || ratingValue == null) {
-      throw NullValueException('movieId == null || ratingValue == null');
-    }
+  Future<Map> rateMovie(
+    int movieId,
+    double ratingValue, {
+    String guestSessionId,
+    String sessionId,
+  }) {
     if (guestSessionId == null && sessionId == null) {
       throw NullValueException('guestSessionId == null && sessionId == null');
     }
@@ -598,15 +566,11 @@ class Movies extends Category<V3> {
   /// status_message: The item/record was deleted successfully.
   ///}
   ///```
-  Future<Map> deleteRating(int movieId,
-      {String guestSessionId, String sessionId}) {
-    if (movieId == null) {
-      throw NullValueException('movieId == null is true');
-    }
-    if (guestSessionId == null && sessionId == null) {
-      throw NullValueException(
-          'guestSessionId == null && sessionId == null is true');
-    }
+  Future<Map> deleteRating(
+    int movieId, {
+    String guestSessionId,
+    String sessionId,
+  }) {
     if (movieId < 1) {
       throw InvalidDataException('movieId < 1 is true');
     }
@@ -639,12 +603,11 @@ class Movies extends Category<V3> {
   /// you can use the `include_image_language` parameter.
   ///This should be a comma seperated value like so: `include_image_language=en,null.`
   ///
-  Future<Map> getImages(int movieId,
-      {String language = 'en-US', String includeImageLanguage}) {
-    if (movieId == null || language == null) {
-      throw NullValueException(
-          'movieId == null || movieId == null||language==null is true');
-    }
+  Future<Map> getImages(
+    int movieId, {
+    String language = 'en-US',
+    String includeImageLanguage,
+  }) {
     if (movieId < 1) {
       throw InvalidDataException('movieId < 1 is true');
     }
@@ -687,11 +650,11 @@ class Movies extends Category<V3> {
   ///}
   ///```
   ///
-  Future<Map> getAccountStatus(int movieId,
-      {String sessionId, String guestSessionId}) {
-    if (movieId == null) {
-      throw NullValueException('movieId==null is true');
-    }
+  Future<Map> getAccountStatus(
+    int movieId, {
+    String sessionId,
+    String guestSessionId,
+  }) {
     if (movieId < 1) {
       throw InvalidDataException('movieId<1');
     }

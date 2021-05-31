@@ -20,13 +20,7 @@ class Reviews extends Category<V3> {
   /// Map result = await tmdb.reviews.getDetails('5488c29bc3a3686f4a00004a');
   /// ```
   ///
-  Future<Map> getDetails(String reviewId) {
-    if (reviewId == null) {
-      throw NullValueException('reviewId == null is true',
-          source: 'reviews.getDetails($reviewId)',
-          help: 'try to not to pass a null value');
-    }
-
+  Future<Map> getDetails(String /*!*/ reviewId) {
     return _v._query('$_endPoint/$reviewId');
   }
 }

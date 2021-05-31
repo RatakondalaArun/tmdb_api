@@ -25,15 +25,13 @@ class TvEpisodes extends Category<V3> {
   ///language: 'en-US', appendToResponse: 'videos,images');
   ///```
   ///
-  Future<Map> getDetails(int tvId, int seasonNumber, int episodeNumber,
-      {String appendToResponse, String language = 'en-US'}) {
-    if (tvId == null ||
-        seasonNumber == null ||
-        episodeNumber == null ||
-        language == null) {
-      throw NullValueException(
-          'tvId == null || seasonNumber == null || episodeNumber == null || language == null is true');
-    }
+  Future<Map> getDetails(
+    int tvId,
+    int seasonNumber,
+    int episodeNumber, {
+    String appendToResponse,
+    String language = 'en-US',
+  }) {
     List<String> para = ['language=$language'];
     if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
@@ -59,12 +57,12 @@ class TvEpisodes extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.tvEpisodes.getChanges(302, page: 2);
   ///```
-  Future<Map> getChanges(int episodeId,
-      {String startDate, String endDate, int page = 1}) {
-    if (episodeId == null || page == null) {
-      throw NullValueException('episodeId == null || page == null is true');
-    }
-
+  Future<Map> getChanges(
+    int episodeId, {
+    String startDate,
+    String endDate,
+    int page = 1,
+  }) {
     List<String> para = ['page=$page'];
     if (startDate != null) {
       para.add('start_date=$startDate');
@@ -91,10 +89,6 @@ class TvEpisodes extends Category<V3> {
   ///```
   ///
   Future<Map> getCredits(int tvId, int seasonNumber, int episodeNumber) {
-    if (seasonNumber == null || tvId == null || episodeNumber == null) {
-      throw NullValueException(
-          'seasonNumber==null||tvId==null||episodeNumber==null is true');
-    }
     if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
@@ -122,10 +116,6 @@ class TvEpisodes extends Category<V3> {
   ///```
   ///
   Future<Map> getExternalId(int tvId, int seasonNumber, int episodeNumber) {
-    if (seasonNumber == null || tvId == null || episodeNumber == null) {
-      throw NullValueException(
-          'seasonNumber==null||tvId==null||episodeNumber==null is true');
-    }
     if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
@@ -149,10 +139,6 @@ class TvEpisodes extends Category<V3> {
   ///```
   ///
   Future<Map> getImages(int tvId, int seasonNumber, int episodeNumber) {
-    if (seasonNumber == null || tvId == null || episodeNumber == null) {
-      throw NullValueException(
-          'seasonNumber==null||tvId==null||episodeNumber==null is true');
-    }
     if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
@@ -176,10 +162,6 @@ class TvEpisodes extends Category<V3> {
   ///```
   ///
   Future<Map> getVideos(int tvId, int seasonNumber, int episodeNumber) {
-    if (seasonNumber == null || tvId == null || episodeNumber == null) {
-      throw NullValueException(
-          'seasonNumber==null||tvId==null||episodeNumber==null is true');
-    }
     if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');
@@ -203,10 +185,6 @@ class TvEpisodes extends Category<V3> {
   ///```
   ///
   Future<Map> getTranslation(int tvId, int seasonNumber, int episodeNumber) {
-    if (seasonNumber == null || tvId == null || episodeNumber == null) {
-      throw NullValueException(
-          'seasonNumber==null||tvId==null||episodeNumber==null is true');
-    }
     if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
       throw InvalidDataException(
           'seasonNumber<1||tvId<1||episodeNumber<1 is true');

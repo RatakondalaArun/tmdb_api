@@ -29,15 +29,11 @@ class Find extends Category<V3> {
   ///                                           language='en-US');
   /// ```
   /// *By default `externalIdSource` is set to IMDB ID*
-  Future<Map> getById(String externalId,
-      {ExternalId externalIdSource = ExternalId.imdbId,
-      String language = 'en-US'}) {
-    //null check
-    if (externalId == null || externalIdSource == null) {
-      throw NullValueException(
-          'externalId==null || externalIdSource == null is true');
-    }
-
+  Future<Map> getById(
+    String externalId, {
+    ExternalId externalIdSource = ExternalId.imdbId,
+    String language = 'en-US',
+  }) {
     return _v._query('$_endPoint/$externalId', optionalQueries: [
       _getSourceQuery(externalIdSource),
       'language=$language'

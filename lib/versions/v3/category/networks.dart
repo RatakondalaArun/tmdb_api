@@ -18,13 +18,7 @@ class Networks extends Category<V3> {
   ///
   ///For doc visit
   ///[Offical Docmentation](https://developers.themoviedb.org/3/networks/get-network-details)
-  Future<Map> getDetails(int networkId) {
-    if (networkId == null) {
-      throw NullValueException('networkId==null is true',
-          source: 'Networks.getDetails($networkId)',
-          help: 'try pass a non null value');
-    }
-
+  Future<Map> getDetails(int /*!*/ networkId) {
     return _v._query('$_endPoint/$networkId');
   }
 
@@ -38,13 +32,7 @@ class Networks extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3networks.getAlternativeNames(213);
   ///```
-  Future<Map> getAlternativeNames(int networkId) {
-    if (networkId == null) {
-      throw NullValueException('networkId==null is true',
-          source: 'Networks.getAlternativeNames($networkId)',
-          help: 'try pass a non null value');
-    }
-
+  Future<Map> getAlternativeNames(int /*!*/ networkId) {
     return _v._query('$_endPoint/$networkId/alternative_names');
   }
 
@@ -58,13 +46,7 @@ class Networks extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3networks.getImages(213);
   ///```
-  Future<Map> getImages(int networkId) {
-    if (networkId == null) {
-      throw NullValueException('networkId==null is true',
-          source: 'Networks.getImages($networkId)',
-          help: 'try pass a non null value');
-    }
-
+  Future<Map> getImages(int /*!*/ networkId) {
     return _v._query('$_endPoint/$networkId/images');
   }
 }

@@ -20,10 +20,6 @@ class Credit extends Category<V3> {
   /// ```
   ///
   Future<Map> getDetails(String creditId) {
-    if (creditId == null) {
-      throw NullValueException('creditId==null');
-    }
-
     return _v._query('$_endPoint/$creditId');
   }
 }

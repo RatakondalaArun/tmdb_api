@@ -22,10 +22,6 @@ class Collections extends Category<V3> {
   /// ```
   ///
   Future<Map> getDetails(int collectionId, {String language = 'en-US'}) {
-    if (collectionId == null || language == null) {
-      throw NullValueException('collectionId==null||language==null is true');
-    }
-
     return _v._query('$_endPoint/$collectionId',
         optionalQueries: ['language=$language']);
   }
@@ -46,10 +42,6 @@ class Collections extends Category<V3> {
   /// ```
   ///
   Future<Map> getImages(int collectionId, {String language = 'en-US'}) {
-    if (collectionId == null || language == null) {
-      throw NullValueException('collectionId==null||language==null is true');
-    }
-
     return _v._query('$_endPoint/$collectionId/images',
         optionalQueries: ['language=$language']);
   }

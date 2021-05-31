@@ -23,7 +23,11 @@ class Changes extends Category<V3> {
   /// Map result = await tmdb.changes.getMovieList();
   /// ```
   ///
-  Future<Map> getMovieList({String endDate, String startDate, int page = 1}) {
+  Future<Map> getMovieList({
+    String /*?*/ endDate,
+    String /*?*/ startDate,
+    int page = 1,
+  }) {
     List<String> para = [];
     if (endDate != null) {
       para.add('end_date=$endDate');
@@ -31,9 +35,7 @@ class Changes extends Category<V3> {
     if (startDate != null) {
       para.add('start_date=$startDate');
     }
-    if (page != null) {
-      para.add('page=${page < 1 || page > 1000 ? 1 : page}');
-    }
+    para.add('page=${page < 1 || page > 1000 ? 1 : page}');
 
     return _v._query('movie/$_endPoint', optionalQueries: para);
   }
@@ -55,7 +57,11 @@ class Changes extends Category<V3> {
   /// Map result = await tmdb.changes.getTvList();
   /// ```
   ///
-  Future<Map> getTvList({String endDate, String startDate, int page = 1}) {
+  Future<Map> getTvList({
+    String /*?*/ endDate,
+    String /*?*/ startDate,
+    int page = 1,
+  }) {
     List<String> para = [];
     if (endDate != null) {
       para.add('end_date=$endDate');
@@ -63,9 +69,7 @@ class Changes extends Category<V3> {
     if (startDate != null) {
       para.add('start_date=$startDate');
     }
-    if (page != null) {
-      para.add('page=${page < 1 || page > 1000 ? 1 : page}');
-    }
+    para.add('page=${page < 1 || page > 1000 ? 1 : page}');
 
     return _v._query('tv/$_endPoint', optionalQueries: para);
   }
@@ -86,7 +90,11 @@ class Changes extends Category<V3> {
   /// Map result = await tmdb.changes.getPersonList();
   /// ```
   ///
-  Future<Map> getPersonList({String endDate, String startDate, int page = 1}) {
+  Future<Map> getPersonList({
+    String /*?*/ endDate,
+    String /*?*/ startDate,
+    int page = 1,
+  }) {
     List<String> para = [];
     if (endDate != null) {
       para.add('end_date=$endDate');
@@ -94,9 +102,8 @@ class Changes extends Category<V3> {
     if (startDate != null) {
       para.add('start_date=$startDate');
     }
-    if (page != null) {
-      para.add('page=${page < 1 || page > 1000 ? 1 : page}');
-    }
+
+    para.add('page=${page < 1 || page > 1000 ? 1 : page}');
 
     return _v._query('person/$_endPoint');
   }

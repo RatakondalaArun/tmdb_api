@@ -16,12 +16,7 @@ class Search extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.search.queryCompanies('Sony Pictures');
   ///```
-  Future<Map> queryCompanies(String query, {int page = 1}) {
-    if (query == null ||
-        page == null) //throw Exception if query parameter is null
-    {
-      throw NullValueException('query==null is true');
-    }
+  Future<Map> queryCompanies(String /*!*/ query, {int page = 1}) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000');
     }
@@ -44,15 +39,11 @@ class Search extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.search.queryCollections('Sony Pictures');
   ///```
-  Future<Map> queryCollections(String query,
-      {String language = 'en-US', int page = 1}) {
-    if (query == null ||
-        language == null ||
-        page == null) //throw Exception if query parameter is null
-    {
-      throw NullValueException(
-          'query == null || language == null ||page == null is true');
-    }
+  Future<Map> queryCollections(
+    String /*!*/ query, {
+    String language = 'en-US',
+    int page = 1,
+  }) {
     if (page < 1 || page > 1000) {
       throw InvalidDataException('page < 1 || page > 1000');
     }
@@ -72,12 +63,7 @@ class Search extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.search.queryKeywords('Sony Pictures');
   ///```
-  Future<Map> queryKeywords(String query, {int page = 1}) {
-    if (query == null ||
-        page == null) //throw Exception if query parameter is null
-    {
-      throw NullValueException('query==null is true');
-    }
+  Future<Map> queryKeywords(String /*!*/ query, {int page = 1}) {
     if (page < 1 || page > 10000) {
       throw InvalidDataException('page<1||page>10000 is true');
     }
@@ -110,22 +96,15 @@ class Search extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.search.queryMovies('Sony Pictures');
   ///```
-  Future<Map> queryMovies(String query,
-      {bool includeAdult = false,
-      String region = 'US',
-      int year,
-      int primaryReleaseYear,
-      String language = 'en-US',
-      int page = 1}) {
-    if (query == null ||
-        language == null ||
-        page == null ||
-        region == null ||
-        includeAdult == null) //throw Exception if query parameter is null
-    {
-      throw NullValueException(
-          'query == null || language == null || page == null || region == null||includeAdult==null is true');
-    }
+  Future<Map> queryMovies(
+    String /*!*/ query, {
+    bool includeAdult = false,
+    String region = 'US',
+    int year,
+    int primaryReleaseYear,
+    String language = 'en-US',
+    int page = 1,
+  }) {
     //this parameters should not be nll so adding first
     List<String> optionalQueries = [
       'query=$query',
@@ -169,19 +148,13 @@ class Search extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.search.queryMulti('Sony Pictures');
   ///```
-  Future<Map> queryMulti(String query,
-      {bool includeAdult = false,
-      String region,
-      String language = 'en-US',
-      int page = 1}) {
-    if (query == null ||
-        includeAdult == null ||
-        language == null ||
-        page == null) //throw Exception if query parameter is null
-    {
-      throw NullValueException(
-          'query == null || includeAdult == null || language == null || page == null is true');
-    }
+  Future<Map> queryMulti(
+    String /*!*/ query, {
+    bool includeAdult = false,
+    String region,
+    String language = 'en-US',
+    int page = 1,
+  }) {
     //not null parameters
     List<String> optionalQueries = [
       'query=$query',
@@ -217,19 +190,13 @@ class Search extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.search.queryPeople('Bradley Cooper');
   ///```
-  Future<Map> queryPeople(String query,
-      {bool includeAdult = false,
-      String region,
-      String language = 'en-US',
-      int page = 1}) {
-    if (query == null ||
-        includeAdult == null ||
-        language == null ||
-        page == null) //throw Exception if query parameter is null
-    {
-      throw NullValueException(
-          'query == null || includeAdult == null || language == null || page == null is true');
-    }
+  Future<Map> queryPeople(
+    String /*!*/ query, {
+    bool includeAdult = false,
+    String region,
+    String language = 'en-US',
+    int page = 1,
+  }) {
     //not null parameters
     List<String> optionalQueries = [
       'query=$query',
@@ -265,15 +232,12 @@ class Search extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.search.queryTvShows('Sony Pictures');
   ///```
-  Future<Map> queryTvShows(String query,
-      {String firstAirDateYear, String language = 'en-US', int page = 1}) {
-    if (query == null ||
-        language == null ||
-        page == null) //throw Exception if query parameter is null
-    {
-      throw NullValueException(
-          'query == null||language==null||page==null is true');
-    }
+  Future<Map> queryTvShows(
+    String /*!*/ query, {
+    String firstAirDateYear,
+    String language = 'en-US',
+    int page = 1,
+  }) {
     List<String> optionalQueries = [
       'query=$query',
       'language=$language',

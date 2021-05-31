@@ -20,11 +20,10 @@ class Lists extends Category<V3> {
   /// ```
   ///
   Future<Map> getDetails(String listId, {String language = 'en-US'}) {
-    if (listId == null) {
-      throw NullValueException('listId == null is true');
-    }
-    return _v
-        ._query('$_endPoint/$listId', optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/$listId',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///You can use this method to check if a movie has already been added to the list.
@@ -39,12 +38,10 @@ class Lists extends Category<V3> {
   ///
   ///```
   Future<Map> checkItemStatus(String listId, int movieId) {
-    if (listId == null || movieId == null || movieId < 1) {
-      throw NullValueException(
-          'listId == null||movieId==null||movieId < 1 is true');
-    }
-    return _v
-        ._query('$_endPoint/$listId', optionalQueries: ['movie_id=$movieId']);
+    return _v._query(
+      '$_endPoint/$listId',
+      optionalQueries: ['movie_id=$movieId'],
+    );
   }
 
   ///Create a list.
@@ -73,21 +70,23 @@ class Lists extends Category<V3> {
   ///     "list_id": 134718
   /// }
   ///```
-  Future<Map> createList(String sessionId, String name, String description,
-      {String language = 'en'}) {
-    if (sessionId == null || description == null || name == null) {
-      throw NullValueException(
-          'sessionId==null||description==null||name==null is true');
-    }
-    Map postBody = {
+  Future<Map> createList(
+    String sessionId,
+    String name,
+    String description, {
+    String language = 'en',
+  }) {
+    final postBody = <String, String>{
       'name': name,
       'description': description,
       'language': language
     };
-    return _v._query('$_endPoint',
-        optionalQueries: ['session_id=$sessionId'],
-        method: HttpMethod.POST,
-        postBody: postBody);
+    return _v._query(
+      '$_endPoint',
+      optionalQueries: ['session_id=$sessionId'],
+      method: HttpMethod.POST,
+      postBody: postBody,
+    );
   }
 
   ///Add a media to a list.
@@ -114,14 +113,12 @@ class Lists extends Category<V3> {
   ///}
   ///```
   Future<Map> addItem(String sessionId, String listId, int mediaId) {
-    if (sessionId == null || mediaId == null || mediaId < 1 || listId == null) {
-      throw NullValueException(
-          'sessionId == null || mediaId == null || mediaId < 1 || listId == null || listId < 1 is true');
-    }
-    return _v._query('$_endPoint/$listId/add_item',
-        method: HttpMethod.POST,
-        postBody: {'media_id': '$mediaId'},
-        optionalQueries: ['session_id=$sessionId']);
+    return _v._query(
+      '$_endPoint/$listId/add_item',
+      method: HttpMethod.POST,
+      postBody: {'media_id': '$mediaId'},
+      optionalQueries: ['session_id=$sessionId'],
+    );
   }
 
   ///Remove a movie from a list.
@@ -156,14 +153,12 @@ class Lists extends Category<V3> {
   ///}
   ///```
   Future<Map> removeItem(String sessionId, String listId, int mediaId) {
-    if (sessionId == null || mediaId == null || mediaId < 1 || listId == null) {
-      throw NullValueException(
-          'sessionId == null || mediaId == null || mediaId < 1 || listId == null || listId < 1 is true');
-    }
-    return _v._query('$_endPoint/${listId.toString()}/remove_item',
-        method: HttpMethod.POST,
-        postBody: {'media_id': "$mediaId"},
-        optionalQueries: ['session_id=$sessionId']);
+    return _v._query(
+      '$_endPoint/${listId.toString()}/remove_item',
+      method: HttpMethod.POST,
+      postBody: {'media_id': "$mediaId"},
+      optionalQueries: ['session_id=$sessionId'],
+    );
   }
 
   ///
@@ -187,14 +182,12 @@ class Lists extends Category<V3> {
   ///}
   ///```
   Future<Map> clearList(String sessionId, String listId) {
-    if (sessionId == null || listId == null) {
-      throw NullValueException('sessionId == null || listId == null is true');
-    }
-
-    return _v._query('$_endPoint/$listId/clear',
-        method: HttpMethod.POST,
-        postBody: {},
-        optionalQueries: ['session_id=$sessionId', 'confirm=true']);
+    return _v._query(
+      '$_endPoint/$listId/clear',
+      method: HttpMethod.POST,
+      postBody: {},
+      optionalQueries: ['session_id=$sessionId', 'confirm=true'],
+    );
   }
 
   ///Delete a list.
@@ -209,13 +202,11 @@ class Lists extends Category<V3> {
   /// .deleteList('98097f2cd6af83f272ccbcfa93960723a940f87b', '134721');
   ///```
   Future<Map> deleteList(String sessionId, String listId) {
-    if (sessionId == null || listId == null) {
-      throw NullValueException('sessionId == null || listId == null is true');
-    }
-
-    return _v._query('$_endPoint/$listId',
-        method: HttpMethod.DELETE,
-        optionalQueries: ['session_id=$sessionId'],
-        deleteBody: {});
+    return _v._query(
+      '$_endPoint/$listId',
+      method: HttpMethod.DELETE,
+      optionalQueries: ['session_id=$sessionId'],
+      deleteBody: {},
+    );
   }
 }
