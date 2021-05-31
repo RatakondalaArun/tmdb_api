@@ -1,6 +1,6 @@
 name: Dart Code Analysis
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   package-analysis:
