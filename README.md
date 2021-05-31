@@ -19,7 +19,7 @@ To know more about TMDB visit [*offical site*](https://www.themoviedb.org/)
 
     ```yaml
     dependencies:
-      tmdb_api: ^1.2.7 //visit tmdb for latest version number
+      tmdb_api: latest //visit tmdb for latest version number
     ```
 
 2) **Import it**
@@ -35,7 +35,7 @@ To know more about TMDB visit [*offical site*](https://www.themoviedb.org/)
     Now you need to create instance for `TMDB` and `ApiKeys` with your api keys.
 
     ```dart
-    TMDB tmdbWithCustomLogs = TMDB( //TMDB instance
+    final tmdbWithCustomLogs = TMDB( //TMDB instance
         ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),//ApiKeys instance with your keys,
       );
     ```
@@ -52,7 +52,7 @@ To know more about TMDB visit [*offical site*](https://www.themoviedb.org/)
     **Custom Logs**
 
     ```dart
-    TMDB tmdbWithCustomLogs = TMDB(
+    final tmdbWithCustomLogs = TMDB(
         ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
         logConfig: ConfigLogger(
           showLogs: true,//must be true than only all other logs will be shown
