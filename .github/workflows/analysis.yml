@@ -9,3 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
       - uses: axel-op/dart-package-analyzer@v3
+        id: analysis
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
