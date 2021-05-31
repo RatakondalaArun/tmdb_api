@@ -27,7 +27,7 @@ class People extends Category<V3> {
     String? appendToResponse,
   }) {
     if (personId < 1) {
-      throw InvalidDataException('personId < 1 is true');
+      throw ArgumentError('personId < 1 is true');
     }
 
     final para = <String>['language=$language'];
@@ -52,7 +52,7 @@ class People extends Category<V3> {
   /// ```
   Future<Map> getChanges(int personId) {
     if (personId < 1) {
-      throw InvalidDataException('personId < 1 is true');
+      throw ArgumentError('personId < 1 is true');
     }
     return _v._query('$_endPoint/$personId/changes');
   }
@@ -70,7 +70,7 @@ class People extends Category<V3> {
   /// ```
   Future<Map> getMovieCredits(int personId, {String language = 'en-US'}) {
     if (personId < 1) {
-      throw InvalidDataException('personId < 1 is true');
+      throw ArgumentError('personId < 1 is true');
     }
 
     return _v._query('$_endPoint/$personId/movie_credits',
@@ -92,7 +92,7 @@ class People extends Category<V3> {
   /// ```
   Future<Map> getTvCredits(int personId, {String language = 'en-US'}) {
     if (personId < 1) {
-      throw InvalidDataException('personId < 1 is true');
+      throw ArgumentError('personId < 1 is true');
     }
 
     return _v._query('$_endPoint/$personId/tv_credits',
@@ -114,7 +114,7 @@ class People extends Category<V3> {
   /// ```
   Future<Map> getCombinedCredits(int personId, {String language = 'en-US'}) {
     if (personId < 1) {
-      throw InvalidDataException('personId < 1 is true');
+      throw ArgumentError('personId < 1 is true');
     }
 
     return _v._query('$_endPoint/$personId/combined_credits',
@@ -146,7 +146,7 @@ class People extends Category<V3> {
   /// ```
   Future<Map> getExternalIds(int personId, {String language = 'en-US'}) {
     if (personId < 1) {
-      throw InvalidDataException('personId < 1 is true');
+      throw ArgumentError('personId < 1 is true');
     }
 
     return _v._query('$_endPoint/$personId/external_ids',
@@ -163,7 +163,7 @@ class People extends Category<V3> {
   /// ```
   Future<Map> getImages(int personId) {
     if (personId < 1) {
-      throw InvalidDataException('personId < 1 is true');
+      throw ArgumentError('personId < 1 is true');
     }
 
     return _v._query('$_endPoint/$personId/images');
@@ -188,7 +188,7 @@ class People extends Category<V3> {
     int page = 1,
   }) {
     if (personId < 1) {
-      throw InvalidDataException('personId < 1 is true');
+      throw ArgumentError('personId < 1 is true');
     }
 
     return _v._query('$_endPoint/$personId/tagged_images',
@@ -209,7 +209,7 @@ class People extends Category<V3> {
   /// ```
   Future<Map> getTranslations(int personId, {String language = 'en-US'}) {
     if (personId < 1) {
-      throw InvalidDataException('personId < 1 is true');
+      throw ArgumentError('personId < 1 is true');
     }
 
     return _v._query('$_endPoint/$personId/translations',

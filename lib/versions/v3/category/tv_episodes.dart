@@ -88,8 +88,7 @@ class TvEpisodes extends Category<V3> {
   ///
   Future<Map> getCredits(int tvId, int seasonNumber, int episodeNumber) {
     if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
-      throw InvalidDataException(
-          'seasonNumber<1||tvId<1||episodeNumber<1 is true');
+      throw ArgumentError('seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
     return _v._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/credits');
@@ -115,8 +114,7 @@ class TvEpisodes extends Category<V3> {
   ///
   Future<Map> getExternalId(int tvId, int seasonNumber, int episodeNumber) {
     if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
-      throw InvalidDataException(
-          'seasonNumber<1||tvId<1||episodeNumber<1 is true');
+      throw ArgumentError('seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
     return _v._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/external_ids');
@@ -138,8 +136,7 @@ class TvEpisodes extends Category<V3> {
   ///
   Future<Map> getImages(int tvId, int seasonNumber, int episodeNumber) {
     if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
-      throw InvalidDataException(
-          'seasonNumber<1||tvId<1||episodeNumber<1 is true');
+      throw ArgumentError('seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
     return _v._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/images');
@@ -161,8 +158,7 @@ class TvEpisodes extends Category<V3> {
   ///
   Future<Map> getVideos(int tvId, int seasonNumber, int episodeNumber) {
     if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
-      throw InvalidDataException(
-          'seasonNumber<1||tvId<1||episodeNumber<1 is true');
+      throw ArgumentError('seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
     return _v._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/videos');
@@ -184,8 +180,7 @@ class TvEpisodes extends Category<V3> {
   ///
   Future<Map> getTranslation(int tvId, int seasonNumber, int episodeNumber) {
     if (seasonNumber < 1 || tvId < 1 || episodeNumber < 1) {
-      throw InvalidDataException(
-          'seasonNumber<1||tvId<1||episodeNumber<1 is true');
+      throw ArgumentError('seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
     return _v._query(
         'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/translations');

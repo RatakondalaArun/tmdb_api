@@ -85,8 +85,7 @@ class Account extends Category<V3> {
   Future<Map> getCreatedLists(String sessionId, int accountId,
       {String language = 'en-US', int page = 1}) {
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$accountId/lists', optionalQueries: [
@@ -133,8 +132,7 @@ class Account extends Category<V3> {
     SortBy sortBy = SortBy.createdAtAsc,
   }) {
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -184,8 +182,7 @@ class Account extends Category<V3> {
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -236,7 +233,7 @@ class Account extends Category<V3> {
       String sessionId, int accountId, int mediaId, MediaType mediaType,
       {bool isFavorite = true}) {
     if (accountId < 1 || mediaId < 1) {
-      throw InvalidDataException('accountId<1||mediaId<1 is true');
+      throw ArgumentError('accountId<1||mediaId<1 is true');
     }
     String type;
     //
@@ -290,8 +287,7 @@ class Account extends Category<V3> {
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -355,8 +351,7 @@ class Account extends Category<V3> {
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -407,8 +402,7 @@ class Account extends Category<V3> {
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -479,8 +473,7 @@ class Account extends Category<V3> {
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -552,8 +545,7 @@ class Account extends Category<V3> {
       int page = 1,
       SortBy sortBy = SortBy.createdAtAsc}) {
     if (accountId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'accountId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
     String sort;
     if (sortBy == SortBy.createdAtAsc) {
@@ -604,7 +596,7 @@ class Account extends Category<V3> {
       String sessionId, int accountId, int mediaId, MediaType mediaType,
       {bool shouldAdd = true}) {
     if (accountId < 1 || mediaId < 1) {
-      throw InvalidDataException('accountId<1||mediaId<1 is true');
+      throw ArgumentError('accountId<1||mediaId<1 is true');
     }
     String type;
     //

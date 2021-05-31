@@ -56,7 +56,7 @@ class AccountV4 extends Category<V4> {
     int page = 1,
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$accountId/lists', postHeaders: {
@@ -120,7 +120,7 @@ class AccountV4 extends Category<V4> {
     String sortBy = 'created_at.asc',
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$accountId/movie/favorites', postHeaders: {
@@ -187,7 +187,7 @@ class AccountV4 extends Category<V4> {
     String sortBy = 'created_at.asc',
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$accountId/tv/favorites', postHeaders: {
@@ -257,7 +257,7 @@ class AccountV4 extends Category<V4> {
     String sortBy = 'created_at.asc',
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
     return _v
@@ -324,7 +324,7 @@ class AccountV4 extends Category<V4> {
     String sortBy = 'first_air_date.asc',
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$accountId/tv/recommendations', postHeaders: {
@@ -390,7 +390,7 @@ class AccountV4 extends Category<V4> {
     String sortBy = 'created_at.asc',
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$accountId/movie/watchlist', postHeaders: {
@@ -462,7 +462,7 @@ class AccountV4 extends Category<V4> {
     String sortBy = 'first_air_date.asc',
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$accountId/tv/watchlist', postHeaders: {
@@ -537,7 +537,7 @@ class AccountV4 extends Category<V4> {
     String sortBy = 'created_at.asc',
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$accountId/movie/rated', postHeaders: {
@@ -610,7 +610,7 @@ class AccountV4 extends Category<V4> {
     String sortBy = 'first_air_date.asc',
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000 is true');
+      throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$accountId/tv/rated', postHeaders: {

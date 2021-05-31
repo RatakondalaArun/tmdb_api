@@ -16,7 +16,7 @@ class Search extends Category<V3> {
   ///```
   Future<Map> queryCompanies(String query, {int page = 1}) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000');
+      throw ArgumentError('page < 1 || page > 1000');
     }
 
     return _v._query('$_endPoint/company',
@@ -43,7 +43,7 @@ class Search extends Category<V3> {
     int page = 1,
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException('page < 1 || page > 1000');
+      throw ArgumentError('page < 1 || page > 1000');
     }
 
     return _v._query('$_endPoint/collection',
@@ -63,7 +63,7 @@ class Search extends Category<V3> {
   ///```
   Future<Map> queryKeywords(String query, {int page = 1}) {
     if (page < 1 || page > 10000) {
-      throw InvalidDataException('page<1||page>10000 is true');
+      throw ArgumentError('page<1||page>10000 is true');
     }
 
     return _v._query('$_endPoint/keyword',

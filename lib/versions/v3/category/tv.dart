@@ -24,7 +24,7 @@ class Tv extends Category<V3> {
     String language = 'en-US',
   }) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
     final para = <String>['language=$language'];
@@ -67,7 +67,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getAlternativeTitle(int tvId, {String language = 'en-US'}) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
     return _v._query('$_endPoint/$tvId/alternative_titles',
@@ -85,7 +85,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getCredits(int tvId) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
     return _v._query('$_endPoint/$tvId/credits', method: HttpMethod.GET);
@@ -102,7 +102,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getContentRating(int tvId) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
     return _v._query('$_endPoint/$tvId/content_ratings');
   }
@@ -123,7 +123,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getEpisodeGroups(int tvId, {String language = 'en-US'}) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
     return _v._query('$_endPoint/$tvId/episode_groups',
@@ -147,7 +147,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getExternalIds(int tvId) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
     return _v._query('$_endPoint/$tvId/external_ids', method: HttpMethod.GET);
@@ -165,7 +165,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getKeywords(int tvId) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
     return _v._query('$_endPoint/$tvId/keywords', method: HttpMethod.GET);
@@ -191,7 +191,7 @@ class Tv extends Category<V3> {
     int page = 1,
   }) {
     if (tvId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException('tvId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$tvId/recommendations',
@@ -214,7 +214,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getReviews(int tvId, {String language = 'en-US', int page = 1}) {
     if (tvId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException('tvId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$tvId/reviews',
@@ -233,7 +233,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getScreenedTheatrically(int tvId) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
     return _v._query('$_endPoint/$tvId/screened_theatrically');
   }
@@ -257,7 +257,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getSimilar(int tvId, {String language = 'en-US', int page = 1}) {
     if (tvId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException('tvId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$tvId/similar',
@@ -275,7 +275,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getTranslations(int tvId) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1 is true');
+      throw ArgumentError('tvId<1 is true');
     }
 
     return _v._query('$_endPoint/$tvId/translations');
@@ -355,7 +355,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getPouplar({String language = 'en-US', int page = 1}) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException(' page < 1 || page > 1000 is true');
+      throw ArgumentError(' page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/popular',
@@ -377,7 +377,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getTopRated({String language = 'en-US', int page = 1}) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException(' page < 1 || page > 1000 is true');
+      throw ArgumentError(' page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/top_rated',
@@ -401,7 +401,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getAiringToday({String language = 'en-US', int page = 1}) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException(' page < 1 || page > 1000 is true');
+      throw ArgumentError(' page < 1 || page > 1000 is true');
     }
     return _v._query('$_endPoint/airing_today',
         optionalQueries: ['language=$language', 'page=$page']);
@@ -424,7 +424,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getOnTheAir({String language = 'en-US', int page = 1}) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException(' page < 1 || page > 1000 is true');
+      throw ArgumentError(' page < 1 || page > 1000 is true');
     }
     return _v._query('$_endPoint/on_the_air',
         optionalQueries: ['language=$language', 'page=$page']);
@@ -466,10 +466,10 @@ class Tv extends Category<V3> {
     String? sessionId,
   }) {
     if (guestSessionId == null && sessionId == null) {
-      throw NullValueException('guestSessionId == null && sessionId == null');
+      throw ArgumentError('guestSessionId == null && sessionId == null');
     }
     if (ratingValue < 0.5 || ratingValue > 10.0 || tvId < 1) {
-      throw InvalidDataException(
+      throw ArgumentError(
           'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
     }
 
@@ -517,7 +517,7 @@ class Tv extends Category<V3> {
     String? sessionId,
   }) {
     if (tvId < 1) {
-      throw InvalidDataException(
+      throw ArgumentError(
           'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
     }
 
@@ -555,7 +555,7 @@ class Tv extends Category<V3> {
     String? includeImageLanguage,
   }) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId < 1 is true');
+      throw ArgumentError('tvId < 1 is true');
     }
 
     final para = <String>['language=$language'];
@@ -602,11 +602,10 @@ class Tv extends Category<V3> {
     String? guestSessionId,
   }) {
     if (tvId < 1) {
-      throw InvalidDataException('tvId<1');
+      throw ArgumentError('tvId<1');
     }
     if (sessionId == null && guestSessionId == null) {
-      throw NullValueException(
-          'sessionId==null && guestSessionId==null is true');
+      throw ArgumentError('sessionId==null && guestSessionId==null is true');
     }
     final para = <String>[];
     //only one is allowed

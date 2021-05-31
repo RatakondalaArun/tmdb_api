@@ -177,8 +177,7 @@ class Movies extends Category<V3> {
   Future<Map> getRecommended(int movieId,
       {String language = 'en-US', int page = 1}) async {
     if (movieId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'movieId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$movieId/recommendations',
@@ -209,8 +208,7 @@ class Movies extends Category<V3> {
     int page = 1,
   }) {
     if (movieId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'movieId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$movieId/similar',
@@ -239,8 +237,7 @@ class Movies extends Category<V3> {
   }) {
     if (movieId < 1 || page < 1 || page > 1000) {
       {
-        throw InvalidDataException(
-            'movieId < 1 || page < 1 || page > 1000 is true');
+        throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
       }
     }
 
@@ -270,8 +267,7 @@ class Movies extends Category<V3> {
     int page = 1,
   }) {
     if (movieId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'movieId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
     return _v._query('$_endPoint/$movieId/lists',
@@ -328,8 +324,7 @@ class Movies extends Category<V3> {
     String? region,
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'movieId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
     final para = <String>['language=$language', 'page=$page'];
@@ -365,8 +360,7 @@ class Movies extends Category<V3> {
     String? region,
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'movieId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
     final para = <String>['language=$language', 'page=$page'];
@@ -400,8 +394,7 @@ class Movies extends Category<V3> {
     String? region,
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'movieId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
     final para = <String>['language=$language', 'page=$page'];
@@ -442,8 +435,7 @@ class Movies extends Category<V3> {
     String? region,
   }) {
     if (page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'movieId < 1 || page < 1 || page > 1000 is true');
+      throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
     final para = <String>['language=$language', 'page=$page'];
@@ -519,10 +511,10 @@ class Movies extends Category<V3> {
     String? sessionId,
   }) {
     if (guestSessionId == null && sessionId == null) {
-      throw NullValueException('guestSessionId == null && sessionId == null');
+      throw ArgumentError('guestSessionId == null && sessionId == null');
     }
     if (ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1) {
-      throw InvalidDataException(
+      throw ArgumentError(
           'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
     }
 
@@ -570,7 +562,7 @@ class Movies extends Category<V3> {
     String? sessionId,
   }) {
     if (movieId < 1) {
-      throw InvalidDataException('movieId < 1 is true');
+      throw ArgumentError('movieId < 1 is true');
     }
 
     final para = <String>[];
@@ -607,7 +599,7 @@ class Movies extends Category<V3> {
     String? includeImageLanguage,
   }) {
     if (movieId < 1) {
-      throw InvalidDataException('movieId < 1 is true');
+      throw ArgumentError('movieId < 1 is true');
     }
 
     final para = <String>['language=$language'];
@@ -654,11 +646,10 @@ class Movies extends Category<V3> {
     String? guestSessionId,
   }) {
     if (movieId < 1) {
-      throw InvalidDataException('movieId<1');
+      throw ArgumentError('movieId<1');
     }
     if (sessionId == null && guestSessionId == null) {
-      throw NullValueException(
-          'sessionId==null && guestSessionId==null is true');
+      throw ArgumentError('sessionId==null && guestSessionId==null is true');
     }
     final para = <String>[];
     //only one is allowed

@@ -113,7 +113,7 @@ class TvSeasons extends Category<V3> {
     String language = 'en-US',
   }) {
     if (seasonNumber < 1 || tvId < 1) {
-      throw InvalidDataException('seasonNumber<1||tvId<1 is true');
+      throw ArgumentError('seasonNumber<1||tvId<1 is true');
     }
     return _v._query('tv/$tvId/$_endPoint/$seasonNumber/credits',
         optionalQueries: ['language=$language']);
@@ -130,7 +130,7 @@ class TvSeasons extends Category<V3> {
     String language = 'en-US',
   }) {
     if (tvId < 1 || seasonNumber < 1) {
-      throw InvalidDataException('tvId<1||seasonNumber<1 is true');
+      throw ArgumentError('tvId<1||seasonNumber<1 is true');
     }
 
     return _v._query('tv/$tvId/$_endPoint/$seasonNumber/external_ids',
@@ -144,7 +144,7 @@ class TvSeasons extends Category<V3> {
     String language = 'en-US',
   }) {
     if (tvId < 1 || seasonNumber < 1) {
-      throw InvalidDataException('tvId<1||seasonNumber<1 is true');
+      throw ArgumentError('tvId<1||seasonNumber<1 is true');
     }
 
     return _v._query('tv/$tvId/$_endPoint/$seasonNumber/images',
@@ -158,7 +158,7 @@ class TvSeasons extends Category<V3> {
     String language = 'en-US',
   }) {
     if (tvId < 1 || seasonNumber < 1) {
-      throw InvalidDataException('tvId<1||seasonNumber<1 is true');
+      throw ArgumentError('tvId<1||seasonNumber<1 is true');
     }
 
     return _v._query('tv/$tvId/$_endPoint/$seasonNumber/videos',

@@ -19,7 +19,7 @@ void main() {
         try {
           await tmdb.v3.lists.getDetails(null);
         } catch (e) {
-          expect(e is NullValueException, true);
+          expect(e is ArgumentError, true);
         }
       });
     });
@@ -35,7 +35,7 @@ void main() {
         try {
           await tmdb.v3.lists.checkItemStatus(null, null);
         } catch (e) {
-          expect(e is NullValueException, true);
+          expect(e is ArgumentError, true);
         }
       });
     });
@@ -53,7 +53,7 @@ void main() {
         try {
           await tmdb.v3.lists.checkItemStatus(null, null);
         } catch (e) {
-          expect(e is NullValueException, true);
+          expect(e is ArgumentError, true);
         }
       });
     });
@@ -68,7 +68,7 @@ void main() {
         try {
           await tmdb.v3.lists.addItem(null, null, null);
         } catch (e) {
-          expect(e is NullValueException, true);
+          expect(e is ArgumentError, true);
         }
       });
     });
@@ -84,7 +84,7 @@ void main() {
         try {
           await tmdb.v3.lists.removeItem(null, null, null);
         } catch (e) {
-          expect(e is NullValueException, true);
+          expect(e is ArgumentError, true);
         }
       });
     });
@@ -99,7 +99,7 @@ void main() {
         try {
           await tmdb.v3.lists.clearList(null, null);
         } catch (e) {
-          expect(e is NullValueException, true);
+          expect(e is ArgumentError, true);
         }
       });
     });
@@ -114,7 +114,7 @@ void main() {
         try {
           await tmdb.v3.lists.clearList(null, null);
         } catch (e) {
-          expect(e is NullValueException, true);
+          expect(e is ArgumentError, true);
         }
       });
     });

@@ -13,8 +13,8 @@ class TMDBException implements Exception {
   }
 }
 
-// todo: replace with ArgumentError
 ///Encountered a null value
+@Deprecated('This is of no use after migrating to nullsafety.')
 class NullValueException extends TMDBException {
   NullValueException(
     String message, {
@@ -28,8 +28,9 @@ class NullValueException extends TMDBException {
   }
 }
 
-// todo: replace with ArgumentError
 ///When constrains are not meet
+@Deprecated(
+    'Infavor of ArgumentException. This must be replaced with ArgumentException')
 class InvalidDataException extends TMDBException {
   InvalidDataException(
     String message, {
@@ -40,20 +41,5 @@ class InvalidDataException extends TMDBException {
   @override
   String toString() {
     return 'InvalidDataException() thrown message:$message | at source:$source | help:$help';
-  }
-}
-
-/// Socket exception from TMDB
-// todo: remove
-@Deprecated('Removed to support flutter web platform')
-class TMDBSocketException extends TMDBException {
-  TMDBSocketException(
-    String message, {
-    String? source,
-    String help = 'Check your internet connection.',
-  }) : super(message, source: source, help: help);
-  @override
-  String toString() {
-    return 'TMDBSocketException(message: $message,source: $source, help: $help)';
   }
 }

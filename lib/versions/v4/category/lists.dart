@@ -39,8 +39,7 @@ class ListsV4 extends Category<V4> {
     SortListBy sortListBy = SortListBy.orginalOrderAsc,
   }) {
     if (listId < 1 || page < 1 || page > 1000) {
-      throw InvalidDataException(
-          'listId < 1 || pageNo < 1 || pageNo > 1000 is true');
+      throw ArgumentError('listId < 1 || pageNo < 1 || pageNo > 1000 is true');
     }
 
     return _v._query('$_endPoint/$listId', postHeaders: {
@@ -149,7 +148,7 @@ class ListsV4 extends Category<V4> {
     String? iso6391,
   }) {
     if (listId < 1) {
-      throw InvalidDataException('listId < 1 is true');
+      throw ArgumentError('listId < 1 is true');
     }
 
     final postBody = <String, String>{};
@@ -169,7 +168,7 @@ class ListsV4 extends Category<V4> {
 
     //check if postBody is empty
     if (postBody.isEmpty) {
-      throw InvalidDataException('at least one parameter must be filled');
+      throw ArgumentError('at least one parameter must be filled');
     }
 
     return _v._query(
@@ -212,7 +211,7 @@ class ListsV4 extends Category<V4> {
   ///
   Future<Map> clearList(String accessToken, int listId) {
     if (listId < 1) {
-      throw InvalidDataException('listId < 1 is true');
+      throw ArgumentError('listId < 1 is true');
     }
 
     return _v._query(
@@ -247,7 +246,7 @@ class ListsV4 extends Category<V4> {
   /// ```
   Future<Map> deleteList(String accessToken, int listId) {
     if (listId < 1) {
-      throw InvalidDataException('listId < 1 is true');
+      throw ArgumentError('listId < 1 is true');
     }
 
     return _v._query(
@@ -308,7 +307,7 @@ class ListsV4 extends Category<V4> {
   /// ```
   Future<Map> addItems(String accessToken, int listId, List<ListItem> items) {
     if (listId < 1) {
-      throw InvalidDataException('listId < 1 is true');
+      throw ArgumentError('listId < 1 is true');
     }
 
     final postBody = <Map<String, dynamic>>[];
@@ -363,7 +362,7 @@ class ListsV4 extends Category<V4> {
     List<ListItem> items,
   ) {
     if (listId < 1) {
-      throw InvalidDataException('listId < 1 is true');
+      throw ArgumentError('listId < 1 is true');
     }
 
     final postBody = <Map<String, dynamic>>[];
@@ -418,7 +417,7 @@ class ListsV4 extends Category<V4> {
     List<ListItem> items,
   ) {
     if (listId < 1) {
-      throw InvalidDataException('listId < 1 is true');
+      throw ArgumentError('listId < 1 is true');
     }
 
     final postBody = <Map<String, dynamic>>[];
@@ -475,7 +474,7 @@ class ListsV4 extends Category<V4> {
     MediaType mediaType,
   ) {
     if (listId < 1 || mediaId < 1) {
-      throw InvalidDataException('listId < 1 || mediaId < 1 is true');
+      throw ArgumentError('listId < 1 || mediaId < 1 is true');
     }
 
     return _v._query('$_endPoint/$listId/item_status', postHeaders: {
