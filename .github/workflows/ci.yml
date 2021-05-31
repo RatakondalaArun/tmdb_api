@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  tests:
+    name: 🧪 Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: 🔧 Setup Dart SDK
+        uses: dart-lang/setup-dart@v1.0
+
+      - name: ⏬ Install dependencies
+        run: dart pub get
+
+      - name: 🌏 Set Env variables and Run Tests
+        env:
+          API_V3: ${{ secrets.API_KEY_V3 }}
+          API_V4: ${{ secrets.API_KEY_V4 }}
+        run: dart test

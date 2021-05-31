@@ -1,22 +1,18 @@
-name: Dart pub analyser
+name: Dart Code Analysis
 
 on: [push]
 
 jobs:
-
   package-analysis:
-
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2 # required
+      - uses: actions/checkout@v3 # required
 
       - uses: axel-op/dart-package-analyzer@stable
         id: analysis
         with:
-          # Required:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Optional:
           minAnnotationLevel: info
 
       - name: Check scores

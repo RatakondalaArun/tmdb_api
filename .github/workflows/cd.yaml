@@ -1,0 +1,61 @@
+name: CD
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  tests:
+    name: 🧪 Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: 🔧 Setup Dart SDK
+        uses: dart-lang/setup-dart@v1.0
+
+      - name: ⏬ Get Depdendencies
+        run: dart pub get
+
+      - name: 🧪 Run tests
+        run: dart test
+
+      - name: 🧬 Analyze
+        run: dart analyze
+
+  publish:
+    name: 🚀 Publish to pub.dev
+    runs-on: ubuntu-latest
+    needs: [tests]
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: 🔧 Setup Dart SDK
+        uses: dart-lang/setup-dart@v1.0
+
+      - name: 🚀Publish
+        uses: RatakondalaArun/pub.dev-cd@v1
+        with:
+          creditionals: ${{secrets.PUB_CREDITIONALS}}
+
+  docs:
+    name: 📄 Publish docs to Github pages
+    runs-on: ubuntu-latest
+    needs: [publish]
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: 📐 Setup Dart SDK
+        uses: dart-lang/setup-dart@v1.0
+
+      - name: 🧬 Generate docs
+        run: dartdoc --output docs
+
+      - name: 🌳 tree
+        run: tree
+
+      - name: 📢 Publish docs
+        uses: JamesIves/github-pages-deploy-action@4.1.2
+        with:
+          branch: docs
+          folder: docs
