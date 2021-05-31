@@ -7,6 +7,7 @@
   <meta name="description" content="API docs for the errorLog method from the LogTypes class, for the Dart programming language.">
   <title>errorLog method - LogTypes class - tmdb_api library - Dart API</title>
 
+
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
@@ -15,7 +16,9 @@
   <link rel="stylesheet" href="../../static-assets/styles.css">
   <link rel="icon" href="../../static-assets/favicon.png">
 
+  
 </head>
+
 
 <body data-base-href="../../"
       data-using-base-href="false">
@@ -38,20 +41,22 @@
 
 <main>
 
+
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <header id="header-search-sidebar" class="hidden-l">
-      <form class="search-sidebar" role="search">
-        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
-      </form>
-    </header>
-    
-    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-      <li><a href="../../index.html">tmdb_api</a></li>
-      <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
-      <li><a href="../../tmdb_api/LogTypes-class.html">LogTypes</a></li>
-      <li class="self-crumb">errorLog method</li>
-    </ol>
-    
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">tmdb_api</a></li>
+  <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+  <li><a href="../../tmdb_api/LogTypes-class.html">LogTypes</a></li>
+  <li class="self-crumb">errorLog method</li>
+</ol>
+
+
     <h5>LogTypes class</h5>
     <ol>
 
@@ -62,19 +67,19 @@
     <li class="section-title inherited">
       <a href="../../tmdb_api/LogTypes-class.html#instance-properties">Properties</a>
     </li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../tmdb_api/LogTypes-class.html#instance-methods">Methods</a></li>
     <li><a href="../../tmdb_api/LogTypes/errorLog.html">errorLog</a></li>
     <li><a href="../../tmdb_api/LogTypes/infoLog.html">infoLog</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/toString.html">toString</a></li>
     <li><a href="../../tmdb_api/LogTypes/urlLog.html">urlLog</a></li>
     <li><a href="../../tmdb_api/LogTypes/warningLog.html">warningLog</a></li>
 
     <li class="section-title inherited"><a href="../../tmdb_api/LogTypes-class.html#operators">Operators</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/operator_equals.html">operator ==</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
 
@@ -84,26 +89,34 @@
   </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-main-content" class="main-content">
-      <div><h1><span class="kind-method">errorLog</span> method </h1></div>
+      <div>
+<h1><span class="kind-method">errorLog</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
 
     <section class="multi-line-signature">
-      <span class="returntype">void</span>
-            <span class="name ">errorLog</span>
-(<wbr><ol class="parameter-list"><li><span class="parameter" id="errorLog-param-msg"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">msg</span></span></li>
-</ol>)
       
+
+<span class="returntype">void</span>
+<span class="name ">errorLog</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="errorLog-param-msg"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">msg</span></span></li>
+</ol>)
+
+      
+
     </section>
     
-    <section class="summary source-code" id="source">
-      <h2><span>Implementation</span></h2>
-      <pre class="language-dart"><code class="language-dart">void errorLog(String msg) {
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">void errorLog(String msg) {
   if (_logger._config.showLogs &amp;&amp; _logger._config.showLogs) {
-    Colorize coloredString = Colorize(&#39;TMDB_API--LOG(🔴) --ERROR-- $msg&#39;);
-    coloredString.red();
-    print(coloredString);
+    print(Colorize(&#39;TMDB_API--LOG(🔴) --ERROR-- $msg&#39;)..red());
   }
 }</code></pre>
-    </section>
+</section>
+
 
   </div> <!-- /.main-content -->
 
@@ -115,17 +128,19 @@
 <footer>
   <span class="no-break">
     tmdb_api
-      1.2.7
+      2.0.0-nullsafety
   </span>
 
+  
 </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="../../static-assets/typeahead.bundle.min.js"></script>
+
 <script src="../../static-assets/highlight.pack.js"></script>
 <script src="../../static-assets/script.js"></script>
+
 
 
 </body>
 
 </html>
+

@@ -7,6 +7,7 @@
   <meta name="description" content="API docs for the deleteSession method from the Auth class, for the Dart programming language.">
   <title>deleteSession method - Auth class - tmdb_api library - Dart API</title>
 
+
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
@@ -15,7 +16,9 @@
   <link rel="stylesheet" href="../../static-assets/styles.css">
   <link rel="icon" href="../../static-assets/favicon.png">
 
+  
 </head>
+
 
 <body data-base-href="../../"
       data-using-base-href="false">
@@ -38,20 +41,22 @@
 
 <main>
 
+
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <header id="header-search-sidebar" class="hidden-l">
-      <form class="search-sidebar" role="search">
-        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
-      </form>
-    </header>
-    
-    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-      <li><a href="../../index.html">tmdb_api</a></li>
-      <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
-      <li><a href="../../tmdb_api/Auth-class.html">Auth</a></li>
-      <li class="self-crumb">deleteSession method</li>
-    </ol>
-    
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">tmdb_api</a></li>
+  <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+  <li><a href="../../tmdb_api/Auth-class.html">Auth</a></li>
+  <li class="self-crumb">deleteSession method</li>
+</ol>
+
+
     <h5>Auth class</h5>
     <ol>
 
@@ -62,8 +67,8 @@
     <li class="section-title inherited">
       <a href="../../tmdb_api/Auth-class.html#instance-properties">Properties</a>
     </li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../tmdb_api/Auth-class.html#instance-methods">Methods</a></li>
     <li><a href="../../tmdb_api/Auth/createGuestSession.html">createGuestSession</a></li>
@@ -73,11 +78,11 @@
     <li><a href="../../tmdb_api/Auth/createSessionWithLogin.html">createSessionWithLogin</a></li>
     <li><a href="../../tmdb_api/Auth/deleteSession.html">deleteSession</a></li>
     <li><a href="../../tmdb_api/Auth/getValidationUrl.html">getValidationUrl</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../tmdb_api/Auth-class.html#operators">Operators</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.12.4/dart-core/Object/operator_equals.html">operator ==</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.1/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
 
@@ -87,40 +92,46 @@
   </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-main-content" class="main-content">
-      <div><h1><span class="kind-method">deleteSession</span> method </h1></div>
+      <div>
+<h1><span class="kind-method">deleteSession</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
 
     <section class="multi-line-signature">
-      <span class="returntype"><a href="https://api.dart.dev/stable/2.12.4/dart-async/Future-class.html">Future</a></span>
-            <span class="name ">deleteSession</span>
-(<wbr><ol class="parameter-list"><li><span class="parameter" id="deleteSession-param-sessionId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.12.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">sessionId</span></span></li>
-</ol>)
       
+
+<span class="returntype"><a href="https://api.dart.dev/stable/2.13.1/dart-async/Future-class.html">Future</a></span>
+<span class="name ">deleteSession</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="deleteSession-param-sessionId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">sessionId</span></span></li>
+</ol>)
+
+      
+
     </section>
-    <section class="desc markdown">
-      <p>If you would like to delete (or "logout") from a session,
+    
+<section class="desc markdown">
+  <p>If you would like to delete (or "logout") from a session,
 call this method with a valid session ID.</p>
 <h2 id="parameters">Parameters</h2>
 <p><code>sessionId</code>: if of current session</p>
-    </section>
+</section>
+
+
     
-    <section class="summary source-code" id="source">
-      <h2><span>Implementation</span></h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;dynamic&gt; deleteSession(String sessionId) async {
-  if (sessionId == null) {
-    throw NullValueException(&#39;sessionId==null is true&#39;,
-        source: &#39;auth.deleteSession($sessionId)&#39;);
-  }
-  Map result = await _v3._query(&#39;authentication&#47;session&#39;,
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;dynamic&gt; deleteSession(String sessionId) async {
+  final result = await _v._query(&#39;authentication&#47;session&#39;,
       postHeaders: {&#39;session_id&#39;: sessionId},
       method: HttpMethod.DELETE,
       deleteBody: {&#39;session_id&#39;: &#39;$sessionId&#39;});
 
-  Logger(_v3._tmdb.logConfig)
+  Logger(_v._tmdb.logConfig)
       .logTypes
       .infoLog(&#39;deleteSession result ${result.toString()}&#39;);
   return result;
 }</code></pre>
-    </section>
+</section>
+
 
   </div> <!-- /.main-content -->
 
@@ -132,17 +143,19 @@ call this method with a valid session ID.</p>
 <footer>
   <span class="no-break">
     tmdb_api
-      1.2.7
+      2.0.0-nullsafety
   </span>
 
+  
 </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="../../static-assets/typeahead.bundle.min.js"></script>
+
 <script src="../../static-assets/highlight.pack.js"></script>
 <script src="../../static-assets/script.js"></script>
+
 
 
 </body>
 
 </html>
+
