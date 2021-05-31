@@ -18,6 +18,9 @@ jobs:
         run: dart pub get
 
       - name: 🧪 Run tests
+        env:
+          API_V3: ${{ secrets.API_KEY_V3 }}
+          API_V4: ${{ secrets.API_KEY_V4 }}
         run: dart test
 
       - name: 🧬 Analyze
