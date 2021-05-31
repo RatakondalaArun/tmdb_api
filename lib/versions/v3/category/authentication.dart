@@ -25,7 +25,7 @@ class Auth extends Category<V3> {
   /// String guestSessionId = await tmdb.v3.auth.createGuestSession();
   /// print(result);
   /// //result in  Map
-  /// Map result = await tmdb.v3.auth.createGuestSession(asMap: true);
+  /// final result = await tmdb.v3.auth.createGuestSession(asMap: true);
   /// print(result);
   /// ```
   /// ## Result
@@ -46,7 +46,7 @@ class Auth extends Category<V3> {
   /// else returns null
   ///
   Future<dynamic> createGuestSession({bool asMap = false}) async {
-    Map result = await _v._query('authentication/guest_session/new');
+    final result = await _v._query('authentication/guest_session/new');
     if (asMap) {
       return result;
     }
@@ -233,7 +233,7 @@ class Auth extends Category<V3> {
     String accessToken, {
     bool asMap = false,
   }) async {
-    Map result = await _v._query('authentication/session/convert/4',
+    final result = await _v._query('authentication/session/convert/4',
         method: HttpMethod.POST, postBody: {'access_token': accessToken});
     if (asMap) {
       return result;
@@ -249,7 +249,7 @@ class Auth extends Category<V3> {
   /// ## Parameters
   ///`sessionId`: if of current session
   Future<dynamic> deleteSession(String sessionId) async {
-    Map result = await _v._query('authentication/session',
+    final result = await _v._query('authentication/session',
         postHeaders: {'session_id': sessionId},
         method: HttpMethod.DELETE,
         deleteBody: {'session_id': '$sessionId'});

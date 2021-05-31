@@ -104,7 +104,7 @@ class Search extends Category<V3> {
     int page = 1,
   }) {
     //this parameters should not be nll so adding first
-    List<String> optionalQueries = [
+    final optionalQueries = <String>[
       'query=$query',
       'include_adult=$includeAdult',
       'language=$language',
@@ -154,7 +154,7 @@ class Search extends Category<V3> {
     int page = 1,
   }) {
     //not null parameters
-    List<String> optionalQueries = [
+    final optionalQueries = <String>[
       'query=$query',
       'includeAdult=$includeAdult',
       'language=$language',
@@ -196,7 +196,7 @@ class Search extends Category<V3> {
     int page = 1,
   }) {
     //not null parameters
-    List<String> optionalQueries = [
+    final optionalQueries = <String>[
       'query=$query',
       'includeAdult=$includeAdult',
       'language=$language',
@@ -236,7 +236,7 @@ class Search extends Category<V3> {
     String language = 'en-US',
     int page = 1,
   }) {
-    List<String> optionalQueries = [
+    final optionalQueries = <String>[
       'query=$query',
       'language=$language',
       'page=$page'

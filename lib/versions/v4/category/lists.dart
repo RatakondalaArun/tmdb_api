@@ -152,7 +152,7 @@ class ListsV4 extends Category<V4> {
       throw InvalidDataException('listId < 1 is true');
     }
 
-    Map<String, String> postBody = {};
+    final postBody = <String, String>{};
     //only updated values will be added
     if (listName != null) {
       postBody.addAll({'name': listName});
@@ -311,7 +311,7 @@ class ListsV4 extends Category<V4> {
       throw InvalidDataException('listId < 1 is true');
     }
 
-    List<Map<String, dynamic>> postBody = [];
+    final postBody = <Map<String, dynamic>>[];
     items.forEach((item) => postBody.add(item._toMap()));
 
     return _v._query(
@@ -366,7 +366,7 @@ class ListsV4 extends Category<V4> {
       throw InvalidDataException('listId < 1 is true');
     }
 
-    List<Map<String, dynamic>> postBody = [];
+    final postBody = <Map<String, dynamic>>[];
     items.forEach((item) => postBody.add(item._toMap()));
 
     return _v._query(
@@ -421,7 +421,7 @@ class ListsV4 extends Category<V4> {
       throw InvalidDataException('listId < 1 is true');
     }
 
-    List<Map<String, dynamic>> postBody = [];
+    final postBody = <Map<String, dynamic>>[];
     items.forEach((item) {
       postBody.add(item._toMap());
     });

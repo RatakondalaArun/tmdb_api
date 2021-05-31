@@ -154,7 +154,7 @@ class Lists extends Category<V3> {
     return _v._query(
       '$_endPoint/${listId.toString()}/remove_item',
       method: HttpMethod.POST,
-      postBody: {'media_id': "$mediaId"},
+      postBody: {'media_id': '$mediaId'},
       optionalQueries: ['session_id=$sessionId'],
     );
   }

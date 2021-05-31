@@ -5,10 +5,10 @@ import '../../../init_script.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 void main() {
-  TMDB tmdb = TMDB(ApiKeys(Keys.API!, Keys.API_V4!));
+  final tmdb = TMDB(ApiKeys(Keys.API!, Keys.API_V4!));
   group('Account', () {
     test('without prameters', () async {
-      Map result = await tmdb.v3.account
+      final result = await tmdb.v3.account
           .getDetails('5129b38561c99f577bd85cc7f2ff47bb79735902');
       print(result);
       expect(result is Map, true);
@@ -17,7 +17,7 @@ void main() {
 
     group('get Created Lists', () {
       test('without prameters', () async {
-        Map result = await tmdb.v3.account.getCreatedLists(
+        final result = await tmdb.v3.account.getCreatedLists(
             '5129b38561c99f577bd85cc7f2ff47bb79735902', 8890102);
         print(result);
         expect(result is Map, true);
@@ -27,7 +27,7 @@ void main() {
 
     group('get Favorite movies', () {
       test('without prameters', () async {
-        Map result = await tmdb.v3.account.getFavoriteMovies(
+        final result = await tmdb.v3.account.getFavoriteMovies(
             '5129b38561c99f577bd85cc7f2ff47bb79735902', 8890102);
         print(result);
         expect(result is Map, true);
@@ -37,7 +37,7 @@ void main() {
 
     group('get Favorite tv', () {
       test('without prameters', () async {
-        Map result = await tmdb.v3.account.getFavoriteTvShows(
+        final result = await tmdb.v3.account.getFavoriteTvShows(
             '5129b38561c99f577bd85cc7f2ff47bb79735902', 8890102);
         print(result);
         expect(result is Map, true);
@@ -47,7 +47,7 @@ void main() {
 
     group('mark Favorite', () {
       test('without prameters', () async {
-        Map result = await tmdb.v3.account.markAsFavorite(
+        final result = await tmdb.v3.account.markAsFavorite(
             '5129b38561c99f577bd85cc7f2ff47bb79735902',
             8890102,
             550,
@@ -60,7 +60,7 @@ void main() {
 
     group('rated movies', () {
       test('without prameters', () async {
-        Map result = await tmdb.v3.account.getRatedMovies(
+        final result = await tmdb.v3.account.getRatedMovies(
             '5129b38561c99f577bd85cc7f2ff47bb79735902', 8890102);
         print(result);
         expect(result is Map, true);
@@ -70,7 +70,7 @@ void main() {
 
     group('rated tv shows', () {
       test('without prameters', () async {
-        Map result = await tmdb.v3.account.getRatedTvShows(
+        final result = await tmdb.v3.account.getRatedTvShows(
             '5129b38561c99f577bd85cc7f2ff47bb79735902', 8890102);
         print(result);
         expect(result is Map, true);
@@ -80,7 +80,7 @@ void main() {
 
     group('rated tv Episodes', () {
       test('without prameters', () async {
-        Map result = await tmdb.v3.account.getRatedTvEpisodes(
+        final result = await tmdb.v3.account.getRatedTvEpisodes(
             '5129b38561c99f577bd85cc7f2ff47bb79735902', 8890102);
         print(result);
         expect(result is Map, true);
@@ -90,7 +90,7 @@ void main() {
 
     group('get movie watchlist', () {
       test('without prameters', () async {
-        Map result = await tmdb.v3.account.getMovieWatchList(
+        final result = await tmdb.v3.account.getMovieWatchList(
             '5129b38561c99f577bd85cc7f2ff47bb79735902', 8890102);
         print(result);
         expect(result is Map, true);
@@ -100,7 +100,7 @@ void main() {
 
     group('get tv watchlist', () {
       test('without prameters', () async {
-        Map result = await tmdb.v3.account.getTvShowWatchList(
+        final result = await tmdb.v3.account.getTvShowWatchList(
             '5129b38561c99f577bd85cc7f2ff47bb79735902', 8890102);
         print(result);
         expect(result is Map, true);
@@ -110,7 +110,7 @@ void main() {
 
     group('add to watchlist', () {
       test('without prameters', () async {
-        Map result = await tmdb.v3.account.addToWatchList(
+        final result = await tmdb.v3.account.addToWatchList(
           '5129b38561c99f577bd85cc7f2ff47bb79735902',
           8890102,
           34,

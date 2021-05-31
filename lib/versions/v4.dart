@@ -88,14 +88,13 @@ class V4 extends Version {
   Future<http.Response> _httpDelete(Uri url, Map<String, dynamic>? deleteBody,
       Map<String, String>? deleteHeaders) async {
     try {
-      http.Request request = http.Request('DELETE', Uri.parse(url.toString()))
+      final request = http.Request('DELETE', Uri.parse(url.toString()))
         ..headers.addAll(deleteHeaders ??
             {'Content-Type': 'application/x-www-form-urlencoded'});
       // request.bodyFields = deleteBody;
       request.body = jsonEncode(deleteBody);
 
-      http.Response response =
-          await http.Response.fromStream(await request.send());
+      final response = await http.Response.fromStream(await request.send());
       return response;
     } catch (e) {
       rethrow;

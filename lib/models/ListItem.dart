@@ -38,8 +38,8 @@ class ListItem {
   Map<String, dynamic> _toMap() {
     return {
       'media_type': _getMediaType(mediaType),
-      'media_id': '${this.mediaId}',
-      'comment': this.comment
+      'media_id': '$mediaId',
+      'comment': comment
     };
   }
 

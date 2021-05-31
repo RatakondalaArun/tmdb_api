@@ -26,7 +26,7 @@ class Changes extends Category<V3> {
     String? startDate,
     int page = 1,
   }) {
-    List<String> para = [];
+    final para = <String>[];
     if (endDate != null) {
       para.add('end_date=$endDate');
     }
@@ -60,7 +60,7 @@ class Changes extends Category<V3> {
     String? startDate,
     int page = 1,
   }) {
-    List<String> para = [];
+    final para = <String>[];
     if (endDate != null) {
       para.add('end_date=$endDate');
     }
@@ -93,7 +93,7 @@ class Changes extends Category<V3> {
     String? startDate,
     int page = 1,
   }) {
-    List<String> para = [];
+    final para = <String>[];
     if (endDate != null) {
       para.add('end_date=$endDate');
     }

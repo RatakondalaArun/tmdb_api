@@ -30,7 +30,7 @@ class People extends Category<V3> {
       throw InvalidDataException('personId < 1 is true');
     }
 
-    List<String> para = ['language=$language'];
+    final para = <String>['language=$language'];
     if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
     }

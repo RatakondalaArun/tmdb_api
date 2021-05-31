@@ -332,7 +332,7 @@ class Movies extends Category<V3> {
           'movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    List<String> para = ['language=$language', 'page=$page'];
+    final para = <String>['language=$language', 'page=$page'];
     if (region != null) {
       para.add('region=$region');
     }
@@ -369,7 +369,7 @@ class Movies extends Category<V3> {
           'movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    List<String> para = ['language=$language', 'page=$page'];
+    final para = <String>['language=$language', 'page=$page'];
     if (region != null) {
       para.add('region=$region');
     }
@@ -404,7 +404,7 @@ class Movies extends Category<V3> {
           'movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    List<String> para = ['language=$language', 'page=$page'];
+    final para = <String>['language=$language', 'page=$page'];
     if (region != null) {
       para.add('region=$region');
     }
@@ -446,7 +446,7 @@ class Movies extends Category<V3> {
           'movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    List<String> para = ['language=$language', 'page=$page'];
+    final para = <String>['language=$language', 'page=$page'];
     if (region != null) {
       para.add('region=$region');
     }
@@ -526,7 +526,7 @@ class Movies extends Category<V3> {
           'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
     }
 
-    List<String> para = [];
+    final para = <String>[];
     //only one is allowed
     if (sessionId != null) {
       para.add('session_id=$sessionId');
@@ -573,7 +573,7 @@ class Movies extends Category<V3> {
       throw InvalidDataException('movieId < 1 is true');
     }
 
-    List<String> para = [];
+    final para = <String>[];
     //only one is allowed
     if (sessionId != null) {
       para.add('session_id=$sessionId');
@@ -610,7 +610,7 @@ class Movies extends Category<V3> {
       throw InvalidDataException('movieId < 1 is true');
     }
 
-    List<String> para = ['language=$language'];
+    final para = <String>['language=$language'];
     if (includeImageLanguage != null) {
       para.add('include_image_language=$includeImageLanguage');
     }
@@ -660,7 +660,7 @@ class Movies extends Category<V3> {
       throw NullValueException(
           'sessionId==null && guestSessionId==null is true');
     }
-    List<String> para = [];
+    final para = <String>[];
     //only one is allowed
     if (sessionId != null) {
       para.add('session_id=$sessionId');

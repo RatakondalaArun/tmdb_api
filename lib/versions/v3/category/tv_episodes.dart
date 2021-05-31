@@ -30,7 +30,7 @@ class TvEpisodes extends Category<V3> {
     String? appendToResponse,
     String language = 'en-US',
   }) {
-    List<String> para = ['language=$language'];
+    final para = <String>['language=$language'];
     if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
     }
@@ -61,7 +61,7 @@ class TvEpisodes extends Category<V3> {
     String? endDate,
     int page = 1,
   }) {
-    List<String> para = ['page=$page'];
+    final para = <String>['page=$page'];
     if (startDate != null) {
       para.add('start_date=$startDate');
     }

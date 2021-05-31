@@ -6,7 +6,7 @@ import '../../../init_script.dart' as user;
 import 'package:tmdb_api/tmdb_api.dart';
 
 void main() {
-  TMDB tmdb = TMDB(ApiKeys(Keys.API!, Keys.API_V4!));
+  final tmdb = TMDB(ApiKeys(Keys.API!, Keys.API_V4!));
   group('Authentication', () {
     group('Request token', () {
       test('As String', () async {
@@ -51,7 +51,7 @@ void main() {
 
     group('>delete session', () {
       test('>with session id', () async {
-        Map result = await (tmdb.v3.auth
+        final result = await (tmdb.v3.auth
             .deleteSession('98097f2cd6af83f272ccbcfa93960723a940f87b'));
         print(result);
         expect(result is Map, true);

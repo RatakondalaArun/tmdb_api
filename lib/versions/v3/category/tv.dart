@@ -27,7 +27,7 @@ class Tv extends Category<V3> {
       throw InvalidDataException('tvId<1 is true');
     }
 
-    List<String> para = ['language=$language'];
+    final para = <String>['language=$language'];
     if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
     }
@@ -473,7 +473,7 @@ class Tv extends Category<V3> {
           'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
     }
 
-    List<String> para = [];
+    final para = <String>[];
     //only one is allowed
     if (sessionId != null) {
       para.add('session_id=$sessionId');
@@ -521,7 +521,7 @@ class Tv extends Category<V3> {
           'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
     }
 
-    List<String> para = [];
+    final para = <String>[];
     //only one is allowed
     if (sessionId != null) {
       para.add('session_id=$sessionId');
@@ -558,7 +558,7 @@ class Tv extends Category<V3> {
       throw InvalidDataException('tvId < 1 is true');
     }
 
-    List<String> para = ['language=$language'];
+    final para = <String>['language=$language'];
     if (includeImageLanguage != null) {
       para.add('include_image_language=$includeImageLanguage');
     }
@@ -608,7 +608,7 @@ class Tv extends Category<V3> {
       throw NullValueException(
           'sessionId==null && guestSessionId==null is true');
     }
-    List<String> para = [];
+    final para = <String>[];
     //only one is allowed
     if (sessionId != null) {
       para.add('session_id=$sessionId');

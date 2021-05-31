@@ -15,15 +15,12 @@ class TMDBException implements Exception {
 
 // todo: replace with ArgumentError
 ///Encountered a null value
-class NullValueException implements TMDBException {
-  final String message;
-  final String? source;
-  final String help;
+class NullValueException extends TMDBException {
   NullValueException(
-    this.message, {
-    this.source,
-    this.help = 'try to pass a non null values',
-  });
+    String message, {
+    String? source,
+    String help = 'try to pass a non null values',
+  }) : super(message, source: source, help: help);
 
   @override
   String toString() {
@@ -33,15 +30,12 @@ class NullValueException implements TMDBException {
 
 // todo: replace with ArgumentError
 ///When constrains are not meet
-class InvalidDataException implements TMDBException {
-  final String message;
-  final String? source;
-  final String help;
+class InvalidDataException extends TMDBException {
   InvalidDataException(
-    this.message, {
-    this.source,
-    this.help = 'Data is invalid',
-  });
+    String message, {
+    String? source,
+    String help = 'Data is invalid',
+  }) : super(message, source: source, help: help);
 
   @override
   String toString() {
@@ -52,15 +46,12 @@ class InvalidDataException implements TMDBException {
 /// Socket exception from TMDB
 // todo: remove
 @Deprecated('Removed to support flutter web platform')
-class TMDBSocketException implements TMDBException {
-  final String message;
-  final String? source;
-  final String help;
+class TMDBSocketException extends TMDBException {
   TMDBSocketException(
-    this.message, {
-    this.source,
-    this.help = 'Check your internet connection.',
-  });
+    String message, {
+    String? source,
+    String help = 'Check your internet connection.',
+  }) : super(message, source: source, help: help);
   @override
   String toString() {
     return 'TMDBSocketException(message: $message,source: $source, help: $help)';

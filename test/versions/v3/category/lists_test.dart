@@ -6,11 +6,12 @@ import '../../../init_script.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 void main() {
-  TMDB tmdb = TMDB(ApiKeys(Keys.API!, Keys.API_V4!));
+  final tmdb = TMDB(ApiKeys(Keys.API!, Keys.API_V4!));
   group('Lists', () {
     group('>details', () {
       test('>get Details', () async {
-        Map result = await tmdb.v3.lists.getDetails('50941077760ee35e1500000c');
+        final result =
+            await tmdb.v3.lists.getDetails('50941077760ee35e1500000c');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -25,7 +26,7 @@ void main() {
 
     group('>Check item status', () {
       test('>checking', () async {
-        Map result = await tmdb.v3.lists
+        final result = await tmdb.v3.lists
             .checkItemStatus('50941077760ee35e1500000c', 123);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
@@ -40,7 +41,7 @@ void main() {
     });
     group('>Create list', () {
       test('>checking', () async {
-        Map result = await tmdb.v3.lists.createList(
+        final result = await tmdb.v3.lists.createList(
             '21b318c9b6fbaa28c62cb3a60796ad3b481fd20a',
             'testing this api',
             'lol move time');
@@ -58,7 +59,7 @@ void main() {
     });
     group('>Add movie', () {
       test('>checking', () async {
-        Map result = await tmdb.v3.lists
+        final result = await tmdb.v3.lists
             .addItem('21b318c9b6fbaa28c62cb3a60796ad3b481fd20a', '134721', 12);
         expect(result is Map, true);
         print(result);
@@ -73,7 +74,7 @@ void main() {
     });
     group('>Remove item', () {
       test('>checking', () async {
-        Map result = await tmdb.v3.lists.removeItem(
+        final result = await tmdb.v3.lists.removeItem(
             '98097f2cd6af83f272ccbcfa93960723a940f87b', '134721', 12);
         expect(result is Map, true);
         // expect(result['status_message'],
@@ -90,7 +91,7 @@ void main() {
 
     group('>Clear list', () {
       test('>checking', () async {
-        Map result = await tmdb.v3.lists
+        final result = await tmdb.v3.lists
             .clearList('98097f2cd6af83f272ccbcfa93960723a940f87b', '134721');
         expect(result is Map, true);
       });
@@ -105,7 +106,7 @@ void main() {
 
     group('>Delete list', () {
       test('>checking', () async {
-        Map result = await tmdb.v3.lists
+        final result = await tmdb.v3.lists
             .deleteList('98097f2cd6af83f272ccbcfa93960723a940f87b', '134721');
         expect(result is Map, true);
       });

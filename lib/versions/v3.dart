@@ -132,13 +132,14 @@ class V3 extends Version {
   //http.delete doesn't provide a body
   //so created this
   Future<http.Response> _httpDelete(
-      Uri url, Map<String, String> deleteBody) async {
-    http.Request request = http.Request('DELETE', Uri.parse(url.toString()))
+    Uri url,
+    Map<String, String> deleteBody,
+  ) async {
+    final request = http.Request('DELETE', Uri.parse(url.toString()))
       ..headers.addAll({'Content-Type': 'application/x-www-form-urlencoded'});
     request.bodyFields = deleteBody;
 
-    http.Response response =
-        await http.Response.fromStream(await request.send());
+    final response = await http.Response.fromStream(await request.send());
     return response;
   }
 }

@@ -1,19 +1,19 @@
 import 'package:tmdb_api/tmdb_api.dart';
 
-main(List<String> args) async {
+void main(List<String> args) async {
   //api with out console logs
-  TMDB tmdb = TMDB(ApiKeys('Your API KEY', 'apiReadAccessTokenv4'));
+  final tmdb = TMDB(ApiKeys('Your API KEY', 'apiReadAccessTokenv4'));
   print(await tmdb.v3.movies.getPouplar());
 
   //api with showing all console logs
-  TMDB tmdbWithLogs = TMDB(
+  final tmdbWithLogs = TMDB(
     ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
     logConfig: ConfigLogger.showAll(),
   );
   print(await tmdbWithLogs.v3.movies.getPouplar());
 
   //api with showing all console logs
-  TMDB tmdbWithCustomLogs = TMDB(
+  final tmdbWithCustomLogs = TMDB(
     ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
     logConfig: ConfigLogger(
       //must be true than only all other logs will be shown

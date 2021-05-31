@@ -56,7 +56,7 @@ class Discover extends Category<V3> {
     String? withOrginalLanguage,
   }) {
     //all the default values
-    List<String> queries = [
+    final queries = <String>[
       'language=$language',
       'sort_by=${_getSortMovieBy(sortBy)}',
       'page=$page',
@@ -212,7 +212,7 @@ class Discover extends Category<V3> {
     String? withCompanies,
   }) {
     //all the default values
-    List<String> queries = [
+    final queries = <String>[
       'language=$language',
       'sort_by=${_getSortTvShowsBy(sortBy)}',
       'page=$page',
