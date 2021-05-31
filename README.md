@@ -1,8 +1,7 @@
 # tmdb_api
 
 [![Dart Code Analysis](https://github.com/RatakondalaArun/tmdb_api/actions/workflows/analysis.yml/badge.svg)](https://github.com/RatakondalaArun/tmdb_api/actions/workflows/analysis.yml)
-![Dart pub analyser](https://github.com/Arunnaidu3470/tmdb_api/workflows/Dart%20pub%20analyser/badge.svg?branch=master)
-![Run Tests CI](https://github.com/RatakondalaArun/tmdb_api/workflows/Run%20Tests%20CI/badge.svg)
+[![CI](https://github.com/RatakondalaArun/tmdb_api/actions/workflows/ci.yml/badge.svg)](https://github.com/RatakondalaArun/tmdb_api/actions/workflows/ci.yml)
 [![pub package](https://img.shields.io/pub/v/tmdb_api?color=dark%20green&include_prereleases&label=pub%20package&logo=dart)](https://pub.dartlang.org/packages/tmdb_api)
 <!-- markdownlint-disable MD033 -->
 <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" height=100px width="50%"><img src="https://dart.dev/assets/shared/dart/logo+text/horizontal/white-e71fb382ad5229792cc704b3ee7a88f8013e986d6e34f0956d89c453b454d0a5.svg" height="100px" width="50%">
