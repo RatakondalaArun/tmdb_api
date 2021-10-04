@@ -115,9 +115,11 @@ class V3 extends Version {
       return jsonDecode(response.body)! as Map;
     } catch (e) {
       Logger(_tmdb.logConfig).logTypes.errorLog(
-          'Exception while making a request. Exception = {${e.toString()}');
+            'Exception while making a request. Exception = {${e.toString()}',
+          );
       Logger(_tmdb.logConfig).logTypes.infoLog(
-          'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues');
+            'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues',
+          );
       //if error is unknown rethrow it
       rethrow;
     }
@@ -126,7 +128,7 @@ class V3 extends Version {
   String _optionalQueries(List<String>? queries, String currentQuery) {
     return (queries == null || queries.isEmpty)
         ? currentQuery
-        : currentQuery + '&' + queries.join('&');
+        : '$currentQuery&${queries.join('&')}';
   }
 
   //http.delete doesn't provide a body
