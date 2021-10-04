@@ -244,7 +244,7 @@ class Account extends Category<V3> {
     }
 
     return _v._query('$_endPoint/$accountId/favorite',
-        method: HttpMethod.POST,
+        method: HttpMethod.post,
         optionalQueries: [
           'session_id=$sessionId'
         ],
@@ -607,7 +607,7 @@ class Account extends Category<V3> {
     }
 
     return _v._query('$_endPoint/$accountId/watchlist',
-        method: HttpMethod.POST,
+        method: HttpMethod.post,
         optionalQueries: [
           'session_id=$sessionId'
         ],

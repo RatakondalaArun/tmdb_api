@@ -88,7 +88,7 @@ class ListsV4 extends Category<V4> {
     bool isPublic = true,
     iso6391 = 'en',
   }) {
-    return _v._query('$_endPoint', method: HttpMethod.POST, postHeaders: {
+    return _v._query('$_endPoint', method: HttpMethod.post, postHeaders: {
       'Authorization': 'Bearer $accessToken',
       'Content-Type': 'application/json;charset=utf-8',
     }, postBody: {
@@ -173,7 +173,7 @@ class ListsV4 extends Category<V4> {
 
     return _v._query(
       '$_endPoint/$listId',
-      method: HttpMethod.PUT,
+      method: HttpMethod.put,
       postHeaders: {
         'Authorization': 'Bearer $accessToken',
         'Content-Type': 'application/json;charset=utf-8',
@@ -251,7 +251,7 @@ class ListsV4 extends Category<V4> {
 
     return _v._query(
       '$_endPoint/$listId',
-      method: HttpMethod.DELETE,
+      method: HttpMethod.delete,
       deleteBody: {},
       deleteHeaders: {
         'Authorization': 'Bearer $accessToken',
@@ -315,7 +315,7 @@ class ListsV4 extends Category<V4> {
 
     return _v._query(
       '$_endPoint/$listId/items',
-      method: HttpMethod.POST,
+      method: HttpMethod.post,
       postBody: {'items': postBody},
       postHeaders: {
         'Authorization': 'Bearer $accessToken',
@@ -370,7 +370,7 @@ class ListsV4 extends Category<V4> {
 
     return _v._query(
       '$_endPoint/$listId/items',
-      method: HttpMethod.PUT,
+      method: HttpMethod.put,
       postBody: {'items': postBody},
       postHeaders: {
         'Authorization': 'Bearer $accessToken',
@@ -427,7 +427,7 @@ class ListsV4 extends Category<V4> {
 
     return _v._query(
       '$_endPoint/$listId/items',
-      method: HttpMethod.DELETE,
+      method: HttpMethod.delete,
       deleteBody: {'items': postBody},
       deleteHeaders: {
         'Authorization': 'Bearer $accessToken',

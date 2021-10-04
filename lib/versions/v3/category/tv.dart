@@ -33,7 +33,7 @@ class Tv extends Category<V3> {
     }
 
     return _v._query('$_endPoint/$tvId',
-        method: HttpMethod.GET, optionalQueries: para);
+        method: HttpMethod.get, optionalQueries: para);
   }
 
   /// Get the aggregate credits (cast and crew) that have
@@ -71,7 +71,7 @@ class Tv extends Category<V3> {
     }
 
     return _v._query('$_endPoint/$tvId/alternative_titles',
-        method: HttpMethod.GET, optionalQueries: ['language=$language']);
+        method: HttpMethod.get, optionalQueries: ['language=$language']);
   }
 
   ///Get the cast and crew for a tv.
@@ -88,7 +88,7 @@ class Tv extends Category<V3> {
       throw ArgumentError('tvId<1 is true');
     }
 
-    return _v._query('$_endPoint/$tvId/credits', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$tvId/credits', method: HttpMethod.get);
   }
 
   ///Get the list of content ratings (certifications) that have been added to a TV show.
@@ -127,7 +127,7 @@ class Tv extends Category<V3> {
     }
 
     return _v._query('$_endPoint/$tvId/episode_groups',
-        method: HttpMethod.GET, optionalQueries: ['language=$language']);
+        method: HttpMethod.get, optionalQueries: ['language=$language']);
   }
 
   ///Get the external ids for a tv.
@@ -150,7 +150,7 @@ class Tv extends Category<V3> {
       throw ArgumentError('tvId<1 is true');
     }
 
-    return _v._query('$_endPoint/$tvId/external_ids', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$tvId/external_ids', method: HttpMethod.get);
   }
 
   ///Get the keywords that have been added to a tv.
@@ -168,7 +168,7 @@ class Tv extends Category<V3> {
       throw ArgumentError('tvId<1 is true');
     }
 
-    return _v._query('$_endPoint/$tvId/keywords', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$tvId/keywords', method: HttpMethod.get);
   }
 
   /// Get a list of recommended tv show for a tv show.
@@ -482,7 +482,7 @@ class Tv extends Category<V3> {
     }
 
     return _v._query('$_endPoint/$tvId/rating',
-        method: HttpMethod.POST,
+        method: HttpMethod.post,
         postBody: {'value': '$ratingValue'},
         optionalQueries: para);
   }
@@ -530,7 +530,7 @@ class Tv extends Category<V3> {
     }
 
     return _v._query('$_endPoint/$tvId/rating',
-        method: HttpMethod.DELETE, deleteBody: {}, optionalQueries: para);
+        method: HttpMethod.delete, deleteBody: {}, optionalQueries: para);
   }
 
   ///Get the images that belong to a tv show.

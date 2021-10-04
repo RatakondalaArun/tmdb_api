@@ -198,7 +198,7 @@ class Auth extends Category<V3> {
     };
     var result = await _v._query(
       'authentication/token/validate_with_login',
-      method: HttpMethod.POST,
+      method: HttpMethod.post,
       postBody: postBody,
     );
 
@@ -234,7 +234,7 @@ class Auth extends Category<V3> {
     bool asMap = false,
   }) async {
     final result = await _v._query('authentication/session/convert/4',
-        method: HttpMethod.POST, postBody: {'access_token': accessToken});
+        method: HttpMethod.post, postBody: {'access_token': accessToken});
     if (asMap) {
       return result;
     }
@@ -251,7 +251,7 @@ class Auth extends Category<V3> {
   Future<dynamic> deleteSession(String sessionId) async {
     final result = await _v._query('authentication/session',
         postHeaders: {'session_id': sessionId},
-        method: HttpMethod.DELETE,
+        method: HttpMethod.delete,
         deleteBody: {'session_id': '$sessionId'});
 
     Logger(_v._tmdb.logConfig)

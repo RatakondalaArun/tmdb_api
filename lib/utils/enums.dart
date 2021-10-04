@@ -4,16 +4,16 @@ part of tmdb_api;
 ///Http request methods
 enum HttpMethod {
   ///For get request
-  GET,
+  get,
 
   ///For post request
-  POST,
+  post,
 
   ///For Delete request
-  DELETE,
+  delete,
 
   ///For Put request
-  PUT,
+  put,
 }
 
 //----------------------others-------------------------

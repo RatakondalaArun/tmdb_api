@@ -33,7 +33,7 @@ class TvSeasons extends Category<V3> {
     }
 
     return _v._query('tv/$tvId/$_endPoint/$seasonNumber',
-        method: HttpMethod.GET, optionalQueries: para);
+        method: HttpMethod.get, optionalQueries: para);
   }
 
   /// Get the aggregate credits (cast and crew) that have

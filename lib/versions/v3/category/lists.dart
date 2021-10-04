@@ -82,7 +82,7 @@ class Lists extends Category<V3> {
     return _v._query(
       '$_endPoint',
       optionalQueries: ['session_id=$sessionId'],
-      method: HttpMethod.POST,
+      method: HttpMethod.post,
       postBody: postBody,
     );
   }
@@ -113,7 +113,7 @@ class Lists extends Category<V3> {
   Future<Map> addItem(String? sessionId, String? listId, int? mediaId) {
     return _v._query(
       '$_endPoint/$listId/add_item',
-      method: HttpMethod.POST,
+      method: HttpMethod.post,
       postBody: {'media_id': '$mediaId'},
       optionalQueries: ['session_id=$sessionId'],
     );
@@ -153,7 +153,7 @@ class Lists extends Category<V3> {
   Future<Map> removeItem(String? sessionId, String? listId, int? mediaId) {
     return _v._query(
       '$_endPoint/${listId.toString()}/remove_item',
-      method: HttpMethod.POST,
+      method: HttpMethod.post,
       postBody: {'media_id': '$mediaId'},
       optionalQueries: ['session_id=$sessionId'],
     );
@@ -182,7 +182,7 @@ class Lists extends Category<V3> {
   Future<Map> clearList(String? sessionId, String? listId) {
     return _v._query(
       '$_endPoint/$listId/clear',
-      method: HttpMethod.POST,
+      method: HttpMethod.post,
       postBody: {},
       optionalQueries: ['session_id=$sessionId', 'confirm=true'],
     );
@@ -202,7 +202,7 @@ class Lists extends Category<V3> {
   Future<Map> deleteList(String sessionId, String listId) {
     return _v._query(
       '$_endPoint/$listId',
-      method: HttpMethod.DELETE,
+      method: HttpMethod.delete,
       optionalQueries: ['session_id=$sessionId'],
       deleteBody: {},
     );

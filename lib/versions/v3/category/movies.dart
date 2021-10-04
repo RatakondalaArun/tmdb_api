@@ -23,7 +23,7 @@ class Movies extends Category<V3> {
   }) {
     return _v._query(
       '$_endPoint/$movieId',
-      method: HttpMethod.GET,
+      method: HttpMethod.get,
       optionalQueries: [
         'language=$language',
         'append_to_response=$appendToResponse'
@@ -48,7 +48,7 @@ class Movies extends Category<V3> {
   ///
   Future<Map> getAlternativeTitle(int movieId, {String country = 'US'}) {
     return _v._query('$_endPoint/$movieId/alternative_titles',
-        method: HttpMethod.GET, optionalQueries: ['country=$country']);
+        method: HttpMethod.get, optionalQueries: ['country=$country']);
   }
 
   ///Get the cast and crew for a movie.
@@ -64,7 +64,7 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getCredits(int movieId) {
-    return _v._query('$_endPoint/$movieId/credits', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$movieId/credits', method: HttpMethod.get);
   }
 
   ///Get the external ids for a movie.
@@ -86,7 +86,7 @@ class Movies extends Category<V3> {
   ///
   Future<Map> getExternalIds(int movieId) {
     return _v._query('$_endPoint/$movieId/external_ids',
-        method: HttpMethod.GET);
+        method: HttpMethod.get);
   }
 
   ///Get the keywords that have been added to a movie.
@@ -101,7 +101,7 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getKeywords(int movieId) {
-    return _v._query('$_endPoint/$movieId/keywords', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$movieId/keywords', method: HttpMethod.get);
   }
 
   ///Get the release date along with the certification for a movie.
@@ -126,7 +126,7 @@ class Movies extends Category<V3> {
   ///
   Future<Map> getReleaseDates(int movieId) {
     return _v._query('$_endPoint/$movieId/release_dates',
-        method: HttpMethod.GET);
+        method: HttpMethod.get);
   }
 
   ///Get the videos that have been added to a movie.
@@ -470,7 +470,7 @@ class Movies extends Category<V3> {
   Future getWatchProviders(int movieId) {
     return _v._query(
       '$_endPoint/$movieId/watch/providers',
-      method: HttpMethod.GET,
+      method: HttpMethod.get,
     );
   }
 
@@ -527,7 +527,7 @@ class Movies extends Category<V3> {
     }
 
     return _v._query('$_endPoint/$movieId/rating',
-        method: HttpMethod.POST,
+        method: HttpMethod.post,
         postBody: {'value': '$ratingValue'},
         optionalQueries: para);
   }
@@ -574,7 +574,7 @@ class Movies extends Category<V3> {
     }
 
     return _v._query('$_endPoint/$movieId/rating',
-        method: HttpMethod.DELETE, deleteBody: {}, optionalQueries: para);
+        method: HttpMethod.delete, deleteBody: {}, optionalQueries: para);
   }
 
   ///Get the images that belong to a movie.

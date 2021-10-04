@@ -17,13 +17,13 @@ class V4 extends Version {
 
   ///Queries with the given parameters
   ///
-  ///by default method type is [HttpMethod.GET]
+  ///by default method type is [HttpMethod.get]
   ///Queries with the given parameters
   ///
-  ///by default method type is [HttpMethod.GET]
+  ///by default method type is [HttpMethod.get]
   Future<Map> _query(
     String endPoint, {
-    HttpMethod method = HttpMethod.GET,
+    HttpMethod method = HttpMethod.get,
     List<String>? optionalQueries,
     Map<String, dynamic>? postBody,
     Map<String, String>? deleteHeaders,
@@ -47,14 +47,14 @@ class V4 extends Version {
     //getting data form url
     try {
       http.Response response;
-      if (method == HttpMethod.POST) {
+      if (method == HttpMethod.post) {
         //POST request
         response = await http.post(url,
             body: jsonEncode(postBody), headers: postHeaders);
-      } else if (method == HttpMethod.DELETE) {
+      } else if (method == HttpMethod.delete) {
         //DELETE request
         response = await _httpDelete(url, deleteBody, deleteHeaders);
-      } else if (method == HttpMethod.PUT) {
+      } else if (method == HttpMethod.put) {
         //PUT request
         response = await http.put(url,
             body: jsonEncode(postBody), headers: postHeaders);
