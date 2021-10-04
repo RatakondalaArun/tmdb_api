@@ -190,7 +190,7 @@ class Auth extends Category<V3> {
     bool asMap = false,
   }) async {
     //creating a request token
-    final requestToken = await createRequestToken();
+    final requestToken = await createRequestToken() as String;
     final postBody = <String, String>{
       'username': username,
       'password': password,

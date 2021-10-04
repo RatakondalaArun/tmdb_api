@@ -112,7 +112,7 @@ class V3 extends Version {
       } else {
         response = await http.get(url);
       }
-      return jsonDecode(response.body)!;
+      return jsonDecode(response.body)! as Map;
     } catch (e) {
       Logger(_tmdb.logConfig).logTypes.errorLog(
           'Exception while making a request. Exception = {${e.toString()}');
