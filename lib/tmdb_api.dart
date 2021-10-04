@@ -44,7 +44,7 @@ part 'utils/tmdb_exceptions.dart';
 part 'utils/enums.dart';
 part 'utils/ApiKeys.dart';
 
-part 'models/ListItem.dart';
+part 'models/list_item.dart';
 
 /// TMDB.org API
 /// ## Usage
