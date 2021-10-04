@@ -42,7 +42,7 @@ part 'versions/v4/category/lists.dart';
 
 part 'utils/tmdb_exceptions.dart';
 part 'utils/enums.dart';
-part 'utils/ApiKeys.dart';
+part 'utils/api_keys.dart';
 
 part 'models/list_item.dart';
 
