@@ -1,6 +1,6 @@
 import 'package:tmdb_api/tmdb_api.dart';
 
-void main(List<String> args) async {
+Future<void> main(List<String> args) async {
   //api with out console logs
   final tmdb = TMDB(ApiKeys('Your API KEY', 'apiReadAccessTokenv4'));
   print(await tmdb.v3.movies.getPouplar());
