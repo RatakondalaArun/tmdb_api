@@ -40,12 +40,14 @@ class GuestSession extends Category<V3> {
     } else {
       sort = 'created_at.desc';
     }
-    return _v._query('$_endPoint/$guestSessionId/rated/movies',
-        optionalQueries: [
-          'guest_session_id=$guestSessionId',
-          'language=$language',
-          'sort_by=$sort'
-        ]);
+    return _v._query(
+      '$_endPoint/$guestSessionId/rated/movies',
+      optionalQueries: [
+        'guest_session_id=$guestSessionId',
+        'language=$language',
+        'sort_by=$sort'
+      ],
+    );
   }
 
   ///Get the rated TV shows for a guest session.
@@ -85,11 +87,14 @@ class GuestSession extends Category<V3> {
     } else {
       sort = 'created_at.desc';
     }
-    return _v._query('$_endPoint/$guestSessionId/rated/tv', optionalQueries: [
-      'guest_session_id=$guestSessionId',
-      'language=$language',
-      'sort_by=$sort'
-    ]);
+    return _v._query(
+      '$_endPoint/$guestSessionId/rated/tv',
+      optionalQueries: [
+        'guest_session_id=$guestSessionId',
+        'language=$language',
+        'sort_by=$sort'
+      ],
+    );
   }
 
   ///Get the rated TV shows for a guest session.
