@@ -35,8 +35,10 @@ class TvEpisodes extends Category<V3> {
       para.add('append_to_response=$appendToResponse');
     }
 
-    return _v._query('tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber',
-        method: HttpMethod.get, optionalQueries: para);
+    return _v._query(
+      'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber',
+      optionalQueries: para,
+    );
   }
 
   ///Get the changes for a TV episode.
@@ -91,7 +93,8 @@ class TvEpisodes extends Category<V3> {
       throw ArgumentError('seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
     return _v._query(
-        'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/credits');
+      'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/credits',
+    );
   }
 
   ///Get the external ids for a TV episode.
@@ -117,7 +120,8 @@ class TvEpisodes extends Category<V3> {
       throw ArgumentError('seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
     return _v._query(
-        'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/external_ids');
+      'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/external_ids',
+    );
   }
 
   ///Get the images that belong to a TV season.
@@ -139,7 +143,8 @@ class TvEpisodes extends Category<V3> {
       throw ArgumentError('seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
     return _v._query(
-        'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/images');
+      'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/images',
+    );
   }
 
   ///Get the videos that have been added to a TV episodes.
@@ -161,7 +166,8 @@ class TvEpisodes extends Category<V3> {
       throw ArgumentError('seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
     return _v._query(
-        'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/videos');
+      'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/videos',
+    );
   }
 
   ///Get the translation data for an episode.
@@ -183,6 +189,7 @@ class TvEpisodes extends Category<V3> {
       throw ArgumentError('seasonNumber<1||tvId<1||episodeNumber<1 is true');
     }
     return _v._query(
-        'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/translations');
+      'tv/$tvId/season/$seasonNumber/$_endPoint/$episodeNumber/translations',
+    );
   }
 }
