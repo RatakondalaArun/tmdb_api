@@ -49,15 +49,21 @@ class V4 extends Version {
       http.Response response;
       if (method == HttpMethod.post) {
         //POST request
-        response = await http.post(url,
-            body: jsonEncode(postBody), headers: postHeaders);
+        response = await http.post(
+          url,
+          body: jsonEncode(postBody),
+          headers: postHeaders,
+        );
       } else if (method == HttpMethod.delete) {
         //DELETE request
         response = await _httpDelete(url, deleteBody, deleteHeaders);
       } else if (method == HttpMethod.put) {
         //PUT request
-        response = await http.put(url,
-            body: jsonEncode(postBody), headers: postHeaders);
+        response = await http.put(
+          url,
+          body: jsonEncode(postBody),
+          headers: postHeaders,
+        );
       } else {
         //GET request
         if (postHeaders != null) {
@@ -69,9 +75,11 @@ class V4 extends Version {
       return jsonDecode(response.body)! as Map;
     } catch (e) {
       Logger(_tmdb.logConfig).logTypes.errorLog(
-          'Exception while making a request. Exception = {${e.toString()}');
+            'Exception while making a request. Exception = {${e.toString()}',
+          );
       Logger(_tmdb.logConfig).logTypes.infoLog(
-          'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues');
+            'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues',
+          );
       //if error is unknown rethrow it
       rethrow;
     }
@@ -80,17 +88,22 @@ class V4 extends Version {
   String _optionalQueries(List<String>? queries, String currentQuery) {
     return (queries == null || queries.isEmpty)
         ? currentQuery
-        : currentQuery + '&' + queries.join('&');
+        : '$currentQuery&${queries.join('&')}';
   }
 
   //http.delete doesn't provide a body
   //so created this
-  Future<http.Response> _httpDelete(Uri url, Map<String, dynamic>? deleteBody,
-      Map<String, String>? deleteHeaders) async {
+  Future<http.Response> _httpDelete(
+    Uri url,
+    Map<String, dynamic>? deleteBody,
+    Map<String, String>? deleteHeaders,
+  ) async {
     try {
       final request = http.Request('DELETE', Uri.parse(url.toString()))
-        ..headers.addAll(deleteHeaders ??
-            {'Content-Type': 'application/x-www-form-urlencoded'});
+        ..headers.addAll(
+          deleteHeaders ??
+              {'Content-Type': 'application/x-www-form-urlencoded'},
+        );
       // request.bodyFields = deleteBody;
       request.body = jsonEncode(deleteBody);
 
