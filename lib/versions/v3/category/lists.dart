@@ -80,7 +80,7 @@ class Lists extends Category<V3> {
       'language': language
     };
     return _v._query(
-      '$_endPoint',
+      _endPoint,
       optionalQueries: ['session_id=$sessionId'],
       method: HttpMethod.post,
       postBody: postBody,
