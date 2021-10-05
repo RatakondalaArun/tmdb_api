@@ -8,8 +8,12 @@ void main() {
   group('Tv seasons', () {
     group('Details', () {
       test('with parameters', () async {
-        var result = await tmdb.v3.tvSeasons.getDetails(103, 1,
-            language: 'en-US', appendToResponse: 'videos,images');
+        var result = await tmdb.v3.tvSeasons.getDetails(
+          103,
+          1,
+          language: 'en-US',
+          appendToResponse: 'videos,images',
+        );
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });

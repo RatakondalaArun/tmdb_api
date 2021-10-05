@@ -13,11 +13,15 @@ void main() {
   const LIST_ID = 136451;
   final items = <ListItem>[
     ListItem(
-        mediaId: 550,
-        mediaType: MediaType.movie,
-        comment: 'updated cool movie'),
+      mediaId: 550,
+      mediaType: MediaType.movie,
+      comment: 'updated cool movie',
+    ),
     ListItem(
-        mediaId: 102, mediaType: MediaType.tv, comment: 'updated cool movie2'),
+      mediaId: 102,
+      mediaType: MediaType.tv,
+      comment: 'updated cool movie2',
+    ),
   ];
   group('Lists', () {
     test('Create Lists', () async {
@@ -36,8 +40,11 @@ void main() {
     });
 
     test('update list', () async {
-      final result = await tmdb.v4.lists.updateList(ACCESS_TOKEN, LIST_ID,
-          listName: 'updated list name $LIST_ID');
+      final result = await tmdb.v4.lists.updateList(
+        ACCESS_TOKEN,
+        LIST_ID,
+        listName: 'updated list name $LIST_ID',
+      );
       print(result);
       expect(result is Map, true);
       expect(result['success'], true);

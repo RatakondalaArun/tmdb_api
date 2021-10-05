@@ -8,8 +8,11 @@ void main() {
   group('People', () {
     group('Details', () {
       test('with parameters', () async {
-        final result = await tmdb.v3.people.getDetails(103,
-            language: 'en-US', appendToResponse: 'videos,images');
+        final result = await tmdb.v3.people.getDetails(
+          103,
+          language: 'en-IN',
+          appendToResponse: 'videos,images',
+        );
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -31,7 +34,7 @@ void main() {
     group('MovieCredits', () {
       test('with parameters', () async {
         var result =
-            await tmdb.v3.people.getMovieCredits(103, language: 'en-US');
+            await tmdb.v3.people.getMovieCredits(103, language: 'en-IN');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -43,7 +46,7 @@ void main() {
     });
     group('Tv credits', () {
       test('with parameters', () async {
-        var result = await tmdb.v3.people.getTvCredits(103, language: 'en-US');
+        var result = await tmdb.v3.people.getTvCredits(103, language: 'en-IN');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -56,7 +59,7 @@ void main() {
     group('Combined Credits', () {
       test('with parameters', () async {
         var result =
-            await tmdb.v3.people.getCombinedCredits(103, language: 'en-US');
+            await tmdb.v3.people.getCombinedCredits(103, language: 'en-IN');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -69,7 +72,7 @@ void main() {
     group('External Id', () {
       test('with parameters', () async {
         var result =
-            await tmdb.v3.people.getExternalIds(103, language: 'en-US');
+            await tmdb.v3.people.getExternalIds(103, language: 'en-IN');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -89,7 +92,7 @@ void main() {
     group('Tagged images', () {
       test('with parameters', () async {
         var result =
-            await tmdb.v3.people.getTaggedImages(103, language: 'en-US');
+            await tmdb.v3.people.getTaggedImages(103, language: 'en-IN');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -102,7 +105,7 @@ void main() {
     group('Translations', () {
       test('with parameters', () async {
         var result =
-            await tmdb.v3.people.getTranslations(103, language: 'en-US');
+            await tmdb.v3.people.getTranslations(103, language: 'en-IN');
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
