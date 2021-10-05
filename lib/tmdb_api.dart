@@ -1,50 +1,46 @@
 library tmdb_api;
 
 import 'dart:convert';
-import 'package:http/http.dart' as http;
+
 import 'package:colorize/colorize.dart';
+import 'package:http/http.dart' as http;
 
-part 'logger/logger.dart';
-
-part 'abs/version.dart';
 part 'abs/catagory.dart';
-
+part 'abs/version.dart';
+part 'logger/logger.dart';
+part 'models/list_item.dart';
+part 'utils/api_keys.dart';
+part 'utils/enums.dart';
+part 'utils/tmdb_exceptions.dart';
 part 'versions/v3.dart';
-part 'versions/v4.dart';
-
-part 'versions/v3/category/movies.dart';
-part 'versions/v3/category/tv.dart';
-part 'versions/v3/category/tv_seasons.dart';
-part 'versions/v3/category/tv_episodes.dart';
-part 'versions/v3/category/tv_episode_group.dart';
-part 'versions/v3/category/people.dart';
-part 'versions/v3/category/credit.dart';
+part 'versions/v3/category/account.dart';
+part 'versions/v3/category/authentication.dart';
 part 'versions/v3/category/certification.dart';
 part 'versions/v3/category/changes.dart';
 part 'versions/v3/category/collections.dart';
+part 'versions/v3/category/companies.dart';
+part 'versions/v3/category/credit.dart';
+part 'versions/v3/category/discover.dart';
 part 'versions/v3/category/find.dart';
 part 'versions/v3/category/genres.dart';
-part 'versions/v3/category/keywords.dart';
-part 'versions/v3/category/companies.dart';
-part 'versions/v3/category/trending.dart';
-part 'versions/v3/category/search.dart';
-part 'versions/v3/category/discover.dart';
-part 'versions/v3/category/networks.dart';
-part 'versions/v3/category/reviews.dart';
-part 'versions/v3/category/authentication.dart';
-part 'versions/v3/category/lists.dart';
-part 'versions/v3/category/images.dart';
-part 'versions/v3/category/account.dart';
 part 'versions/v3/category/guest_session.dart';
+part 'versions/v3/category/images.dart';
+part 'versions/v3/category/keywords.dart';
+part 'versions/v3/category/lists.dart';
+part 'versions/v3/category/movies.dart';
+part 'versions/v3/category/networks.dart';
+part 'versions/v3/category/people.dart';
+part 'versions/v3/category/reviews.dart';
+part 'versions/v3/category/search.dart';
+part 'versions/v3/category/trending.dart';
+part 'versions/v3/category/tv.dart';
+part 'versions/v3/category/tv_episode_group.dart';
+part 'versions/v3/category/tv_episodes.dart';
+part 'versions/v3/category/tv_seasons.dart';
+part 'versions/v4.dart';
 part 'versions/v4/category/account.dart';
 part 'versions/v4/category/auth.dart';
 part 'versions/v4/category/lists.dart';
-
-part 'utils/tmdb_exceptions.dart';
-part 'utils/enums.dart';
-part 'utils/api_keys.dart';
-
-part 'models/list_item.dart';
 
 /// TMDB.org API
 /// ## Usage
@@ -74,14 +70,6 @@ class TMDB {
   V4? _v4;
   Images? _images;
   ConfigLogger? _logConfig;
-  ConfigLogger get logConfig => _logConfig!;
-
-  ///Version v3 of tmdb api
-  ///
-  ///[offical v3 doc](https://developers.themoviedb.org/3/getting-started)
-  V3 get v3 => _v3!;
-  V4 get v4 => _v4!;
-  Images get images => _images!;
 
   ///Takes a not null [apikey]
   TMDB(this._apiKeys, {ConfigLogger? logConfig}) {
@@ -91,4 +79,14 @@ class TMDB {
     _logConfig = logConfig ?? ConfigLogger.showNone();
     Logger(_logConfig!).logTypes.infoLog('Api initilized ✔');
   }
+
+  Images get images => _images!;
+  ConfigLogger get logConfig => _logConfig!;
+
+  ///Version v3 of tmdb api
+  ///
+  ///[offical v3 doc](https://developers.themoviedb.org/3/getting-started)
+  V3 get v3 => _v3!;
+
+  V4 get v4 => _v4!;
 }
