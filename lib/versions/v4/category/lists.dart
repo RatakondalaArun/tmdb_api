@@ -1,3 +1,4 @@
+// ignore_for_file: use_late_for_private_fields_and_variables
 part of tmdb_api;
 
 class ListsV4 extends Category<V4> {
