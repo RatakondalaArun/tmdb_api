@@ -187,7 +187,7 @@ void main() {
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        var result = await tmdb.v3.tv.getOnTheAir();
+        final result = await tmdb.v3.tv.getOnTheAir();
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
