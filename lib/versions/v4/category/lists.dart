@@ -42,14 +42,18 @@ class ListsV4 extends Category<V4> {
       throw ArgumentError('listId < 1 || pageNo < 1 || pageNo > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$listId', postHeaders: {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json;charset=utf-8',
-    }, optionalQueries: [
-      'page=$page',
-      'language=$language',
-      'sort_by=${_sortListBy(sortListBy)}'
-    ]);
+    return _v._query(
+      '$_endPoint/$listId',
+      postHeaders: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      optionalQueries: [
+        'page=$page',
+        'language=$language',
+        'sort_by=${_sortListBy(sortListBy)}'
+      ],
+    );
   }
 
   ///This method will create a new list.
@@ -86,17 +90,22 @@ class ListsV4 extends Category<V4> {
     String listName, {
     String description = ' ',
     bool isPublic = true,
-    iso6391 = 'en',
+    String iso6391 = 'en',
   }) {
-    return _v._query('$_endPoint', method: HttpMethod.post, postHeaders: {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json;charset=utf-8',
-    }, postBody: {
-      'name': listName,
-      'description': description,
-      'public': '$isPublic',
-      'iso_639_1': iso6391 ?? 'en',
-    });
+    return _v._query(
+      _endPoint,
+      method: HttpMethod.post,
+      postHeaders: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      postBody: {
+        'name': listName,
+        'description': description,
+        'public': '$isPublic',
+        'iso_639_1': iso6391,
+      },
+    );
   }
 
   ///This method will let you update the details of a list.
@@ -310,6 +319,8 @@ class ListsV4 extends Category<V4> {
       throw ArgumentError('listId < 1 is true');
     }
 
+    // todo: code stinks
+    // this can be replaced with mapping
     final postBody = <Map<String, dynamic>>[];
     items.forEach((item) => postBody.add(item._toMap()));
 
@@ -365,6 +376,8 @@ class ListsV4 extends Category<V4> {
       throw ArgumentError('listId < 1 is true');
     }
 
+    // todo: code stinks
+    // this can be replaced with mapping
     final postBody = <Map<String, dynamic>>[];
     items.forEach((item) => postBody.add(item._toMap()));
 
@@ -420,6 +433,8 @@ class ListsV4 extends Category<V4> {
       throw ArgumentError('listId < 1 is true');
     }
 
+    // todo: code stinks
+    // this can be replaced with mapping
     final postBody = <Map<String, dynamic>>[];
     items.forEach((item) {
       postBody.add(item._toMap());
@@ -477,13 +492,17 @@ class ListsV4 extends Category<V4> {
       throw ArgumentError('listId < 1 || mediaId < 1 is true');
     }
 
-    return _v._query('$_endPoint/$listId/item_status', postHeaders: {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json;charset=utf-8',
-    }, optionalQueries: [
-      'media_id=$mediaId',
-      'media_type=${_getMediaType(MediaType.movie)}'
-    ]);
+    return _v._query(
+      '$_endPoint/$listId/item_status',
+      postHeaders: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      optionalQueries: [
+        'media_id=$mediaId',
+        'media_type=${_getMediaType(MediaType.movie)}'
+      ],
+    );
   }
 
   String _sortListBy(SortListBy sortListBy) {
