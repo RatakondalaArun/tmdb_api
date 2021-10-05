@@ -8,7 +8,7 @@ void main() {
   group('Tv', () {
     group('details', () {
       test('with parameters', () async {
-        final result = await tmdb.v3.tv.getDetails(103, language: 'en-US');
+        final result = await tmdb.v3.tv.getDetails(103);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -21,8 +21,9 @@ void main() {
 
     group('Alternative titles', () {
       test('with parameters', () async {
-        final result =
-            await tmdb.v3.tv.getAlternativeTitle(103, language: 'en-US');
+        final result = await tmdb.v3.tv.getAlternativeTitle(
+          103,
+        );
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -74,8 +75,7 @@ void main() {
 
     group('recommended', () {
       test('with parameters', () async {
-        final result =
-            await tmdb.v3.tv.getRecommendations(103, language: 'en-US');
+        final result = await tmdb.v3.tv.getRecommendations(103);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -88,7 +88,7 @@ void main() {
 
     group('Reviews', () {
       test('with parameters', () async {
-        final result = await tmdb.v3.tv.getReviews(103, language: 'en-US');
+        final result = await tmdb.v3.tv.getReviews(103);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -109,7 +109,7 @@ void main() {
 
     group('Similar', () {
       test('with parameters', () async {
-        final result = await tmdb.v3.tv.getSimilar(103, language: 'en-US');
+        final result = await tmdb.v3.tv.getSimilar(103);
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -130,7 +130,7 @@ void main() {
 
     group('Latest', () {
       test('with parameters', () async {
-        final result = await tmdb.v3.tv.getLatest(language: 'en-US');
+        final result = await tmdb.v3.tv.getLatest();
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -143,7 +143,7 @@ void main() {
 
     group('Popular', () {
       test('with parameters', () async {
-        final result = await tmdb.v3.tv.getPouplar(language: 'en-US');
+        final result = await tmdb.v3.tv.getPouplar();
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -156,7 +156,7 @@ void main() {
 
     group('Top rated', () {
       test('with parameters', () async {
-        final result = await tmdb.v3.tv.getTopRated(language: 'en-US');
+        final result = await tmdb.v3.tv.getTopRated();
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -169,7 +169,7 @@ void main() {
 
     group('Airing  today', () {
       test('with parameters', () async {
-        final result = await tmdb.v3.tv.getAiringToday(language: 'en-US');
+        final result = await tmdb.v3.tv.getAiringToday();
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
@@ -182,7 +182,7 @@ void main() {
 
     group('Get on the Air', () {
       test('with parameters', () async {
-        final result = await tmdb.v3.tv.getOnTheAir(language: 'en-US');
+        final result = await tmdb.v3.tv.getOnTheAir();
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });

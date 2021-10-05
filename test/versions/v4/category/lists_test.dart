@@ -14,7 +14,6 @@ void main() {
   final items = <ListItem>[
     ListItem(
       mediaId: 550,
-      mediaType: MediaType.movie,
       comment: 'updated cool movie',
     ),
     ListItem(
