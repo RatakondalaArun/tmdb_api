@@ -1,5 +1,6 @@
 import 'dart:io' show Platform;
 
+// ignore_for_file: avoid_classes_with_only_static_members
 class Keys {
   //added your API Keys for local test
   static String? apiV3 = Platform.environment['API_V3'];
