@@ -31,7 +31,7 @@ class Account extends Category<V3> {
   ///}
   ///```
   Future<Map> getDetails(String sessionId) {
-    return _v._query('$_endPoint', optionalQueries: ['session_id=$sessionId']);
+    return _v._query(_endPoint, optionalQueries: ['session_id=$sessionId']);
   }
 
   ///Get all of the lists created by an account.
@@ -82,17 +82,24 @@ class Account extends Category<V3> {
   ///}
   ///```
   ///
-  Future<Map> getCreatedLists(String sessionId, int accountId,
-      {String language = 'en-US', int page = 1}) {
+  Future<Map> getCreatedLists(
+    String sessionId,
+    int accountId, {
+    String language = 'en-US',
+    int page = 1,
+  }) {
     if (accountId < 1 || page < 1 || page > 1000) {
       throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$accountId/lists', optionalQueries: [
-      'session_id=$sessionId',
-      'language=$language',
-      'page=$page'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/lists',
+      optionalQueries: [
+        'session_id=$sessionId',
+        'language=$language',
+        'page=$page',
+      ],
+    );
   }
 
   ///Get the list of your favorite movies.
@@ -140,12 +147,15 @@ class Account extends Category<V3> {
     } else {
       sort = 'created_at.desc';
     }
-    return _v._query('$_endPoint/$accountId/favorite/movies', optionalQueries: [
-      'session_id=$sessionId',
-      'language=$language',
-      'page=$page',
-      'sort_by=$sort'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/favorite/movies',
+      optionalQueries: [
+        'session_id=$sessionId',
+        'language=$language',
+        'page=$page',
+        'sort_by=$sort'
+      ],
+    );
   }
 
   ///Get the list of your favorite tv.
@@ -177,10 +187,13 @@ class Account extends Category<V3> {
   /// total_results: 0
   ///}
   ///```
-  Future<Map> getFavoriteTvShows(String sessionId, int accountId,
-      {String language = 'en-US',
-      int page = 1,
-      SortBy sortBy = SortBy.createdAtAsc}) {
+  Future<Map> getFavoriteTvShows(
+    String sessionId,
+    int accountId, {
+    String language = 'en-US',
+    int page = 1,
+    SortBy sortBy = SortBy.createdAtAsc,
+  }) {
     if (accountId < 1 || page < 1 || page > 1000) {
       throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
@@ -191,12 +204,15 @@ class Account extends Category<V3> {
       sort = 'created_at.desc';
     }
 
-    return _v._query('$_endPoint/$accountId/favorite/tv', optionalQueries: [
-      'session_id=$sessionId',
-      'language=$language',
-      'page=$page',
-      'sort_by=$sort'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/favorite/tv',
+      optionalQueries: [
+        'session_id=$sessionId',
+        'language=$language',
+        'page=$page',
+        'sort_by=$sort'
+      ],
+    );
   }
 
   ///This method allows you to mark a movie or TV show as a favorite item.
@@ -230,8 +246,12 @@ class Account extends Category<V3> {
   ///}
   ///```
   Future<Map> markAsFavorite(
-      String sessionId, int accountId, int mediaId, MediaType mediaType,
-      {bool isFavorite = true}) {
+    String sessionId,
+    int accountId,
+    int mediaId,
+    MediaType mediaType, {
+    bool isFavorite = true,
+  }) {
     if (accountId < 1 || mediaId < 1) {
       throw ArgumentError('accountId<1||mediaId<1 is true');
     }
@@ -243,16 +263,16 @@ class Account extends Category<V3> {
       type = 'movie';
     }
 
-    return _v._query('$_endPoint/$accountId/favorite',
-        method: HttpMethod.post,
-        optionalQueries: [
-          'session_id=$sessionId'
-        ],
-        postBody: {
-          'media_type': type,
-          'media_id': '$mediaId',
-          'favorite': '$isFavorite'
-        });
+    return _v._query(
+      '$_endPoint/$accountId/favorite',
+      method: HttpMethod.post,
+      optionalQueries: ['session_id=$sessionId'],
+      postBody: {
+        'media_type': type,
+        'media_id': '$mediaId',
+        'favorite': '$isFavorite'
+      },
+    );
   }
 
   ///Get a list of all the movies you have rated.
@@ -282,10 +302,13 @@ class Account extends Category<V3> {
   /// status_message: The item/record was updated successfully.
   ///}
   ///```
-  Future<Map> getRatedMovies(String sessionId, int accountId,
-      {String language = 'en-US',
-      int page = 1,
-      SortBy sortBy = SortBy.createdAtAsc}) {
+  Future<Map> getRatedMovies(
+    String sessionId,
+    int accountId, {
+    String language = 'en-US',
+    int page = 1,
+    SortBy sortBy = SortBy.createdAtAsc,
+  }) {
     if (accountId < 1 || page < 1 || page > 1000) {
       throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
@@ -296,12 +319,15 @@ class Account extends Category<V3> {
       sort = 'created_at.desc';
     }
 
-    return _v._query('$_endPoint/$accountId/rated/movies', optionalQueries: [
-      'session_id=$sessionId',
-      'language=$language',
-      'page=$page',
-      'sort_by=$sort'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/rated/movies',
+      optionalQueries: [
+        'session_id=$sessionId',
+        'language=$language',
+        'page=$page',
+        'sort_by=$sort',
+      ],
+    );
   }
 
   ///Get a list of all the tv you have rated.
@@ -346,10 +372,13 @@ class Account extends Category<V3> {
   /// total_pages: 1,
   /// total_results: 1
   ///}
-  Future<Map> getRatedTvShows(String sessionId, int accountId,
-      {String language = 'en-US',
-      int page = 1,
-      SortBy sortBy = SortBy.createdAtAsc}) {
+  Future<Map> getRatedTvShows(
+    String sessionId,
+    int accountId, {
+    String language = 'en-US',
+    int page = 1,
+    SortBy sortBy = SortBy.createdAtAsc,
+  }) {
     if (accountId < 1 || page < 1 || page > 1000) {
       throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
@@ -360,12 +389,15 @@ class Account extends Category<V3> {
       sort = 'created_at.desc';
     }
 
-    return _v._query('$_endPoint/$accountId/rated/tv', optionalQueries: [
-      'session_id=$sessionId',
-      'language=$language',
-      'page=$page',
-      'sort_by=$sort'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/rated/tv',
+      optionalQueries: [
+        'session_id=$sessionId',
+        'language=$language',
+        'page=$page',
+        'sort_by=$sort'
+      ],
+    );
   }
 
   ///Get a list of all the TV episodes you have rated.
@@ -397,10 +429,13 @@ class Account extends Category<V3> {
   /// total_results: 0
   ///}
   ///```
-  Future<Map> getRatedTvEpisodes(String sessionId, int accountId,
-      {String language = 'en-US',
-      int page = 1,
-      SortBy sortBy = SortBy.createdAtAsc}) {
+  Future<Map> getRatedTvEpisodes(
+    String sessionId,
+    int accountId, {
+    String language = 'en-US',
+    int page = 1,
+    SortBy sortBy = SortBy.createdAtAsc,
+  }) {
     if (accountId < 1 || page < 1 || page > 1000) {
       throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
@@ -411,13 +446,15 @@ class Account extends Category<V3> {
       sort = 'created_at.desc';
     }
 
-    return _v._query('$_endPoint/$accountId/rated/tv/episodes',
-        optionalQueries: [
-          'session_id=$sessionId',
-          'language=$language',
-          'page=$page',
-          'sort_by=$sort'
-        ]);
+    return _v._query(
+      '$_endPoint/$accountId/rated/tv/episodes',
+      optionalQueries: [
+        'session_id=$sessionId',
+        'language=$language',
+        'page=$page',
+        'sort_by=$sort'
+      ],
+    );
   }
 
   ///Get a list of all the movies you have added to your watchlist.
@@ -468,10 +505,13 @@ class Account extends Category<V3> {
   ///  "total_results": 277
   ///}
   ///```
-  Future<Map> getMovieWatchList(String sessionId, int accountId,
-      {String language = 'en-US',
-      int page = 1,
-      SortBy sortBy = SortBy.createdAtAsc}) {
+  Future<Map> getMovieWatchList(
+    String sessionId,
+    int accountId, {
+    String language = 'en-US',
+    int page = 1,
+    SortBy sortBy = SortBy.createdAtAsc,
+  }) {
     if (accountId < 1 || page < 1 || page > 1000) {
       throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
@@ -482,13 +522,15 @@ class Account extends Category<V3> {
       sort = 'created_at.desc';
     }
 
-    return _v._query('$_endPoint/$accountId/watchlist/movies',
-        optionalQueries: [
-          'session_id=$sessionId',
-          'language=$language',
-          'page=$page',
-          'sort_by=$sort'
-        ]);
+    return _v._query(
+      '$_endPoint/$accountId/watchlist/movies',
+      optionalQueries: [
+        'session_id=$sessionId',
+        'language=$language',
+        'page=$page',
+        'sort_by=$sort'
+      ],
+    );
   }
 
   ///Get a list of all the TV shows you have added to your watchlist.
@@ -540,10 +582,13 @@ class Account extends Category<V3> {
   ///  "total_results": 64
   ///}
   ///```
-  Future<Map> getTvShowWatchList(String sessionId, int accountId,
-      {String language = 'en-US',
-      int page = 1,
-      SortBy sortBy = SortBy.createdAtAsc}) {
+  Future<Map> getTvShowWatchList(
+    String sessionId,
+    int accountId, {
+    String language = 'en-US',
+    int page = 1,
+    SortBy sortBy = SortBy.createdAtAsc,
+  }) {
     if (accountId < 1 || page < 1 || page > 1000) {
       throw ArgumentError('accountId < 1 || page < 1 || page > 1000 is true');
     }
@@ -554,12 +599,15 @@ class Account extends Category<V3> {
       sort = 'created_at.desc';
     }
 
-    return _v._query('$_endPoint/$accountId/watchlist/tv', optionalQueries: [
-      'session_id=$sessionId',
-      'language=$language',
-      'page=$page',
-      'sort_by=$sort'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/watchlist/tv',
+      optionalQueries: [
+        'session_id=$sessionId',
+        'language=$language',
+        'page=$page',
+        'sort_by=$sort'
+      ],
+    );
   }
 
   ///Add a movie or TV show to your watchlist.
@@ -593,8 +641,12 @@ class Account extends Category<V3> {
   ///}
   ///```
   Future<Map> addToWatchList(
-      String sessionId, int accountId, int mediaId, MediaType mediaType,
-      {bool shouldAdd = true}) {
+    String sessionId,
+    int accountId,
+    int mediaId,
+    MediaType mediaType, {
+    bool shouldAdd = true,
+  }) {
     if (accountId < 1 || mediaId < 1) {
       throw ArgumentError('accountId<1||mediaId<1 is true');
     }
@@ -606,15 +658,15 @@ class Account extends Category<V3> {
       type = 'movie';
     }
 
-    return _v._query('$_endPoint/$accountId/watchlist',
-        method: HttpMethod.post,
-        optionalQueries: [
-          'session_id=$sessionId'
-        ],
-        postBody: {
-          'media_type': '$type',
-          'media_id': '$mediaId',
-          'watchlist': '$shouldAdd'
-        });
+    return _v._query(
+      '$_endPoint/$accountId/watchlist',
+      method: HttpMethod.post,
+      optionalQueries: ['session_id=$sessionId'],
+      postBody: {
+        'media_type': type,
+        'media_id': '$mediaId',
+        'watchlist': '$shouldAdd',
+      },
+    );
   }
 }
