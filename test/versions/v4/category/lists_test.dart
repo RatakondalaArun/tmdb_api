@@ -12,11 +12,11 @@ void main() {
 
   const listId = 136451;
   final items = <ListItem>[
-    ListItem(
+    const ListItem(
       mediaId: 550,
       comment: 'updated cool movie',
     ),
-    ListItem(
+    const ListItem(
       mediaId: 102,
       mediaType: MediaType.tv,
       comment: 'updated cool movie2',
