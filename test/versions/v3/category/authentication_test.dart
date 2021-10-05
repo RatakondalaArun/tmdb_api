@@ -7,7 +7,7 @@ import '../../../init_script.dart';
 import '../../../init_script.dart' as user;
 
 void main() {
-  final tmdb = TMDB(ApiKeys(Keys.API!, Keys.API_V4!));
+  final tmdb = TMDB(ApiKeys(Keys.apiV3!, Keys.apiV4!));
   group('Authentication', () {
     group('Request token', () {
       test('As String', () async {
@@ -32,8 +32,8 @@ void main() {
     group('Create session with login', () {
       test('generate with creditionals', () async {
         final result = await tmdb.v3.auth.createSessionWithLogin(
-          user.User.USERNAME!,
-          user.User.PASSWORD!,
+          user.User.username!,
+          user.User.password!,
         ) as String?;
         expect(result == null, isFalse);
       });
