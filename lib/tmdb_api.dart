@@ -1,9 +1,7 @@
 library tmdb_api;
 
-import 'dart:convert';
-
 import 'package:colorize/colorize.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 part 'abs/catagory.dart';
 part 'abs/version.dart';
@@ -65,6 +63,7 @@ part 'versions/v4/category/lists.dart';
 class TMDB {
   final String _baseUrl = 'api.themoviedb.org';
   final ApiKeys _apiKeys;
+  final List<Interceptor> _interceptors;
 
   V3? _v3;
   V4? _v4;
@@ -72,7 +71,11 @@ class TMDB {
   ConfigLogger? _logConfig;
 
   ///Takes a not null [apikey]
-  TMDB(this._apiKeys, {ConfigLogger? logConfig}) {
+  TMDB(
+    this._apiKeys, {
+    ConfigLogger? logConfig,
+    Interceptors? interceptors,
+  }) : _interceptors = interceptors ?? [] {
     _v3 = V3(this);
     _v4 = V4(this);
     _images = Images();

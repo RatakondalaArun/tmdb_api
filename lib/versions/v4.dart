@@ -43,36 +43,33 @@ class V4 extends Version {
 
     //log to console
     Logger(_tmdb.logConfig).logTypes.urlLog(url.toString());
-
-    //getting data form url
+    final dio = Dio();
+    dio.interceptors.addAll(_tmdb._interceptors);
     try {
-      http.Response response;
+      late Response<Map> response;
       if (method == HttpMethod.post) {
-        //POST request
-        response = await http.post(
+        response = await dio.postUri(
           url,
-          body: jsonEncode(postBody),
-          headers: postHeaders,
+          options: Options(headers: postHeaders),
         );
       } else if (method == HttpMethod.delete) {
         //DELETE request
-        response = await _httpDelete(url, deleteBody, deleteHeaders);
-      } else if (method == HttpMethod.put) {
-        //PUT request
-        response = await http.put(
+        response = await dio.deleteUri(
           url,
-          body: jsonEncode(postBody),
-          headers: postHeaders,
+          options: Options(headers: deleteHeaders),
+        );
+      } else if (method == HttpMethod.put) {
+        response = await dio.putUri(
+          url,
+          options: Options(headers: postHeaders),
         );
       } else {
-        //GET request
-        if (postHeaders != null) {
-          response = await http.get(url, headers: postHeaders);
-        } else {
-          response = await http.get(url);
-        }
+        response = await dio.getUri(
+          url,
+          options: Options(headers: postHeaders),
+        );
       }
-      return jsonDecode(response.body)! as Map;
+      return response.data!;
     } catch (e) {
       Logger(_tmdb.logConfig).logTypes.errorLog(
             'Exception while making a request. Exception = {${e.toString()}',
@@ -82,6 +79,8 @@ class V4 extends Version {
           );
       //if error is unknown rethrow it
       rethrow;
+    } finally {
+      dio.close();
     }
   }
 
@@ -89,28 +88,5 @@ class V4 extends Version {
     return (queries == null || queries.isEmpty)
         ? currentQuery
         : '$currentQuery&${queries.join('&')}';
-  }
-
-  //http.delete doesn't provide a body
-  //so created this
-  Future<http.Response> _httpDelete(
-    Uri url,
-    Map<String, dynamic>? deleteBody,
-    Map<String, String>? deleteHeaders,
-  ) async {
-    try {
-      final request = http.Request('DELETE', Uri.parse(url.toString()))
-        ..headers.addAll(
-          deleteHeaders ??
-              {'Content-Type': 'application/x-www-form-urlencoded'},
-        );
-      // request.bodyFields = deleteBody;
-      request.body = jsonEncode(deleteBody);
-
-      final response = await http.Response.fromStream(await request.send());
-      return response;
-    } catch (e) {
-      rethrow;
-    }
   }
 }

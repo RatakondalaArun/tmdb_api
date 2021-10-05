@@ -101,18 +101,22 @@ class V3 extends Version {
     );
     //log to console
     Logger(_tmdb.logConfig).logTypes.urlLog(url.toString());
-
+    final dio = Dio();
+    dio.interceptors.addAll(_tmdb._interceptors);
     //getting data form url
     try {
-      http.Response response;
+      late Response<Map> dioResponse;
+
       if (method == HttpMethod.post) {
-        response = await http.post(url, body: postBody);
+        dioResponse = await dio.postUri(url, data: postBody);
       } else if (method == HttpMethod.delete) {
-        response = await _httpDelete(url, deleteBody!);
+        dioResponse = await dio.deleteUri(url, data: deleteBody);
       } else {
-        response = await http.get(url);
+        dioResponse = await dio.getUri<Map>(url);
       }
-      return jsonDecode(response.body)! as Map;
+      // using `!` because tmdb api always sends a replay;
+      return dioResponse.data!;
+      // return jsonDecode(response.body)! as Map;
     } catch (e) {
       Logger(_tmdb.logConfig).logTypes.errorLog(
             'Exception while making a request. Exception = {${e.toString()}',
@@ -122,6 +126,8 @@ class V3 extends Version {
           );
       //if error is unknown rethrow it
       rethrow;
+    } finally {
+      dio.close();
     }
   }
 
@@ -129,19 +135,5 @@ class V3 extends Version {
     return (queries == null || queries.isEmpty)
         ? currentQuery
         : '$currentQuery&${queries.join('&')}';
-  }
-
-  //http.delete doesn't provide a body
-  //so created this
-  Future<http.Response> _httpDelete(
-    Uri url,
-    Map<String, String> deleteBody,
-  ) async {
-    final request = http.Request('DELETE', Uri.parse(url.toString()))
-      ..headers.addAll({'Content-Type': 'application/x-www-form-urlencoded'});
-    request.bodyFields = deleteBody;
-
-    final response = await http.Response.fromStream(await request.send());
-    return response;
   }
 }
