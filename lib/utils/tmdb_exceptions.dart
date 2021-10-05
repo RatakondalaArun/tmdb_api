@@ -13,9 +13,10 @@ class TMDBException implements Exception {
   }
 }
 
-///Encountered a null value
-@Deprecated('This is of no use after migrating to nullsafety.')
+///Encountered a null value.
+@Deprecated('Removed infavor of nullsafety. Will be removed in v2.1.0')
 class NullValueException extends TMDBException {
+  @Deprecated('Removed infavor of nullsafety. Will be removed in v2.1.0')
   NullValueException(
     String message, {
     String? source,
@@ -29,9 +30,9 @@ class NullValueException extends TMDBException {
 }
 
 ///When constrains are not meet
-@Deprecated(
-    'Infavor of ArgumentException. This must be replaced with ArgumentException')
+@Deprecated('Infavor of ArgumentException. Will be removed in v2.1.0')
 class InvalidDataException extends TMDBException {
+  @Deprecated('Infavor of ArgumentException. Will be removed in v2.1.0')
   InvalidDataException(
     String message, {
     String? source,

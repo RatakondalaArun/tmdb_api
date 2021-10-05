@@ -57,15 +57,7 @@ class ConfigLogger {
   ///TMDB api = TMDB(ApiKeys(Keys.API, Keys.API_V4), logConfig: ConfigLogger.showNone());
   ///```
   ///
-  factory ConfigLogger.showNone() {
-    return ConfigLogger(
-      showLogs: false,
-      showUrlLogs: false,
-      showInfoLogs: false,
-      showWarningLogs: false,
-      showErrorLogs: false,
-    );
-  }
+  factory ConfigLogger.showNone() => ConfigLogger();
 
   ///## Usage
   ///Pass this if you want to set all logs to `false` in LogConfig
@@ -80,7 +72,6 @@ class ConfigLogger {
   factory ConfigLogger.recommended() {
     return ConfigLogger(
       showLogs: true,
-      showUrlLogs: false,
       showInfoLogs: true,
       showWarningLogs: true,
       showErrorLogs: true,

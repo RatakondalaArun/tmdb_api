@@ -20,8 +20,10 @@ class Collections extends Category<V3> {
   /// ```
   ///
   Future<Map> getDetails(int collectionId, {String language = 'en-US'}) {
-    return _v._query('$_endPoint/$collectionId',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/$collectionId',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get collection images by id.
@@ -40,8 +42,10 @@ class Collections extends Category<V3> {
   /// ```
   ///
   Future<Map> getImages(int collectionId, {String language = 'en-US'}) {
-    return _v._query('$_endPoint/$collectionId/images',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/$collectionId/images',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get collection translations by id.
@@ -60,7 +64,9 @@ class Collections extends Category<V3> {
   /// ```
   ///
   Future<Map> getTranslations(int collectionId, {String language = 'en-US'}) {
-    return _v._query('$_endPoint/$collectionId/translations',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/$collectionId/translations',
+      optionalQueries: ['language=$language'],
+    );
   }
 }

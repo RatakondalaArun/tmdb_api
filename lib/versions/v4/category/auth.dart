@@ -43,7 +43,7 @@ class AuthV4 extends Category<V4> {
     };
     return _v._query(
       '$_endPoint/request_token',
-      method: HttpMethod.POST,
+      method: HttpMethod.post,
       postHeaders: postHeaders,
       postBody: {},
     );
@@ -82,7 +82,7 @@ class AuthV4 extends Category<V4> {
     };
     return _v._query(
       '$_endPoint/access_token',
-      method: HttpMethod.POST,
+      method: HttpMethod.post,
       postHeaders: postHeaders,
       postBody: {'request_token': requestToken},
     );
@@ -112,7 +112,7 @@ class AuthV4 extends Category<V4> {
 
     return _v._query(
       '$_endPoint/access_token',
-      method: HttpMethod.DELETE,
+      method: HttpMethod.delete,
       deleteHeaders: {
         'Content-Type': 'application/json;charset=utf-8',
         'Authorization': 'Bearer $v4ApiToken'

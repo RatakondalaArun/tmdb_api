@@ -161,16 +161,19 @@ class Auth extends Category<V3> {
     );
     if (asMap) {
       Logger(_v._tmdb.logConfig).logTypes.infoLog(
-          'createSession success result from tmdb = ${result.toString()}');
+            'createSession success result from tmdb = ${result.toString()}',
+          );
       return result;
     }
     if (result.containsKey('success')) {
       Logger(_v._tmdb.logConfig).logTypes.infoLog(
-          'createSession success result from tmdb = ${result.toString()}');
+            'createSession success result from tmdb = ${result.toString()}',
+          );
       return result['session_id'];
     }
     Logger(_v._tmdb.logConfig).logTypes.warningLog(
-        'createSession failed result from tmdb = ${result.toString()}');
+          'createSession failed result from tmdb = ${result.toString()}',
+        );
     return null;
   }
 
@@ -196,9 +199,9 @@ class Auth extends Category<V3> {
       'password': password,
       'request_token': requestToken
     };
-    var result = await _v._query(
+    final result = await _v._query(
       'authentication/token/validate_with_login',
-      method: HttpMethod.POST,
+      method: HttpMethod.post,
       postBody: postBody,
     );
 
@@ -233,8 +236,11 @@ class Auth extends Category<V3> {
     String accessToken, {
     bool asMap = false,
   }) async {
-    final result = await _v._query('authentication/session/convert/4',
-        method: HttpMethod.POST, postBody: {'access_token': accessToken});
+    final result = await _v._query(
+      'authentication/session/convert/4',
+      method: HttpMethod.post,
+      postBody: {'access_token': accessToken},
+    );
     if (asMap) {
       return result;
     }
@@ -249,10 +255,12 @@ class Auth extends Category<V3> {
   /// ## Parameters
   ///`sessionId`: if of current session
   Future<dynamic> deleteSession(String sessionId) async {
-    final result = await _v._query('authentication/session',
-        postHeaders: {'session_id': sessionId},
-        method: HttpMethod.DELETE,
-        deleteBody: {'session_id': '$sessionId'});
+    final result = await _v._query(
+      'authentication/session',
+      postHeaders: {'session_id': sessionId},
+      method: HttpMethod.delete,
+      deleteBody: {'session_id': sessionId},
+    );
 
     Logger(_v._tmdb.logConfig)
         .logTypes

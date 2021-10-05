@@ -77,13 +77,13 @@ class V3 extends Version {
 
   ///Queries with the given parameters
   ///
-  ///by default method type is [HttpMethod.GET]
+  ///by default method type is [HttpMethod.get]
   ///Queries with the given parameters
   ///
-  ///by default method type is [HttpMethod.GET]
+  ///by default method type is [HttpMethod.get]
   Future<Map> _query(
     String endPoint, {
-    HttpMethod method = HttpMethod.GET,
+    HttpMethod method = HttpMethod.get,
     List<String>? optionalQueries,
     Map<String, String>? postBody,
     Map<String, String>? deleteBody,
@@ -105,9 +105,9 @@ class V3 extends Version {
     //getting data form url
     try {
       http.Response response;
-      if (method == HttpMethod.POST) {
+      if (method == HttpMethod.post) {
         response = await http.post(url, body: postBody);
-      } else if (method == HttpMethod.DELETE) {
+      } else if (method == HttpMethod.delete) {
         response = await _httpDelete(url, deleteBody!);
       } else {
         response = await http.get(url);
@@ -115,9 +115,11 @@ class V3 extends Version {
       return jsonDecode(response.body)! as Map;
     } catch (e) {
       Logger(_tmdb.logConfig).logTypes.errorLog(
-          'Exception while making a request. Exception = {${e.toString()}');
+            'Exception while making a request. Exception = {${e.toString()}',
+          );
       Logger(_tmdb.logConfig).logTypes.infoLog(
-          'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues');
+            'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues',
+          );
       //if error is unknown rethrow it
       rethrow;
     }
@@ -126,7 +128,7 @@ class V3 extends Version {
   String _optionalQueries(List<String>? queries, String currentQuery) {
     return (queries == null || queries.isEmpty)
         ? currentQuery
-        : currentQuery + '&' + queries.join('&');
+        : '$currentQuery&${queries.join('&')}';
   }
 
   //http.delete doesn't provide a body

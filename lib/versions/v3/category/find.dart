@@ -32,10 +32,13 @@ class Find extends Category<V3> {
     ExternalId externalIdSource = ExternalId.imdbId,
     String language = 'en-US',
   }) {
-    return _v._query('$_endPoint/$externalId', optionalQueries: [
-      _getSourceQuery(externalIdSource),
-      'language=$language'
-    ]);
+    return _v._query(
+      '$_endPoint/$externalId',
+      optionalQueries: [
+        _getSourceQuery(externalIdSource),
+        'language=$language'
+      ],
+    );
   }
 
   String _getSourceQuery(ExternalId externalIdSource) {
