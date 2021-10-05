@@ -23,7 +23,6 @@ class Movies extends Category<V3> {
   }) {
     return _v._query(
       '$_endPoint/$movieId',
-      method: HttpMethod.get,
       optionalQueries: [
         'language=$language',
         'append_to_response=$appendToResponse'
@@ -47,8 +46,10 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getAlternativeTitle(int movieId, {String country = 'US'}) {
-    return _v._query('$_endPoint/$movieId/alternative_titles',
-        method: HttpMethod.get, optionalQueries: ['country=$country']);
+    return _v._query(
+      '$_endPoint/$movieId/alternative_titles',
+      optionalQueries: ['country=$country'],
+    );
   }
 
   ///Get the cast and crew for a movie.
@@ -64,7 +65,9 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getCredits(int movieId) {
-    return _v._query('$_endPoint/$movieId/credits', method: HttpMethod.get);
+    return _v._query(
+      '$_endPoint/$movieId/credits',
+    );
   }
 
   ///Get the external ids for a movie.
@@ -85,8 +88,9 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getExternalIds(int movieId) {
-    return _v._query('$_endPoint/$movieId/external_ids',
-        method: HttpMethod.get);
+    return _v._query(
+      '$_endPoint/$movieId/external_ids',
+    );
   }
 
   ///Get the keywords that have been added to a movie.
@@ -101,7 +105,9 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getKeywords(int movieId) {
-    return _v._query('$_endPoint/$movieId/keywords', method: HttpMethod.get);
+    return _v._query(
+      '$_endPoint/$movieId/keywords',
+    );
   }
 
   ///Get the release date along with the certification for a movie.
@@ -125,8 +131,9 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getReleaseDates(int movieId) {
-    return _v._query('$_endPoint/$movieId/release_dates',
-        method: HttpMethod.get);
+    return _v._query(
+      '$_endPoint/$movieId/release_dates',
+    );
   }
 
   ///Get the videos that have been added to a movie.
@@ -174,14 +181,19 @@ class Movies extends Category<V3> {
   /// Map result = await tmdb.v3.movies.getRecommended(103);
   ///```
   ///
-  Future<Map> getRecommended(int movieId,
-      {String language = 'en-US', int page = 1}) async {
+  Future<Map> getRecommended(
+    int movieId, {
+    String language = 'en-US',
+    int page = 1,
+  }) async {
     if (movieId < 1 || page < 1 || page > 1000) {
       throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$movieId/recommendations',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/$movieId/recommendations',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 
   /// Get a list of similar movies.
@@ -211,8 +223,10 @@ class Movies extends Category<V3> {
       throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$movieId/similar',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/$movieId/similar',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 
   /// Get the user reviews for a movie.
@@ -241,8 +255,10 @@ class Movies extends Category<V3> {
       }
     }
 
-    return _v._query('$_endPoint/$movieId/reviews',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/$movieId/reviews',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 
   /// Get a list of lists that this movie belongs to.
@@ -270,8 +286,10 @@ class Movies extends Category<V3> {
       throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$movieId/lists',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/$movieId/lists',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 
   ///Get the most newly created movie.
@@ -470,7 +488,6 @@ class Movies extends Category<V3> {
   Future getWatchProviders(int movieId) {
     return _v._query(
       '$_endPoint/$movieId/watch/providers',
-      method: HttpMethod.get,
     );
   }
 
@@ -515,7 +532,8 @@ class Movies extends Category<V3> {
     }
     if (ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1) {
       throw ArgumentError(
-          'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
+        'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1',
+      );
     }
 
     final para = <String>[];
@@ -526,10 +544,12 @@ class Movies extends Category<V3> {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v._query('$_endPoint/$movieId/rating',
-        method: HttpMethod.post,
-        postBody: {'value': '$ratingValue'},
-        optionalQueries: para);
+    return _v._query(
+      '$_endPoint/$movieId/rating',
+      method: HttpMethod.post,
+      postBody: {'value': '$ratingValue'},
+      optionalQueries: para,
+    );
   }
 
   ///Remove your rating for a movie.
@@ -573,8 +593,12 @@ class Movies extends Category<V3> {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v._query('$_endPoint/$movieId/rating',
-        method: HttpMethod.delete, deleteBody: {}, optionalQueries: para);
+    return _v._query(
+      '$_endPoint/$movieId/rating',
+      method: HttpMethod.delete,
+      deleteBody: {},
+      optionalQueries: para,
+    );
   }
 
   ///Get the images that belong to a movie.
@@ -659,7 +683,9 @@ class Movies extends Category<V3> {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v._query('$_endPoint/$movieId/account_states',
-        optionalQueries: para);
+    return _v._query(
+      '$_endPoint/$movieId/account_states',
+      optionalQueries: para,
+    );
   }
 }
