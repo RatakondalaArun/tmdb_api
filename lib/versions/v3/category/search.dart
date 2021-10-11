@@ -19,8 +19,10 @@ class Search extends Category<V3> {
       throw ArgumentError('page < 1 || page > 1000');
     }
 
-    return _v._query('$_endPoint/company',
-        optionalQueries: ['query=$query', 'page=$page']);
+    return _v._query(
+      '$_endPoint/company',
+      optionalQueries: ['query=$query', 'page=$page'],
+    );
   }
 
   ///Search for collections.
@@ -46,8 +48,10 @@ class Search extends Category<V3> {
       throw ArgumentError('page < 1 || page > 1000');
     }
 
-    return _v._query('$_endPoint/collection',
-        optionalQueries: ['query=$query', 'page=$page', 'language=$language']);
+    return _v._query(
+      '$_endPoint/collection',
+      optionalQueries: ['query=$query', 'page=$page', 'language=$language'],
+    );
   }
 
   ///Search for Keywords.
@@ -66,8 +70,10 @@ class Search extends Category<V3> {
       throw ArgumentError('page<1||page>10000 is true');
     }
 
-    return _v._query('$_endPoint/keyword',
-        optionalQueries: ['query=$query', 'page=$page']);
+    return _v._query(
+      '$_endPoint/keyword',
+      optionalQueries: ['query=$query', 'page=$page'],
+    );
   }
 
   ///Search for movies.

@@ -32,8 +32,10 @@ class Tv extends Category<V3> {
       para.add('append_to_response=$appendToResponse');
     }
 
-    return _v._query('$_endPoint/$tvId',
-        method: HttpMethod.GET, optionalQueries: para);
+    return _v._query(
+      '$_endPoint/$tvId',
+      optionalQueries: para,
+    );
   }
 
   /// Get the aggregate credits (cast and crew) that have
@@ -70,8 +72,10 @@ class Tv extends Category<V3> {
       throw ArgumentError('tvId<1 is true');
     }
 
-    return _v._query('$_endPoint/$tvId/alternative_titles',
-        method: HttpMethod.GET, optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/$tvId/alternative_titles',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get the cast and crew for a tv.
@@ -88,7 +92,9 @@ class Tv extends Category<V3> {
       throw ArgumentError('tvId<1 is true');
     }
 
-    return _v._query('$_endPoint/$tvId/credits', method: HttpMethod.GET);
+    return _v._query(
+      '$_endPoint/$tvId/credits',
+    );
   }
 
   ///Get the list of content ratings (certifications) that have been added to a TV show.
@@ -126,8 +132,10 @@ class Tv extends Category<V3> {
       throw ArgumentError('tvId<1 is true');
     }
 
-    return _v._query('$_endPoint/$tvId/episode_groups',
-        method: HttpMethod.GET, optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/$tvId/episode_groups',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get the external ids for a tv.
@@ -150,7 +158,9 @@ class Tv extends Category<V3> {
       throw ArgumentError('tvId<1 is true');
     }
 
-    return _v._query('$_endPoint/$tvId/external_ids', method: HttpMethod.GET);
+    return _v._query(
+      '$_endPoint/$tvId/external_ids',
+    );
   }
 
   ///Get the keywords that have been added to a tv.
@@ -168,7 +178,7 @@ class Tv extends Category<V3> {
       throw ArgumentError('tvId<1 is true');
     }
 
-    return _v._query('$_endPoint/$tvId/keywords', method: HttpMethod.GET);
+    return _v._query('$_endPoint/$tvId/keywords');
   }
 
   /// Get a list of recommended tv show for a tv show.
@@ -194,8 +204,10 @@ class Tv extends Category<V3> {
       throw ArgumentError('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$tvId/recommendations',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/$tvId/recommendations',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 
   /// Get the user reviews for a tv.
@@ -217,8 +229,10 @@ class Tv extends Category<V3> {
       throw ArgumentError('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$tvId/reviews',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/$tvId/reviews',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 
   ///Get a list of seasons or episodes
@@ -260,8 +274,10 @@ class Tv extends Category<V3> {
       throw ArgumentError('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$tvId/similar',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/$tvId/similar',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 
   /// Get a list of translations that have been created for a tv show.
@@ -358,8 +374,10 @@ class Tv extends Category<V3> {
       throw ArgumentError(' page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/popular',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/popular',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 
   /// Get the top rated movies on TMDb.
@@ -380,8 +398,10 @@ class Tv extends Category<V3> {
       throw ArgumentError(' page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/top_rated',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/top_rated',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 
   ///Get a list of TV shows that are airing today.
@@ -403,8 +423,10 @@ class Tv extends Category<V3> {
     if (page < 1 || page > 1000) {
       throw ArgumentError(' page < 1 || page > 1000 is true');
     }
-    return _v._query('$_endPoint/airing_today',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/airing_today',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 
   /// Get a list of shows that are currently on the air.
@@ -426,8 +448,10 @@ class Tv extends Category<V3> {
     if (page < 1 || page > 1000) {
       throw ArgumentError(' page < 1 || page > 1000 is true');
     }
-    return _v._query('$_endPoint/on_the_air',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/on_the_air',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 
   ///Rate a TV show.
@@ -470,7 +494,8 @@ class Tv extends Category<V3> {
     }
     if (ratingValue < 0.5 || ratingValue > 10.0 || tvId < 1) {
       throw ArgumentError(
-          'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
+        'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1',
+      );
     }
 
     final para = <String>[];
@@ -481,10 +506,12 @@ class Tv extends Category<V3> {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v._query('$_endPoint/$tvId/rating',
-        method: HttpMethod.POST,
-        postBody: {'value': '$ratingValue'},
-        optionalQueries: para);
+    return _v._query(
+      '$_endPoint/$tvId/rating',
+      method: HttpMethod.post,
+      postBody: {'value': '$ratingValue'},
+      optionalQueries: para,
+    );
   }
 
   ///Remove your rating for a tv show.
@@ -518,7 +545,8 @@ class Tv extends Category<V3> {
   }) {
     if (tvId < 1) {
       throw ArgumentError(
-          'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1');
+        'ratingValue < 0.5 || ratingValue > 10.0 || movieId < 1',
+      );
     }
 
     final para = <String>[];
@@ -529,8 +557,12 @@ class Tv extends Category<V3> {
       para.add('guest_session_id=$guestSessionId');
     }
 
-    return _v._query('$_endPoint/$tvId/rating',
-        method: HttpMethod.DELETE, deleteBody: {}, optionalQueries: para);
+    return _v._query(
+      '$_endPoint/$tvId/rating',
+      method: HttpMethod.delete,
+      deleteBody: {},
+      optionalQueries: para,
+    );
   }
 
   ///Get the images that belong to a tv show.

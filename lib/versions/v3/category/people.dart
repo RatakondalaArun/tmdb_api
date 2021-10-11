@@ -73,8 +73,10 @@ class People extends Category<V3> {
       throw ArgumentError('personId < 1 is true');
     }
 
-    return _v._query('$_endPoint/$personId/movie_credits',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/$personId/movie_credits',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get the TV show credits for a person.
@@ -95,8 +97,10 @@ class People extends Category<V3> {
       throw ArgumentError('personId < 1 is true');
     }
 
-    return _v._query('$_endPoint/$personId/tv_credits',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/$personId/tv_credits',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get the movie and TV credits together in a single response.
@@ -117,8 +121,10 @@ class People extends Category<V3> {
       throw ArgumentError('personId < 1 is true');
     }
 
-    return _v._query('$_endPoint/$personId/combined_credits',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/$personId/combined_credits',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get the external ids for a person.
@@ -149,8 +155,10 @@ class People extends Category<V3> {
       throw ArgumentError('personId < 1 is true');
     }
 
-    return _v._query('$_endPoint/$personId/external_ids',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/$personId/external_ids',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get the images for a person.
@@ -191,8 +199,10 @@ class People extends Category<V3> {
       throw ArgumentError('personId < 1 is true');
     }
 
-    return _v._query('$_endPoint/$personId/tagged_images',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/$personId/tagged_images',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 
   ///Get a list of translations that have been created for a person.
@@ -212,8 +222,10 @@ class People extends Category<V3> {
       throw ArgumentError('personId < 1 is true');
     }
 
-    return _v._query('$_endPoint/$personId/translations',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      '$_endPoint/$personId/translations',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get the most newly created person. This is a live response and will continuously change.
@@ -247,7 +259,9 @@ class People extends Category<V3> {
   /// Map result = await tmdb.v3.people.getPopular();
   /// ```
   Future<Map> getPopular({String language = 'en-US', int page = 1}) {
-    return _v._query('$_endPoint/popular',
-        optionalQueries: ['language=$language', 'page=$page']);
+    return _v._query(
+      '$_endPoint/popular',
+      optionalQueries: ['language=$language', 'page=$page'],
+    );
   }
 }

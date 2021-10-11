@@ -59,10 +59,13 @@ class AccountV4 extends Category<V4> {
       throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$accountId/lists', postHeaders: {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json;charset=utf-8',
-    });
+    return _v._query(
+      '$_endPoint/$accountId/lists',
+      postHeaders: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    );
   }
 
   ///Get the list of movies you have marked as a favorite.
@@ -123,13 +126,14 @@ class AccountV4 extends Category<V4> {
       throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$accountId/movie/favorites', postHeaders: {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json;charset=utf-8',
-    }, optionalQueries: [
-      'page=$page',
-      'sort_by=$sortBy'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/movie/favorites',
+      postHeaders: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+    );
   }
 
   ///Get the list of TV shows you have marked as a favorite.
@@ -190,13 +194,14 @@ class AccountV4 extends Category<V4> {
       throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$accountId/tv/favorites', postHeaders: {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json;charset=utf-8',
-    }, optionalQueries: [
-      'page=$page',
-      'sort_by=$sortBy'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/tv/favorites',
+      postHeaders: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+    );
   }
 
   ///Get a list of your personal movie recommendations.
@@ -260,14 +265,14 @@ class AccountV4 extends Category<V4> {
       throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v
-        ._query('$_endPoint/$accountId/movie/recommendations', postHeaders: {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json;charset=utf-8',
-    }, optionalQueries: [
-      'page=$page',
-      'sort_by=$sortBy'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/movie/recommendations',
+      postHeaders: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+    );
   }
 
   ///Get a list of your personal TV show recommendations.
@@ -327,13 +332,14 @@ class AccountV4 extends Category<V4> {
       throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$accountId/tv/recommendations', postHeaders: {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json;charset=utf-8',
-    }, optionalQueries: [
-      'page=$page',
-      'sort_by=$sortBy'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/tv/recommendations',
+      postHeaders: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+    );
   }
 
   ///Get the list of movies you have added to your watchlist.
@@ -393,13 +399,14 @@ class AccountV4 extends Category<V4> {
       throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$accountId/movie/watchlist', postHeaders: {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json;charset=utf-8',
-    }, optionalQueries: [
-      'page=$page',
-      'sort_by=$sortBy'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/movie/watchlist',
+      postHeaders: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+    );
   }
 
   ///Get the list of TV shows you have added to your watchlist.
@@ -465,13 +472,14 @@ class AccountV4 extends Category<V4> {
       throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$accountId/tv/watchlist', postHeaders: {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json;charset=utf-8',
-    }, optionalQueries: [
-      'page=$page',
-      'sort_by=$sortBy'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/tv/watchlist',
+      postHeaders: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+    );
   }
 
   ///Get the list of TV shows you have added to your watchlist.
@@ -540,13 +548,14 @@ class AccountV4 extends Category<V4> {
       throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$accountId/movie/rated', postHeaders: {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json;charset=utf-8',
-    }, optionalQueries: [
-      'page=$page',
-      'sort_by=$sortBy'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/movie/rated',
+      postHeaders: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+    );
   }
 
   ///Get the list of TV shows you have added to your watchlist.
@@ -613,12 +622,13 @@ class AccountV4 extends Category<V4> {
       throw ArgumentError('page < 1 || page > 1000 is true');
     }
 
-    return _v._query('$_endPoint/$accountId/tv/rated', postHeaders: {
-      'Authorization': 'Bearer $accessToken',
-      'Content-Type': 'application/json;charset=utf-8',
-    }, optionalQueries: [
-      'page=$page',
-      'sort_by=$sortBy'
-    ]);
+    return _v._query(
+      '$_endPoint/$accountId/tv/rated',
+      postHeaders: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+    );
   }
 }

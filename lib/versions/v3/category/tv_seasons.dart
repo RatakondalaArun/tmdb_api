@@ -32,8 +32,10 @@ class TvSeasons extends Category<V3> {
       para.add('append_to_response=$appendToResponse');
     }
 
-    return _v._query('tv/$tvId/$_endPoint/$seasonNumber',
-        method: HttpMethod.GET, optionalQueries: para);
+    return _v._query(
+      'tv/$tvId/$_endPoint/$seasonNumber',
+      optionalQueries: para,
+    );
   }
 
   /// Get the aggregate credits (cast and crew) that have
@@ -115,8 +117,10 @@ class TvSeasons extends Category<V3> {
     if (seasonNumber < 1 || tvId < 1) {
       throw ArgumentError('seasonNumber<1||tvId<1 is true');
     }
-    return _v._query('tv/$tvId/$_endPoint/$seasonNumber/credits',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      'tv/$tvId/$_endPoint/$seasonNumber/credits',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get the external ids for a TV season.
@@ -133,8 +137,10 @@ class TvSeasons extends Category<V3> {
       throw ArgumentError('tvId<1||seasonNumber<1 is true');
     }
 
-    return _v._query('tv/$tvId/$_endPoint/$seasonNumber/external_ids',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      'tv/$tvId/$_endPoint/$seasonNumber/external_ids',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get the images that belong to a TV season.
@@ -147,8 +153,10 @@ class TvSeasons extends Category<V3> {
       throw ArgumentError('tvId<1||seasonNumber<1 is true');
     }
 
-    return _v._query('tv/$tvId/$_endPoint/$seasonNumber/images',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      'tv/$tvId/$_endPoint/$seasonNumber/images',
+      optionalQueries: ['language=$language'],
+    );
   }
 
   ///Get the videos that have been added to a TV season.
@@ -161,7 +169,9 @@ class TvSeasons extends Category<V3> {
       throw ArgumentError('tvId<1||seasonNumber<1 is true');
     }
 
-    return _v._query('tv/$tvId/$_endPoint/$seasonNumber/videos',
-        optionalQueries: ['language=$language']);
+    return _v._query(
+      'tv/$tvId/$_endPoint/$seasonNumber/videos',
+      optionalQueries: ['language=$language'],
+    );
   }
 }

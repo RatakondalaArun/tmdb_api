@@ -38,7 +38,9 @@ class Keywords extends Category<V3> {
     String language = 'en-US',
     bool includeAdult = false,
   }) {
-    return _v._query('$_endPoint/$keywordId',
-        optionalQueries: ['include_adult=$includeAdult', 'language=$language']);
+    return _v._query(
+      '$_endPoint/$keywordId',
+      optionalQueries: ['include_adult=$includeAdult', 'language=$language'],
+    );
   }
 }

@@ -1,12 +1,11 @@
 @Skip('Only manual tests are possible')
-
 import 'package:test/test.dart';
-import '../../../init_script.dart';
-
 import 'package:tmdb_api/tmdb_api.dart';
 
+import '../../../init_script.dart';
+
 void main() {
-  final tmdb = TMDB(ApiKeys(Keys.API!, Keys.API_V4!));
+  final tmdb = TMDB(ApiKeys(Keys.apiV3!, Keys.apiV4!));
   group('Lists', () {
     group('>details', () {
       test('>get Details', () async {
@@ -42,9 +41,10 @@ void main() {
     group('>Create list', () {
       test('>checking', () async {
         final result = await tmdb.v3.lists.createList(
-            '21b318c9b6fbaa28c62cb3a60796ad3b481fd20a',
-            'testing this api',
-            'lol move time');
+          '21b318c9b6fbaa28c62cb3a60796ad3b481fd20a',
+          'testing this api',
+          'lol move time',
+        );
 
         expect(result is Map, true);
         expect(result.containsKey('list_id'), true);
@@ -75,7 +75,10 @@ void main() {
     group('>Remove item', () {
       test('>checking', () async {
         final result = await tmdb.v3.lists.removeItem(
-            '98097f2cd6af83f272ccbcfa93960723a940f87b', '134721', 12);
+          '98097f2cd6af83f272ccbcfa93960723a940f87b',
+          '134721',
+          12,
+        );
         expect(result is Map, true);
         // expect(result['status_message'],
         //     'The item/record was updated successfully.');

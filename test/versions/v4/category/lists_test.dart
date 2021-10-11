@@ -1,64 +1,70 @@
 @Skip('Only manual tests are possible')
 import 'package:test/test.dart';
-import '../../../init_script.dart';
-
 import 'package:tmdb_api/tmdb_api.dart';
 
-void main() {
-  final tmdb = TMDB(ApiKeys(Keys.API!, Keys.API_V4!));
+import '../../../init_script.dart';
 
-  const ACCESS_TOKEN =
+void main() {
+  final tmdb = TMDB(ApiKeys(Keys.apiV3!, Keys.apiV4!));
+
+  const accessToken =
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1ODQzNjgxODYsInN1YiI6IjVkZjEyMTYzZGI5NTJkMDAxOWJlZjAyNiIsImp0aSI6IjE5MDcxMDgiLCJhdWQiOiJjMjVkZDA2ODZmZDEyODk4YzJiMTg2ZTY5ZTY3MjhmYyIsInNjb3BlcyI6WyJhcGlfcmVhZCIsImFwaV93cml0ZSJdLCJ2ZXJzaW9uIjoxfQ.cCgOIDlLk7F0LS-OlMJNl059TucIspxhhENuTW_dE1c';
 
-  const LIST_ID = 136451;
+  const listId = 136451;
   final items = <ListItem>[
-    ListItem(
-        mediaId: 550,
-        mediaType: MediaType.movie,
-        comment: 'updated cool movie'),
-    ListItem(
-        mediaId: 102, mediaType: MediaType.tv, comment: 'updated cool movie2'),
+    const ListItem(
+      mediaId: 550,
+      comment: 'updated cool movie',
+    ),
+    const ListItem(
+      mediaId: 102,
+      mediaType: MediaType.tv,
+      comment: 'updated cool movie2',
+    ),
   ];
   group('Lists', () {
     test('Create Lists', () async {
       final result =
-          await tmdb.v4.lists.createList(ACCESS_TOKEN, 'Hello Test from ');
+          await tmdb.v4.lists.createList(accessToken, 'Hello Test from ');
       print(result);
       expect(result is Map, true);
       expect(result['status_code'], 1);
     });
 
     test('get List', () async {
-      final result = await tmdb.v4.lists.getList(ACCESS_TOKEN, LIST_ID);
+      final result = await tmdb.v4.lists.getList(accessToken, listId);
       print(result);
       expect(result is Map, true);
-      expect(result['id'], LIST_ID);
+      expect(result['id'], listId);
     });
 
     test('update list', () async {
-      final result = await tmdb.v4.lists.updateList(ACCESS_TOKEN, LIST_ID,
-          listName: 'updated list name $LIST_ID');
+      final result = await tmdb.v4.lists.updateList(
+        accessToken,
+        listId,
+        listName: 'updated list name $listId',
+      );
       print(result);
       expect(result is Map, true);
       expect(result['success'], true);
     });
 
     test('clear List', () async {
-      final result = await tmdb.v4.lists.clearList(ACCESS_TOKEN, LIST_ID);
+      final result = await tmdb.v4.lists.clearList(accessToken, listId);
       print(result);
       expect(result is Map, true);
       expect(result['status_code'], 1);
     });
 
     test('delete List', () async {
-      final result = await tmdb.v4.lists.deleteList(ACCESS_TOKEN, LIST_ID);
+      final result = await tmdb.v4.lists.deleteList(accessToken, listId);
       print(result);
       expect(result is Map, true);
       expect(result['status_code'], 13);
     });
 
     test('add items', () async {
-      final result = await tmdb.v4.lists.addItems(ACCESS_TOKEN, LIST_ID, items);
+      final result = await tmdb.v4.lists.addItems(accessToken, listId, items);
       print(result);
       expect(result is Map, true);
       expect(result['status_code'], 1);
@@ -66,7 +72,7 @@ void main() {
 
     test('update List items', () async {
       final result =
-          await tmdb.v4.lists.updateItems(ACCESS_TOKEN, LIST_ID, items);
+          await tmdb.v4.lists.updateItems(accessToken, listId, items);
       print(result);
       expect(result is Map, true);
       expect(result['status_code'], 1);
@@ -74,7 +80,7 @@ void main() {
 
     test('remove items', () async {
       final result =
-          await tmdb.v4.lists.removeItems(ACCESS_TOKEN, LIST_ID, items);
+          await tmdb.v4.lists.removeItems(accessToken, listId, items);
       print(result);
       expect(result is Map, true);
       expect(result['status_code'], 1);
@@ -82,7 +88,7 @@ void main() {
 
     test('check item status', () async {
       final result = await tmdb.v4.lists
-          .checkItemStatus(ACCESS_TOKEN, LIST_ID, 550, MediaType.movie);
+          .checkItemStatus(accessToken, listId, 550, MediaType.movie);
       print(result);
       expect(result is Map, true);
     });
