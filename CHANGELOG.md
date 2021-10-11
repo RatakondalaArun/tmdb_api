@@ -1,5 +1,12 @@
 # ChangeLog
 
+## 2.0.0
+
+- Nullsafety to stable
+- Require dart sdk `>=2.14.0 <3.0.0`
+- Fixed lint warnings
+- Upgraded dependencies
+
 ## 2.0.0-nullsafety
 
 This version adds **nullsafety**. So there are some breaking changes.
