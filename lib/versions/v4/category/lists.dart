@@ -320,10 +320,7 @@ class ListsV4 extends Category<V4> {
       throw ArgumentError('listId < 1 is true');
     }
 
-    // todo: code stinks
-    // this can be replaced with mapping
-    final postBody = <Map<String, dynamic>>[];
-    items.forEach((item) => postBody.add(item._toMap()));
+    final postBody = items.map((e) => e._toMap()).toList();
 
     return _v._query(
       '$_endPoint/$listId/items',
@@ -377,10 +374,7 @@ class ListsV4 extends Category<V4> {
       throw ArgumentError('listId < 1 is true');
     }
 
-    // todo: code stinks
-    // this can be replaced with mapping
-    final postBody = <Map<String, dynamic>>[];
-    items.forEach((item) => postBody.add(item._toMap()));
+    final postBody = items.map((e) => e._toMap()).toList();
 
     return _v._query(
       '$_endPoint/$listId/items',
@@ -434,12 +428,7 @@ class ListsV4 extends Category<V4> {
       throw ArgumentError('listId < 1 is true');
     }
 
-    // todo: code stinks
-    // this can be replaced with mapping
-    final postBody = <Map<String, dynamic>>[];
-    items.forEach((item) {
-      postBody.add(item._toMap());
-    });
+    final postBody = items.map((e) => e._toMap()).toList();
 
     return _v._query(
       '$_endPoint/$listId/items',
