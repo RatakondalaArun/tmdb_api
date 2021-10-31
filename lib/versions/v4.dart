@@ -43,8 +43,7 @@ class V4 extends Version {
 
     //log to console
     Logger(_tmdb.logConfig).logTypes.urlLog(url.toString());
-    final dio = Dio();
-    dio.interceptors.addAll(_tmdb._interceptors);
+    final dio = _tmdb._dio;
     try {
       late Response<Map> response;
       if (method == HttpMethod.post) {
@@ -79,8 +78,6 @@ class V4 extends Version {
           );
       //if error is unknown rethrow it
       rethrow;
-    } finally {
-      dio.close();
     }
   }
 

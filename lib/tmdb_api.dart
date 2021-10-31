@@ -1,3 +1,55 @@
+/// Client library for [themoviedb](https://www.themoviedb.org/)
+///
+/// 1) **Import it**
+///     Now in your Dart code, you can use:
+///
+///     ```dart
+///     import 'package:tmdb_api/tmdb_api.dart';
+///     ```
+///
+/// 2) **Create Instance**
+///
+///     Now you need to create instance for `TMDB` and `ApiKeys` with your api keys.
+///
+///     ```dart
+///     final tmdbWithCustomLogs = TMDB( //TMDB instance
+///         ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),//ApiKeys instance with your keys,
+///       );
+///     ```
+///
+/// 3) **Configuring console logs**
+///
+///     There are 3 logconfigs presets avaliable.
+///
+///     - `ConfigLogger.showAll()`: development use.
+///     - `ConfigLogger.showRecommended()`: development use.
+///     - `ConfigLogger.showNone()`: production use.
+///
+///     You can add any off this presets to `logConfig` named parameter of `TMDB` instance
+///     **Custom Logs**
+///
+///     ```dart
+///     final tmdbWithCustomLogs = TMDB(
+///         ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
+///         logConfig: ConfigLogger(
+///           showLogs: true,//must be true than only all other logs will be shown
+///           showErrorLogs: true,
+///         ),
+///       );
+///     ```
+///
+/// ## Example
+///
+/// For getting Trending movies
+///
+/// ```dart
+/// Map result = await tmdb.v3.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
+/// ```
+///
+/// ## For more API documentation
+///
+/// visit [offical API documentation](https://developers.themoviedb.org/3/getting-started/introduction)
+///
 library tmdb_api;
 
 import 'package:colorize/colorize.dart';
@@ -63,33 +115,49 @@ part 'versions/v4/category/lists.dart';
 class TMDB {
   final String _baseUrl = 'api.themoviedb.org';
   final ApiKeys _apiKeys;
-  final List<Interceptor> _interceptors;
 
-  V3? _v3;
-  V4? _v4;
-  Images? _images;
-  ConfigLogger? _logConfig;
+  late V3 _v3;
+  late V4 _v4;
+  late Images _images;
+  late ConfigLogger _logConfig;
+  late Dio _dio;
 
-  ///Takes a not null [apikey]
+  /// Creates a instance of [TMDB] client.
+  ///
+  /// Use [apiKeys] to provide your TMDB apikeys, you can find yours
+  /// at https://www.themoviedb.org/settings/api. Provide [logConfig]
+  /// to configure your logs from [TMDB] library, by default it shows none.
+  /// You can provide your own [Dio] instance with [dio],
+  /// which can be used for testing.
+  /// caching and other dio intercepters with [interceptors].
+  ///
+  /// - Read more about [dio interceptors](https://pub.dev/packages/dio#interceptors)
   TMDB(
-    this._apiKeys, {
+    ApiKeys apiKeys, {
     ConfigLogger? logConfig,
+    Dio? dio,
     Interceptors? interceptors,
-  }) : _interceptors = interceptors ?? [] {
+  }) : _apiKeys = apiKeys {
+    _dio = dio ?? Dio();
+    _dio.interceptors.addAll(interceptors ?? []);
     _v3 = V3(this);
     _v4 = V4(this);
     _images = Images();
     _logConfig = logConfig ?? ConfigLogger.showNone();
-    Logger(_logConfig!).logTypes.infoLog('Api initilized ✔');
+    Logger(_logConfig).logTypes.infoLog('Api initilized ✔');
   }
 
-  Images get images => _images!;
-  ConfigLogger get logConfig => _logConfig!;
+  Images get images => _images;
+  ConfigLogger get logConfig => _logConfig;
 
   ///Version v3 of tmdb api
   ///
   ///[offical v3 doc](https://developers.themoviedb.org/3/getting-started)
-  V3 get v3 => _v3!;
+  V3 get v3 => _v3;
 
-  V4 get v4 => _v4!;
+  /// Version v4 of tmdb api
+  V4 get v4 => _v4;
+
+  /// Closes dio client
+  void close({bool force = false}) => _dio.close(force: force);
 }
