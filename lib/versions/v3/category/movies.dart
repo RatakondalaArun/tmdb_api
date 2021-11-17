@@ -372,7 +372,7 @@ class Movies extends Category<V3> {
   /// Map result = await tmdb.v3.movies.getPopular();
   ///```
   ///
-  Future<Map> getPouplar({
+  Future<Map> getPopular({
     String language = 'en-US',
     int page = 1,
     String? region,

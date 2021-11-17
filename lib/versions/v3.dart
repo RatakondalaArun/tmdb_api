@@ -12,7 +12,7 @@ class V3 extends Version {
   Changes? _changes;
   Collections? _collections;
   Find? _find;
-  Geners? _geners;
+  Genres? _genres;
   Keywords? _keywords;
   Companies? _companies;
   Trending? _trending;
@@ -36,7 +36,7 @@ class V3 extends Version {
   Changes get changes => _changes!;
   Collections get collections => _collections!;
   Find get find => _find!;
-  Geners get geners => _geners!;
+  Genres get genres => _genres!;
   Keywords get keywords => _keywords!;
   Companies get companies => _companies!;
   Trending get trending => _trending!;
@@ -62,7 +62,7 @@ class V3 extends Version {
     _changes = Changes(this);
     _collections = Collections(this);
     _find = Find(this);
-    _geners = Geners(this);
+    _genres = Genres(this);
     _keywords = Keywords(this);
     _companies = Companies(this);
     _trending = Trending(this);

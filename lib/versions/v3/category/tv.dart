@@ -367,9 +367,9 @@ class Tv extends Category<V3> {
   ///
   ///## Implementation
   ///```
-  ///Map result = await tmdb.v3.tv.getPouplar(language: 'en-US');
+  ///Map result = await tmdb.v3.tv.getPopular(language: 'en-US');
   ///```
-  Future<Map> getPouplar({String language = 'en-US', int page = 1}) {
+  Future<Map> getPopular({String language = 'en-US', int page = 1}) {
     if (page < 1 || page > 1000) {
       throw ArgumentError(' page < 1 || page > 1000 is true');
     }

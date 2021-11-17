@@ -200,8 +200,8 @@ class Discover extends Category<V3> {
     String? timezone,
     double? voteAverageGte,
     int? voteCountGte,
-    String? withGeners,
-    String? withoutGeners,
+    String? withGenres,
+    String? withoutGenres,
     String? withNetworks,
     int? withRuntimeGte,
     int? withRuntimeLte,
@@ -255,12 +255,12 @@ class Discover extends Category<V3> {
       queries.add('vote_count.gte=$voteCountGte');
     }
 
-    if (withGeners != null) {
-      queries.add('with_genres=$withGeners');
+    if (withGenres != null) {
+      queries.add('with_genres=$withGenres');
     }
 
-    if (withoutGeners != null) {
-      queries.add('without_genres=$withoutGeners');
+    if (withoutGenres != null) {
+      queries.add('without_genres=$withoutGenres');
     }
 
     if (withNetworks != null) {
