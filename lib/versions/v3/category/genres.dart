@@ -1,9 +1,8 @@
 part of tmdb_api;
 
-class Geners extends Category<V3> {
-  ///Provides details about movies
-
-  Geners(V3 v) : super(v, 'genre');
+class Genres extends Category<V3> {
+  ///Provides details about gemres
+  Genres(V3 v) : super(v, 'genre');
 
   ///Get the list of official genres for movies.
   ///
@@ -16,7 +15,7 @@ class Geners extends Category<V3> {
   ///## Implementation
   ///
   ///```
-  /// Map result = await tmdb.v3.geners.getMovieList();
+  /// Map result = await tmdb.v3.genres.getMovieList();
   /// ```
   ///
   /// ## Result
@@ -49,7 +48,7 @@ class Geners extends Category<V3> {
   ///## Implementation
   ///
   ///```
-  /// Map result = await tmdb.v3.geners.getTvList();
+  /// Map result = await tmdb.v3.genres.getTvList();
   /// ```
   ///
   ///## Result
@@ -70,4 +69,8 @@ class Geners extends Category<V3> {
       optionalQueries: ['language=$language'],
     );
   }
+}
+
+class Geners extends Genres {
+  Geners(V3 v) : super(v);
 }
