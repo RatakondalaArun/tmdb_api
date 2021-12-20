@@ -167,7 +167,7 @@ void main() {
     group('Popular', () {
       test('with parameters', () async {
         final result = await tmdb.v3.movies
-            .getPouplar(language: 'en-IN', page: 3, region: 'IN');
+            .getPopular(language: 'en-IN', page: 3, region: 'IN');
         expect(result is Map, true, reason: 'result is not map');
         expect(
           result.containsKey('status_code'),
@@ -178,7 +178,7 @@ void main() {
       });
 
       test('without parameters', () async {
-        final result = await tmdb.v3.movies.getPouplar();
+        final result = await tmdb.v3.movies.getPopular();
         expect(result is Map, true, reason: 'result is not map');
         expect(
           result.containsKey('status_code'),
