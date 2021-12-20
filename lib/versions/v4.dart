@@ -1,13 +1,13 @@
 part of tmdb_api;
 
 class V4 extends Version {
-  AccountV4? _accountV4;
-  AuthV4? _authV4;
-  ListsV4? _listsV4;
+  late AccountV4 _accountV4;
+  late AuthV4 _authV4;
+  late ListsV4 _listsV4;
 
-  AccountV4 get account => _accountV4!;
-  AuthV4 get auth => _authV4!;
-  ListsV4 get lists => _listsV4!;
+  AccountV4 get account => _accountV4;
+  AuthV4 get auth => _authV4;
+  ListsV4 get lists => _listsV4;
 
   V4(TMDB tmdb) : super(tmdb, 4) {
     _accountV4 = AccountV4(this);
