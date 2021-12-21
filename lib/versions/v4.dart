@@ -42,7 +42,7 @@ class V4 extends Version {
     );
 
     //log to console
-    Logger(_tmdb.logConfig).logTypes.urlLog(url.toString());
+    _tmdb._logger.urlLog(url.toString());
     final dio = _tmdb._dio;
     try {
       late Response<Map> response;
@@ -70,12 +70,12 @@ class V4 extends Version {
       }
       return response.data!;
     } catch (e) {
-      Logger(_tmdb.logConfig).logTypes.errorLog(
-            'Exception while making a request. Exception = {${e.toString()}',
-          );
-      Logger(_tmdb.logConfig).logTypes.infoLog(
-            'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues',
-          );
+      _tmdb._logger.errorLog(
+        'Exception while making a request. Exception = {${e.toString()}',
+      );
+      _tmdb._logger.infoLog(
+        'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues',
+      );
       //if error is unknown rethrow it
       rethrow;
     }

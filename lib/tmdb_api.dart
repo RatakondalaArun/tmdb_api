@@ -119,8 +119,8 @@ class TMDB {
   late V3 _v3;
   late V4 _v4;
   late Images _images;
-  late ConfigLogger _logConfig;
   late Dio _dio;
+  late Logger _logger;
 
   /// Creates a instance of [TMDB] client.
   ///
@@ -134,7 +134,7 @@ class TMDB {
   /// - Read more about [dio interceptors](https://pub.dev/packages/dio#interceptors)
   TMDB(
     ApiKeys apiKeys, {
-    ConfigLogger? logConfig,
+    ConfigLogger logConfig = const ConfigLogger.showNone(),
     Dio? dio,
     Interceptors? interceptors,
   }) : _apiKeys = apiKeys {
@@ -143,12 +143,10 @@ class TMDB {
     _v3 = V3(this);
     _v4 = V4(this);
     _images = Images();
-    _logConfig = logConfig ?? ConfigLogger.showNone();
-    Logger(_logConfig).logTypes.infoLog('Api initilized ✔');
+    _logger = Logger(logConfig)..infoLog('Api initilized ✔');
   }
 
   Images get images => _images;
-  ConfigLogger get logConfig => _logConfig;
 
   ///Version v3 of tmdb api
   ///

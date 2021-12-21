@@ -1,7 +1,6 @@
 part of tmdb_api;
 
 class V3 extends Version {
-  // todo: use late keyword
   late Movies _movies;
   late Tv _tv;
   late TvSeasons _tvSeasons;
@@ -104,7 +103,7 @@ class V3 extends Version {
       query: query,
     );
     //log to console
-    Logger(_tmdb.logConfig).logTypes.urlLog(url.toString());
+    _tmdb._logger.urlLog(url.toString());
     final dio = _tmdb._dio;
     //getting data form url
     try {
@@ -121,12 +120,12 @@ class V3 extends Version {
       return dioResponse.data!;
       // return jsonDecode(response.body)! as Map;
     } catch (e) {
-      Logger(_tmdb.logConfig).logTypes.errorLog(
-            'Exception while making a request. Exception = {${e.toString()}',
-          );
-      Logger(_tmdb.logConfig).logTypes.infoLog(
-            'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues',
-          );
+      _tmdb._logger.errorLog(
+        'Exception while making a request. Exception = {${e.toString()}',
+      );
+      _tmdb._logger.infoLog(
+        'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues',
+      );
       //if error is unknown rethrow it
       rethrow;
     }
