@@ -93,19 +93,14 @@ class Auth extends Category<V3> {
   Future<dynamic> createRequestToken({bool asMap = false}) async {
     final result = await _v._query('authentication/token/new');
     if (asMap) {
-      Logger(_v._tmdb.logConfig)
-          .logTypes
-          .infoLog('Request Token Created ${result.toString()}');
+      _v._tmdb._logger.infoLog('Request Token Created ${result.toString()}');
       return result;
     }
     if (result.containsKey('success')) {
-      Logger(_v._tmdb.logConfig)
-          .logTypes
-          .infoLog('Request Token Created ${result.toString()}');
+      _v._tmdb._logger.infoLog('Request Token Created ${result.toString()}');
       return result['request_token'];
     }
-    Logger(_v._tmdb.logConfig)
-        .logTypes
+    _v._tmdb._logger
         .warningLog('Failed to create requesttoken ${result.toString()}');
     return null;
   }
@@ -160,20 +155,20 @@ class Auth extends Category<V3> {
       optionalQueries: ['request_token=$requestToken'],
     );
     if (asMap) {
-      Logger(_v._tmdb.logConfig).logTypes.infoLog(
-            'createSession success result from tmdb = ${result.toString()}',
-          );
+      _v._tmdb._logger.infoLog(
+        'createSession success result from tmdb = ${result.toString()}',
+      );
       return result;
     }
     if (result.containsKey('success')) {
-      Logger(_v._tmdb.logConfig).logTypes.infoLog(
-            'createSession success result from tmdb = ${result.toString()}',
-          );
+      _v._tmdb._logger.infoLog(
+        'createSession success result from tmdb = ${result.toString()}',
+      );
       return result['session_id'];
     }
-    Logger(_v._tmdb.logConfig).logTypes.warningLog(
-          'createSession failed result from tmdb = ${result.toString()}',
-        );
+    _v._tmdb._logger.warningLog(
+      'createSession failed result from tmdb = ${result.toString()}',
+    );
     return null;
   }
 
@@ -262,9 +257,7 @@ class Auth extends Category<V3> {
       deleteBody: {'session_id': sessionId},
     );
 
-    Logger(_v._tmdb.logConfig)
-        .logTypes
-        .infoLog('deleteSession result ${result.toString()}');
+    _v._tmdb._logger.infoLog('deleteSession result ${result.toString()}');
     return result;
   }
 }

@@ -21,7 +21,7 @@ class ConfigLogger {
   final bool showInfoLogs;
   final bool showWarningLogs;
   final bool showErrorLogs;
-  ConfigLogger({
+  const ConfigLogger({
     this.showLogs = false,
     this.showUrlLogs = false,
     this.showInfoLogs = false,
@@ -37,15 +37,12 @@ class ConfigLogger {
   ///TMDB api = TMDB(ApiKeys(Keys.API, Keys.API_V4), logConfig: ConfigLogger.showAll());
   ///```
   ///
-  factory ConfigLogger.showAll() {
-    return ConfigLogger(
-      showLogs: true,
-      showUrlLogs: true,
-      showInfoLogs: true,
-      showWarningLogs: true,
-      showErrorLogs: true,
-    );
-  }
+  const ConfigLogger.showAll()
+      : showLogs = true,
+        showUrlLogs = true,
+        showInfoLogs = true,
+        showWarningLogs = true,
+        showErrorLogs = true;
 
   ///## Usage
   ///Pass this if you want to set all logs to `false` in LogConfig
@@ -57,7 +54,12 @@ class ConfigLogger {
   ///TMDB api = TMDB(ApiKeys(Keys.API, Keys.API_V4), logConfig: ConfigLogger.showNone());
   ///```
   ///
-  factory ConfigLogger.showNone() => ConfigLogger();
+  const ConfigLogger.showNone()
+      : showLogs = false,
+        showUrlLogs = false,
+        showInfoLogs = false,
+        showWarningLogs = false,
+        showErrorLogs = false;
 
   ///## Usage
   ///Pass this if you want to set all logs to `false` in LogConfig
@@ -69,53 +71,43 @@ class ConfigLogger {
   ///TMDB api = TMDB(ApiKeys(Keys.API, Keys.API_V4), logConfig: ConfigLogger.recommended());
   ///```
   ///
-  factory ConfigLogger.recommended() {
-    return ConfigLogger(
-      showLogs: true,
-      showInfoLogs: true,
-      showWarningLogs: true,
-      showErrorLogs: true,
-    );
-  }
+  const ConfigLogger.recommended()
+      : showLogs = true,
+        showInfoLogs = true,
+        showWarningLogs = true,
+        showErrorLogs = true,
+        showUrlLogs = false;
 }
 
 class Logger {
-  LogTypes? _types;
   final ConfigLogger _config;
 
-  LogTypes get logTypes => _types!;
-
-  Logger(this._config) {
-    _types = LogTypes(this);
-  }
-}
-
-class LogTypes {
-  final Logger _logger;
-
-  LogTypes(this._logger);
+  const Logger(this._config);
 
   void errorLog(String msg) {
-    if (_logger._config.showLogs && _logger._config.showLogs) {
-      print(Colorize('TMDB_API--LOG(🔴) --ERROR-- $msg')..red());
-    }
+    if (!_config.showLogs) return;
+    _log(Colorize('TMDB_API--LOG(🔴) --ERROR-- $msg')..red());
   }
 
   void infoLog(String msg) {
-    if (_logger._config.showLogs && _logger._config.showInfoLogs) {
-      print(Colorize('TMDB_API--LOG(ℹ) --INFO-- $msg')..green());
-    }
+    if (!_config.showInfoLogs) return;
+    _log(Colorize('TMDB_API--LOG(ℹ) --INFO-- $msg')..green());
   }
 
   void warningLog(String msg) {
-    if (_logger._config.showLogs && _logger._config.showWarningLogs) {
-      print(Colorize('TMDB_API--LOG(⚠) --WARNING-- $msg')..yellow());
-    }
+    if (!_config.showWarningLogs) return;
+    _log(
+      Colorize('TMDB_API--LOG(⚠) --WARNING-- $msg')..yellow(),
+    );
   }
 
   void urlLog(String urlMsg) {
-    if (_logger._config.showUrlLogs && _logger._config.showUrlLogs) {
-      print(Colorize('TMDB_API--LOG(🔗) --URL-- \n$urlMsg')..blue());
-    }
+    if (!_config.showUrlLogs) return;
+    _log(Colorize('TMDB_API--LOG(🔗) --URL-- \n$urlMsg')..blue());
+  }
+
+  void _log(Colorize log) {
+    if (!_config.showLogs) return;
+    print(log);
   }
 }
