@@ -32,7 +32,7 @@
     <li><a href="../../index.html">tmdb_api</a></li>
     <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
     <li><a href="../../tmdb_api/Logger-class.html">Logger</a></li>
-    <li class="self-crumb">Logger constructor</li>
+    <li class="self-crumb">Logger const constructor</li>
   </ol>
   <div class="self-name">Logger</div>
   <form class="search navbar-right" role="search">
@@ -49,7 +49,7 @@
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-    <section class="multi-line-signature">
+    <section class="multi-line-signature">const
       <span class="name ">Logger</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-_config"><span class="type-annotation"><a href="../../tmdb_api/ConfigLogger-class.html">ConfigLogger</a></span> <span class="parameter-name">_config</span></span></li>
 </ol>)
     </section>
@@ -60,9 +60,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Logger(this._config) {
-  _types = LogTypes(this);
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">const Logger(this._config);</code></pre>
 </section>
 
 
@@ -79,7 +77,7 @@
   <li><a href="../../index.html">tmdb_api</a></li>
   <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
   <li><a href="../../tmdb_api/Logger-class.html">Logger</a></li>
-  <li class="self-crumb">Logger constructor</li>
+  <li class="self-crumb">Logger const constructor</li>
 </ol>
 
 
@@ -90,19 +88,22 @@
     <li><a href="../../tmdb_api/Logger/Logger.html">Logger</a></li>
 
 
-    <li class="section-title">
+    <li class="section-title inherited">
       <a href="../../tmdb_api/Logger-class.html#instance-properties">Properties</a>
     </li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.14.3/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../../tmdb_api/Logger/logTypes.html">logTypes</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.14.3/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
-    <li class="section-title inherited"><a href="../../tmdb_api/Logger-class.html#instance-methods">Methods</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.14.3/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.14.3/dart-core/Object/toString.html">toString</a></li>
+    <li class="section-title"><a href="../../tmdb_api/Logger-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../tmdb_api/Logger/errorLog.html">errorLog</a></li>
+    <li><a href="../../tmdb_api/Logger/infoLog.html">infoLog</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/toString.html">toString</a></li>
+    <li><a href="../../tmdb_api/Logger/urlLog.html">urlLog</a></li>
+    <li><a href="../../tmdb_api/Logger/warningLog.html">warningLog</a></li>
 
     <li class="section-title inherited"><a href="../../tmdb_api/Logger-class.html#operators">Operators</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.14.3/dart-core/Object/operator_equals.html">operator ==</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
 
@@ -119,7 +120,7 @@
 <footer>
   <span class="no-break">
     tmdb_api
-      2.0.0
+      2.1.0
   </span>
 
   

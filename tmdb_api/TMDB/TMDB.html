@@ -50,26 +50,43 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">TMDB</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-_apiKeys"><span class="type-annotation"><a href="../../tmdb_api/ApiKeys-class.html">ApiKeys</a></span> <span class="parameter-name">_apiKeys</span>, </span></li>
-<li><span class="parameter" id="-param-logConfig">{<span class="type-annotation"><a href="../../tmdb_api/ConfigLogger-class.html">ConfigLogger</a>?</span> <span class="parameter-name">logConfig</span>}</span></li>
+      <span class="name ">TMDB</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-apiKeys"><span class="type-annotation"><a href="../../tmdb_api/ApiKeys-class.html">ApiKeys</a></span> <span class="parameter-name">apiKeys</span>, </span></li>
+<li><span class="parameter" id="-param-logConfig">{<span class="type-annotation"><a href="../../tmdb_api/ConfigLogger-class.html">ConfigLogger</a></span> <span class="parameter-name">logConfig</span> = <span class="default-value">const ConfigLogger.showNone()</span>, </span></li>
+<li><span class="parameter" id="-param-dio"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/4.0.4/dio/Dio-class.html">Dio</a>?</span> <span class="parameter-name">dio</span>, </span></li>
+<li><span class="parameter" id="-param-interceptors"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/4.0.4/dio/Interceptors-class.html">Interceptors</a>?</span> <span class="parameter-name">interceptors</span>}</span></li>
 </ol>)
     </section>
 
     
 <section class="desc markdown">
-  <p>Takes a not null <code>apikey</code></p>
+  <p>Creates a instance of <a href="../../tmdb_api/TMDB-class.html">TMDB</a> client.</p>
+<p>Use <code>apiKeys</code> to provide your TMDB apikeys, you can find yours
+at <a href="https://www.themoviedb.org/settings/api">https://www.themoviedb.org/settings/api</a>. Provide <code>logConfig</code>
+to configure your logs from <a href="../../tmdb_api/TMDB-class.html">TMDB</a> library, by default it shows none.
+You can provide your own <a href="https://pub.dev/documentation/dio/4.0.4/dio/Dio-class.html">Dio</a> instance with <code>dio</code>,
+which can be used for testing.
+caching and other dio intercepters with <code>interceptors</code>.</p>
+<ul>
+<li>Read more about <a href="https://pub.dev/packages/dio#interceptors">dio interceptors</a></li>
+</ul>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">TMDB(this._apiKeys, {ConfigLogger? logConfig}) {
+  <pre class="language-dart"><code class="language-dart">TMDB(
+  ApiKeys apiKeys, {
+  ConfigLogger logConfig = const ConfigLogger.showNone(),
+  Dio? dio,
+  Interceptors? interceptors,
+}) : _apiKeys = apiKeys {
+  _dio = dio ?? Dio();
+  _dio.interceptors.addAll(interceptors ?? []);
   _v3 = V3(this);
   _v4 = V4(this);
   _images = Images();
-  _logConfig = logConfig ?? ConfigLogger.showNone();
-  Logger(_logConfig!).logTypes.infoLog(&#39;Api initilized ✔&#39;);
+  _logger = Logger(logConfig)..infoLog(&#39;Api initilized ✔&#39;);
 }</code></pre>
 </section>
 
@@ -101,19 +118,19 @@
     <li class="section-title">
       <a href="../../tmdb_api/TMDB-class.html#instance-properties">Properties</a>
     </li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.14.3/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../tmdb_api/TMDB/images.html">images</a></li>
-    <li><a href="../../tmdb_api/TMDB/logConfig.html">logConfig</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.14.3/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../../tmdb_api/TMDB/v3.html">v3</a></li>
     <li><a href="../../tmdb_api/TMDB/v4.html">v4</a></li>
 
-    <li class="section-title inherited"><a href="../../tmdb_api/TMDB-class.html#instance-methods">Methods</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.14.3/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.14.3/dart-core/Object/toString.html">toString</a></li>
+    <li class="section-title"><a href="../../tmdb_api/TMDB-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../tmdb_api/TMDB/close.html">close</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../tmdb_api/TMDB-class.html#operators">Operators</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.14.3/dart-core/Object/operator_equals.html">operator ==</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
 
@@ -130,7 +147,7 @@
 <footer>
   <span class="no-break">
     tmdb_api
-      2.0.0
+      2.1.0
   </span>
 
   

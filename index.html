@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="generator" content="made with love by dartdoc 2.0.0">
+  <meta name="generator" content="made with love by dartdoc 4.1.0">
   <meta name="description" content="tmdb_api API docs, for the Dart programming language.">
   <title>tmdb_api - Dart API docs</title>
 
@@ -48,8 +48,9 @@
 <p><a href="https://github.com/RatakondalaArun/tmdb_api/actions/workflows/analysis.yml"><img src="https://github.com/RatakondalaArun/tmdb_api/actions/workflows/analysis.yml/badge.svg" alt="Dart Code Analysis"></a>
 <a href="https://github.com/RatakondalaArun/tmdb_api/actions/workflows/ci.yml"><img src="https://github.com/RatakondalaArun/tmdb_api/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
 <a href="https://pub.dartlang.org/packages/tmdb_api"><img src="https://img.shields.io/pub/v/tmdb_api?color=dark%20green&amp;include_prereleases&amp;label=pub%20package&amp;logo=dart" alt="pub package"></a>
-<a href="https://pub.dev/packages/lint"><img src="https://img.shields.io/badge/style-lint-4BC0F5.svg" alt="style: lint"></a></p><!-- markdownlint-disable MD033 -->
-<p><img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" height="100px" width="50%"><img src="https://dart.dev/assets/shared/dart/logo+text/horizontal/white-e71fb382ad5229792cc704b3ee7a88f8013e986d6e34f0956d89c453b454d0a5.svg" height="100px" width="50%"></p>
+<a href="https://pub.dev/packages/lint"><img src="https://img.shields.io/badge/style-lint-4BC0F5.svg" alt="style: lint"></a></p><!-- markdownlint-disable MD033 --><p align="center">
+<img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" height="100px"><img src="https://avatars.githubusercontent.com/u/1609975?s=100&amp;v=4" height="100px">  
+</p>
 <p>A TheMovieDatabase client library for dart.
 To know more about TMDB visit <a href="https://www.themoviedb.org/"><em>offical site</em></a></p>
 <h2 id="getting-started">Getting started</h2>
@@ -100,6 +101,28 @@ To know more about TMDB visit <a href="https://www.themoviedb.org/"><em>offical 
 <p>For getting Trending movies</p>
 <pre class="language-dart"><code class="language-dart">Map result = await tmdb.v3.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
 </code></pre>
+<h3 id="custom-dio-instance">Custom Dio instance</h3>
+<pre class="language-dart"><code class="language-dart">    final tmdbWithCustomLogs = TMDB(
+        ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
+        dio:Dio()// your own dio instance
+      );
+</code></pre>
+<h3 id="adding-interceptors">Adding Interceptors</h3>
+<pre class="language-dart"><code class="language-dart">final tmdbWithCustomLogs = TMDB(
+    ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
+    interceptors:Interceptors()..add(/*your interceptor*/)
+    );
+</code></pre>
+<p>or</p>
+<pre class="language-dart"><code class="language-dart">final customDio = Dio();
+customDio.interceptors.add(/*your interceptor*/)
+
+final tmdbWithCustomLogs = TMDB(
+    ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
+    dio:dio
+    );
+</code></pre>
+<p>note:<em>Use interceptors only when you are not using a custom <code>Dio</code> instance</em>.</p>
 <h2 id="for-more-api-documentation">For more API documentation</h2>
 <p>visit <a href="https://developers.themoviedb.org/3/getting-started/introduction">offical API documentation</a></p>
 </section>
@@ -119,7 +142,7 @@ To know more about TMDB visit <a href="https://www.themoviedb.org/"><em>offical 
   <span class="name"><a href="tmdb_api/tmdb_api-library.html">tmdb_api</a></span> 
 
 </dt>
-<dd> 
+<dd>Client library for <a href="https://www.themoviedb.org/">themoviedb</a> <a href="tmdb_api/tmdb_api-library.html">[...]</a>
 </dd>
 
         </dl>
@@ -156,7 +179,7 @@ To know more about TMDB visit <a href="https://www.themoviedb.org/"><em>offical 
 <footer>
   <span class="no-break">
     tmdb_api
-      2.0.0
+      2.1.0
   </span>
 
   
