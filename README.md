@@ -70,6 +70,38 @@ For getting Trending movies
 Map result = await tmdb.v3.trending.getTrending(mediaType = MediaType.all,timeWindow = TimeWindow.day);
 ```
 
+### Custom Dio instance
+
+```dart
+    final tmdbWithCustomLogs = TMDB(
+        ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
+        dio:Dio()// your own dio instance
+      );
+```
+
+### Adding Interceptors
+
+```dart
+final tmdbWithCustomLogs = TMDB(
+    ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
+    interceptors:Interceptors()..add(/*your interceptor*/)
+    );
+```
+
+or
+
+```dart
+final customDio = Dio();
+customDio.interceptors.add(/*your interceptor*/)
+
+final tmdbWithCustomLogs = TMDB(
+    ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
+    dio:dio
+    );
+```
+
+note:*Use interceptors only when you are not using a custom `Dio` instance*.
+
 ## For more API documentation
 
 visit [offical API documentation](https://developers.themoviedb.org/3/getting-started/introduction)
