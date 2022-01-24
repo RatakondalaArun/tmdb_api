@@ -372,7 +372,35 @@ class Movies extends Category<V3> {
   /// Map result = await tmdb.v3.movies.getPopular();
   ///```
   ///
+  @Deprecated('This method is a typo. Use getPopular() instead')
   Future<Map> getPouplar({
+    String language = 'en-US',
+    int page = 1,
+    String? region,
+  }) {
+    return getPopular(language: language, page: page, region: region);
+  }
+
+  /// Get a list of the current popular movies on TMDb.
+  /// This list updates daily.
+  ///
+  ///## Parameters
+  ///`movieId`: Id of a given movie.
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  /// *minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///`page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
+  ///
+  ///`region`:Specify a ISO 3166-1 code to filter release dates. Must be uppercase. *pattern: ^[A-Z]{2}$*
+  ///
+  ///## Implementation
+  ///
+  ///```
+  /// Map result = await tmdb.v3.movies.getPopular();
+  ///```
+  ///
+  Future<Map> getPopular({
     String language = 'en-US',
     int page = 1,
     String? region,

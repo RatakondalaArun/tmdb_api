@@ -7,12 +7,12 @@ void main() {
   final tmdb = TMDB(ApiKeys(Keys.apiV3!, Keys.apiV4!));
   group('Geners', () {
     test('movie', () async {
-      final result = await tmdb.v3.geners.getMovieList();
+      final result = await tmdb.v3.genres.getMovieList();
       expect(result is Map, true);
       expect(result.containsKey('status_code'), false);
     });
     test('tv', () async {
-      final result = await tmdb.v3.geners.getTvlist();
+      final result = await tmdb.v3.genres.getTvlist();
       expect(result is Map, true);
       expect(result.containsKey('status_code'), false);
     });

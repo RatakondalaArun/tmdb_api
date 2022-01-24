@@ -369,7 +369,26 @@ class Tv extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.tv.getPouplar(language: 'en-US');
   ///```
+  @Deprecated('This method is a typo. Use getPopular() instead')
   Future<Map> getPouplar({String language = 'en-US', int page = 1}) {
+    return getPopular(language: language, page: page);
+  }
+
+  /// Get a list of the current popular tv shows on TMDB.
+  /// This list updates daily.
+  ///
+  ///## Parameters
+  ///
+  ///`language`: Pass a ISO 639-1 value to display translated data for the fields that support it.
+  /// *minLength: 2 pattern: ([a-z]{2})-([A-Z]{2}) default: en-US*
+  ///
+  ///`page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
+  ///
+  ///## Implementation
+  ///```
+  ///Map result = await tmdb.v3.tv.getPopular(language: 'en-US');
+  ///```
+  Future<Map> getPopular({String language = 'en-US', int page = 1}) {
     if (page < 1 || page > 1000) {
       throw ArgumentError(' page < 1 || page > 1000 is true');
     }

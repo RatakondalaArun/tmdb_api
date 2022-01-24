@@ -1,53 +1,55 @@
 part of tmdb_api;
 
 class V3 extends Version {
-  Movies? _movies;
-  Tv? _tv;
-  TvSeasons? _tvSeasons;
-  TvEpisodes? _tvEpisodes;
-  // TvEpisodeGroup _tvEpisodeGroup;
-  People? _people;
-  Credit? _credit;
-  Certification? _certification;
-  Changes? _changes;
-  Collections? _collections;
-  Find? _find;
-  Geners? _geners;
-  Keywords? _keywords;
-  Companies? _companies;
-  Trending? _trending;
-  Search? _search;
-  Discover? _discover;
-  Networks? _networks;
-  Reviews? _reviews;
-  Auth? _auth;
-  Lists? _lists;
-  Account? _account;
-  GuestSession? _guestSession;
+  late Movies _movies;
+  late Tv _tv;
+  late TvSeasons _tvSeasons;
+  late TvEpisodes _tvEpisodes;
+  late People _people;
+  late Credit _credit;
+  late Certification _certification;
+  late Changes _changes;
+  late Collections _collections;
+  late Find _find;
+  late Geners _geners;
+  late Genres _genres;
+  late Keywords _keywords;
+  late Companies _companies;
+  late Trending _trending;
+  late Search _search;
+  late Discover _discover;
+  late Networks _networks;
+  late Reviews _reviews;
+  late Auth _auth;
+  late Lists _lists;
+  late Account _account;
+  late GuestSession _guestSession;
 
-  Movies get movies => _movies!;
-  Tv get tv => _tv!;
-  TvSeasons get tvSeasons => _tvSeasons!;
-  TvEpisodes get tvEpisodes => _tvEpisodes!;
+  Movies get movies => _movies;
+  Tv get tv => _tv;
+  TvSeasons get tvSeasons => _tvSeasons;
+  TvEpisodes get tvEpisodes => _tvEpisodes;
   // TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
-  People get people => _people!;
-  Credit get credit => _credit!;
-  Certification get certification => _certification!;
-  Changes get changes => _changes!;
-  Collections get collections => _collections!;
-  Find get find => _find!;
-  Geners get geners => _geners!;
-  Keywords get keywords => _keywords!;
-  Companies get companies => _companies!;
-  Trending get trending => _trending!;
-  Search get search => _search!;
-  Discover get discover => _discover!;
-  Networks get networks => _networks!;
-  Reviews get reviews => _reviews!;
-  Auth get auth => _auth!;
-  Lists get lists => _lists!;
-  Account get account => _account!;
-  GuestSession get guestSession => _guestSession!;
+  People get people => _people;
+  Credit get credit => _credit;
+  Certification get certification => _certification;
+  Changes get changes => _changes;
+  Collections get collections => _collections;
+  Find get find => _find;
+  @Deprecated('This method is a typo. Use getPouplar() instead')
+  Geners get geners => _geners;
+  Genres get genres => _genres;
+  Keywords get keywords => _keywords;
+  Companies get companies => _companies;
+  Trending get trending => _trending;
+  Search get search => _search;
+  Discover get discover => _discover;
+  Networks get networks => _networks;
+  Reviews get reviews => _reviews;
+  Auth get auth => _auth;
+  Lists get lists => _lists;
+  Account get account => _account;
+  GuestSession get guestSession => _guestSession;
 
   V3(TMDB tmdb) : super(tmdb, 3) {
     _reviews = Reviews(this);
@@ -63,6 +65,7 @@ class V3 extends Version {
     _collections = Collections(this);
     _find = Find(this);
     _geners = Geners(this);
+    _genres = Genres(this);
     _keywords = Keywords(this);
     _companies = Companies(this);
     _trending = Trending(this);
@@ -100,26 +103,29 @@ class V3 extends Version {
       query: query,
     );
     //log to console
-    Logger(_tmdb.logConfig).logTypes.urlLog(url.toString());
-
+    _tmdb._logger.urlLog(url.toString());
+    final dio = _tmdb._dio;
     //getting data form url
     try {
-      http.Response response;
+      late Response<Map> dioResponse;
+
       if (method == HttpMethod.post) {
-        response = await http.post(url, body: postBody);
+        dioResponse = await dio.postUri(url, data: postBody);
       } else if (method == HttpMethod.delete) {
-        response = await _httpDelete(url, deleteBody!);
+        dioResponse = await dio.deleteUri(url, data: deleteBody);
       } else {
-        response = await http.get(url);
+        dioResponse = await dio.getUri<Map>(url);
       }
-      return jsonDecode(response.body)! as Map;
+      // using `!` because tmdb api always sends a replay;
+      return dioResponse.data!;
+      // return jsonDecode(response.body)! as Map;
     } catch (e) {
-      Logger(_tmdb.logConfig).logTypes.errorLog(
-            'Exception while making a request. Exception = {${e.toString()}',
-          );
-      Logger(_tmdb.logConfig).logTypes.infoLog(
-            'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues',
-          );
+      _tmdb._logger.errorLog(
+        'Exception while making a request. Exception = {${e.toString()}',
+      );
+      _tmdb._logger.infoLog(
+        'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues',
+      );
       //if error is unknown rethrow it
       rethrow;
     }
@@ -129,19 +135,5 @@ class V3 extends Version {
     return (queries == null || queries.isEmpty)
         ? currentQuery
         : '$currentQuery&${queries.join('&')}';
-  }
-
-  //http.delete doesn't provide a body
-  //so created this
-  Future<http.Response> _httpDelete(
-    Uri url,
-    Map<String, String> deleteBody,
-  ) async {
-    final request = http.Request('DELETE', Uri.parse(url.toString()))
-      ..headers.addAll({'Content-Type': 'application/x-www-form-urlencoded'});
-    request.bodyFields = deleteBody;
-
-    final response = await http.Response.fromStream(await request.send());
-    return response;
   }
 }

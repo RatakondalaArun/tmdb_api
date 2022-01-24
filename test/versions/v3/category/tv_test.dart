@@ -143,12 +143,12 @@ void main() {
 
     group('Popular', () {
       test('with parameters', () async {
-        final result = await tmdb.v3.tv.getPouplar();
+        final result = await tmdb.v3.tv.getPopular();
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
-        final result = await tmdb.v3.tv.getPouplar();
+        final result = await tmdb.v3.tv.getPopular();
         expect(result is Map, true);
         expect(result.containsKey('status_code'), false);
       });
