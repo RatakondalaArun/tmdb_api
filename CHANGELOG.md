@@ -1,5 +1,14 @@
 # ChangeLog
 
+## 2.1.0
+
+- Replaced `http` package with `dio` ([#57](https://github.com/RatakondalaArun/tmdb_api/issues/57))
+- Removed depricated exceptions ([#77](https://github.com/RatakondalaArun/tmdb_api/issues/77))
+  - `NullValueException`
+  - `InvalidDataException`
+- Fixed some typos ([#70](https://github.com/RatakondalaArun/tmdb_api/issues/70))
+- Improved logging interface ([#75](https://github.com/RatakondalaArun/tmdb_api/issues/75))
+
 ## 2.0.0
 
 - Nullsafety to stable
