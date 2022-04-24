@@ -22,7 +22,7 @@ class Discover extends Category<V3> {
   /// result['results']
   /// ```
   Future<Map> getMovies({
-    String language = 'en-US',
+    String? language,
     SortMoviesBy sortBy = SortMoviesBy.popularityDesc,
     int page = 1,
     bool includeAdult = false,
@@ -57,7 +57,7 @@ class Discover extends Category<V3> {
   }) {
     //all the default values
     final queries = <String>[
-      'language=$language',
+      'language=${language ?? _v._tmdb.defaultLanguage}',
       'sort_by=${_getSortMovieBy(sortBy)}',
       'page=$page',
       'includeAdult=$includeAdult',
@@ -188,7 +188,7 @@ class Discover extends Category<V3> {
   /// result['results']
   /// ```
   Future<Map> getTvShows({
-    String language = 'en-US',
+    String? language,
     SortTvShowsBy sortBy = SortTvShowsBy.popularityDesc,
     int page = 1,
     bool includeNullFirstAirDates = false,
@@ -215,7 +215,7 @@ class Discover extends Category<V3> {
   }) {
     //all the default values
     final queries = <String>[
-      'language=$language',
+      'language=${language ?? _v._tmdb.defaultLanguage}',
       'sort_by=${_getSortTvShowsBy(sortBy)}',
       'page=$page',
       'include_null_first_air_dates=$includeNullFirstAirDates',

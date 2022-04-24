@@ -47,6 +47,7 @@ class V4 extends Version {
     try {
       late Response<Map> response;
       if (method == HttpMethod.post) {
+        print('Making a post request to $url');
         response = await dio.postUri(
           url,
           options: Options(headers: postHeaders),
@@ -69,7 +70,13 @@ class V4 extends Version {
         );
       }
       return response.data!;
-    } catch (e) {
+    } on DioError catch (e) {
+      throw TMDBDioError(
+        e.message,
+        orginal: e,
+        statusCode: e.response?.statusCode,
+      );
+    } catch (e, st) {
       _tmdb._logger.errorLog(
         'Exception while making a request. Exception = {${e.toString()}',
       );
@@ -77,7 +84,8 @@ class V4 extends Version {
         'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues',
       );
       //if error is unknown rethrow it
-      rethrow;
+      // rethrow;
+      throw TMDBOtherException('error/unknown', orginal: e, stackTrace: st);
     }
   }
 

@@ -25,9 +25,9 @@ class TvSeasons extends Category<V3> {
     int tvId,
     int seasonNumber, {
     String? appendToResponse,
-    String language = 'en=US',
+    String? language,
   }) {
-    final para = <String>['language=$language'];
+    final para = <String>['language=${language ?? _v._tmdb.defaultLanguage}'];
     if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
     }
@@ -49,11 +49,11 @@ class TvSeasons extends Category<V3> {
   Future<Map> getAggregateCredits(
     String tvId,
     String seasonNumber, {
-    String language = 'en-US',
+    String? language,
   }) {
     return _v._query(
       'tv/$tvId/$_endPoint/$seasonNumber/aggregate_credits',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -112,14 +112,14 @@ class TvSeasons extends Category<V3> {
   Future<Map> getCredits(
     int tvId,
     int seasonNumber, {
-    String language = 'en-US',
+    String? language,
   }) {
     if (seasonNumber < 1 || tvId < 1) {
       throw ArgumentError('seasonNumber<1||tvId<1 is true');
     }
     return _v._query(
       'tv/$tvId/$_endPoint/$seasonNumber/credits',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -131,7 +131,7 @@ class TvSeasons extends Category<V3> {
   Future<Map> getExternalId(
     int tvId,
     int seasonNumber, {
-    String language = 'en-US',
+    String? language,
   }) {
     if (tvId < 1 || seasonNumber < 1) {
       throw ArgumentError('tvId<1||seasonNumber<1 is true');
@@ -139,7 +139,7 @@ class TvSeasons extends Category<V3> {
 
     return _v._query(
       'tv/$tvId/$_endPoint/$seasonNumber/external_ids',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -147,7 +147,7 @@ class TvSeasons extends Category<V3> {
   Future<Map> getImages(
     int tvId,
     int seasonNumber, {
-    String language = 'en-US',
+    String? language,
   }) {
     if (tvId < 1 || seasonNumber < 1) {
       throw ArgumentError('tvId<1||seasonNumber<1 is true');
@@ -155,7 +155,7 @@ class TvSeasons extends Category<V3> {
 
     return _v._query(
       'tv/$tvId/$_endPoint/$seasonNumber/images',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -163,7 +163,7 @@ class TvSeasons extends Category<V3> {
   Future<Map> getVideos(
     int tvId,
     int seasonNumber, {
-    String language = 'en-US',
+    String? language,
   }) {
     if (tvId < 1 || seasonNumber < 1) {
       throw ArgumentError('tvId<1||seasonNumber<1 is true');
@@ -171,7 +171,7 @@ class TvSeasons extends Category<V3> {
 
     return _v._query(
       'tv/$tvId/$_endPoint/$seasonNumber/videos',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 }

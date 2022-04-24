@@ -30,10 +30,10 @@ class Genres extends Category<V3> {
   ///   ]
   /// }
   ///```
-  Future<Map> getMovieList({String language = 'en-US'}) {
+  Future<Map> getMovieList({String? language}) {
     return _v._query(
       '$_endPoint/movie/list',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -63,10 +63,10 @@ class Genres extends Category<V3> {
   ///   ]
   /// }
   ///```
-  Future<Map> getTvlist({String language = 'en-US'}) {
+  Future<Map> getTvlist({String? language}) {
     return _v._query(
       '$_endPoint/tv/list',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 }

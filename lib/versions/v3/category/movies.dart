@@ -18,13 +18,13 @@ class Movies extends Category<V3> {
   ///```
   Future<Map> getDetails(
     int movieId, {
-    String language = 'en-US',
+    String? language,
     String? appendToResponse,
   }) {
     return _v._query(
       '$_endPoint/$movieId',
       optionalQueries: [
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'append_to_response=$appendToResponse'
       ],
     );
@@ -183,7 +183,7 @@ class Movies extends Category<V3> {
   ///
   Future<Map> getRecommended(
     int movieId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
   }) async {
     if (movieId < 1 || page < 1 || page > 1000) {
@@ -192,7 +192,10 @@ class Movies extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$movieId/recommendations',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 
@@ -216,7 +219,7 @@ class Movies extends Category<V3> {
   ///
   Future<Map> getSimilar(
     int movieId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
   }) {
     if (movieId < 1 || page < 1 || page > 1000) {
@@ -225,7 +228,10 @@ class Movies extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$movieId/similar',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 
@@ -246,7 +252,7 @@ class Movies extends Category<V3> {
   ///
   Future<Map> getReviews(
     int movieId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
   }) {
     if (movieId < 1 || page < 1 || page > 1000) {
@@ -257,7 +263,10 @@ class Movies extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$movieId/reviews',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 
@@ -279,7 +288,7 @@ class Movies extends Category<V3> {
   ///
   Future<Map> getLists(
     int movieId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
   }) {
     if (movieId < 1 || page < 1 || page > 1000) {
@@ -288,7 +297,10 @@ class Movies extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$movieId/lists',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 
@@ -304,10 +316,10 @@ class Movies extends Category<V3> {
   /// Map result = await tmdb.v3.movies.getLatest(103);
   ///```
   ///
-  Future<Map> getLatest({String language = 'en-US'}) {
+  Future<Map> getLatest({String? language}) {
     return _v._query(
       '$_endPoint/latest',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -337,7 +349,7 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getNowPlaying({
-    String language = 'en-US',
+    String? language,
     int page = 1,
     String? region,
   }) {
@@ -345,7 +357,10 @@ class Movies extends Category<V3> {
       throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    final para = <String>['language=$language', 'page=$page'];
+    final para = <String>[
+      'language=${language ?? _v._tmdb.defaultLanguage}',
+      'page=$page'
+    ];
     if (region != null) {
       para.add('region=$region');
     }
@@ -374,7 +389,7 @@ class Movies extends Category<V3> {
   ///
   @Deprecated('This method is a typo. Use getPopular() instead')
   Future<Map> getPouplar({
-    String language = 'en-US',
+    String? language,
     int page = 1,
     String? region,
   }) {
@@ -401,7 +416,7 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getPopular({
-    String language = 'en-US',
+    String? language,
     int page = 1,
     String? region,
   }) {
@@ -409,7 +424,10 @@ class Movies extends Category<V3> {
       throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    final para = <String>['language=$language', 'page=$page'];
+    final para = <String>[
+      'language=${language ?? _v._tmdb.defaultLanguage}',
+      'page=$page'
+    ];
     if (region != null) {
       para.add('region=$region');
     }
@@ -435,7 +453,7 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getTopRated({
-    String language = 'en-US',
+    String? language,
     int page = 1,
     String? region,
   }) {
@@ -443,7 +461,10 @@ class Movies extends Category<V3> {
       throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    final para = <String>['language=$language', 'page=$page'];
+    final para = <String>[
+      'language=${language ?? _v._tmdb.defaultLanguage}',
+      'page=$page'
+    ];
     if (region != null) {
       para.add('region=$region');
     }
@@ -476,7 +497,7 @@ class Movies extends Category<V3> {
   ///```
   ///
   Future<Map> getUpcoming({
-    String language = 'en-US',
+    String? language,
     int page = 1,
     String? region,
   }) {
@@ -484,7 +505,10 @@ class Movies extends Category<V3> {
       throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    final para = <String>['language=$language', 'page=$page'];
+    final para = <String>[
+      'language=${language ?? _v._tmdb.defaultLanguage}',
+      'page=$page'
+    ];
     if (region != null) {
       para.add('region=$region');
     }
@@ -647,14 +671,14 @@ class Movies extends Category<V3> {
   ///
   Future<Map> getImages(
     int movieId, {
-    String language = 'en-US',
+    String? language,
     String? includeImageLanguage,
   }) {
     if (movieId < 1) {
       throw ArgumentError('movieId < 1 is true');
     }
 
-    final para = <String>['language=$language'];
+    final para = <String>['language=${language ?? _v._tmdb.defaultLanguage}'];
     if (includeImageLanguage != null) {
       para.add('include_image_language=$includeImageLanguage');
     }

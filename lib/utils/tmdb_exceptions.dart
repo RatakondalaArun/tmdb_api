@@ -1,14 +1,39 @@
 part of tmdb_api;
 
 ///Base exception
-class TMDBException implements Exception {
+class TMDBException<T> implements Exception {
   final String message;
-  final String? source;
-  final String? help;
-  TMDBException(this.message, {this.source, this.help});
+  final T? orginal;
+  final StackTrace? stackTrace;
+
+  const TMDBException(this.message, {this.orginal, this.stackTrace});
 
   @override
-  String toString() {
-    return 'TMDBException() thrown message:$message | at source:$source | help:$help';
-  }
+  String toString() =>
+      'TMDBException(message: $message, orginal: $orginal, stackTrace: $stackTrace)';
+}
+
+class TMDBDioError extends TMDBException<DioError> {
+  final int? statusCode;
+
+  const TMDBDioError(
+    String message, {
+    required DioError orginal,
+    this.statusCode,
+  }) : super(message, orginal: orginal);
+
+  @override
+  String toString() =>
+      'TMDBDioError(message: $message,orginal:$orginal, statusCode: $statusCode)';
+}
+
+class TMDBOtherException extends TMDBException<dynamic> {
+  const TMDBOtherException(
+    String message, {
+    dynamic orginal,
+    StackTrace? stackTrace,
+  }) : super(message, orginal: orginal, stackTrace: stackTrace);
+  @override
+  String toString() =>
+      'TMDBDioError(message: $message,orginal:$orginal, stackTrace:$stackTrace)';
 }

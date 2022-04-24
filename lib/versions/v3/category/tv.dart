@@ -21,13 +21,13 @@ class Tv extends Category<V3> {
   Future<Map> getDetails(
     int tvId, {
     String? appendToResponse,
-    String language = 'en-US',
+    String? language,
   }) {
     if (tvId < 1) {
       throw ArgumentError('tvId<1 is true');
     }
 
-    final para = <String>['language=$language'];
+    final para = <String>['language=${language ?? _v._tmdb.defaultLanguage}'];
     if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
     }
@@ -46,10 +46,10 @@ class Tv extends Category<V3> {
   /// the newest season but rather, is a view of all the entire cast & crew
   /// for all episodes belonging to a TV show.
   ///
-  Future<Map> getAggregateCredits(String tvId, {String language = 'en-US'}) {
+  Future<Map> getAggregateCredits(String tvId, {String? language}) {
     return _v._query(
       '$_endPoint/$tvId/aggregate_credits',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -67,14 +67,14 @@ class Tv extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.tv.getAlternaiveTitle(103, language: 'en-US');
   ///```
-  Future<Map> getAlternativeTitle(int tvId, {String language = 'en-US'}) {
+  Future<Map> getAlternativeTitle(int tvId, {String? language}) {
     if (tvId < 1) {
       throw ArgumentError('tvId<1 is true');
     }
 
     return _v._query(
       '$_endPoint/$tvId/alternative_titles',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -127,14 +127,14 @@ class Tv extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.tv.getEposideGroups(103, language: 'en-US');
   ///```
-  Future<Map> getEpisodeGroups(int tvId, {String language = 'en-US'}) {
+  Future<Map> getEpisodeGroups(int tvId, {String? language}) {
     if (tvId < 1) {
       throw ArgumentError('tvId<1 is true');
     }
 
     return _v._query(
       '$_endPoint/$tvId/episode_groups',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -197,7 +197,7 @@ class Tv extends Category<V3> {
   ///```
   Future<Map> getRecommendations(
     int tvId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
   }) {
     if (tvId < 1 || page < 1 || page > 1000) {
@@ -206,7 +206,10 @@ class Tv extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$tvId/recommendations',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 
@@ -224,14 +227,17 @@ class Tv extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.tv.getReviews(103, language: 'en-US');
   ///```
-  Future<Map> getReviews(int tvId, {String language = 'en-US', int page = 1}) {
+  Future<Map> getReviews(int tvId, {String? language, int page = 1}) {
     if (tvId < 1 || page < 1 || page > 1000) {
       throw ArgumentError('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
     return _v._query(
       '$_endPoint/$tvId/reviews',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 
@@ -269,14 +275,17 @@ class Tv extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.tv.getSimilar(103, language: 'en-US');
   ///```
-  Future<Map> getSimilar(int tvId, {String language = 'en-US', int page = 1}) {
+  Future<Map> getSimilar(int tvId, {String? language, int page = 1}) {
     if (tvId < 1 || page < 1 || page > 1000) {
       throw ArgumentError('tvId < 1 || page < 1 || page > 1000 is true');
     }
 
     return _v._query(
       '$_endPoint/$tvId/similar',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 
@@ -350,9 +359,9 @@ class Tv extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.tv.getLatest(language: 'en-US');
   ///```
-  Future<Map> getLatest({String language = 'en-US'}) {
-    return _v
-        ._query('$_endPoint/latest', optionalQueries: ['language=$language']);
+  Future<Map> getLatest({String? language}) {
+    return _v._query('$_endPoint/latest',
+        optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}']);
   }
 
   /// Get a list of the current popular movies on TMDb.
@@ -370,7 +379,7 @@ class Tv extends Category<V3> {
   ///Map result = await tmdb.v3.tv.getPouplar(language: 'en-US');
   ///```
   @Deprecated('This method is a typo. Use getPopular() instead')
-  Future<Map> getPouplar({String language = 'en-US', int page = 1}) {
+  Future<Map> getPouplar({String? language, int page = 1}) {
     return getPopular(language: language, page: page);
   }
 
@@ -388,14 +397,17 @@ class Tv extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.tv.getPopular(language: 'en-US');
   ///```
-  Future<Map> getPopular({String language = 'en-US', int page = 1}) {
+  Future<Map> getPopular({String? language, int page = 1}) {
     if (page < 1 || page > 1000) {
       throw ArgumentError(' page < 1 || page > 1000 is true');
     }
 
     return _v._query(
       '$_endPoint/popular',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 
@@ -412,14 +424,17 @@ class Tv extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.tv.getTopRated(language: 'en-US');
   ///```
-  Future<Map> getTopRated({String language = 'en-US', int page = 1}) {
+  Future<Map> getTopRated({String? language, int page = 1}) {
     if (page < 1 || page > 1000) {
       throw ArgumentError(' page < 1 || page > 1000 is true');
     }
 
     return _v._query(
       '$_endPoint/top_rated',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 
@@ -438,13 +453,16 @@ class Tv extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.tv.getAiringToday(language: 'en-US');
   ///```
-  Future<Map> getAiringToday({String language = 'en-US', int page = 1}) {
+  Future<Map> getAiringToday({String? language, int page = 1}) {
     if (page < 1 || page > 1000) {
       throw ArgumentError(' page < 1 || page > 1000 is true');
     }
     return _v._query(
       '$_endPoint/airing_today',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 
@@ -463,13 +481,16 @@ class Tv extends Category<V3> {
   ///```
   ///Map result = await tmdb.v3.tv.getOnTheAir(language: 'en-US');
   ///```
-  Future<Map> getOnTheAir({String language = 'en-US', int page = 1}) {
+  Future<Map> getOnTheAir({String? language, int page = 1}) {
     if (page < 1 || page > 1000) {
       throw ArgumentError(' page < 1 || page > 1000 is true');
     }
     return _v._query(
       '$_endPoint/on_the_air',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 
@@ -602,14 +623,14 @@ class Tv extends Category<V3> {
   ///
   Future<Map> getImages(
     int tvId, {
-    String language = 'en-US',
+    String? language,
     String? includeImageLanguage,
   }) {
     if (tvId < 1) {
       throw ArgumentError('tvId < 1 is true');
     }
 
-    final para = <String>['language=$language'];
+    final para = <String>['language=${language ?? _v._tmdb.defaultLanguage}'];
     if (includeImageLanguage != null) {
       para.add('include_image_language=$includeImageLanguage');
     }
