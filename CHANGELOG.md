@@ -1,5 +1,10 @@
 # ChangeLog
 
+## 2.1.1
+
+- Added `defaultLanguage` parameter [#81](https://github.com/RatakondalaArun/tmdb_api/issues/81)
+- Upgraded outdated dependencies
+
 ## 2.1.0
 
 - Replaced `http` package with `dio` ([#57](https://github.com/RatakondalaArun/tmdb_api/issues/57))

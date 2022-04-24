@@ -41,7 +41,7 @@ class Search extends Category<V3> {
   ///```
   Future<Map> queryCollections(
     String query, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
   }) {
     if (page < 1 || page > 1000) {
@@ -50,7 +50,11 @@ class Search extends Category<V3> {
 
     return _v._query(
       '$_endPoint/collection',
-      optionalQueries: ['query=$query', 'page=$page', 'language=$language'],
+      optionalQueries: [
+        'query=$query',
+        'page=$page',
+        'language=${language ?? _v._tmdb.defaultLanguage}'
+      ],
     );
   }
 
@@ -106,14 +110,14 @@ class Search extends Category<V3> {
     String region = 'US',
     int? year,
     int? primaryReleaseYear,
-    String language = 'en-US',
+    String? language,
     int page = 1,
   }) {
     //this parameters should not be nll so adding first
     final optionalQueries = <String>[
       'query=$query',
       'include_adult=$includeAdult',
-      'language=$language',
+      'language=${language ?? _v._tmdb.defaultLanguage}',
       'region=$region',
       'page=$page',
     ];
@@ -156,14 +160,14 @@ class Search extends Category<V3> {
     String query, {
     bool includeAdult = false,
     String? region,
-    String language = 'en-US',
+    String? language,
     int page = 1,
   }) {
     //not null parameters
     final optionalQueries = <String>[
       'query=$query',
       'includeAdult=$includeAdult',
-      'language=$language',
+      'language=${language ?? _v._tmdb.defaultLanguage}',
       'page=$page'
     ];
     //null parameters
@@ -198,14 +202,14 @@ class Search extends Category<V3> {
     String query, {
     bool includeAdult = false,
     String? region,
-    String language = 'en-US',
+    String? language,
     int page = 1,
   }) {
     //not null parameters
     final optionalQueries = <String>[
       'query=$query',
       'includeAdult=$includeAdult',
-      'language=$language',
+      'language=${language ?? _v._tmdb.defaultLanguage}',
       'page=$page'
     ];
     if (region != null) {
@@ -239,12 +243,12 @@ class Search extends Category<V3> {
   Future<Map> queryTvShows(
     String query, {
     String? firstAirDateYear,
-    String language = 'en-US',
+    String? language,
     int page = 1,
   }) {
     final optionalQueries = <String>[
       'query=$query',
-      'language=$language',
+      'language=${language ?? _v._tmdb.defaultLanguage}',
       'page=$page'
     ];
     if (firstAirDateYear != null) {

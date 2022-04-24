@@ -122,6 +122,8 @@ class TMDB {
   late Dio _dio;
   late Logger _logger;
 
+  final String defaultLanguage;
+
   /// Creates a instance of [TMDB] client.
   ///
   /// Use [apiKeys] to provide your TMDB apikeys, you can find yours
@@ -130,15 +132,19 @@ class TMDB {
   /// You can provide your own [Dio] instance with [dio],
   /// which can be used for testing.
   /// caching and other dio intercepters with [interceptors].
+  /// [defaultLanguage] sets a default `language` parameter to all supported
+  /// methods, by default it is set to `en-US`.
   ///
-  /// - Read more about [dio interceptors](https://pub.dev/packages/dio#interceptors)
+  /// - [Read more about dio interceptors](https://pub.dev/packages/dio#interceptors)
+  /// - [Read more about languages supported by TMDB here](https://developers.themoviedb.org/3/configuration/get-languages)
   TMDB(
     ApiKeys apiKeys, {
     ConfigLogger logConfig = const ConfigLogger.showNone(),
     Dio? dio,
     Interceptors? interceptors,
+    this.defaultLanguage = 'en-US',
   }) : _apiKeys = apiKeys {
-    _dio = dio ?? Dio();
+    _dio = dio ?? Dio(BaseOptions(receiveDataWhenStatusError: true));
     _dio.interceptors.addAll(interceptors ?? []);
     _v3 = V3(this);
     _v4 = V4(this);

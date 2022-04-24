@@ -26,10 +26,10 @@ class TvEpisodeGroup extends Category<V3> {
   /// ```
   /// Map result = tmdb.v3.tvEpisodeGroup.getDetails(12);
   /// ```
-  Future<Map> getDetails(String id, {String language = 'en-US'}) {
+  Future<Map> getDetails(String id, {String? language}) {
     return _v._query(
       'tv/$_endPoint/$id',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 }

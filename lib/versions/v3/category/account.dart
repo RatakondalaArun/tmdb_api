@@ -85,7 +85,7 @@ class Account extends Category<V3> {
   Future<Map> getCreatedLists(
     String sessionId,
     int accountId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
   }) {
     if (accountId < 1 || page < 1 || page > 1000) {
@@ -96,7 +96,7 @@ class Account extends Category<V3> {
       '$_endPoint/$accountId/lists',
       optionalQueries: [
         'session_id=$sessionId',
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'page=$page',
       ],
     );
@@ -134,7 +134,7 @@ class Account extends Category<V3> {
   Future<Map> getFavoriteMovies(
     String sessionId,
     int accountId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
     SortBy sortBy = SortBy.createdAtAsc,
   }) {
@@ -151,7 +151,7 @@ class Account extends Category<V3> {
       '$_endPoint/$accountId/favorite/movies',
       optionalQueries: [
         'session_id=$sessionId',
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'page=$page',
         'sort_by=$sort'
       ],
@@ -190,7 +190,7 @@ class Account extends Category<V3> {
   Future<Map> getFavoriteTvShows(
     String sessionId,
     int accountId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
     SortBy sortBy = SortBy.createdAtAsc,
   }) {
@@ -208,7 +208,7 @@ class Account extends Category<V3> {
       '$_endPoint/$accountId/favorite/tv',
       optionalQueries: [
         'session_id=$sessionId',
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'page=$page',
         'sort_by=$sort'
       ],
@@ -305,7 +305,7 @@ class Account extends Category<V3> {
   Future<Map> getRatedMovies(
     String sessionId,
     int accountId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
     SortBy sortBy = SortBy.createdAtAsc,
   }) {
@@ -323,7 +323,7 @@ class Account extends Category<V3> {
       '$_endPoint/$accountId/rated/movies',
       optionalQueries: [
         'session_id=$sessionId',
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'page=$page',
         'sort_by=$sort',
       ],
@@ -375,7 +375,7 @@ class Account extends Category<V3> {
   Future<Map> getRatedTvShows(
     String sessionId,
     int accountId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
     SortBy sortBy = SortBy.createdAtAsc,
   }) {
@@ -393,7 +393,7 @@ class Account extends Category<V3> {
       '$_endPoint/$accountId/rated/tv',
       optionalQueries: [
         'session_id=$sessionId',
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'page=$page',
         'sort_by=$sort'
       ],
@@ -432,7 +432,7 @@ class Account extends Category<V3> {
   Future<Map> getRatedTvEpisodes(
     String sessionId,
     int accountId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
     SortBy sortBy = SortBy.createdAtAsc,
   }) {
@@ -450,7 +450,7 @@ class Account extends Category<V3> {
       '$_endPoint/$accountId/rated/tv/episodes',
       optionalQueries: [
         'session_id=$sessionId',
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'page=$page',
         'sort_by=$sort'
       ],
@@ -508,7 +508,7 @@ class Account extends Category<V3> {
   Future<Map> getMovieWatchList(
     String sessionId,
     int accountId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
     SortBy sortBy = SortBy.createdAtAsc,
   }) {
@@ -526,7 +526,7 @@ class Account extends Category<V3> {
       '$_endPoint/$accountId/watchlist/movies',
       optionalQueries: [
         'session_id=$sessionId',
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'page=$page',
         'sort_by=$sort'
       ],
@@ -585,7 +585,7 @@ class Account extends Category<V3> {
   Future<Map> getTvShowWatchList(
     String sessionId,
     int accountId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
     SortBy sortBy = SortBy.createdAtAsc,
   }) {
@@ -603,7 +603,7 @@ class Account extends Category<V3> {
       '$_endPoint/$accountId/watchlist/tv',
       optionalQueries: [
         'session_id=$sessionId',
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'page=$page',
         'sort_by=$sort'
       ],

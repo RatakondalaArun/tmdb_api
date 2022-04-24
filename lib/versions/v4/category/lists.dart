@@ -36,7 +36,7 @@ class ListsV4 extends Category<V4> {
     String accessToken,
     int listId, {
     int page = 1,
-    String language = 'en-US',
+    String? language,
     SortListBy sortListBy = SortListBy.orginalOrderAsc,
   }) {
     if (listId < 1 || page < 1 || page > 1000) {
@@ -51,7 +51,7 @@ class ListsV4 extends Category<V4> {
       },
       optionalQueries: [
         'page=$page',
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'sort_by=${_sortListBy(sortListBy)}'
       ],
     );

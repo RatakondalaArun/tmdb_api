@@ -35,12 +35,15 @@ class Keywords extends Category<V3> {
   ///```
   Future<Map> getMovies(
     int keywordId, {
-    String language = 'en-US',
+    String? language,
     bool includeAdult = false,
   }) {
     return _v._query(
       '$_endPoint/$keywordId',
-      optionalQueries: ['include_adult=$includeAdult', 'language=$language'],
+      optionalQueries: [
+        'include_adult=$includeAdult',
+        'language=${language ?? _v._tmdb.defaultLanguage}'
+      ],
     );
   }
 }

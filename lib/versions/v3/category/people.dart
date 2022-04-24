@@ -23,14 +23,14 @@ class People extends Category<V3> {
   /// ```
   Future<Map> getDetails(
     int personId, {
-    String language = 'en-US',
+    String? language,
     String? appendToResponse,
   }) {
     if (personId < 1) {
       throw ArgumentError('personId < 1 is true');
     }
 
-    final para = <String>['language=$language'];
+    final para = <String>['language=${language ?? _v._tmdb.defaultLanguage}'];
     if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
     }
@@ -68,14 +68,14 @@ class People extends Category<V3> {
   /// ```
   /// Map result = await tmdb.v3.people.getMovieCredits(103)
   /// ```
-  Future<Map> getMovieCredits(int personId, {String language = 'en-US'}) {
+  Future<Map> getMovieCredits(int personId, {String? language}) {
     if (personId < 1) {
       throw ArgumentError('personId < 1 is true');
     }
 
     return _v._query(
       '$_endPoint/$personId/movie_credits',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -92,14 +92,14 @@ class People extends Category<V3> {
   /// ```
   /// Map result = await tmdb.v3.people.getTvCredits(103)
   /// ```
-  Future<Map> getTvCredits(int personId, {String language = 'en-US'}) {
+  Future<Map> getTvCredits(int personId, {String? language}) {
     if (personId < 1) {
       throw ArgumentError('personId < 1 is true');
     }
 
     return _v._query(
       '$_endPoint/$personId/tv_credits',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -116,14 +116,14 @@ class People extends Category<V3> {
   /// ```
   /// Map result = await tmdb.v3.people.getCombinedCredits(103)
   /// ```
-  Future<Map> getCombinedCredits(int personId, {String language = 'en-US'}) {
+  Future<Map> getCombinedCredits(int personId, {String? language}) {
     if (personId < 1) {
       throw ArgumentError('personId < 1 is true');
     }
 
     return _v._query(
       '$_endPoint/$personId/combined_credits',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -150,14 +150,14 @@ class People extends Category<V3> {
   /// ```
   /// Map result = await tmdb.v3.people.getCombinedCredits(103)
   /// ```
-  Future<Map> getExternalIds(int personId, {String language = 'en-US'}) {
+  Future<Map> getExternalIds(int personId, {String? language}) {
     if (personId < 1) {
       throw ArgumentError('personId < 1 is true');
     }
 
     return _v._query(
       '$_endPoint/$personId/external_ids',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -192,7 +192,7 @@ class People extends Category<V3> {
   /// ```
   Future<Map> getTaggedImages(
     int personId, {
-    String language = 'en-US',
+    String? language,
     int page = 1,
   }) {
     if (personId < 1) {
@@ -201,7 +201,10 @@ class People extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$personId/tagged_images',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 
@@ -217,14 +220,14 @@ class People extends Category<V3> {
   /// ```
   /// Map result = await tmdb.v3.people.getTranslations(103)
   /// ```
-  Future<Map> getTranslations(int personId, {String language = 'en-US'}) {
+  Future<Map> getTranslations(int personId, {String? language}) {
     if (personId < 1) {
       throw ArgumentError('personId < 1 is true');
     }
 
     return _v._query(
       '$_endPoint/$personId/translations',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -240,9 +243,9 @@ class People extends Category<V3> {
   /// ```
   /// Map result = await tmdb.v3.people.getLatest();
   /// ```
-  Future<Map> getLatest({String language = 'en-US'}) {
-    return _v
-        ._query('$_endPoint/latest', optionalQueries: ['language=$language']);
+  Future<Map> getLatest({String? language}) {
+    return _v._query('$_endPoint/latest',
+        optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}']);
   }
 
   ///Get the list of popular people on TMDb.
@@ -258,10 +261,13 @@ class People extends Category<V3> {
   /// ```
   /// Map result = await tmdb.v3.people.getPopular();
   /// ```
-  Future<Map> getPopular({String language = 'en-US', int page = 1}) {
+  Future<Map> getPopular({String? language, int page = 1}) {
     return _v._query(
       '$_endPoint/popular',
-      optionalQueries: ['language=$language', 'page=$page'],
+      optionalQueries: [
+        'language=${language ?? _v._tmdb.defaultLanguage}',
+        'page=$page'
+      ],
     );
   }
 }
