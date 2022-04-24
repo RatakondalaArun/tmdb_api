@@ -30,13 +30,13 @@ class Find extends Category<V3> {
   Future<Map> getById(
     String externalId, {
     ExternalId externalIdSource = ExternalId.imdbId,
-    String language = 'en-US',
+    String? language,
   }) {
     return _v._query(
       '$_endPoint/$externalId',
       optionalQueries: [
         _getSourceQuery(externalIdSource),
-        'language=$language'
+        'language=${language ?? _v._tmdb.defaultLanguage}'
       ],
     );
   }

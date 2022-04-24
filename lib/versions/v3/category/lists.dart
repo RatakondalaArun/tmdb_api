@@ -17,10 +17,10 @@ class Lists extends Category<V3> {
   /// Map result = await tmdb.v3.lists.getList('50941077760ee35e1500000c');
   /// ```
   ///
-  Future<Map> getDetails(String? listId, {String language = 'en-US'}) {
+  Future<Map> getDetails(String? listId, {String? language}) {
     return _v._query(
       '$_endPoint/$listId',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 

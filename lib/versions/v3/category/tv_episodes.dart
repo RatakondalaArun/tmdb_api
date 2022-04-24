@@ -28,9 +28,9 @@ class TvEpisodes extends Category<V3> {
     int seasonNumber,
     int episodeNumber, {
     String? appendToResponse,
-    String language = 'en-US',
+    String? language,
   }) {
-    final para = <String>['language=$language'];
+    final para = <String>['language=${language ?? _v._tmdb.defaultLanguage}'];
     if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
     }

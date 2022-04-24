@@ -19,10 +19,10 @@ class Collections extends Category<V3> {
   /// Map result = await tmdb.v3.collections.getDetails();
   /// ```
   ///
-  Future<Map> getDetails(int collectionId, {String language = 'en-US'}) {
+  Future<Map> getDetails(int collectionId, {String? language}) {
     return _v._query(
       '$_endPoint/$collectionId',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -41,10 +41,10 @@ class Collections extends Category<V3> {
   /// Map result = await tmdb.v3.collections.getmages();
   /// ```
   ///
-  Future<Map> getImages(int collectionId, {String language = 'en-US'}) {
+  Future<Map> getImages(int collectionId, {String? language}) {
     return _v._query(
       '$_endPoint/$collectionId/images',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -63,10 +63,10 @@ class Collections extends Category<V3> {
   /// Map result = await tmdb.v3.collections.getTranslations();
   /// ```
   ///
-  Future<Map> getTranslations(int collectionId, {String language = 'en-US'}) {
+  Future<Map> getTranslations(int collectionId, {String? language}) {
     return _v._query(
       '$_endPoint/$collectionId/translations',
-      optionalQueries: ['language=$language'],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 }

@@ -31,7 +31,7 @@ class GuestSession extends Category<V3> {
   ///
   Future<Map> getRatedMovies(
     String guestSessionId, {
-    String language = 'en-US',
+    String? language,
     SortBy sortBy = SortBy.createdAtAsc,
   }) {
     String sort;
@@ -44,7 +44,7 @@ class GuestSession extends Category<V3> {
       '$_endPoint/$guestSessionId/rated/movies',
       optionalQueries: [
         'guest_session_id=$guestSessionId',
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'sort_by=$sort'
       ],
     );
@@ -78,7 +78,7 @@ class GuestSession extends Category<V3> {
   ///
   Future<Map> getRatedTvShows(
     String guestSessionId, {
-    String language = 'en-US',
+    String? language,
     SortBy sortBy = SortBy.createdAtAsc,
   }) {
     String sort;
@@ -91,7 +91,7 @@ class GuestSession extends Category<V3> {
       '$_endPoint/$guestSessionId/rated/tv',
       optionalQueries: [
         'guest_session_id=$guestSessionId',
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'sort_by=$sort'
       ],
     );
@@ -125,7 +125,7 @@ class GuestSession extends Category<V3> {
   ///
   Future<Map> getRatedTvEpisodes(
     String guestSessionId, {
-    String language = 'en-US',
+    String? language,
     SortBy sortBy = SortBy.createdAtAsc,
   }) {
     String sort;
@@ -138,7 +138,7 @@ class GuestSession extends Category<V3> {
       '$_endPoint/$guestSessionId/rated/tv/episodes',
       optionalQueries: [
         'guest_session_id=$guestSessionId',
-        'language=$language',
+        'language=${language ?? _v._tmdb.defaultLanguage}',
         'sort_by=$sort'
       ],
     );
