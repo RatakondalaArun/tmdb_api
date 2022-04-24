@@ -82,6 +82,15 @@ Map result = await tmdb.v3.trending.getTrending(mediaType = MediaType.all,timeWi
       );
 ```
 
+### Setting Default api data language
+
+```dart
+    final tmdbWithCustomLogs = TMDB(
+        ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
+        defaultLanguage:'en-US'// sets default language for all supported endpoints
+      );
+```
+
 ### Adding Interceptors
 
 ```dart
