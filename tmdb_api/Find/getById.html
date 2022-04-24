@@ -52,10 +52,10 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.dart.dev/stable/2.15.1/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
-<span class="name ">getById</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getById-param-externalId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.15.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">externalId</span>, </span></li>
+<span class="returntype"><a href="https://api.dart.dev/stable/2.16.2/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+<span class="name ">getById</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getById-param-externalId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a></span> <span class="parameter-name">externalId</span>, </span></li>
 <li><span class="parameter" id="getById-param-externalIdSource">{<span class="type-annotation"><a href="../../tmdb_api/ExternalId.html">ExternalId</a></span> <span class="parameter-name">externalIdSource</span> = <span class="default-value">ExternalId.imdbId</span>, </span></li>
-<li><span class="parameter" id="getById-param-language"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.15.1/dart-core/String-class.html">String</a></span> <span class="parameter-name">language</span> = <span class="default-value">&#39;en-US&#39;</span>}</span></li>
+<li><span class="parameter" id="getById-param-language"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">language</span>}</span></li>
 </ol>)
 
       
@@ -89,13 +89,13 @@ minLength: 2, pattern: (<code>a-z</code>{2})-(<code>A-Z</code>{2}), default: en-
   <pre class="language-dart"><code class="language-dart">Future&lt;Map&gt; getById(
   String externalId, {
   ExternalId externalIdSource = ExternalId.imdbId,
-  String language = &#39;en-US&#39;,
+  String? language,
 }) {
   return _v._query(
     &#39;$_endPoint&#47;$externalId&#39;,
     optionalQueries: [
       _getSourceQuery(externalIdSource),
-      &#39;language=$language&#39;
+      &#39;language=${language ?? _v._tmdb.defaultLanguage}&#39;
     ],
   );
 }</code></pre>
@@ -129,16 +129,16 @@ minLength: 2, pattern: (<code>a-z</code>{2})-(<code>A-Z</code>{2}), default: en-
     <li class="section-title inherited">
       <a href="../../tmdb_api/Find-class.html#instance-properties">Properties</a>
     </li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../tmdb_api/Find-class.html#instance-methods">Methods</a></li>
     <li><a href="../../tmdb_api/Find/getById.html">getById</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../tmdb_api/Find-class.html#operators">Operators</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.15.1/dart-core/Object/operator_equals.html">operator ==</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
 
@@ -155,7 +155,7 @@ minLength: 2, pattern: (<code>a-z</code>{2})-(<code>A-Z</code>{2}), default: en-
 <footer>
   <span class="no-break">
     tmdb_api
-      2.1.0
+      2.1.1
   </span>
 
   

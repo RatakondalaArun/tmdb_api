@@ -107,6 +107,12 @@ To know more about TMDB visit <a href="https://www.themoviedb.org/"><em>offical 
         dio:Dio()// your own dio instance
       );
 </code></pre>
+<h3 id="setting-default-api-data-language">Setting Default api data language</h3>
+<pre class="language-dart"><code class="language-dart">    final tmdbWithCustomLogs = TMDB(
+        ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
+        defaultLanguage:'en-US'// sets default language for all supported endpoints
+      );
+</code></pre>
 <h3 id="adding-interceptors">Adding Interceptors</h3>
 <pre class="language-dart"><code class="language-dart">final tmdbWithCustomLogs = TMDB(
     ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),
@@ -179,7 +185,7 @@ final tmdbWithCustomLogs = TMDB(
 <footer>
   <span class="no-break">
     tmdb_api
-      2.1.0
+      2.1.1
   </span>
 
   
