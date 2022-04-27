@@ -46,7 +46,7 @@ class Tv extends Category<V3> {
   /// the newest season but rather, is a view of all the entire cast & crew
   /// for all episodes belonging to a TV show.
   ///
-  Future<Map> getAggregateCredits(String tvId, {String? language}) {
+  Future<Map> getAggregateCredits(int tvId, {String? language}) {
     return _v._query(
       '$_endPoint/$tvId/aggregate_credits',
       optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
