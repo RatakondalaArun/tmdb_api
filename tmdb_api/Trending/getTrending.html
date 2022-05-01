@@ -55,7 +55,8 @@
 <span class="returntype"><a href="https://api.dart.dev/stable/2.16.2/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
 <span class="name ">getTrending</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getTrending-param-mediaType">{<span class="type-annotation"><a href="../../tmdb_api/MediaType.html">MediaType</a></span> <span class="parameter-name">mediaType</span> = <span class="default-value">MediaType.all</span>, </span></li>
 <li><span class="parameter" id="getTrending-param-timeWindow"><span class="type-annotation"><a href="../../tmdb_api/TimeWindow.html">TimeWindow</a></span> <span class="parameter-name">timeWindow</span> = <span class="default-value">TimeWindow.day</span>, </span></li>
-<li><span class="parameter" id="getTrending-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>}</span></li>
+<li><span class="parameter" id="getTrending-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>, </span></li>
+<li><span class="parameter" id="getTrending-param-language"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">language</span>}</span></li>
 </ol>)
 
       
@@ -91,14 +92,17 @@ with a 7 day half life.</p>
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;Map&gt; getTrending({
-  MediaType mediaType = MediaType.all,
-  TimeWindow timeWindow = TimeWindow.day,
-  int page = 1,
-}) {
+  <pre class="language-dart"><code class="language-dart">Future&lt;Map&gt; getTrending(
+    {MediaType mediaType = MediaType.all,
+    TimeWindow timeWindow = TimeWindow.day,
+    int page = 1,
+    String? language}) {
   return _v._query(
     &#39;$_endPoint&#47;${_getMediaType(mediaType)}&#47;${_getTimeWindow(timeWindow)}&#39;,
-    optionalQueries: [&#39;page=$page&#39;],
+    optionalQueries: [
+      &#39;page=$page&#39;,
+      &#39;language=${language ?? _v._tmdb.defaultLanguage}&#39;
+    ],
   );
 }</code></pre>
 </section>
@@ -157,7 +161,7 @@ with a 7 day half life.</p>
 <footer>
   <span class="no-break">
     tmdb_api
-      2.1.1
+      2.1.2
   </span>
 
   
