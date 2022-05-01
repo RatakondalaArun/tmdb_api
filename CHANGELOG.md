@@ -1,8 +1,14 @@
 # ChangeLog
 
+## 2.1.2
+
+- Change tvId type in aggregateCredits to int ([#84](https://github.com/RatakondalaArun/tmdb_api/pull/84))
+- Add language query to trending ([#85](https://github.com/RatakondalaArun/tmdb_api/pull/85))
+- Upgraded outdated dependencies
+
 ## 2.1.1
 
-- Added `defaultLanguage` parameter [#81](https://github.com/RatakondalaArun/tmdb_api/issues/81)
+- Added `defaultLanguage` parameter ([#81](https://github.com/RatakondalaArun/tmdb_api/issues/81))
 - Upgraded outdated dependencies
 
 ## 2.1.0
