@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 2.1.3
+
+- dependencies upgrade
+
 ## 2.1.2
 
 - Change tvId type in aggregateCredits to int ([#84](https://github.com/RatakondalaArun/tmdb_api/pull/84))
