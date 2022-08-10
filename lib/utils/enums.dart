@@ -65,6 +65,25 @@ enum SortTvShowsBy {
   firstAirDateDesc
 }
 
+enum FilterTvShowsByStatus {
+  returningSeries,
+  planned,
+  inProduction,
+  ended,
+  cancelled,
+  pilot
+}
+
+enum FilterTvShowsByType {
+  documentary,
+  news,
+  miniseries,
+  reality,
+  scripted,
+  talkShow,
+  video,
+}
+
 //find.dart
 enum ExternalId { imdbId, tvdbId, facebookId, twitterId, instagramId }
 

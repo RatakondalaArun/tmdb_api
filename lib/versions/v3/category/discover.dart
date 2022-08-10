@@ -54,6 +54,10 @@ class Discover extends Category<V3> {
     int? withRunTimeGreaterThan,
     int? withRuntimeLessThan,
     String? withOrginalLanguage,
+    String? withWatchProviders,
+    String? watchRegion,
+    String? withWatchMonetizationTypes,
+    String? withoutCompanies,
   }) {
     //all the default values
     final queries = <String>[
@@ -170,6 +174,22 @@ class Discover extends Category<V3> {
       queries.add('with_original_language=$withOrginalLanguage');
     }
 
+    if (withWatchProviders != null) {
+      queries.add('with_watch_providers=$withWatchProviders');
+    }
+
+    if (watchRegion != null) {
+      queries.add('watch_region=$watchRegion');
+    }
+
+    if (withWatchMonetizationTypes != null) {
+      queries.add('with_watch_monetization_types=$withWatchMonetizationTypes');
+    }
+
+    if (withoutCompanies != null) {
+      queries.add('without_companies=$withoutCompanies');
+    }
+
     return _v._query('$_endPoint/movie', optionalQueries: queries);
   }
 
@@ -212,6 +232,12 @@ class Discover extends Category<V3> {
     String? withoutKeywords,
     bool? screenedTheatrically,
     String? withCompanies,
+    String? withWatchProviders,
+    String? watchRegion,
+    String? withWatchMonetizationTypes,
+    String? withoutCompanies,
+    FilterTvShowsByStatus? withStatus,
+    FilterTvShowsByType? withType,
   }) {
     //all the default values
     final queries = <String>[
@@ -297,6 +323,30 @@ class Discover extends Category<V3> {
       queries.add('without_keywords=$withoutKeywords');
     }
 
+    if (withWatchProviders != null) {
+      queries.add('with_watch_providers=$withWatchProviders');
+    }
+
+    if (watchRegion != null) {
+      queries.add('watch_region=$watchRegion');
+    }
+
+    if (withWatchMonetizationTypes != null) {
+      queries.add('with_watch_monetization_types=$withWatchMonetizationTypes');
+    }
+
+    if (withoutCompanies != null) {
+      queries.add('without_companies=$withoutCompanies');
+    }
+
+    if (withStatus != null) {
+      queries.add('with_status=${_getFilterTvShowsByStatus(withStatus)}');
+    }
+
+    if (withType != null) {
+      queries.add('with_status=${_getFilterTvShowsByType(withType)}');
+    }
+
     return _v._query('$_endPoint/tv', optionalQueries: queries);
   }
 
@@ -351,6 +401,46 @@ class Discover extends Category<V3> {
         return 'first_air_date.desc';
       default:
         return 'popularity.asc';
+    }
+  }
+
+  String _getFilterTvShowsByStatus(FilterTvShowsByStatus filter) {
+    switch (filter) {
+      case FilterTvShowsByStatus.returningSeries:
+        return '0';
+      case FilterTvShowsByStatus.planned:
+        return '1';
+      case FilterTvShowsByStatus.inProduction:
+        return '2';
+      case FilterTvShowsByStatus.ended:
+        return '3';
+      case FilterTvShowsByStatus.cancelled:
+        return '4';
+      case FilterTvShowsByStatus.pilot:
+        return '5';
+      default:
+        return '0';
+    }
+  }
+
+  String _getFilterTvShowsByType(FilterTvShowsByType filter) {
+    switch (filter) {
+      case FilterTvShowsByType.documentary:
+        return '0';
+      case FilterTvShowsByType.news:
+        return '1';
+      case FilterTvShowsByType.miniseries:
+        return '2';
+      case FilterTvShowsByType.reality:
+        return '3';
+      case FilterTvShowsByType.scripted:
+        return '4';
+      case FilterTvShowsByType.talkShow:
+        return '5';
+      case FilterTvShowsByType.video:
+        return '6';
+      default:
+        return '0';
     }
   }
 }
