@@ -1,8 +1,14 @@
 # ChangeLog
 
+## 2.1.4
+
+- Dependencies upgrade
+- Updated discover api ([#89
+](https://github.com/RatakondalaArun/tmdb_api/pull/89)). Thanks to ([@shr1k4nt](https://github.com/shr1k4nt))
+
 ## 2.1.3
 
-- dependencies upgrade
+- Dependencies upgrade
 
 ## 2.1.2
 
