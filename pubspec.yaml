@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   colorize: ^3.0.0
-  dio: ^4.0.6
+  dio: ^5.1.1
 
 dev_dependencies:
   lint: ^1.10.0
