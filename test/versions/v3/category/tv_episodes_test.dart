@@ -15,12 +15,12 @@ void main() {
           language: 'en-IN',
           appendToResponse: 'videos,images',
         );
-        expect(result is Map, true);
+
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
         final result = await tmdb.v3.tvEpisodes.getDetails(103, 1, 1);
-        expect(result is Map, true);
+
         expect(result.containsKey('status_code'), false);
       });
     });
@@ -28,12 +28,12 @@ void main() {
     group('Changes', () {
       test('with parameters', () async {
         final result = await tmdb.v3.tvEpisodes.getChanges(302, page: 2);
-        expect(result is Map, true);
+
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
         final result = await tmdb.v3.tvEpisodes.getChanges(302);
-        expect(result is Map, true);
+
         expect(result.containsKey('status_code'), false);
       });
     });
@@ -41,12 +41,12 @@ void main() {
     group('Credits', () {
       test('with parameters', () async {
         final result = await tmdb.v3.tvEpisodes.getCredits(103, 1, 1);
-        expect(result is Map, true);
+
         expect(result.containsKey('status_code'), false);
       });
       test('without parameters', () async {
         final result = await tmdb.v3.tvEpisodes.getCredits(103, 1, 1);
-        expect(result is Map, true);
+
         expect(result.containsKey('status_code'), false);
       });
     });
@@ -54,7 +54,7 @@ void main() {
     group('External ids', () {
       test('without parameters', () async {
         final result = await tmdb.v3.tvEpisodes.getExternalId(103, 1, 1);
-        expect(result is Map, true);
+
         expect(result.containsKey('status_code'), false);
       });
     });
@@ -62,7 +62,7 @@ void main() {
     group('Images', () {
       test('without parameters', () async {
         final result = await tmdb.v3.tvEpisodes.getImages(103, 1, 1);
-        expect(result is Map, true);
+
         expect(result.containsKey('status_code'), false);
       });
     });
@@ -70,7 +70,7 @@ void main() {
     group('Videos', () {
       test('with parameters', () async {
         final result = await tmdb.v3.tvEpisodes.getVideos(103, 1, 1);
-        expect(result is Map, true);
+
         expect(result.containsKey('status_code'), false);
       });
     });
@@ -78,7 +78,7 @@ void main() {
     group('Translations', () {
       test('without parameters', () async {
         final result = await tmdb.v3.tvEpisodes.getTranslation(103, 1, 1);
-        expect(result is Map, true);
+
         expect(result.containsKey('status_code'), false);
       });
     });

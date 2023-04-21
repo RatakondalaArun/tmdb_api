@@ -8,13 +8,12 @@ void main() {
   group('Trending', () {
     test('WithOut parameters', () async {
       final result = await tmdb.v3.trending.getTrending();
-      expect(result is Map, true);
+
       expect(result.containsKey('status_code'), false);
     });
     test('with parameters', () async {
-      final result = await tmdb.v3.trending
-          .getTrending(mediaType: MediaType.movie, timeWindow: TimeWindow.week);
-      expect(result is Map, true);
+      final result = await tmdb.v3.trending.getTrending(mediaType: MediaType.movie, timeWindow: TimeWindow.week);
+
       expect(result.containsKey('status_code'), false);
     });
   });

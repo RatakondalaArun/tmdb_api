@@ -93,15 +93,14 @@ class Auth extends Category<V3> {
   Future<dynamic> createRequestToken({bool asMap = false}) async {
     final result = await _v._query('authentication/token/new');
     if (asMap) {
-      _v._tmdb._logger.infoLog('Request Token Created ${result.toString()}');
+      _v._tmdb._logger.infoLog('Request Token Created $result');
       return result;
     }
     if (result.containsKey('success')) {
-      _v._tmdb._logger.infoLog('Request Token Created ${result.toString()}');
+      _v._tmdb._logger.infoLog('Request Token Created $result');
       return result['request_token'];
     }
-    _v._tmdb._logger
-        .warningLog('Failed to create requesttoken ${result.toString()}');
+    _v._tmdb._logger.warningLog('Failed to create requesttoken $result');
     return null;
   }
 
@@ -156,18 +155,18 @@ class Auth extends Category<V3> {
     );
     if (asMap) {
       _v._tmdb._logger.infoLog(
-        'createSession success result from tmdb = ${result.toString()}',
+        'createSession success result from tmdb = $result',
       );
       return result;
     }
     if (result.containsKey('success')) {
       _v._tmdb._logger.infoLog(
-        'createSession success result from tmdb = ${result.toString()}',
+        'createSession success result from tmdb = $result',
       );
       return result['session_id'];
     }
     _v._tmdb._logger.warningLog(
-      'createSession failed result from tmdb = ${result.toString()}',
+      'createSession failed result from tmdb = $result',
     );
     return null;
   }
@@ -189,11 +188,7 @@ class Auth extends Category<V3> {
   }) async {
     //creating a request token
     final requestToken = await createRequestToken() as String;
-    final postBody = <String, String>{
-      'username': username,
-      'password': password,
-      'request_token': requestToken
-    };
+    final postBody = <String, String>{'username': username, 'password': password, 'request_token': requestToken};
     final result = await _v._query(
       'authentication/token/validate_with_login',
       method: HttpMethod.post,
@@ -257,7 +252,7 @@ class Auth extends Category<V3> {
       deleteBody: {'session_id': sessionId},
     );
 
-    _v._tmdb._logger.infoLog('deleteSession result ${result.toString()}');
+    _v._tmdb._logger.infoLog('deleteSession result $result');
     return result;
   }
 }

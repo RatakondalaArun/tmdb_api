@@ -24,17 +24,16 @@ void main() {
   ];
   group('Lists', () {
     test('Create Lists', () async {
-      final result =
-          await tmdb.v4.lists.createList(accessToken, 'Hello Test from ');
+      final result = await tmdb.v4.lists.createList(accessToken, 'Hello Test from ');
       print(result);
-      expect(result is Map, true);
+
       expect(result['status_code'], 1);
     });
 
     test('get List', () async {
       final result = await tmdb.v4.lists.getList(accessToken, listId);
       print(result);
-      expect(result is Map, true);
+
       expect(result['id'], listId);
     });
 
@@ -45,52 +44,48 @@ void main() {
         listName: 'updated list name $listId',
       );
       print(result);
-      expect(result is Map, true);
+
       expect(result['success'], true);
     });
 
     test('clear List', () async {
       final result = await tmdb.v4.lists.clearList(accessToken, listId);
       print(result);
-      expect(result is Map, true);
+
       expect(result['status_code'], 1);
     });
 
     test('delete List', () async {
       final result = await tmdb.v4.lists.deleteList(accessToken, listId);
       print(result);
-      expect(result is Map, true);
+
       expect(result['status_code'], 13);
     });
 
     test('add items', () async {
       final result = await tmdb.v4.lists.addItems(accessToken, listId, items);
       print(result);
-      expect(result is Map, true);
+
       expect(result['status_code'], 1);
     });
 
     test('update List items', () async {
-      final result =
-          await tmdb.v4.lists.updateItems(accessToken, listId, items);
+      final result = await tmdb.v4.lists.updateItems(accessToken, listId, items);
       print(result);
-      expect(result is Map, true);
+
       expect(result['status_code'], 1);
     });
 
     test('remove items', () async {
-      final result =
-          await tmdb.v4.lists.removeItems(accessToken, listId, items);
+      final result = await tmdb.v4.lists.removeItems(accessToken, listId, items);
       print(result);
-      expect(result is Map, true);
+
       expect(result['status_code'], 1);
     });
 
     test('check item status', () async {
-      final result = await tmdb.v4.lists
-          .checkItemStatus(accessToken, listId, 550, MediaType.movie);
+      final result = await tmdb.v4.lists.checkItemStatus(accessToken, listId, 550, MediaType.movie);
       print(result);
-      expect(result is Map, true);
     });
   });
 }
