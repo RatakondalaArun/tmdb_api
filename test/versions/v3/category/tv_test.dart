@@ -201,7 +201,7 @@ void main() {
           5,
           sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6',
         );
-        expect(isA<Map>(), result);
+        expect(result, containsPair('success', true));
       });
     });
 
@@ -211,7 +211,7 @@ void main() {
           5,
           sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6',
         );
-        expect(isA<Map>(), result);
+        expect(result, containsPair('success', true));
       });
     });
 
@@ -221,7 +221,7 @@ void main() {
           34,
           sessionId: '5129b38561c99f577bd85cc7f2ff47bb79735902',
         );
-        expect(isA<Map>(), result);
+        expect(result, containsPair('id', 34));
       });
     });
   });
