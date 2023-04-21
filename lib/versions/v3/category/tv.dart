@@ -319,7 +319,7 @@ class Tv extends Category<V3> {
   /// ```
   ///
   Future<Map> getVideos(String tvId) {
-    return _v._query('$_endPoint/$tvId');
+    return _v._query('$_endPoint/$tvId/videos');
   }
 
   /// Powered by our partnership with JustWatch, you can query
