@@ -72,7 +72,7 @@ class V4 extends Version {
       return response.data!;
     } on DioError catch (e) {
       throw TMDBDioError(
-        e.message,
+        e.message!,
         orginal: e,
         statusCode: e.response?.statusCode,
       );
