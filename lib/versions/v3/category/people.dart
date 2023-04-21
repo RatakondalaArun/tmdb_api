@@ -244,8 +244,10 @@ class People extends Category<V3> {
   /// Map result = await tmdb.v3.people.getLatest();
   /// ```
   Future<Map> getLatest({String? language}) {
-    return _v._query('$_endPoint/latest',
-        optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}']);
+    return _v._query(
+      '$_endPoint/latest',
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
+    );
   }
 
   ///Get the list of popular people on TMDb.

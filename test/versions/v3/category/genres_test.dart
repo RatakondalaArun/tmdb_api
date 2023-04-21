@@ -8,12 +8,12 @@ void main() {
   group('Geners', () {
     test('movie', () async {
       final result = await tmdb.v3.genres.getMovieList();
-      expect(result is Map, true);
+
       expect(result.containsKey('status_code'), false);
     });
     test('tv', () async {
       final result = await tmdb.v3.genres.getTvlist();
-      expect(result is Map, true);
+
       expect(result.containsKey('status_code'), false);
     });
   });

@@ -9,9 +9,8 @@ void main() {
   group('Lists', () {
     group('>details', () {
       test('>get Details', () async {
-        final result =
-            await tmdb.v3.lists.getDetails('50941077760ee35e1500000c');
-        expect(result is Map, true);
+        final result = await tmdb.v3.lists.getDetails('50941077760ee35e1500000c');
+
         expect(result.containsKey('status_code'), false);
       });
       test('>Null value', () async {
@@ -25,9 +24,8 @@ void main() {
 
     group('>Check item status', () {
       test('>checking', () async {
-        final result = await tmdb.v3.lists
-            .checkItemStatus('50941077760ee35e1500000c', 123);
-        expect(result is Map, true);
+        final result = await tmdb.v3.lists.checkItemStatus('50941077760ee35e1500000c', 123);
+
         expect(result.containsKey('status_code'), false);
       });
       test('>Null value', () async {
@@ -46,7 +44,6 @@ void main() {
           'lol move time',
         );
 
-        expect(result is Map, true);
         expect(result.containsKey('list_id'), true);
       });
       test('>Null value', () async {
@@ -59,9 +56,8 @@ void main() {
     });
     group('>Add movie', () {
       test('>checking', () async {
-        final result = await tmdb.v3.lists
-            .addItem('21b318c9b6fbaa28c62cb3a60796ad3b481fd20a', '134721', 12);
-        expect(result is Map, true);
+        final result = await tmdb.v3.lists.addItem('21b318c9b6fbaa28c62cb3a60796ad3b481fd20a', '134721', 12);
+
         print(result);
       });
       test('>Null value', () async {
@@ -74,12 +70,13 @@ void main() {
     });
     group('>Remove item', () {
       test('>checking', () async {
+        // ignore: unused_local_variable
         final result = await tmdb.v3.lists.removeItem(
           '98097f2cd6af83f272ccbcfa93960723a940f87b',
           '134721',
           12,
         );
-        expect(result is Map, true);
+
         // expect(result['status_message'],
         //     'The item/record was updated successfully.');
       });
@@ -94,9 +91,8 @@ void main() {
 
     group('>Clear list', () {
       test('>checking', () async {
-        final result = await tmdb.v3.lists
-            .clearList('98097f2cd6af83f272ccbcfa93960723a940f87b', '134721');
-        expect(result is Map, true);
+        // ignore: unused_local_variable
+        final result = await tmdb.v3.lists.clearList('98097f2cd6af83f272ccbcfa93960723a940f87b', '134721');
       });
       test('>Null value', () async {
         try {
@@ -109,9 +105,8 @@ void main() {
 
     group('>Delete list', () {
       test('>checking', () async {
-        final result = await tmdb.v3.lists
-            .deleteList('98097f2cd6af83f272ccbcfa93960723a940f87b', '134721');
-        expect(result is Map, true);
+        // ignore: unused_local_variable
+        final result = await tmdb.v3.lists.deleteList('98097f2cd6af83f272ccbcfa93960723a940f87b', '134721');
       });
       test('>Null value', () async {
         try {

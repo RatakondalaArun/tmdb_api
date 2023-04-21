@@ -8,12 +8,10 @@ void main() {
   group('Certification', () {
     test('movie', () async {
       final result = await tmdb.v3.certification.getMovie();
-      expect(result is Map, true);
       expect(result.containsKey('status_code'), false);
     });
     test('TV', () async {
       final result = await tmdb.v3.certification.getTv();
-      expect(result is Map, true);
       expect(result.containsKey('status_code'), false);
     });
   });

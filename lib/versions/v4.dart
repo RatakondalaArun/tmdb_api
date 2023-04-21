@@ -78,7 +78,7 @@ class V4 extends Version {
       );
     } catch (e, st) {
       _tmdb._logger.errorLog(
-        'Exception while making a request. Exception = {${e.toString()}',
+        'Exception while making a request. Exception = {$e',
       );
       _tmdb._logger.infoLog(
         'You can create a issue at https://github.com/RatakondalaArun/tmdb_api/issues',
@@ -90,8 +90,6 @@ class V4 extends Version {
   }
 
   String _optionalQueries(List<String>? queries, String currentQuery) {
-    return (queries == null || queries.isEmpty)
-        ? currentQuery
-        : '$currentQuery&${queries.join('&')}';
+    return (queries == null || queries.isEmpty) ? currentQuery : '$currentQuery&${queries.join('&')}';
   }
 }

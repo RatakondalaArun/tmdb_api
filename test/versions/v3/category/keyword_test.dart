@@ -8,12 +8,12 @@ void main() {
   group('Keyword', () {
     test('Details', () async {
       final result = await tmdb.v3.keywords.getDetails(3417);
-      expect(result is Map, true);
+
       expect(result.containsKey('status_code'), false);
     });
     test('tv', () async {
       final result = await tmdb.v3.keywords.getMovies(3417);
-      expect(result is Map, true);
+
       expect(result.containsKey('status_code'), false);
     });
   });

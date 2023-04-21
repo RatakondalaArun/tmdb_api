@@ -74,11 +74,7 @@ class Lists extends Category<V3> {
     String description, {
     String language = 'en',
   }) {
-    final postBody = <String, String>{
-      'name': name,
-      'description': description,
-      'language': language
-    };
+    final postBody = <String, String>{'name': name, 'description': description, 'language': language};
     return _v._query(
       _endPoint,
       optionalQueries: ['session_id=$sessionId'],
@@ -152,7 +148,7 @@ class Lists extends Category<V3> {
   ///```
   Future<Map> removeItem(String? sessionId, String? listId, int? mediaId) {
     return _v._query(
-      '$_endPoint/${listId.toString()}/remove_item',
+      '$_endPoint/$listId/remove_item',
       method: HttpMethod.post,
       postBody: {'media_id': '$mediaId'},
       optionalQueries: ['session_id=$sessionId'],

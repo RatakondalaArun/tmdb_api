@@ -360,8 +360,10 @@ class Tv extends Category<V3> {
   ///Map result = await tmdb.v3.tv.getLatest(language: 'en-US');
   ///```
   Future<Map> getLatest({String? language}) {
-    return _v._query('$_endPoint/latest',
-        optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}']);
+    return _v._query(
+      '$_endPoint/latest',
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
+    );
   }
 
   /// Get a list of the current popular movies on TMDb.
