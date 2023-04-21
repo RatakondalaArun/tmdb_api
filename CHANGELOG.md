@@ -1,5 +1,11 @@
 # ChangeLog
 
+## 2.1.5
+
+- Dependencies upgrade
+- Fixed a bug in `v3.tv.getVideos` were returning tv details instead of the videos [#91](https://github.com/RatakondalaArun/tmdb_api/pull/91). Thanks to ([@bdstph](https://github.com/bdstph))
+- Upgraded dio version to 5.1.1 to mitigate known CRLF vulnerability [#92](https://github.com/RatakondalaArun/tmdb_api/pull/92). Thanks to ([@doorknob88](https://github.com/doorknob88))
+
 ## 2.1.4
 
 - Dependencies upgrade
