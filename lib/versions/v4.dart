@@ -70,7 +70,7 @@ class V4 extends Version {
         );
       }
       return response.data!;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw TMDBDioError(
         e.message!,
         orginal: e,
