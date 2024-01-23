@@ -1,5 +1,13 @@
 # ChangeLog
 
+## 2.2.0
+
+- Added `include_image_language` option to movie/tv `getDetails`. Thanks to ([@0Franky](https://github.com/0Franky))
+- Added POST/DELETE/PUT endpoint requests now include the dataBody via Map. Thanks to ([@johndunne](https://github.com/johndunne))
+- Added support for watch providers.
+- Dependencies upgrade
+- Migrated dio exception changes `5c1311e01ea412f5466243b5d9939b5d546a824d`
+
 ## 2.1.5
 
 - Dependencies upgrade

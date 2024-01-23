@@ -3,3 +3,4 @@ include: package:lint/analysis_options.yaml
 linter:
   rules:
     avoid_print: false
+    use_string_in_part_of_directives: true
