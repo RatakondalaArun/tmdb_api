@@ -87,6 +87,7 @@ part 'versions/v3/category/tv.dart';
 part 'versions/v3/category/tv_episode_group.dart';
 part 'versions/v3/category/tv_episodes.dart';
 part 'versions/v3/category/tv_seasons.dart';
+part 'versions/v3/category/watch_providers.dart';
 part 'versions/v4.dart';
 part 'versions/v4/category/account.dart';
 part 'versions/v4/category/auth.dart';

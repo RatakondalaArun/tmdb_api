@@ -24,6 +24,7 @@ class V3 extends Version {
   late Lists _lists;
   late Account _account;
   late GuestSession _guestSession;
+  late WatchProviders _watchProviders;
 
   Movies get movies => _movies;
   Tv get tv => _tv;
@@ -50,6 +51,7 @@ class V3 extends Version {
   Lists get lists => _lists;
   Account get account => _account;
   GuestSession get guestSession => _guestSession;
+  WatchProviders get watchProviders => _watchProviders;
 
   V3(TMDB tmdb) : super(tmdb, 3) {
     _reviews = Reviews(this);
@@ -76,6 +78,7 @@ class V3 extends Version {
     _lists = Lists(this);
     _account = Account(this);
     _guestSession = GuestSession(this);
+    _watchProviders = WatchProviders(this);
   }
 
   ///Queries with the given parameters

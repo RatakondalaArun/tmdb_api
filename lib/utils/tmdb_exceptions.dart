@@ -9,22 +9,20 @@ class TMDBException<T> implements Exception {
   const TMDBException(this.message, {this.orginal, this.stackTrace});
 
   @override
-  String toString() =>
-      'TMDBException(message: $message, orginal: $orginal, stackTrace: $stackTrace)';
+  String toString() => 'TMDBException(message: $message, orginal: $orginal, stackTrace: $stackTrace)';
 }
 
-class TMDBDioError extends TMDBException<DioError> {
+class TMDBDioError extends TMDBException<DioException> {
   final int? statusCode;
 
   const TMDBDioError(
     String message, {
-    required DioError orginal,
+    required DioException orginal,
     this.statusCode,
   }) : super(message, orginal: orginal);
 
   @override
-  String toString() =>
-      'TMDBDioError(message: $message,orginal:$orginal, statusCode: $statusCode)';
+  String toString() => 'TMDBDioError(message: $message,orginal:$orginal, statusCode: $statusCode)';
 }
 
 class TMDBOtherException extends TMDBException<dynamic> {
@@ -34,6 +32,5 @@ class TMDBOtherException extends TMDBException<dynamic> {
     StackTrace? stackTrace,
   }) : super(message, orginal: orginal, stackTrace: stackTrace);
   @override
-  String toString() =>
-      'TMDBDioError(message: $message,orginal:$orginal, stackTrace:$stackTrace)';
+  String toString() => 'TMDBDioError(message: $message,orginal:$orginal, stackTrace:$stackTrace)';
 }
