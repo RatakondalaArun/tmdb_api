@@ -22,6 +22,7 @@ class Tv extends Category<V3> {
     int tvId, {
     String? appendToResponse,
     String? language,
+    String? includeImageLanguage,
   }) {
     if (tvId < 1) {
       throw ArgumentError('tvId<1 is true');
@@ -30,6 +31,10 @@ class Tv extends Category<V3> {
     final para = <String>['language=${language ?? _v._tmdb.defaultLanguage}'];
     if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
+    }
+    
+    if (includeImageLanguage != null) {
+      para.add('include_image_language=$includeImageLanguage');
     }
 
     return _v._query(

@@ -20,12 +20,14 @@ class Movies extends Category<V3> {
     int movieId, {
     String? language,
     String? appendToResponse,
+    String? includeImageLanguage,
   }) {
     return _v._query(
       '$_endPoint/$movieId',
       optionalQueries: [
         'language=${language ?? _v._tmdb.defaultLanguage}',
-        'append_to_response=$appendToResponse'
+        'append_to_response=$appendToResponse',
+        'include_image_language=$includeImageLanguage',
       ],
     );
   }
