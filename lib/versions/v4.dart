@@ -50,17 +50,20 @@ class V4 extends Version {
         print('Making a post request to $url');
         response = await dio.postUri(
           url,
+          data: postBody,
           options: Options(headers: postHeaders),
         );
       } else if (method == HttpMethod.delete) {
         //DELETE request
         response = await dio.deleteUri(
           url,
+          data: deleteBody,
           options: Options(headers: deleteHeaders),
         );
       } else if (method == HttpMethod.put) {
         response = await dio.putUri(
           url,
+          data: postBody,
           options: Options(headers: postHeaders),
         );
       } else {
