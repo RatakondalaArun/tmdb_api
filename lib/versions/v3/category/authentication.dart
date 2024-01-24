@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class Auth extends Category<V3> {
   Auth(V3 v) : super(v, 'authentication');

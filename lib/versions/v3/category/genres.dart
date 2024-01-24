@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class Genres extends Category<V3> {
   ///Provides details about gemres
@@ -72,5 +72,5 @@ class Genres extends Category<V3> {
 }
 
 class Geners extends Genres {
-  Geners(V3 v) : super(v);
+  Geners(super.v);
 }

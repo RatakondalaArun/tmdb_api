@@ -1,5 +1,5 @@
 //tv shows
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class Tv extends Category<V3> {
   Tv(V3 v) : super(v, 'tv');
@@ -32,7 +32,7 @@ class Tv extends Category<V3> {
     if (appendToResponse != null) {
       para.add('append_to_response=$appendToResponse');
     }
-    
+
     if (includeImageLanguage != null) {
       para.add('include_image_language=$includeImageLanguage');
     }
@@ -211,10 +211,7 @@ class Tv extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$tvId/recommendations',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 
@@ -239,10 +236,7 @@ class Tv extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$tvId/reviews',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 
@@ -287,10 +281,7 @@ class Tv extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$tvId/similar',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 
@@ -411,10 +402,7 @@ class Tv extends Category<V3> {
 
     return _v._query(
       '$_endPoint/popular',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 
@@ -438,10 +426,7 @@ class Tv extends Category<V3> {
 
     return _v._query(
       '$_endPoint/top_rated',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 
@@ -466,10 +451,7 @@ class Tv extends Category<V3> {
     }
     return _v._query(
       '$_endPoint/airing_today',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 
@@ -494,10 +476,7 @@ class Tv extends Category<V3> {
     }
     return _v._query(
       '$_endPoint/on_the_air',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 

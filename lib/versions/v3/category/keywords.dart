@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class Keywords extends Category<V3> {
   ///Provides details about movies
@@ -40,10 +40,7 @@ class Keywords extends Category<V3> {
   }) {
     return _v._query(
       '$_endPoint/$keywordId',
-      optionalQueries: [
-        'include_adult=$includeAdult',
-        'language=${language ?? _v._tmdb.defaultLanguage}'
-      ],
+      optionalQueries: ['include_adult=$includeAdult', 'language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 }

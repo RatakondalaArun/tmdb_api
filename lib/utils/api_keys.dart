@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../tmdb_api.dart';
 
 class ApiKeys {
   final String _apiKeyV3;

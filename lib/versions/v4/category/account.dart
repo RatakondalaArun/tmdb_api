@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class AccountV4 extends Category<V4> {
   // final V4 _v;

@@ -1,5 +1,5 @@
-// ignore_for_file: use_late_for_private_fields_and_variables
-part of tmdb_api;
+// ignore_for_file: use_late_for_private_fields_and_variables, require_trailing_commas
+part of '../../../tmdb_api.dart';
 
 class ListsV4 extends Category<V4> {
   // final V4 _v;
@@ -488,10 +488,7 @@ class ListsV4 extends Category<V4> {
         'Authorization': 'Bearer $accessToken',
         'Content-Type': 'application/json;charset=utf-8',
       },
-      optionalQueries: [
-        'media_id=$mediaId',
-        'media_type=${_getMediaType(MediaType.movie)}'
-      ],
+      optionalQueries: ['media_id=$mediaId', 'media_type=${_getMediaType(MediaType.movie)}'],
     );
   }
 

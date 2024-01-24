@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class Networks extends Category<V3> {
   Networks(V3 v) : super(v, 'network');

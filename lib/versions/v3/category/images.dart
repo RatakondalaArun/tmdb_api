@@ -1,5 +1,5 @@
 // ignore_for_file: constant_identifier_names
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class Images {
   final String _baseUrl = 'https://image.tmdb.org/t/p';

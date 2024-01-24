@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class AuthV4 extends Category<V4> {
   // final V4 _v;
@@ -39,7 +39,7 @@ class AuthV4 extends Category<V4> {
 
     final postHeaders = <String, String>{
       'Content-Type': 'application/json;charset=utf-8',
-      'Authorization': 'Bearer $accessToken'
+      'Authorization': 'Bearer $accessToken',
     };
     return _v._query(
       '$_endPoint/request_token',
@@ -78,7 +78,7 @@ class AuthV4 extends Category<V4> {
 
     final postHeaders = <String, String>{
       'Content-Type': 'application/json;charset=utf-8',
-      'Authorization': 'Bearer $v4ApiToken'
+      'Authorization': 'Bearer $v4ApiToken',
     };
     return _v._query(
       '$_endPoint/access_token',
@@ -113,10 +113,7 @@ class AuthV4 extends Category<V4> {
     return _v._query(
       '$_endPoint/access_token',
       method: HttpMethod.delete,
-      deleteHeaders: {
-        'Content-Type': 'application/json;charset=utf-8',
-        'Authorization': 'Bearer $v4ApiToken'
-      },
+      deleteHeaders: {'Content-Type': 'application/json;charset=utf-8', 'Authorization': 'Bearer $v4ApiToken'},
       deleteBody: {'access_token': accessToken},
     );
   }

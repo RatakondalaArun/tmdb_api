@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class TvEpisodeGroup extends Category<V3> {
   //!test failed

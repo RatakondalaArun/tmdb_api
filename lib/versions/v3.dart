@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../tmdb_api.dart';
 
 class V3 extends Version {
   late Movies _movies;

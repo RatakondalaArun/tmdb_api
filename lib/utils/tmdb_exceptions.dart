@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../tmdb_api.dart';
 
 ///Base exception
 class TMDBException<T> implements Exception {
@@ -16,10 +16,10 @@ class TMDBDioError extends TMDBException<DioException> {
   final int? statusCode;
 
   const TMDBDioError(
-    String message, {
-    required DioException orginal,
+    super.message, {
+    required DioException super.orginal,
     this.statusCode,
-  }) : super(message, orginal: orginal);
+  });
 
   @override
   String toString() => 'TMDBDioError(message: $message,orginal:$orginal, statusCode: $statusCode)';
@@ -27,10 +27,10 @@ class TMDBDioError extends TMDBException<DioException> {
 
 class TMDBOtherException extends TMDBException<dynamic> {
   const TMDBOtherException(
-    String message, {
-    dynamic orginal,
-    StackTrace? stackTrace,
-  }) : super(message, orginal: orginal, stackTrace: stackTrace);
+    super.message, {
+    super.orginal,
+    super.stackTrace,
+  });
   @override
   String toString() => 'TMDBDioError(message: $message,orginal:$orginal, stackTrace:$stackTrace)';
 }

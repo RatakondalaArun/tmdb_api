@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../tmdb_api.dart';
 
 /// Base class of [Version]s
 abstract class Version {

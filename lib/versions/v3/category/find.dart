@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class Find extends Category<V3> {
   ///Provides details about movies
@@ -34,10 +34,7 @@ class Find extends Category<V3> {
   }) {
     return _v._query(
       '$_endPoint/$externalId',
-      optionalQueries: [
-        _getSourceQuery(externalIdSource),
-        'language=${language ?? _v._tmdb.defaultLanguage}'
-      ],
+      optionalQueries: [_getSourceQuery(externalIdSource), 'language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 

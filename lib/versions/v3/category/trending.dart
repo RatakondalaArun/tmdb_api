@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class Trending extends Category<V3> {
   Trending(V3 v) : super(v, 'trending');
@@ -35,10 +35,7 @@ class Trending extends Category<V3> {
   }) {
     return _v._query(
       '$_endPoint/${_getMediaType(mediaType)}/${_getTimeWindow(timeWindow)}',
-      optionalQueries: [
-        'page=$page',
-        'language=${language ?? _v._tmdb.defaultLanguage}'
-      ],
+      optionalQueries: ['page=$page', 'language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 

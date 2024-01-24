@@ -1,4 +1,5 @@
 @Skip('Only manual tests are possible')
+library;
 
 import 'package:test/test.dart';
 // import 'package:tmdb_api/tmdb_api.dart';
