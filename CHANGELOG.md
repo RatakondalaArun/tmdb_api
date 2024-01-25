@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 2.2.1
+
+- Fix Lints
+
 ## 2.2.0
 
 - Added `include_image_language` option to movie/tv `getDetails`. Thanks to ([@0Franky](https://github.com/0Franky))

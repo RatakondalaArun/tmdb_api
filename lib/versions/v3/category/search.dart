@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class Search extends Category<V3> {
   Search(V3 v) : super(v, 'search');
@@ -50,11 +50,7 @@ class Search extends Category<V3> {
 
     return _v._query(
       '$_endPoint/collection',
-      optionalQueries: [
-        'query=$query',
-        'page=$page',
-        'language=${language ?? _v._tmdb.defaultLanguage}'
-      ],
+      optionalQueries: ['query=$query', 'page=$page', 'language=${language ?? _v._tmdb.defaultLanguage}'],
     );
   }
 
@@ -168,7 +164,7 @@ class Search extends Category<V3> {
       'query=$query',
       'includeAdult=$includeAdult',
       'language=${language ?? _v._tmdb.defaultLanguage}',
-      'page=$page'
+      'page=$page',
     ];
     //null parameters
     if (region != null) {
@@ -210,7 +206,7 @@ class Search extends Category<V3> {
       'query=$query',
       'includeAdult=$includeAdult',
       'language=${language ?? _v._tmdb.defaultLanguage}',
-      'page=$page'
+      'page=$page',
     ];
     if (region != null) {
       optionalQueries.add('region=$region');
@@ -246,11 +242,7 @@ class Search extends Category<V3> {
     String? language,
     int page = 1,
   }) {
-    final optionalQueries = <String>[
-      'query=$query',
-      'language=${language ?? _v._tmdb.defaultLanguage}',
-      'page=$page'
-    ];
+    final optionalQueries = <String>['query=$query', 'language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'];
     if (firstAirDateYear != null) {
       optionalQueries.add('first_air_date_year=$firstAirDateYear');
     }

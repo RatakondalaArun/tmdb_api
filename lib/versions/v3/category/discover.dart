@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class Discover extends Category<V3> {
   // final V3 _v;

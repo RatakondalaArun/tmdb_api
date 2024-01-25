@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class Movies extends Category<V3> {
   ///Provides details about movies
@@ -194,10 +194,7 @@ class Movies extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$movieId/recommendations',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 
@@ -230,10 +227,7 @@ class Movies extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$movieId/similar',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 
@@ -265,10 +259,7 @@ class Movies extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$movieId/reviews',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 
@@ -299,10 +290,7 @@ class Movies extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$movieId/lists',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 
@@ -359,10 +347,7 @@ class Movies extends Category<V3> {
       throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    final para = <String>[
-      'language=${language ?? _v._tmdb.defaultLanguage}',
-      'page=$page'
-    ];
+    final para = <String>['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'];
     if (region != null) {
       para.add('region=$region');
     }
@@ -426,10 +411,7 @@ class Movies extends Category<V3> {
       throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    final para = <String>[
-      'language=${language ?? _v._tmdb.defaultLanguage}',
-      'page=$page'
-    ];
+    final para = <String>['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'];
     if (region != null) {
       para.add('region=$region');
     }
@@ -463,10 +445,7 @@ class Movies extends Category<V3> {
       throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    final para = <String>[
-      'language=${language ?? _v._tmdb.defaultLanguage}',
-      'page=$page'
-    ];
+    final para = <String>['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'];
     if (region != null) {
       para.add('region=$region');
     }
@@ -507,10 +486,7 @@ class Movies extends Category<V3> {
       throw ArgumentError('movieId < 1 || page < 1 || page > 1000 is true');
     }
 
-    final para = <String>[
-      'language=${language ?? _v._tmdb.defaultLanguage}',
-      'page=$page'
-    ];
+    final para = <String>['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'];
     if (region != null) {
       para.add('region=$region');
     }

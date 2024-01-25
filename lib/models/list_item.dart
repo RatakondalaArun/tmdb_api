@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../tmdb_api.dart';
 
 class ListItem {
   final MediaType mediaType;
@@ -36,11 +36,7 @@ class ListItem {
   ///}
   ///```
   Map<String, dynamic> _toMap() {
-    return {
-      'media_type': _getMediaType(mediaType),
-      'media_id': '$mediaId',
-      'comment': comment
-    };
+    return {'media_type': _getMediaType(mediaType), 'media_id': '$mediaId', 'comment': comment};
   }
 
   String _getMediaType(MediaType mediaType) {

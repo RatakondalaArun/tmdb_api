@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class Collections extends Category<V3> {
   ///Provides details about movies

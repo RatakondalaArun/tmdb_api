@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class People extends Category<V3> {
   // final V3 _v;
@@ -201,10 +201,7 @@ class People extends Category<V3> {
 
     return _v._query(
       '$_endPoint/$personId/tagged_images',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 
@@ -266,10 +263,7 @@ class People extends Category<V3> {
   Future<Map> getPopular({String? language, int page = 1}) {
     return _v._query(
       '$_endPoint/popular',
-      optionalQueries: [
-        'language=${language ?? _v._tmdb.defaultLanguage}',
-        'page=$page'
-      ],
+      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}', 'page=$page'],
     );
   }
 }

@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../tmdb_api.dart';
 
 /// Base calss of [Category]s
 abstract class Category<V extends Version> {

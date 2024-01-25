@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../tmdb_api.dart';
 
 //-------------------tmdb_api---------------------
 ///Http request methods
@@ -56,23 +56,9 @@ enum SortMoviesBy {
 }
 
 //movies.dart
-enum SortTvShowsBy {
-  voteAverageAsc,
-  voteAverageDesc,
-  popularityAsc,
-  popularityDesc,
-  firstAirDateAsc,
-  firstAirDateDesc
-}
+enum SortTvShowsBy { voteAverageAsc, voteAverageDesc, popularityAsc, popularityDesc, firstAirDateAsc, firstAirDateDesc }
 
-enum FilterTvShowsByStatus {
-  returningSeries,
-  planned,
-  inProduction,
-  ended,
-  cancelled,
-  pilot
-}
+enum FilterTvShowsByStatus { returningSeries, planned, inProduction, ended, cancelled, pilot }
 
 enum FilterTvShowsByType {
   documentary,

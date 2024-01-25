@@ -1,4 +1,6 @@
 @Skip('Only manual tests are possible Because of auth tokens')
+library;
+
 import 'package:test/test.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 

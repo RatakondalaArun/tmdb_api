@@ -1,5 +1,5 @@
 //tv shows
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 /// Watch Providers
 class WatchProviders extends Category<V3> {

@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class GuestSession extends Category<V3> {
   ///Provides details about movies
@@ -45,7 +45,7 @@ class GuestSession extends Category<V3> {
       optionalQueries: [
         'guest_session_id=$guestSessionId',
         'language=${language ?? _v._tmdb.defaultLanguage}',
-        'sort_by=$sort'
+        'sort_by=$sort',
       ],
     );
   }
@@ -92,7 +92,7 @@ class GuestSession extends Category<V3> {
       optionalQueries: [
         'guest_session_id=$guestSessionId',
         'language=${language ?? _v._tmdb.defaultLanguage}',
-        'sort_by=$sort'
+        'sort_by=$sort',
       ],
     );
   }
@@ -139,7 +139,7 @@ class GuestSession extends Category<V3> {
       optionalQueries: [
         'guest_session_id=$guestSessionId',
         'language=${language ?? _v._tmdb.defaultLanguage}',
-        'sort_by=$sort'
+        'sort_by=$sort',
       ],
     );
   }

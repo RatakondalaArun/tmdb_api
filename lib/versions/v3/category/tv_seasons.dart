@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../../../tmdb_api.dart';
 
 class TvSeasons extends Category<V3> {
   TvSeasons(V3 v) : super(v, 'season');

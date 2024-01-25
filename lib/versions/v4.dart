@@ -1,4 +1,4 @@
-part of tmdb_api;
+part of '../tmdb_api.dart';
 
 class V4 extends Version {
   late AccountV4 _accountV4;
