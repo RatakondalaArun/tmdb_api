@@ -46,7 +46,7 @@ jobs:
         uses: dart-lang/setup-dart@v1.5.0
 
       - name: 🧬 Generate docs
-        run: dartdoc --output docs
+        run: dart doc --output docs
 
       - name: 🌳 tree
         run: tree
