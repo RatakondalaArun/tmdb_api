@@ -52,8 +52,8 @@ class ImageSizes {
 
   // Backdrop Size
   static const String BACKDROP_SIZE_LOWEST = 'w300';
-  static const String BACKDROP_SIZE_MEDIUM = 'w185';
-  static const String BACKDROP_SIZE_HIGHEST = 'w780';
+  static const String BACKDROP_SIZE_MEDIUM = 'w780';
+  static const String BACKDROP_SIZE_HIGHEST = 'w1280';
 
   // profile size
   static const String PROFILE_SIZE_LOWEST = 'w45';
