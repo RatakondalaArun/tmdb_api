@@ -91,7 +91,7 @@ class V3 extends Version {
     String endPoint, {
     HttpMethod method = HttpMethod.get,
     List<String>? optionalQueries,
-    Map<String, String>? postBody,
+    Map<String, dynamic>? postBody,
     Map<String, String>? deleteBody,
     Map<String, String>? postHeaders,
   }) async {
@@ -135,6 +135,8 @@ class V3 extends Version {
   }
 
   String _optionalQueries(List<String>? queries, String currentQuery) {
-    return (queries == null || queries.isEmpty) ? currentQuery : '$currentQuery&${queries.join('&')}';
+    return (queries == null || queries.isEmpty)
+        ? currentQuery
+        : '$currentQuery&${queries.join('&')}';
   }
 }

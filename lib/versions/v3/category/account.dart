@@ -267,7 +267,11 @@ class Account extends Category<V3> {
       '$_endPoint/$accountId/favorite',
       method: HttpMethod.post,
       optionalQueries: ['session_id=$sessionId'],
-      postBody: {'media_type': type, 'media_id': '$mediaId', 'favorite': '$isFavorite'},
+      postBody: {
+        'media_type': type,
+        'media_id': mediaId,
+        'favorite': isFavorite,
+      },
     );
   }
 
