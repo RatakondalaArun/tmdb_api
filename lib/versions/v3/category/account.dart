@@ -664,8 +664,8 @@ class Account extends Category<V3> {
       optionalQueries: ['session_id=$sessionId'],
       postBody: {
         'media_type': type,
-        'media_id': '$mediaId',
-        'watchlist': '$shouldAdd',
+        'media_id': mediaId,
+        'watchlist': shouldAdd,
       },
     );
   }
