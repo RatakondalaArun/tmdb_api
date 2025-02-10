@@ -50,8 +50,6 @@ class Find extends Category<V3> {
         return 'external_source=twitter_id';
       case ExternalId.instagramId:
         return 'external_source=instagram_id';
-      default:
-        return 'external_source=imdb_id';
     }
   }
 }

@@ -510,8 +510,6 @@ class ListsV4 extends Category<V4> {
         return 'vote_average.asc';
       case SortListBy.voteAverageDesc:
         return 'vote_average.desc';
-      default:
-        return 'original_order.asc';
     }
   }
 

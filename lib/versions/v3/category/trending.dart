@@ -50,8 +50,6 @@ class Trending extends Category<V3> {
         return 'tv';
       case MediaType.person:
         return 'person';
-      default:
-        return 'all';
     }
   }
 
@@ -61,8 +59,6 @@ class Trending extends Category<V3> {
       case TimeWindow.day:
         return 'day';
       case TimeWindow.week:
-        return 'week';
-      default:
         return 'week';
     }
   }

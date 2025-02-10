@@ -380,8 +380,6 @@ class Discover extends Category<V3> {
         return 'vote_count.asc';
       case SortMoviesBy.voteCountDesc:
         return 'vote_count.desc';
-      default:
-        return 'popularity.asc';
     }
   }
 
@@ -399,8 +397,6 @@ class Discover extends Category<V3> {
         return 'first_air_date.asc';
       case SortTvShowsBy.firstAirDateDesc:
         return 'first_air_date.desc';
-      default:
-        return 'popularity.asc';
     }
   }
 
@@ -418,8 +414,6 @@ class Discover extends Category<V3> {
         return '4';
       case FilterTvShowsByStatus.pilot:
         return '5';
-      default:
-        return '0';
     }
   }
 
@@ -439,8 +433,6 @@ class Discover extends Category<V3> {
         return '5';
       case FilterTvShowsByType.video:
         return '6';
-      default:
-        return '0';
     }
   }
 }
