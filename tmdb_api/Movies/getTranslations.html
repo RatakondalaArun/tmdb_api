@@ -11,26 +11,21 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../../static-assets/github.css?v1">
   <link rel="stylesheet" href="../../static-assets/styles.css?v1">
   <link rel="icon" href="../../static-assets/favicon.png?v1">
-
   
 </head>
 
-
-<body data-base-href="../../"
-      data-using-base-href="false">
-
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
-  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">tmdb_api</a></li>
-    <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+    <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api.dart</a></li>
     <li><a href="../../tmdb_api/Movies-class.html">Movies</a></li>
     <li class="self-crumb">getTranslations method</li>
   </ol>
@@ -38,22 +33,32 @@
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
 </header>
-
 <main>
-
-
-  <div id="dartdoc-main-content" class="main-content">
-      <div>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="tmdb_api&#47;Movies-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
 <h1><span class="kind-method">getTranslations</span> method 
-    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
-
-<span class="returntype"><a href="https://api.dart.dev/stable/2.16.2/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
-<span class="name ">getTranslations</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getTranslations-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span></span></li>
+<span class="returntype"><a href="https://api.dart.dev/stable/3.6.2/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.6.2/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+<span class="name ">getTranslations</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="getTranslations-param-movieId"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/int-class.html">int</a></span> <span class="parameter-name">movieId</span></span></li>
 </ol>)
 
       
@@ -80,94 +85,38 @@
 
 
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
-    <header id="header-search-sidebar" class="hidden-l">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-  <li><a href="../../index.html">tmdb_api</a></li>
-  <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
-  <li><a href="../../tmdb_api/Movies-class.html">Movies</a></li>
-  <li class="self-crumb">getTranslations method</li>
+    <li><a href="../../index.html">tmdb_api</a></li>
+    <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+    <li><a href="../../tmdb_api/Movies-class.html">Movies</a></li>
+    <li class="self-crumb">getTranslations method</li>
 </ol>
-
 
     <h5>Movies class</h5>
-    <ol>
-
-    <li class="section-title"><a href="../../tmdb_api/Movies-class.html#constructors">Constructors</a></li>
-    <li><a href="../../tmdb_api/Movies/Movies.html">Movies</a></li>
-
-
-    <li class="section-title inherited">
-      <a href="../../tmdb_api/Movies-class.html#instance-properties">Properties</a>
-    </li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/runtimeType.html">runtimeType</a></li>
-
-    <li class="section-title"><a href="../../tmdb_api/Movies-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../tmdb_api/Movies/deleteRating.html">deleteRating</a></li>
-    <li><a href="../../tmdb_api/Movies/getAccountStatus.html">getAccountStatus</a></li>
-    <li><a href="../../tmdb_api/Movies/getAlternativeTitle.html">getAlternativeTitle</a></li>
-    <li><a href="../../tmdb_api/Movies/getCredits.html">getCredits</a></li>
-    <li><a href="../../tmdb_api/Movies/getDetails.html">getDetails</a></li>
-    <li><a href="../../tmdb_api/Movies/getExternalIds.html">getExternalIds</a></li>
-    <li><a href="../../tmdb_api/Movies/getImages.html">getImages</a></li>
-    <li><a href="../../tmdb_api/Movies/getKeywords.html">getKeywords</a></li>
-    <li><a href="../../tmdb_api/Movies/getLatest.html">getLatest</a></li>
-    <li><a href="../../tmdb_api/Movies/getLists.html">getLists</a></li>
-    <li><a href="../../tmdb_api/Movies/getNowPlaying.html">getNowPlaying</a></li>
-    <li><a href="../../tmdb_api/Movies/getPopular.html">getPopular</a></li>
-    <li><a class="deprecated" href="../../tmdb_api/Movies/getPouplar.html">getPouplar</a></li>
-    <li><a href="../../tmdb_api/Movies/getRecommended.html">getRecommended</a></li>
-    <li><a href="../../tmdb_api/Movies/getReleaseDates.html">getReleaseDates</a></li>
-    <li><a href="../../tmdb_api/Movies/getReviews.html">getReviews</a></li>
-    <li><a href="../../tmdb_api/Movies/getSimilar.html">getSimilar</a></li>
-    <li><a href="../../tmdb_api/Movies/getTopRated.html">getTopRated</a></li>
-    <li><a href="../../tmdb_api/Movies/getTranslations.html">getTranslations</a></li>
-    <li><a href="../../tmdb_api/Movies/getUpcoming.html">getUpcoming</a></li>
-    <li><a href="../../tmdb_api/Movies/getVideos.html">getVideos</a></li>
-    <li><a href="../../tmdb_api/Movies/getWatchProviders.html">getWatchProviders</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li><a href="../../tmdb_api/Movies/rateMovie.html">rateMovie</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/toString.html">toString</a></li>
-
-    <li class="section-title inherited"><a href="../../tmdb_api/Movies-class.html#operators">Operators</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/operator_equals.html">operator ==</a></li>
-
-
-
-
-</ol>
-
+    <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
-  </div><!--/.sidebar-offcanvas-->
-
+</div><!--/.sidebar-offcanvas-->
 </main>
-
 <footer>
   <span class="no-break">
     tmdb_api
-      2.1.2
+      2.2.2
   </span>
-
   
 </footer>
 
 
-
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
-
-
+<script src="../../static-assets/docs.dart.js"></script>
 
 </body>
-
 </html>
 

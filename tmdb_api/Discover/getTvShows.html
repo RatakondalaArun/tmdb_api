@@ -11,26 +11,21 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../../static-assets/github.css?v1">
   <link rel="stylesheet" href="../../static-assets/styles.css?v1">
   <link rel="icon" href="../../static-assets/favicon.png?v1">
-
   
 </head>
 
-
-<body data-base-href="../../"
-      data-using-base-href="false">
-
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
-  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">tmdb_api</a></li>
-    <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+    <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api.dart</a></li>
     <li><a href="../../tmdb_api/Discover-class.html">Discover</a></li>
     <li class="self-crumb">getTvShows method</li>
   </ol>
@@ -38,46 +33,62 @@
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
 </header>
-
 <main>
-
-
-  <div id="dartdoc-main-content" class="main-content">
-      <div>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="tmdb_api&#47;Discover-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
 <h1><span class="kind-method">getTvShows</span> method 
-    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
-
-<span class="returntype"><a href="https://api.dart.dev/stable/2.16.2/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
-<span class="name ">getTvShows</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getTvShows-param-language">{<span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">language</span>, </span></li>
+<span class="returntype"><a href="https://api.dart.dev/stable/3.6.2/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.6.2/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+<span class="name ">getTvShows</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="getTvShows-param-language"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">language</span>, </span></li>
 <li><span class="parameter" id="getTvShows-param-sortBy"><span class="type-annotation"><a href="../../tmdb_api/SortTvShowsBy.html">SortTvShowsBy</a></span> <span class="parameter-name">sortBy</span> = <span class="default-value">SortTvShowsBy.popularityDesc</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-includeNullFirstAirDates"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">includeNullFirstAirDates</span> = <span class="default-value">false</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-airDateGte"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">airDateGte</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-airDateLte"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">airDateLte</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-firstAirDateGte"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">firstAirDateGte</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-firstAirDateLte"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">firstAirDateLte</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-firstAirDateYear"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">firstAirDateYear</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-timezone"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">timezone</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-voteAverageGte"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">voteAverageGte</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-voteCountGte"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">voteCountGte</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-withGeners"><span>@<a href="https://api.dart.dev/stable/2.16.2/dart-core/Deprecated-class.html">Deprecated</a>(&#39;Use withGenres instead&#39;)</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withGeners</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-withoutGeners"><span>@<a href="https://api.dart.dev/stable/2.16.2/dart-core/Deprecated-class.html">Deprecated</a>(&#39;Use withoutGenres instead&#39;)</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withoutGeners</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-withGenres"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withGenres</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-withoutGenres"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withoutGenres</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-withNetworks"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withNetworks</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-withRuntimeGte"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">withRuntimeGte</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-withRuntimeLte"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">withRuntimeLte</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-withOrginalLanguage"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withOrginalLanguage</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-withKeywords"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withKeywords</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-withoutKeywords"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withoutKeywords</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-screenedTheatrically"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">screenedTheatrically</span>, </span></li>
-<li><span class="parameter" id="getTvShows-param-withCompanies"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.16.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withCompanies</span>}</span></li>
-</ol>)
+<li><span class="parameter" id="getTvShows-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-includeNullFirstAirDates"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">includeNullFirstAirDates</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-airDateGte"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">airDateGte</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-airDateLte"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">airDateLte</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-firstAirDateGte"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">firstAirDateGte</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-firstAirDateLte"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">firstAirDateLte</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-firstAirDateYear"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">firstAirDateYear</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-timezone"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">timezone</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-voteAverageGte"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">voteAverageGte</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-voteCountGte"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">voteCountGte</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withGeners"><span>@<a href="https://api.dart.dev/stable/3.6.2/dart-core/Deprecated-class.html">Deprecated</a>(&#39;Use withGenres instead&#39;)</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withGeners</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withoutGeners"><span>@<a href="https://api.dart.dev/stable/3.6.2/dart-core/Deprecated-class.html">Deprecated</a>(&#39;Use withoutGenres instead&#39;)</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withoutGeners</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withGenres"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withGenres</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withoutGenres"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withoutGenres</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withNetworks"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withNetworks</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withRuntimeGte"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">withRuntimeGte</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withRuntimeLte"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">withRuntimeLte</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withOrginalLanguage"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withOrginalLanguage</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withKeywords"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withKeywords</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withoutKeywords"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withoutKeywords</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-screenedTheatrically"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">screenedTheatrically</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withCompanies"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withCompanies</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withWatchProviders"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withWatchProviders</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-watchRegion"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">watchRegion</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withWatchMonetizationTypes"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withWatchMonetizationTypes</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withoutCompanies"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.6.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">withoutCompanies</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withStatus"><span class="type-annotation"><a href="../../tmdb_api/FilterTvShowsByStatus.html">FilterTvShowsByStatus</a>?</span> <span class="parameter-name">withStatus</span>, </span></li>
+<li><span class="parameter" id="getTvShows-param-withType"><span class="type-annotation"><a href="../../tmdb_api/FilterTvShowsByType.html">FilterTvShowsByType</a>?</span> <span class="parameter-name">withType</span>, </span></li>
+</ol>})
 
       
 
@@ -126,6 +137,12 @@ the <a href="https://developers.themoviedb.org/3/discover/tv-discover">offical d
   String? withoutKeywords,
   bool? screenedTheatrically,
   String? withCompanies,
+  String? withWatchProviders,
+  String? watchRegion,
+  String? withWatchMonetizationTypes,
+  String? withoutCompanies,
+  FilterTvShowsByStatus? withStatus,
+  FilterTvShowsByType? withType,
 }) {
   &#47;&#47;all the default values
   final queries = &lt;String&gt;[
@@ -211,79 +228,68 @@ the <a href="https://developers.themoviedb.org/3/discover/tv-discover">offical d
     queries.add(&#39;without_keywords=$withoutKeywords&#39;);
   }
 
+  if (withWatchProviders != null) {
+    queries.add(&#39;with_watch_providers=$withWatchProviders&#39;);
+  }
+
+  if (watchRegion != null) {
+    queries.add(&#39;watch_region=$watchRegion&#39;);
+  }
+
+  if (withWatchMonetizationTypes != null) {
+    queries.add(&#39;with_watch_monetization_types=$withWatchMonetizationTypes&#39;);
+  }
+
+  if (withoutCompanies != null) {
+    queries.add(&#39;without_companies=$withoutCompanies&#39;);
+  }
+
+  if (withStatus != null) {
+    queries.add(&#39;with_status=${_getFilterTvShowsByStatus(withStatus)}&#39;);
+  }
+
+  if (withType != null) {
+    queries.add(&#39;with_status=${_getFilterTvShowsByType(withType)}&#39;);
+  }
+
   return _v._query(&#39;$_endPoint&#47;tv&#39;, optionalQueries: queries);
 }</code></pre>
 </section>
 
 
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
-    <header id="header-search-sidebar" class="hidden-l">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-  <li><a href="../../index.html">tmdb_api</a></li>
-  <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
-  <li><a href="../../tmdb_api/Discover-class.html">Discover</a></li>
-  <li class="self-crumb">getTvShows method</li>
+    <li><a href="../../index.html">tmdb_api</a></li>
+    <li><a href="../../tmdb_api/tmdb_api-library.html">tmdb_api</a></li>
+    <li><a href="../../tmdb_api/Discover-class.html">Discover</a></li>
+    <li class="self-crumb">getTvShows method</li>
 </ol>
-
 
     <h5>Discover class</h5>
-    <ol>
-
-    <li class="section-title"><a href="../../tmdb_api/Discover-class.html#constructors">Constructors</a></li>
-    <li><a href="../../tmdb_api/Discover/Discover.html">Discover</a></li>
-
-
-    <li class="section-title inherited">
-      <a href="../../tmdb_api/Discover-class.html#instance-properties">Properties</a>
-    </li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/runtimeType.html">runtimeType</a></li>
-
-    <li class="section-title"><a href="../../tmdb_api/Discover-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../tmdb_api/Discover/getMovies.html">getMovies</a></li>
-    <li><a href="../../tmdb_api/Discover/getTvShows.html">getTvShows</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/toString.html">toString</a></li>
-
-    <li class="section-title inherited"><a href="../../tmdb_api/Discover-class.html#operators">Operators</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.16.2/dart-core/Object/operator_equals.html">operator ==</a></li>
-
-
-
-
-</ol>
-
+    <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
-  </div><!--/.sidebar-offcanvas-->
-
+</div><!--/.sidebar-offcanvas-->
 </main>
-
 <footer>
   <span class="no-break">
     tmdb_api
-      2.1.2
+      2.2.2
   </span>
-
   
 </footer>
 
 
-
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
-
-
+<script src="../../static-assets/docs.dart.js"></script>
 
 </body>
-
 </html>
 
