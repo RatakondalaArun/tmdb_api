@@ -1,5 +1,12 @@
 # ChangeLog
 
+## 2.2.2
+
+- Fix backdrop size [#107](https://github.com/RatakondalaArun/tmdb_api/pull/107). Thanks to ([@gutala](https://github.com/gutala))
+- Fix markAsFavorite and addToWatchList [#111](https://github.com/RatakondalaArun/tmdb_api/pull/111). Thanks to ([@antoniobocale](https://github.com/antoniobocale))
+- Dependencies upgrade
+- Bumped support sdk range to `>=3.0.0 <4.0.0`
+
 ## 2.2.1
 
 - Fix Lints
@@ -21,8 +28,7 @@
 ## 2.1.4
 
 - Dependencies upgrade
-- Updated discover api ([#89
-](https://github.com/RatakondalaArun/tmdb_api/pull/89)). Thanks to ([@shr1k4nt](https://github.com/shr1k4nt))
+- Updated discover api ([#89](https://github.com/RatakondalaArun/tmdb_api/pull/89)). Thanks to ([@shr1k4nt](https://github.com/shr1k4nt))
 
 ## 2.1.3
 
