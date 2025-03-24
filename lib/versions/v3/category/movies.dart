@@ -149,8 +149,10 @@ class Movies extends Category<V3> {
   /// Map result = await tmdb.v3.movies.getVideos(103);
   ///```
   ///
-  Future<Map> getVideos(int movieId) {
-    return _v._query('$_endPoint/$movieId/videos');
+  Future<Map> getVideos(int movieId, {String? language}) {
+    return _v._query('$_endPoint/$movieId/videos', optionalQueries: [
+      'language=${language ?? _v._tmdb.defaultLanguage}',
+    ]);
   }
 
   /// Get a list of translations that have been created for a movie.
