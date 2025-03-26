@@ -1,6 +1,10 @@
+analyzer:
+  errors:
+    unnecessary_async: ignore
 include: package:lint/analysis_options.yaml
 
 linter:
   rules:
     avoid_print: false
     use_string_in_part_of_directives: true
+    missing_code_block_language_in_doc_comment: false

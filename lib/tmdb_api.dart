@@ -50,7 +50,7 @@
 ///
 /// visit [offical API documentation](https://developers.themoviedb.org/3/getting-started/introduction)
 ///
-library tmdb_api;
+library;
 
 import 'package:colorize/colorize.dart';
 import 'package:dio/dio.dart';

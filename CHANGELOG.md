@@ -1,5 +1,10 @@
 # ChangeLog
 
+## 2.2.3
+
+- Feat allow other languages ​​in video request [#112](https://github.com/RatakondalaArun/tmdb_api/issues/112)
+- Dependencies upgrade
+
 ## 2.2.2
 
 - Fix backdrop size [#107](https://github.com/RatakondalaArun/tmdb_api/pull/107). Thanks to ([@gutala](https://github.com/gutala))
