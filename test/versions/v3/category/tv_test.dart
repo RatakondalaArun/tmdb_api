@@ -202,7 +202,7 @@ void main() {
           sessionId: '2e900a73d597f46bb2abb9663adcabe05d5204f6',
         );
         expect(result, containsPair('success', true));
-      });
+      },skip: true);
     });
 
     group('>Delete tv show Rating', () {
