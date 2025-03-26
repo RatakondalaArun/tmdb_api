@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getTvShowWatchList method from the Account class, for the Dart programming language.">
+  <title>getTvShowWatchList method - Account class - tmdb_api library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">tmdb_api</a></li>
+    <li><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api">tmdb_api.dart</a></li>
+    <li><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api/Account-class.html">Account</a></li>
+    <li class="self-crumb">getTvShowWatchList method</li>
+  </ol>
+  <div class="self-name">getTvShowWatchList</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api&#47;Account-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">getTvShowWatchList</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.dart.dev/stable/3.7.2/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.7.2/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+<span class="name ">getTvShowWatchList</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="getTvShowWatchList-param-sessionId"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.7.2/dart-core/String-class.html">String</a></span> <span class="parameter-name">sessionId</span>, </span></li>
+<li><span class="parameter" id="getTvShowWatchList-param-accountId"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.7.2/dart-core/int-class.html">int</a></span> <span class="parameter-name">accountId</span>, {</span></li>
+<li><span class="parameter" id="getTvShowWatchList-param-language"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.7.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">language</span>, </span></li>
+<li><span class="parameter" id="getTvShowWatchList-param-page"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.7.2/dart-core/int-class.html">int</a></span> <span class="parameter-name">page</span> = <span class="default-value">1</span>, </span></li>
+<li><span class="parameter" id="getTvShowWatchList-param-sortBy"><span class="type-annotation"><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api/SortBy.html">SortBy</a></span> <span class="parameter-name">sortBy</span> = <span class="default-value">SortBy.createdAtAsc</span>, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Get a list of all the TV shows you have added to your watchlist.</p>
+<h2 id="parameters">Parameters</h2>
+<p><code>sessionId</code>: current session id you can generate one using <code> tmdb.v3.auth.</code></p>
+<p><code>accountId</code>: current user id <em>889</em>****</p>
+<p><code>language</code>: Pass a ISO 639-1 value to display translated data for the fields that support it.
+<em>minLength: 2 pattern: (<code>a-z</code>{2})-(<code>A-Z</code>{2}) default: en-US</em></p>
+<p><code>page</code>: Specify which page to query.
+<em>minimum: 1 maximum: 1000 default: 1</em></p>
+<p><code>sortBy</code>: Sort the results. Allowed Values: created_at.asc, created_at.desc
+<em>default: SortBy.createdAtAsc</em></p>
+<h2 id="implementation">Implementation</h2>
+<pre class="language-dart"><code>Map result = await tmdb.v3.account.getRatedMovies(
+'5129b38561c99f577bd85cc7f2ff47bb79735902', 'user id');
+</code></pre>
+<h2 id="result">Result</h2>
+<pre class="language-dart"><code> {
+ "page": 1,
+ "results": [
+   {
+     "backdrop_path": null,
+     "first_air_date": "2013-09-26",
+     "genre_ids": [
+       35
+     ],
+     "id": 58932,
+     "original_language": "en",
+     "original_name": "The Crazy Ones",
+     "overview": "The Crazy Ones is an American situation comedy series created by David E. Kelley that stars Robin Williams and Sarah Michelle Gellar. The single-camera project premiered on CBS on September 26, 2013, as part of the 2013–14 American television season as a Thursday night 9 pm entry. Bill D'Elia, Dean Lorey, Jason Winer, John Montgomery and Mark Teitelbaum serve as executive producers for 20th Century Fox Television.",
+     "origin_country": [
+       "US"
+     ],
+     "poster_path": null,
+     "popularity": 0.075407,
+     "name": "The Crazy Ones",
+     "vote_average": 5.3,
+     "vote_count": 4
+   }
+ ],
+ "total_pages": 4,
+ "total_results": 64
+}
+</code></pre>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;Map&gt; getTvShowWatchList(
+  String sessionId,
+  int accountId, {
+  String? language,
+  int page = 1,
+  SortBy sortBy = SortBy.createdAtAsc,
+}) {
+  if (accountId &lt; 1 || page &lt; 1 || page &gt; 1000) {
+    throw ArgumentError(&#39;accountId &lt; 1 || page &lt; 1 || page &gt; 1000 is true&#39;);
+  }
+  String sort;
+  if (sortBy == SortBy.createdAtAsc) {
+    sort = &#39;created_at.asc&#39;;
+  } else {
+    sort = &#39;created_at.desc&#39;;
+  }
+
+  return _v._query(
+    &#39;$_endPoint&#47;$accountId&#47;watchlist&#47;tv&#39;,
+    optionalQueries: [
+      &#39;session_id=$sessionId&#39;,
+      &#39;language=${language ?? _v._tmdb.defaultLanguage}&#39;,
+      &#39;page=$page&#39;,
+      &#39;sort_by=$sort&#39;,
+    ],
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">tmdb_api</a></li>
+    <li><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api">tmdb_api</a></li>
+    <li><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api/Account-class.html">Account</a></li>
+    <li class="self-crumb">getTvShowWatchList method</li>
+</ol>
+
+    <h5>Account class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    tmdb_api
+      2.2.3
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

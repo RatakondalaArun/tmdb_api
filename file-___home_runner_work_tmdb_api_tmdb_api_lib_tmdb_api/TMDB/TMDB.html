@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the TMDB constructor from Class TMDB from the tmdb_api library, for the Dart programming language.">
+  <title>TMDB constructor - TMDB - tmdb_api library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">tmdb_api</a></li>
+    <li><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api">tmdb_api.dart</a></li>
+    <li><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api/TMDB-class.html">TMDB</a></li>
+    <li class="self-crumb">TMDB constructor</li>
+  </ol>
+  <div class="self-name">TMDB</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api&#47;TMDB-class-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-constructor">TMDB</span> constructor 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+      <span class="name ">TMDB</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="-param-apiKeys"><span class="type-annotation"><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api/ApiKeys-class.html">ApiKeys</a></span> <span class="parameter-name">apiKeys</span>, {</span></li>
+<li><span class="parameter" id="-param-logConfig"><span class="type-annotation"><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api/ConfigLogger-class.html">ConfigLogger</a></span> <span class="parameter-name">logConfig</span> = <span class="default-value">const ConfigLogger.showNone()</span>, </span></li>
+<li><span class="parameter" id="-param-dio"><span class="type-annotation">dynamic</span> <span class="parameter-name">dio</span>, </span></li>
+<li><span class="parameter" id="-param-interceptors"><span class="type-annotation">dynamic</span> <span class="parameter-name">interceptors</span>, </span></li>
+<li><span class="parameter" id="-param-defaultLanguage"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.7.2/dart-core/String-class.html">String</a></span> <span class="parameter-name">defaultLanguage</span> = <span class="default-value">&#39;en-US&#39;</span>, </span></li>
+</ol>})
+    </section>
+    
+<section class="desc markdown">
+  <p>Creates a instance of <a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api/TMDB-class.html">TMDB</a> client.</p>
+<p>Use <code>apiKeys</code> to provide your TMDB apikeys, you can find yours
+at <a href="https://www.themoviedb.org/settings/api">https://www.themoviedb.org/settings/api</a>. Provide <code>logConfig</code>
+to configure your logs from <a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api/TMDB-class.html">TMDB</a> library, by default it shows none.
+You can provide your own <code>Dio</code> instance with <code>dio</code>,
+which can be used for testing.
+caching and other dio intercepters with <code>interceptors</code>.
+<code>defaultLanguage</code> sets a default <code>language</code> parameter to all supported
+methods, by default it is set to <code>en-US</code>.</p>
+<ul>
+<li><a href="https://pub.dev/packages/dio#interceptors">Read more about dio interceptors</a></li>
+<li><a href="https://developers.themoviedb.org/3/configuration/get-languages">Read more about languages supported by TMDB here</a></li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">TMDB(
+  ApiKeys apiKeys, {
+  ConfigLogger logConfig = const ConfigLogger.showNone(),
+  Dio? dio,
+  Interceptors? interceptors,
+  this.defaultLanguage = &#39;en-US&#39;,
+}) : _apiKeys = apiKeys {
+  _dio = dio ?? Dio(BaseOptions(receiveDataWhenStatusError: true));
+  _dio.interceptors.addAll(interceptors ?? []);
+  _v3 = V3(this);
+  _v4 = V4(this);
+  _images = Images();
+  _logger = Logger(logConfig)..infoLog(&#39;Api initilized ✔&#39;);
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">tmdb_api</a></li>
+    <li><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api">tmdb_api</a></li>
+    <li><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api/TMDB-class.html">TMDB</a></li>
+    <li class="self-crumb">TMDB constructor</li>
+</ol>
+
+    <h5>TMDB class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    tmdb_api
+      2.2.3
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getById method from the Find class, for the Dart programming language.">
+  <title>getById method - Find class - tmdb_api library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">tmdb_api</a></li>
+    <li><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api">tmdb_api.dart</a></li>
+    <li><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api/Find-class.html">Find</a></li>
+    <li class="self-crumb">getById method</li>
+  </ol>
+  <div class="self-name">getById</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api&#47;Find-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">getById</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.dart.dev/stable/3.7.2/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.7.2/dart-core/Map-class.html">Map</a></span>&gt;</span></span>
+<span class="name ">getById</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="getById-param-externalId"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.7.2/dart-core/String-class.html">String</a></span> <span class="parameter-name">externalId</span>, {</span></li>
+<li><span class="parameter" id="getById-param-externalIdSource"><span class="type-annotation"><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api/ExternalId.html">ExternalId</a></span> <span class="parameter-name">externalIdSource</span> = <span class="default-value">ExternalId.imdbId</span>, </span></li>
+<li><span class="parameter" id="getById-param-language"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.7.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">language</span>, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>The find method makes it easy to search for
+objects in our database by an external id. For example, an IMDB ID.
+This method will search all objects (movies, TV shows and people)
+and return the results in a single response.</p>
+<p>To know about supported external sources for each object
+<a href="https://developers.themoviedb.org/3/find/find-by-id">visit</a>.</p>
+<h2 id="parameters">Parameters</h2>
+<p><code>externalId</code>: external id of the item</p>
+<p><code>externalIdSource</code>: source of the given external id</p>
+<p><code>language</code>:Pass a ISO 639-1 value to display translated data for the fields that support it.
+minLength: 2, pattern: (<code>a-z</code>{2})-(<code>A-Z</code>{2}), default: en-US</p>
+<h2 id="implementation">Implementation</h2>
+<pre class="language-dart"><code>Map result = await tmdb.v3.credit.getById('tt8579674',
+                                          externalIdSource: ExternalId.imdbId,
+                                          language='en-US');
+</code></pre>
+<p><em>By default <code>externalIdSource</code> is set to IMDB ID</em></p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;Map&gt; getById(
+  String externalId, {
+  ExternalId externalIdSource = ExternalId.imdbId,
+  String? language,
+}) {
+  return _v._query(
+    &#39;$_endPoint&#47;$externalId&#39;,
+    optionalQueries: [_getSourceQuery(externalIdSource), &#39;language=${language ?? _v._tmdb.defaultLanguage}&#39;],
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">tmdb_api</a></li>
+    <li><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api">tmdb_api</a></li>
+    <li><a href="../../file-___home_runner_work_tmdb_api_tmdb_api_lib_tmdb_api/Find-class.html">Find</a></li>
+    <li class="self-crumb">getById method</li>
+</ol>
+
+    <h5>Find class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    tmdb_api
+      2.2.3
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+
